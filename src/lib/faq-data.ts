@@ -1,0 +1,54 @@
+/**
+ * Shared FAQ content — the single source for the landing-page accordion, the
+ * dedicated /faq page, and the FAQPage structured data. Keeping one list means
+ * the rich-result schema can never drift from what users actually read.
+ *
+ * Answers are plain text (no markup) so they're valid for schema.org/Answer.
+ */
+export type Faq = { q: string; a: string }
+
+export const FAQS: Faq[] = [
+  {
+    q: 'What is Clienter?',
+    a: 'Clienter is an all-in-one client management platform for freelancers and small agencies. It brings clients, projects, invoices, payments, meetings, and your team together in one place, so you can stop juggling spreadsheets, WhatsApp threads, and half a dozen separate tools.',
+  },
+  {
+    q: 'Who is Clienter built for?',
+    a: 'Independent freelancers, solo consultants, and small agencies — especially in India — who juggle multiple clients, projects, and invoices and want one calm place to run it all. It works for developers, designers, writers, marketers, and any service business.',
+  },
+  {
+    q: 'Do I need a credit card to start?',
+    a: 'No. The Free plan is genuinely free forever — no card required. You only upgrade when your client and project count outgrows it.',
+  },
+  {
+    q: 'How much does Clienter cost?',
+    a: 'Clienter has three plans: Free (₹0/month, up to 3 clients and 5 projects), Pro (₹499/month, up to 25 clients, 50 projects, and 3 team members), and Ultra (₹1,999/month, unlimited clients, projects, and team members). You can start free and upgrade anytime.',
+  },
+  {
+    q: 'Can I invoice in Indian Rupees with GST?',
+    a: 'Yes. Invoices support line items, tax, and one-click PDF export, with amounts in ₹ by default. You can add your GST details and download professional, branded invoices to send to clients.',
+  },
+  {
+    q: 'Can I add my team?',
+    a: 'On Pro you can add up to 3 developers or designers, assign them to projects, and track their payments. Ultra removes the limit entirely so you can run a full agency.',
+  },
+  {
+    q: 'Is my data secure?',
+    a: 'Your data is isolated per account with row-level security and encrypted in transit. We never sell or share your client information, and you can export everything at any time.',
+  },
+  {
+    q: 'What happens to my data if I cancel?',
+    a: 'You keep full access to export your clients, projects, and invoices. We never hold your data hostage — if you downgrade or cancel, your information stays yours.',
+  },
+  {
+    q: 'Can I use Clienter on my phone?',
+    a: 'Yes. Clienter is fully responsive and works in any modern mobile browser, with a native-app-style layout. You can also add it to your home screen as a progressive web app.',
+  },
+  {
+    q: 'Do you offer refunds?',
+    a: 'Plans are billed monthly and you can cancel anytime to stop future charges. We do not offer refunds for charges already made, but cancelling keeps your access until the end of the paid period. See our Refund & Cancellation Policy for details.',
+  },
+]
+
+/** The shorter set shown on the landing page. */
+export const HOME_FAQS = FAQS.slice(0, 6)
