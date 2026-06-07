@@ -17,10 +17,8 @@ import type { Metadata } from 'next'
 /** Canonical production origin — drives metadataBase, canonical tags, sitemap, OG. */
 export const SITE_URL = 'https://clienter.co.in'
 
-/** Where the actual app lives (login / signup / dashboard).
- *  Single-domain setup: the app is served from the same origin as the
- *  marketing site, so this points at the canonical domain. */
-export const APP_URL = SITE_URL
+/** Where the actual app lives (login / signup / dashboard). */
+export const APP_URL = 'https://app.clienter.co.in'
 
 export const SITE_NAME = 'Clienter'
 export const SITE_TAGLINE = 'Run your freelance business without the chaos'
