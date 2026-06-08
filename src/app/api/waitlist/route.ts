@@ -6,39 +6,143 @@ import { sendWaitlistConfirmation } from '@/lib/email'
 /**
  * Public waitlist signup (landing page). Anyone may POST { email, name? }.
  *
- * - Validates a basic email shape.
- * - Rate-limits to 3 submissions per IP per hour (shared DB-backed limiter).
+ * Abuse resistance (layered, additive):
+ * - Method/Content-Type/size guards reject obviously malformed traffic cheaply.
+ * - Honeypot field + a minimum time-to-submit silently drop bots: both return a
+ *   fake success so a bot can't learn it was filtered.
+ * - Disposable/temporary email domains are silently rejected the same way.
+ * - DB-backed sliding-window rate limit: max 3 per IP/hour AND 10 per IP/day.
  * - Inserts with the service-role client (the table has no anon SELECT policy,
- *   so emails stay private — see migration 20260603_create_waitlist.sql).
+ *   so emails stay private). The browser never touches Supabase directly.
  * - Duplicate emails are NOT an error: we report success so we never leak
  *   whether an address is already on the list.
+ * - All errors are caught and returned generic — no stack traces / DB details.
  * - Sends a best-effort confirmation email (never blocks the response).
+ *
+ * Only POST is exported, so the App Router auto-returns 405 for other methods.
  */
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+// Never cache this route — every request must hit the function fresh.
+export const dynamic = 'force-dynamic'
+
+// Stricter than the "anything@anything.tld" shape: single @, no spaces, a real
+// TLD of at least two letters, and a sane local/label structure.
+const EMAIL_RE = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+
+// Suffix-matched disposable/temporary email providers. A match is silently
+// dropped (fake 200) so bots can't probe the filter.
+const DISPOSABLE_EMAIL_DOMAINS = [
+  'mailinator.com',
+  'guerrillamail.com',
+  '10minutemail.com',
+  'tempmail',
+  'yopmail.com',
+  'trashmail',
+  'throwaway',
+]
+
+// Hard ceiling on the request body. Real payloads are well under 1KB.
+const MAX_BODY_BYTES = 2 * 1024
+
+// Minimum time a human plausibly takes between the form rendering and submit.
+const MIN_SUBMIT_MS = 2000
+
+const NO_STORE = { 'Cache-Control': 'no-store, max-age=0' }
+
+function json(body: unknown, status: number) {
+  return NextResponse.json(body, { status, headers: NO_STORE })
+}
+
+// Generic success used for both genuine signups and silent bot/disposable
+// rejects — identical shape so the two are indistinguishable to a client.
+function fakeSuccess() {
+  return json(
+    { success: true, message: "You're on the waitlist! Check your email for confirmation." },
+    200
+  )
+}
+
+function isDisposableEmail(email: string): boolean {
+  const domain = email.slice(email.lastIndexOf('@') + 1)
+  return DISPOSABLE_EMAIL_DOMAINS.some(
+    (bad) => domain === bad || domain.endsWith(`.${bad}`) || domain.includes(bad)
+  )
+}
 
 export async function POST(req: Request) {
-  // Parse + validate first so malformed requests don't burn the IP's quota.
+  // 1) Content-Type guard — only accept JSON.
+  const contentType = req.headers.get('content-type') ?? ''
+  if (!contentType.toLowerCase().includes('application/json')) {
+    return json({ error: 'Please enter a valid email address' }, 400)
+  }
+
+  // 2) Read the raw body with a size cap so we never parse a giant payload.
+  let raw: string
+  try {
+    raw = await req.text()
+  } catch {
+    return json({ error: 'Please enter a valid email address' }, 400)
+  }
+  if (raw.length > MAX_BODY_BYTES) {
+    return json({ error: 'Request too large.' }, 413)
+  }
+
+  // 3) Parse + validate before touching the rate limiter, so malformed
+  //    requests don't burn the IP's quota.
   let email = ''
   let name: string | null = null
+  let honeypot = ''
+  let renderedAt = NaN
   try {
-    const body = await req.json()
+    const body = JSON.parse(raw || '{}')
     email = String(body?.email ?? '').trim().toLowerCase()
     const rawName = body?.name
     name = typeof rawName === 'string' && rawName.trim() ? rawName.trim() : null
+    // Honeypot: real users never fill this hidden field.
+    honeypot = String(body?.company_website ?? '').trim()
+    renderedAt = Number(body?.renderedAt)
   } catch {
-    return NextResponse.json({ error: 'Please enter a valid email address' }, { status: 400 })
+    return json({ error: 'Please enter a valid email address' }, 400)
   }
 
+  // 4) Honeypot trip → pretend success, insert nothing.
+  if (honeypot) {
+    return fakeSuccess()
+  }
+
+  // 5) Time-to-submit. If the form was submitted suspiciously fast, treat as a
+  //    bot. Guarded against clock skew: only trip when the elapsed time is a
+  //    sane, positive value below the threshold, so real users are never
+  //    blocked by a slow/fast client clock.
+  if (Number.isFinite(renderedAt)) {
+    const elapsed = Date.now() - renderedAt
+    if (elapsed >= 0 && elapsed < MIN_SUBMIT_MS) {
+      return fakeSuccess()
+    }
+  }
+
+  // 6) Field validation.
   if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
-    return NextResponse.json({ error: 'Please enter a valid email address' }, { status: 400 })
+    return json({ error: 'Please enter a valid email address' }, 400)
+  }
+  if (name && name.length > 100) {
+    return json({ error: 'Please enter a valid name' }, 400)
   }
 
-  // Max 3 requests per IP per hour.
+  // 7) Disposable/temporary domains → silent reject (fake success).
+  if (isDisposableEmail(email)) {
+    return fakeSuccess()
+  }
+
+  // 8) Rate limit: max 3 per IP/hour AND max 10 per IP/day.
   const ip = getClientIp(req)
-  const limit = await rateLimit(`waitlist:${ip}`, 3, 60 * 60 * 1000)
-  if (!limit.ok) {
-    return NextResponse.json({ error: 'Too many requests. Try again later.' }, { status: 429 })
+  const hour = await rateLimit(`waitlist:hour:${ip}`, 3, 60 * 60 * 1000)
+  if (!hour.ok) {
+    return json({ error: 'Too many requests. Please try again later.' }, 429)
+  }
+  const day = await rateLimit(`waitlist:day:${ip}`, 10, 24 * 60 * 60 * 1000)
+  if (!day.ok) {
+    return json({ error: 'Too many requests. Please try again later.' }, 429)
   }
 
   try {
@@ -49,9 +153,9 @@ export async function POST(req: Request) {
       // 23505 = unique_violation → already on the list, treat as success so we
       // never reveal whether an address is already registered.
       if ((error as { code?: string }).code === '23505') {
-        return NextResponse.json(
+        return json(
           { success: true, message: "You're already on the waitlist! We'll be in touch soon." },
-          { status: 200 }
+          200
         )
       }
       throw error
@@ -64,12 +168,10 @@ export async function POST(req: Request) {
       console.warn('[waitlist] Confirmation email failed:', mailErr)
     }
 
-    return NextResponse.json(
-      { success: true, message: "You're on the waitlist! Check your email for confirmation." },
-      { status: 200 }
-    )
+    return fakeSuccess()
   } catch (err) {
+    // Never leak DB errors / stack traces to the client.
     console.error('[waitlist] Failed to record signup:', err)
-    return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 })
+    return json({ error: 'Something went wrong. Please try again.' }, 500)
   }
 }

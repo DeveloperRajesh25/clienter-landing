@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Loader2, CheckCircle2, ArrowRight } from 'lucide-react'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
@@ -9,6 +9,15 @@ export function WaitlistForm() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<Status>('idle')
   const [message, setMessage] = useState('')
+  // Honeypot: a hidden field real users never fill; bots do. Submitted to the
+  // API, which silently drops any request where it has a value.
+  const [companyWebsite, setCompanyWebsite] = useState('')
+  // When the form became interactive. The API treats sub-2s submits as bots.
+  // Set in an effect so it's a client-only timestamp (no hydration mismatch).
+  const renderedAt = useRef(0)
+  useEffect(() => {
+    renderedAt.current = Date.now()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -21,7 +30,11 @@ export function WaitlistForm() {
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          email,
+          company_website: companyWebsite,
+          renderedAt: renderedAt.current,
+        }),
       })
       const data = await res.json().catch(() => ({}))
 
@@ -56,6 +69,30 @@ export function WaitlistForm() {
       className="mx-auto max-w-xl"
       noValidate
     >
+      {/* Honeypot — positioned off-screen (not display:none) so headless bots
+          that fill every field trip it, while real users never see it. */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          left: '-9999px',
+          top: 'auto',
+          width: '1px',
+          height: '1px',
+          overflow: 'hidden',
+        }}
+      >
+        <label htmlFor="company_website">Company website (leave blank)</label>
+        <input
+          id="company_website"
+          name="company_website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={companyWebsite}
+          onChange={(e) => setCompanyWebsite(e.target.value)}
+        />
+      </div>
       <div className="flex flex-col gap-3 sm:flex-row">
         <label htmlFor="waitlist-email" className="sr-only">
           Email address
