@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase-admin'
 import { rateLimit, getClientIp } from '@/lib/rate-limit'
-import { sendWaitlistConfirmation } from '@/lib/email'
+import { isDisposableEmail } from '@/lib/email-validation'
 
 /**
  * Public waitlist signup (landing page). Anyone may POST { email, name? }.
@@ -17,7 +17,6 @@ import { sendWaitlistConfirmation } from '@/lib/email'
  * - Duplicate emails are NOT an error: we report success so we never leak
  *   whether an address is already on the list.
  * - All errors are caught and returned generic — no stack traces / DB details.
- * - Sends a best-effort confirmation email (never blocks the response).
  *
  * Only POST is exported, so the App Router auto-returns 405 for other methods.
  */
@@ -28,18 +27,6 @@ export const dynamic = 'force-dynamic'
 // Stricter than the "anything@anything.tld" shape: single @, no spaces, a real
 // TLD of at least two letters, and a sane local/label structure.
 const EMAIL_RE = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-
-// Suffix-matched disposable/temporary email providers. A match is silently
-// dropped (fake 200) so bots can't probe the filter.
-const DISPOSABLE_EMAIL_DOMAINS = [
-  'mailinator.com',
-  'guerrillamail.com',
-  '10minutemail.com',
-  'tempmail',
-  'yopmail.com',
-  'trashmail',
-  'throwaway',
-]
 
 // Hard ceiling on the request body. Real payloads are well under 1KB.
 const MAX_BODY_BYTES = 2 * 1024
@@ -59,13 +46,6 @@ function fakeSuccess() {
   return json(
     { success: true, message: "You're on the waitlist! Check your email for confirmation." },
     200
-  )
-}
-
-function isDisposableEmail(email: string): boolean {
-  const domain = email.slice(email.lastIndexOf('@') + 1)
-  return DISPOSABLE_EMAIL_DOMAINS.some(
-    (bad) => domain === bad || domain.endsWith(`.${bad}`) || domain.includes(bad)
   )
 }
 
@@ -159,13 +139,6 @@ export async function POST(req: Request) {
         )
       }
       throw error
-    }
-
-    // Best-effort confirmation email — a failure here must not fail the signup.
-    try {
-      await sendWaitlistConfirmation(email, name ?? undefined)
-    } catch (mailErr) {
-      console.warn('[waitlist] Confirmation email failed:', mailErr)
     }
 
     return fakeSuccess()
