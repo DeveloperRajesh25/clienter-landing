@@ -17,7 +17,7 @@ const CSP = [
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
-  `connect-src 'self'${isDev ? ' ws: http://localhost:*' : ''}`,
+  `connect-src 'self' https://api.web3forms.com${isDev ? ' ws: http://localhost:*' : ''}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "object-src 'none'",

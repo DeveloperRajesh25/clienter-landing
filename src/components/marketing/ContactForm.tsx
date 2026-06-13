@@ -5,6 +5,11 @@ import { Loader2, CheckCircle2, Send } from 'lucide-react'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
+// Web3Forms requires client-side submission on the free plan (server-side is
+// Pro-only), so the access key necessarily ships in the bundle. That's safe:
+// the key only permits sending to the verified inbox, nothing else.
+const WEB3FORMS_ACCESS_KEY = '926ca2ba-713a-4244-a5b7-9f1997668a9b'
+
 export function ContactForm() {
   const [status, setStatus] = useState<Status>('idle')
   const [message, setMessage] = useState('')
@@ -18,21 +23,31 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (status === 'loading') return
+    // Honeypot: silently drop bot submissions.
+    if (form.company) return
     setStatus('loading')
     setMessage('')
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          from_name: 'Clienter Contact Form',
+          subject: `[Contact] ${form.subject.trim() || 'New message'} — from ${form.name}`,
+          name: form.name,
+          email: form.email,
+          message_subject: form.subject.trim() || '(none)',
+          message: form.message,
+        }),
       })
       const data = await res.json().catch(() => ({}))
-      if (res.ok) {
+      if (res.ok && data.success) {
         setStatus('success')
-        setMessage(data.message || 'Thanks! We’ll be in touch.')
+        setMessage("Thanks! We'll be in touch.")
       } else {
         setStatus('error')
-        setMessage(data.error || 'Something went wrong. Please try again.')
+        setMessage(data.message || 'Something went wrong. Please try again.')
       }
     } catch {
       setStatus('error')
@@ -109,7 +124,7 @@ export function ContactForm() {
           value={form.subject}
           onChange={update('subject')}
           disabled={status === 'loading'}
-          placeholder="What’s this about?"
+          placeholder="What's this about?"
           className="h-11 w-full rounded-xl border border-gray-300 bg-white px-3.5 text-sm text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20 disabled:opacity-60"
         />
       </div>

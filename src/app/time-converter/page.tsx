@@ -499,7 +499,7 @@ function TimePanel({
             {/* List */}
             <div className="max-h-60 overflow-y-auto">
               {filtered.length === 0 ? (
-                <div className="px-4 py-6 text-center text-sm text-stone-400">No results for "{query}"</div>
+                <div className="px-4 py-6 text-center text-sm text-stone-400">No results for &quot;{query}&quot;</div>
               ) : showPopularSection ? (
                 <>
                   <div className="sticky top-0 flex items-center gap-1.5 bg-stone-50/90 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-stone-400 backdrop-blur-sm">
