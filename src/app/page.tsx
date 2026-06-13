@@ -224,7 +224,7 @@ export default function LandingPage() {
             <Reveal delay={160}>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
                 Clienter brings your clients, projects, invoices, and team together in one beautiful
-                place — built for Indian freelancers and agencies.
+                place, built for freelancers and agencies.
               </p>
             </Reveal>
 

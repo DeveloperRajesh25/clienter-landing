@@ -30,7 +30,7 @@ export function SiteFooter() {
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-gray-500">
               Run your freelance business without the chaos. The all-in-one client, project,
-              invoice &amp; team workspace built for Indian freelancers and agencies.
+              invoice &amp; team workspace built for  freelancers and agencies.
             </p>
             <div className="mt-5 flex items-center gap-2">
               {SOCIAL_ICONS.map(({ href, label, Icon }) => (

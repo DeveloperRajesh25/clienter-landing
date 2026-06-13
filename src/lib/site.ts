@@ -23,7 +23,7 @@ export const APP_URL = 'https://app.clienter.co.in'
 export const SITE_NAME = 'Clienter'
 export const SITE_TAGLINE = 'Run your freelance business without the chaos'
 export const SITE_DESCRIPTION =
-  'Clienter is the all-in-one client management software for Indian freelancers and agencies — manage clients, projects, invoices, payments, meetings, and your team in one beautiful place. Start free.'
+  'Clienter is the all-in-one client management software for freelancers and agencies — manage clients, projects, invoices, payments, meetings, and your team in one beautiful place. Start free.'
 
 /** Founder — shown on About / founder note and used in author structured data. */
 export const FOUNDER = {
@@ -90,6 +90,7 @@ export const FOOTER_NAV = [
       { href: '/how-it-works', label: 'How it works' },
       { href: '/pricing', label: 'Pricing' },
       { href: '/demo', label: 'Demo' },
+      { href: '/time-converter', label: 'Time Converter' },
     ],
   },
   {
