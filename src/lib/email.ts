@@ -26,8 +26,8 @@ import { Resend } from 'resend'
  */
 const FROM = process.env.EMAIL_FROM || 'Clienter <noreply@clienter.co.in>'
 
-/** Where login / app links point. Falls back to production if the env is unset. */
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://clienter.co.in'
+/** Where login / app links point — the actual app, always the production origin. */
+const APP_URL = 'https://app.clienter.co.in'
 
 /** Brand palette for inline email styles (email clients ignore <style>/classes). */
 const COLOR = {
