@@ -66,7 +66,7 @@ export function WaitlistForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto max-w-xl"
+      className="mx-auto max-w-xl px-4 sm:px-0"
       noValidate
     >
       {/* Honeypot — positioned off-screen (not display:none) so headless bots
@@ -93,7 +93,7 @@ export function WaitlistForm() {
           onChange={(e) => setCompanyWebsite(e.target.value)}
         />
       </div>
-      <div className="flex flex-col gap-3 sm:flex-row">
+      <div className="flex flex-col gap-2.5 sm:gap-3 sm:flex-row">
         <label htmlFor="waitlist-email" className="sr-only">
           Email address
         </label>
@@ -108,22 +108,22 @@ export function WaitlistForm() {
           }}
           placeholder="you@example.com"
           disabled={status === 'loading'}
-          className="h-12 flex-1 rounded-lg border border-gray-300 bg-white px-4 text-base text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40 disabled:opacity-60"
+          className="h-12 w-full sm:flex-1 rounded-lg border border-gray-300 bg-white px-4 text-base text-gray-900 shadow-sm transition-colors placeholder:text-gray-400 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/40 disabled:opacity-60"
         />
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary-600 px-6 text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
+          className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 sm:px-6 text-sm sm:text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70 whitespace-nowrap"
         >
           {status === 'loading' ? (
             <>
-              <Loader2 className="h-4 w-4 animate-spin" />
+              <Loader2 className="h-4 w-4 flex-shrink-0 animate-spin" />
               Joining…
             </>
           ) : (
             <>
               Join waitlist
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 flex-shrink-0" />
             </>
           )}
         </button>
