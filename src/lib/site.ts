@@ -42,6 +42,42 @@ export const CONTACT = {
   legal: 'legal@clienter.co.in',
 }
 
+/**
+ * Legal/business identity, referenced across the policy pages so the entity we
+ * name, the grievance contact, the governing law, and the effective date stay
+ * consistent everywhere. Clienter is operated by an individual (sole proprietor)
+ * — there is no separate registered company yet.
+ *
+ * TODO(owner): two things to confirm before / shortly after going live —
+ *  1. No postal address is published (email-only contact). Razorpay usually
+ *     requires a business address shown on the site for LIVE payments — add one
+ *     here (e.g. `address: 'City, State, India'`) and surface it on /contact and
+ *     in the policies when you have it.
+ *  2. If you register a company/LLP later, update `entityType`, `operator`, and
+ *     the Grievance Officer details below.
+ */
+export const LEGAL = {
+  /** The natural person who operates Clienter. */
+  operator: FOUNDER.name,
+  /** How the business is constituted, for the "who we are" clauses. */
+  entityType: 'an individual operating as a sole proprietor',
+  /** Public trading name. */
+  tradeName: SITE_NAME,
+  /**
+   * Grievance Officer / privacy contact. India's DPDP Act, 2023 and the IT Rules
+   * require a named, reachable contact for data and content grievances.
+   */
+  grievanceOfficer: {
+    name: FOUNDER.name,
+    title: 'Grievance Officer',
+    email: CONTACT.legal,
+  },
+  /** Country whose law governs the Terms (no city published — email-only contact). */
+  governingCountry: 'India',
+  /** Date the current legal documents take effect / were last updated. */
+  effectiveDate: '26 June 2026',
+} as const
+
 /** Social / content profiles. Used in the footer + Organization `sameAs`. */
 export const SOCIALS = {
   instagram: 'https://www.instagram.com/talagana.rajesh/',
@@ -69,6 +105,7 @@ export const MARKETING_PATHS = [
   '/privacy',
   '/terms',
   '/refund',
+  '/cookies',
   '/security',
 ] as const
 
@@ -107,6 +144,7 @@ export const FOOTER_NAV = [
     links: [
       { href: '/privacy', label: 'Privacy Policy' },
       { href: '/terms', label: 'Terms of Service' },
+      { href: '/cookies', label: 'Cookie Policy' },
       { href: '/refund', label: 'Refund & Cancellation' },
     ],
   },

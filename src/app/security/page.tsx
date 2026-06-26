@@ -6,7 +6,7 @@ import { PageHero } from '@/components/marketing/PageHero'
 import { CtaSection } from '@/components/marketing/CtaSection'
 import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
-import { pageMetadata, CONTACT } from '@/lib/site'
+import { pageMetadata, CONTACT, LEGAL } from '@/lib/site'
 import { breadcrumbSchema } from '@/lib/structured-data'
 
 export const metadata: Metadata = pageMetadata({
@@ -101,12 +101,20 @@ export default function SecurityPage() {
 
         <div className="mt-12 rounded-2xl border border-gray-200 bg-gray-50/60 p-7 text-center">
           <p className="text-gray-600">
-            Found a security issue or have a question about how we handle data? We take it
-            seriously — email{' '}
+            <strong className="font-semibold text-gray-900">Responsible disclosure.</strong> Found a
+            security issue or have a question about how we handle data? We take it seriously — please
+            report it privately to{' '}
             <a href={`mailto:${CONTACT.support}`} className="font-medium text-orange-600 hover:text-orange-700">
               {CONTACT.support}
             </a>{' '}
-            or read our <Link href="/privacy" className="font-medium text-orange-600 hover:text-orange-700">Privacy Policy</Link>.
+            before disclosing it publicly, and give us a reasonable chance to fix it. For data and
+            privacy concerns you can also reach our Grievance Officer at{' '}
+            <a href={`mailto:${LEGAL.grievanceOfficer.email}`} className="font-medium text-orange-600 hover:text-orange-700">
+              {LEGAL.grievanceOfficer.email}
+            </a>
+            . Read our{' '}
+            <Link href="/privacy" className="font-medium text-orange-600 hover:text-orange-700">Privacy Policy</Link>{' '}
+            and <Link href="/cookies" className="font-medium text-orange-600 hover:text-orange-700">Cookie Policy</Link>.
           </p>
         </div>
       </section>

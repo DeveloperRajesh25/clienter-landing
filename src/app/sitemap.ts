@@ -9,7 +9,7 @@ import { SITE_URL } from '@/lib/site'
  * `lastModified` is a fixed launch date rather than `new Date()` so the build is
  * deterministic; bump it when a page's content materially changes.
  */
-const LAST_MODIFIED = '2026-06-05'
+const LAST_MODIFIED = '2026-06-26'
 
 type Entry = {
   path: string
@@ -29,6 +29,7 @@ const ROUTES: Entry[] = [
   { path: '/security', priority: 0.5, changeFrequency: 'yearly' },
   { path: '/privacy', priority: 0.4, changeFrequency: 'yearly' },
   { path: '/terms', priority: 0.4, changeFrequency: 'yearly' },
+  { path: '/cookies', priority: 0.3, changeFrequency: 'yearly' },
   { path: '/refund', priority: 0.4, changeFrequency: 'yearly' },
 ]
 

@@ -16,6 +16,13 @@ export function Prose({ children }: { children: React.ReactNode }) {
         [&_li]:leading-relaxed
         [&_a]:font-medium [&_a]:text-orange-600 [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-orange-700
         [&_strong]:font-semibold [&_strong]:text-gray-900
+        [&_code]:rounded [&_code]:bg-gray-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.85em] [&_code]:text-gray-800
+        [&_.table-wrap]:mt-6 [&_.table-wrap]:overflow-x-auto [&_.table-wrap]:rounded-xl [&_.table-wrap]:border [&_.table-wrap]:border-gray-200
+        [&_table]:w-full [&_table]:border-collapse [&_table]:text-left [&_table]:text-sm
+        [&_thead]:bg-gray-50
+        [&_th]:border-b [&_th]:border-gray-200 [&_th]:px-4 [&_th]:py-3 [&_th]:font-semibold [&_th]:text-gray-900 [&_th]:align-top
+        [&_td]:border-b [&_td]:border-gray-100 [&_td]:px-4 [&_td]:py-3 [&_td]:text-gray-600 [&_td]:align-top
+        [&_tbody_tr:last-child_td]:border-b-0
       "
     >
       {children}

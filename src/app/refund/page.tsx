@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { LegalLayout } from '@/components/marketing/LegalLayout'
-import { pageMetadata, CONTACT, SITE_NAME } from '@/lib/site'
+import { pageMetadata, CONTACT, SITE_NAME, LEGAL } from '@/lib/site'
 
 export const metadata: Metadata = pageMetadata({
   title: 'Refund & Cancellation Policy',
@@ -17,7 +17,7 @@ export default function RefundPage() {
   return (
     <LegalLayout
       title="Refund & Cancellation Policy"
-      updated="5 June 2026"
+      updated={LEGAL.effectiveDate}
       path="/refund"
       intro={`This policy explains how subscriptions to ${SITE_NAME} are billed, how to cancel, and our position on refunds. Please read it before subscribing to a paid plan.`}
     >
@@ -73,10 +73,20 @@ export default function RefundPage() {
         To cancel, manage your plan, or raise a billing issue, email{' '}
         <a href={`mailto:${CONTACT.support}`}>{CONTACT.support}</a> with your account email and the
         details of your request. Approved refunds are processed back to your original payment method
-        via Razorpay, typically within 5–10 business days.
+        via Razorpay, typically within 5–10 business days. If you’re not satisfied with how a billing
+        issue is handled, you can escalate it to our Grievance Officer
+        ({LEGAL.grievanceOfficer.name}) at{' '}
+        <a href={`mailto:${LEGAL.grievanceOfficer.email}`}>{LEGAL.grievanceOfficer.email}</a>.
       </p>
 
-      <h2>7. Changes to this policy</h2>
+      <h2>7. Your statutory rights</h2>
+      <p>
+        This policy does not limit or override any rights you may have under applicable consumer
+        protection law in {LEGAL.governingCountry}. Where the law grants you a right that conflicts
+        with this policy, the law prevails.
+      </p>
+
+      <h2>8. Changes to this policy</h2>
       <p>
         We may update this policy from time to time. The “Last updated” date above reflects the
         latest version. For questions, see our <Link href="/contact">contact page</Link> or review
