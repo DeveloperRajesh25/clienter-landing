@@ -20,7 +20,7 @@ import {
   Linkedin,
   Twitter,
 } from 'lucide-react'
-import { WaitlistForm } from '@/components/WaitlistForm'
+import { APP_URL } from '@/lib/site'
 import { SiteHeader } from '@/components/marketing/SiteHeader'
 import { SiteFooter } from '@/components/marketing/SiteFooter'
 import { HeroPreview } from '@/components/landing/HeroPreview'
@@ -202,14 +202,14 @@ export default function LandingPage() {
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <Reveal>
               <a
-                href="#waitlist"
+                href={`${APP_URL}/signup`}
                 className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/70 px-4 py-1.5 text-sm font-medium text-orange-700 shadow-sm backdrop-blur transition-colors hover:border-orange-300"
               >
                 <span className="flex h-2 w-2 items-center justify-center">
                   <span className="absolute h-2 w-2 animate-ping rounded-full bg-orange-400" />
                   <span className="h-2 w-2 rounded-full bg-orange-500" />
                 </span>
-                Now in beta — join the waitlist
+                Now live — start for free
               </a>
             </Reveal>
 
@@ -231,7 +231,7 @@ export default function LandingPage() {
             <Reveal delay={240}>
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
-                  href="#waitlist"
+                  href={`${APP_URL}/signup`}
                   className="press group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gray-900 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-gray-900/20 transition-all hover:bg-gray-800 hover:shadow-xl sm:w-auto"
                 >
                   Start for free
@@ -454,7 +454,7 @@ export default function LandingPage() {
                       ))}
                     </ul>
                     <a
-                      href="#waitlist"
+                      href={`${APP_URL}/signup`}
                       className={`press mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-semibold transition-all ${
                         plan.popular
                           ? 'bg-white text-gray-900 hover:bg-gray-100'
@@ -556,8 +556,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ───────── CTA / Waitlist ───────── */}
-        <section id="waitlist" className="scroll-mt-20 px-4 pb-24 pt-24 sm:px-6 sm:pb-32 lg:px-8">
+        {/* ───────── Final CTA ───────── */}
+        <section className="px-4 pb-24 pt-24 sm:px-6 sm:pb-32 lg:px-8">
           <Reveal className="mx-auto max-w-5xl">
             <div className="relative overflow-hidden rounded-[2rem] bg-gray-900 px-6 py-16 text-center shadow-2xl sm:px-12 sm:py-20">
               <div className="absolute inset-0 -z-0 bg-grid-faint opacity-[0.07]" />
@@ -566,16 +566,29 @@ export default function LandingPage() {
 
               <div className="relative">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-sm font-medium text-orange-200 backdrop-blur">
-                  <ShieldCheck className="h-4 w-4" /> Free for the first 100 users
+                  <ShieldCheck className="h-4 w-4" /> Free plan — no credit card
                 </span>
                 <h2 className="mx-auto mt-6 max-w-2xl font-display text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-                  Get early access to Clienter
+                  Start running your business the calm way
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-lg text-gray-300">
-                  Join the waitlist and get 1 month of Pro free when we launch. No card required.
+                  Create your free account and set up your first client in minutes. No credit card
+                  required.
                 </p>
-                <div className="mt-8">
-                  <WaitlistForm />
+                <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                  <a
+                    href={`${APP_URL}/signup`}
+                    className="press group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-gray-900 shadow-lg transition-all hover:bg-gray-100 sm:w-auto"
+                  >
+                    Create free account
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                  <a
+                    href={`${APP_URL}/login`}
+                    className="inline-flex w-full items-center justify-center rounded-full border border-white/20 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
+                  >
+                    Sign in
+                  </a>
                 </div>
               </div>
             </div>

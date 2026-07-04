@@ -16,7 +16,7 @@ import { PageHero } from '@/components/marketing/PageHero'
 import { CtaSection } from '@/components/marketing/CtaSection'
 import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
-import { pageMetadata } from '@/lib/site'
+import { pageMetadata, APP_URL } from '@/lib/site'
 import { breadcrumbSchema } from '@/lib/structured-data'
 
 export const metadata: Metadata = pageMetadata({
@@ -137,7 +137,7 @@ export default function FeaturesPage() {
       >
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
-            href="/#waitlist"
+            href={`${APP_URL}/signup`}
             className="press group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gray-900 px-7 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:bg-gray-800 sm:w-auto"
           >
             Start for free
@@ -200,7 +200,7 @@ export default function FeaturesPage() {
 
       <CtaSection
         title="Ready to bring it all together?"
-        subtitle="Join the waitlist and be among the first to run your freelance business the calm way."
+        subtitle="Create your free account and start running your freelance business the calm way."
       />
     </PageShell>
   )

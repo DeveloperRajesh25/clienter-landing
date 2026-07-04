@@ -6,7 +6,7 @@ import { PageHero } from '@/components/marketing/PageHero'
 import { Faq } from '@/components/landing/Faq'
 import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
-import { pageMetadata } from '@/lib/site'
+import { pageMetadata, APP_URL } from '@/lib/site'
 import {
   breadcrumbSchema,
   softwareApplicationSchema,
@@ -181,7 +181,7 @@ export default function PricingPage() {
                   ))}
                 </ul>
                 <Link
-                  href="/#waitlist"
+                  href={`${APP_URL}/signup`}
                   className={`press mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-semibold transition-all ${
                     plan.popular
                       ? 'bg-white text-gray-900 hover:bg-gray-100'
@@ -195,7 +195,7 @@ export default function PricingPage() {
           ))}
         </div>
         <p className="mt-6 text-center text-sm text-gray-500">
-          All prices in INR, billed monthly. The first 100 waitlist members get 1 month of Pro free.
+          All prices in INR, billed monthly. Start on the Free plan — upgrade anytime, no card required.
         </p>
       </section>
 
@@ -240,10 +240,10 @@ export default function PricingPage() {
 
       <section className="px-4 pb-24 pt-8 text-center sm:px-6">
         <Link
-          href="/#waitlist"
+          href={`${APP_URL}/signup`}
           className="press inline-flex items-center justify-center rounded-full bg-gray-900 px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:bg-gray-800"
         >
-          Join the waitlist — start free
+          Create your free account
         </Link>
       </section>
     </PageShell>

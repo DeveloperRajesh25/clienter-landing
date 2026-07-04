@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${SITE_NAME} — ${SITE_TAGLINE}`,
     description: SITE_DESCRIPTION,
-    creator: '@rajeshtalagana',
+    creator: '@talaganaRajesh',
   },
   // TODO(owner): paste the verification token from Google Search Console here.
   // verification: { google: 'your-google-site-verification-token' },

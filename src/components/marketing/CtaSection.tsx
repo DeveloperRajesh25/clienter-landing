@@ -1,14 +1,15 @@
 import Link from 'next/link'
 import { ArrowRight, ShieldCheck } from 'lucide-react'
+import { APP_URL } from '@/lib/site'
 
 /**
  * Reusable closing call-to-action block (dark, gradient blobs) used at the
- * bottom of marketing sub-pages. Points to the home waitlist section.
+ * bottom of marketing sub-pages. Points to the app signup.
  */
 export function CtaSection({
-  title = 'Get early access to Clienter',
-  subtitle = 'Join the waitlist and get 1 month of Pro free when we launch. No credit card required.',
-  badge = 'Free for the first 100 users',
+  title = 'Start running your business the calm way',
+  subtitle = 'Create your free account and set up your first client in minutes. No credit card required.',
+  badge = 'Free plan — no credit card',
 }: {
   title?: string
   subtitle?: string
@@ -30,13 +31,13 @@ export function CtaSection({
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-gray-300">{subtitle}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              href="/#waitlist"
+            <a
+              href={`${APP_URL}/signup`}
               className="press group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-gray-900 shadow-lg transition-all hover:bg-gray-100 sm:w-auto"
             >
-              Join the waitlist
+              Create free account
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
+            </a>
             <Link
               href="/pricing"
               className="inline-flex w-full items-center justify-center rounded-full border border-white/20 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"

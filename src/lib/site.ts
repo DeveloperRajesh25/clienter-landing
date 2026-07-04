@@ -151,7 +151,7 @@ export const FOOTER_NAV = [
   {
     title: 'Get started',
     links: [
-      { href: '/#waitlist', label: 'Join the waitlist' },
+      { href: `${APP_URL}/signup`, label: 'Create account', external: true },
       { href: `${APP_URL}/login`, label: 'Sign in', external: true },
       { href: '/pricing', label: 'See pricing' },
     ],

@@ -65,13 +65,13 @@ export function SiteHeader() {
             >
               Sign in
             </a>
-            <Link
-              href="/#waitlist"
+            <a
+              href={`${APP_URL}/signup`}
               className="press inline-flex items-center gap-1.5 rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-gray-800 hover:shadow-md"
             >
-              Join waitlist
+              Get started
               <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
+            </a>
           </div>
 
           <button
@@ -108,14 +108,14 @@ export function SiteHeader() {
               >
                 Sign in
               </a>
-              <Link
-                href="/#waitlist"
+              <a
+                href={`${APP_URL}/signup`}
                 onClick={() => setMenuOpen(false)}
                 className="inline-flex items-center justify-center gap-1.5 rounded-full bg-gray-900 px-4 py-3 text-base font-semibold text-white"
               >
-                Join waitlist
+                Get started
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
