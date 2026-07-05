@@ -11,6 +11,8 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         display: ['var(--font-display)', 'var(--font-sans)', 'ui-sans-serif', 'sans-serif'],
+        // Editorial accent serif for single highlighted words in headlines.
+        'serif-display': ['var(--font-serif-display)', 'Georgia', 'ui-serif', 'serif'],
       },
       colors: {
         primary: {

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
+import { Inter, Plus_Jakarta_Sans, Instrument_Serif } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { JsonLd } from '@/components/marketing/JsonLd'
@@ -21,6 +21,15 @@ const display = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['500', '600', '700', '800'],
   variable: '--font-display',
+  display: 'swap',
+})
+
+// Editorial serif used for single accent words in landing headlines ("chaos").
+const serifDisplay = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-serif-display',
   display: 'swap',
 })
 
@@ -92,7 +101,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${display.variable}`}>
+    <html lang="en" className={`${inter.variable} ${display.variable} ${serifDisplay.variable}`}>
       <head>
         {/* Google Analytics */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-T9J10XNCG5" />
