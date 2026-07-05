@@ -85,17 +85,6 @@ export function SiteFooter() {
             freelancers
           </p>
         </div>
-
-        {/* URise verification badge */}
-        <div className="mt-8 flex justify-center">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: `<a href="https://urise.dev" target="_blank" title="Live on URise Platform">
-  <img src="https://urise.dev/api/badge/preview" alt="URise Launch Badge" width="180" height="64" style="border:none;" />
-</a>`
-            }}
-          />
-        </div>
       </div>
     </footer>
   )
