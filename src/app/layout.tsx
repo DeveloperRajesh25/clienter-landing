@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans, Instrument_Serif } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { JsonLd } from '@/components/marketing/JsonLd'
+import { SmoothScroll } from '@/components/SmoothScroll'
 import {
   organizationSchema,
   websiteSchema,
@@ -117,7 +118,9 @@ gtag('config', 'G-T9J10XNCG5');`}
           data={[organizationSchema(), websiteSchema(), softwareApplicationSchema()]}
         />
       </head>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   )
 }

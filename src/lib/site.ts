@@ -115,7 +115,7 @@ export const NAV_LINKS = [
   { href: '/how-it-works', label: 'How it works' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/demo', label: 'Demo' },
-  { href: '/faq', label: 'FAQ' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 /** Footer link columns. */

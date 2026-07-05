@@ -425,7 +425,7 @@ export default function LandingPage() {
             </Reveal>
 
             <Reveal delay={80}>
-              <h1 className="mt-8 text-balance font-display text-[2.75rem] font-extrabold leading-[1.05] tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+              <h1 className="mt-8 text-balance font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
                 Run your freelance business{' '}
                 <br className="hidden lg:block" />
                 without the{' '}
