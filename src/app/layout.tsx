@@ -105,12 +105,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${display.variable} ${serifDisplay.variable}`}>
       <head>
         {/* Google Analytics */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-T9J10XNCG5" />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-PGZEEJYGE6" />
         <Script id="google-analytics">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-T9J10XNCG5');`}
+gtag('config', 'G-PGZEEJYGE6');`}
         </Script>
         {/* Site-wide structured data: brand graph + product. Page-level schema
             (FAQ, breadcrumbs) is added per page. */}
