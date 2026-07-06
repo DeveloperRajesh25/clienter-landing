@@ -5,6 +5,8 @@ import { Loader2, CheckCircle2, Send } from 'lucide-react'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 // Web3Forms requires client-side submission on the free plan (server-side is
 // Pro-only), so the access key necessarily ships in the bundle. That's safe:
 // the key only permits sending to the verified inbox, nothing else.
@@ -48,8 +50,6 @@ export function ContactForm() {
     if (status === 'loading') return
     // Honeypot: silently drop bot submissions.
     if (form.company) return
-    setStatus('loading')
-    setMessage('')
 
     const payload = {
       name: form.name.trim(),
@@ -57,6 +57,29 @@ export function ContactForm() {
       subject: form.subject.trim(),
       message: form.message.trim(),
     }
+
+    // The form has noValidate (for consistent, custom-styled errors instead of
+    // the browser's native tooltip), so nothing else stops a malformed email
+    // from reaching Web3Forms — which accepts it but never actually delivers
+    // it, silently. Catch that here instead of showing a false "sent" success.
+    if (!payload.name) {
+      setStatus('error')
+      setMessage('Please enter your name.')
+      return
+    }
+    if (!EMAIL_RE.test(payload.email)) {
+      setStatus('error')
+      setMessage('Please enter a valid email address.')
+      return
+    }
+    if (!payload.message) {
+      setStatus('error')
+      setMessage('Please enter a message.')
+      return
+    }
+
+    setStatus('loading')
+    setMessage('')
 
     try {
       await submitToWeb3Forms(payload)

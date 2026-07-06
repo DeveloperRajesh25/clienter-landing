@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 
-// Content-Security-Policy. The client is fully same-origin: the waitlist/contact
-// forms POST to our own /api routes (Supabase is only ever touched server-side
-// with the service-role key), and next/font self-hosts its fonts under /_next.
-// So connect-src/font-src fall back to 'self'. 'unsafe-inline' is required for
-// Next.js hydration scripts and the inline JSON-LD structured-data blocks.
+// Content-Security-Policy. The waitlist form POSTs to our own /api route
+// (Supabase is only ever touched server-side with the service-role key); the
+// contact form POSTs client-side straight to Web3Forms, hence that explicit
+// connect-src allowance below. next/font self-hosts its fonts under /_next, so
+// font-src falls back to 'self'. 'unsafe-inline' is required for Next.js
+// hydration scripts and the inline JSON-LD structured-data blocks.
 //
 // In development, Next.js's Fast Refresh / HMR needs 'unsafe-eval' to run the
 // client bundle and a websocket connection for hot updates — without them the
