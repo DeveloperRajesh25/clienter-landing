@@ -7,7 +7,7 @@ import { sendContactMessage } from '@/lib/email'
  *
  * - Validates required fields and basic email shape.
  * - Rate-limits to 5 submissions per IP per hour to deter spam/abuse.
- * - Delivers the message to the support inbox via Resend (reply-to = sender).
+ * - Delivers the message to CONTACT_INBOX via Resend (reply-to = sender).
  * - A honeypot field ("company") silently drops bot submissions.
  */
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/

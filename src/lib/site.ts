@@ -35,11 +35,13 @@ export const FOUNDER = {
   photo: '/rajesh-photo.jpg',
 }
 
+// TODO(owner): clienter.co.in mailboxes aren't receiving mail yet. Every public
+// contact address routes to the founder's personal inbox until that's set up.
 export const CONTACT = {
-  general: 'hello@clienter.co.in',
-  support: 'support@clienter.co.in',
-  privacy: 'privacy@clienter.co.in',
-  legal: 'legal@clienter.co.in',
+  general: 'talaganarajesh@gmail.com',
+  support: 'talaganarajesh@gmail.com',
+  privacy: 'talaganarajesh@gmail.com',
+  legal: 'talaganarajesh@gmail.com',
 }
 
 /**

@@ -10,6 +10,39 @@ type Status = 'idle' | 'loading' | 'success' | 'error'
 // the key only permits sending to the verified inbox, nothing else.
 const WEB3FORMS_ACCESS_KEY = '926ca2ba-713a-4244-a5b7-9f1997668a9b'
 
+/**
+ * Every submission goes out through two independent channels — our own
+ * /api/contact (Resend) and Web3Forms directly — in parallel. A submission is
+ * only reported as failed if BOTH channels fail, so a misconfigured key or a
+ * third-party outage on one side doesn't drop a real inquiry.
+ */
+async function submitToApi(payload: { name: string; email: string; subject: string; message: string }) {
+  const res = await fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+  const data = await res.json().catch(() => ({}))
+  if (!res.ok || !data.success) throw new Error(data.error || 'Internal contact API failed')
+}
+
+async function submitToWeb3Forms(payload: { name: string; email: string; subject: string; message: string }) {
+  const res = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_ACCESS_KEY,
+      from_name: 'Clienter Contact Form',
+      subject: `[Contact] ${payload.subject || 'New message'} — from ${payload.name}`,
+      name: payload.name,
+      email: payload.email,
+      message: payload.message,
+    }),
+  })
+  const data = await res.json().catch(() => ({}))
+  if (!res.ok || !data.success) throw new Error(data.message || 'Web3Forms failed')
+}
+
 export function ContactForm() {
   const [status, setStatus] = useState<Status>('idle')
   const [message, setMessage] = useState('')
@@ -27,31 +60,24 @@ export function ContactForm() {
     if (form.company) return
     setStatus('loading')
     setMessage('')
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          from_name: 'Clienter Contact Form',
-          subject: `[Contact] ${form.subject.trim() || 'New message'} — from ${form.name}`,
-          name: form.name,
-          email: form.email,
-          message_subject: form.subject.trim() || '(none)',
-          message: form.message,
-        }),
-      })
-      const data = await res.json().catch(() => ({}))
-      if (res.ok && data.success) {
-        setStatus('success')
-        setMessage("Thanks! We'll be in touch.")
-      } else {
-        setStatus('error')
-        setMessage(data.message || 'Something went wrong. Please try again.')
-      }
-    } catch {
+
+    const payload = {
+      name: form.name.trim(),
+      email: form.email.trim(),
+      subject: form.subject.trim(),
+      message: form.message.trim(),
+    }
+    const [apiResult, web3Result] = await Promise.allSettled([
+      submitToApi(payload),
+      submitToWeb3Forms(payload),
+    ])
+
+    if (apiResult.status === 'fulfilled' || web3Result.status === 'fulfilled') {
+      setStatus('success')
+      setMessage("Thanks! We'll be in touch.")
+    } else {
       setStatus('error')
-      setMessage('Something went wrong. Please check your connection and try again.')
+      setMessage('Something went wrong. Please email us directly or try again.')
     }
   }
 

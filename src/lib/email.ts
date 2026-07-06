@@ -302,8 +302,12 @@ export async function sendContactMessage(opts: {
 }): Promise<void> {
   const resend = getResend()
   if (!resend) {
-    console.warn(`[email] RESEND_API_KEY not set — skipping contact message from ${opts.email}`)
-    return
+    // Unlike the other (best-effort) sends in this file, a contact message has
+    // no other record of ever existing — silently dropping it loses a real
+    // inquiry. Throw so the caller's catch block surfaces the failure instead
+    // of reporting success. The ContactForm still has a second delivery
+    // channel (Web3Forms) that can carry the message through.
+    throw new Error('[email] RESEND_API_KEY not set — cannot deliver contact message')
   }
 
   const safeName = escapeHtml(opts.name)
@@ -322,7 +326,7 @@ export async function sendContactMessage(opts: {
 
   const { data, error } = await resend.emails.send({
     from: FROM,
-    to: process.env.CONTACT_INBOX || 'support@clienter.co.in',
+    to: process.env.CONTACT_INBOX || 'talaganarajesh@gmail.com',
     replyTo: opts.email,
     subject: `[Contact] ${opts.subject?.trim() || 'New message'} — from ${opts.name}`,
     html: shell(body),

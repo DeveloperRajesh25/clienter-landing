@@ -782,50 +782,52 @@ export default function LandingPage() {
                   aria-hidden
                   className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-orange-100/70 blur-3xl"
                 />
-                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-500">
-                  From the founder
-                </span>
-                <blockquote className="mt-5 font-display text-2xl font-bold leading-snug text-gray-900 sm:text-3xl">
-                  “I’m building Clienter for the same people I make content for — freelancers and
-                  agency owners who want to grow without drowning in tools. This is the app I wished
-                  I had.”
-                </blockquote>
-                <div className="mt-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-                  <div className="flex items-center gap-4">
-                    <Image
-                      src={FOUNDER.photo}
-                      alt={FOUNDER.name}
-                      width={56}
-                      height={56}
-                      className="h-14 w-14 rounded-full object-cover shadow-lg shadow-orange-500/25 ring-2 ring-orange-200"
-                    />
-                    <div>
-                      <p className="font-display text-lg font-bold text-gray-900">{FOUNDER.name}</p>
-                      <p className="text-sm text-gray-500">{FOUNDER.role}</p>
+                <div className="flex flex-col gap-8 sm:flex-row sm:items-center">
+                  <Image
+                    src={FOUNDER.photo}
+                    alt={FOUNDER.name}
+                    width={224}
+                    height={224}
+                    className="h-40 w-40 shrink-0 rounded-3xl object-cover shadow-lg shadow-orange-500/25 ring-2 ring-orange-200 sm:h-56 sm:w-56"
+                  />
+                  <div className="min-w-0">
+                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-500">
+                      From the founder
+                    </span>
+                    <blockquote className="mt-4 font-display text-2xl font-bold leading-snug text-gray-900 sm:text-3xl">
+                      “I’m building Clienter for the same people I make content for — freelancers
+                      and agency owners who want to grow without drowning in tools. This is the app
+                      I wished I had.”
+                    </blockquote>
+                    <div className="mt-7 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+                      <div>
+                        <p className="font-display text-lg font-bold text-gray-900">{FOUNDER.name}</p>
+                        <p className="text-sm text-gray-500">{FOUNDER.role}</p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {FOUNDER_SOCIALS.map(({ href, label, Icon }) => (
+                          <a
+                            key={label}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${FOUNDER.name} on ${label}`}
+                            className="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-200 text-gray-500 transition-colors hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600"
+                          >
+                            <Icon className="h-4 w-4" />
+                          </a>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    {FOUNDER_SOCIALS.map(({ href, label, Icon }) => (
-                      <a
-                        key={label}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${FOUNDER.name} on ${label}`}
-                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-200 text-gray-500 transition-colors hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600"
-                      >
-                        <Icon className="h-4 w-4" />
-                      </a>
-                    ))}
+                    <Link
+                      href="/about"
+                      className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-orange-600 transition-colors hover:text-orange-700"
+                    >
+                      Read the full story
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
                   </div>
                 </div>
-                <Link
-                  href="/about"
-                  className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-orange-600 transition-colors hover:text-orange-700"
-                >
-                  Read the full story
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
             </Reveal>
           </div>
