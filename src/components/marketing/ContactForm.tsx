@@ -8,23 +8,13 @@ type Status = 'idle' | 'loading' | 'success' | 'error'
 // Web3Forms requires client-side submission on the free plan (server-side is
 // Pro-only), so the access key necessarily ships in the bundle. That's safe:
 // the key only permits sending to the verified inbox, nothing else.
+//
+// The delivery inbox itself is NOT set here — it's whatever email is
+// registered against this access key on web3forms.com's own dashboard. To
+// change where submissions land, update that on web3forms.com (or swap in a
+// new access key created under the desired inbox); there is no "to" field in
+// this API on the free plan.
 const WEB3FORMS_ACCESS_KEY = '926ca2ba-713a-4244-a5b7-9f1997668a9b'
-
-/**
- * Every submission goes out through two independent channels — our own
- * /api/contact (Resend) and Web3Forms directly — in parallel. A submission is
- * only reported as failed if BOTH channels fail, so a misconfigured key or a
- * third-party outage on one side doesn't drop a real inquiry.
- */
-async function submitToApi(payload: { name: string; email: string; subject: string; message: string }) {
-  const res = await fetch('/api/contact', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
-  const data = await res.json().catch(() => ({}))
-  if (!res.ok || !data.success) throw new Error(data.error || 'Internal contact API failed')
-}
 
 async function submitToWeb3Forms(payload: { name: string; email: string; subject: string; message: string }) {
   const res = await fetch('https://api.web3forms.com/submit', {
@@ -67,15 +57,12 @@ export function ContactForm() {
       subject: form.subject.trim(),
       message: form.message.trim(),
     }
-    const [apiResult, web3Result] = await Promise.allSettled([
-      submitToApi(payload),
-      submitToWeb3Forms(payload),
-    ])
 
-    if (apiResult.status === 'fulfilled' || web3Result.status === 'fulfilled') {
+    try {
+      await submitToWeb3Forms(payload)
       setStatus('success')
       setMessage("Thanks! We'll be in touch.")
-    } else {
+    } catch {
       setStatus('error')
       setMessage('Something went wrong. Please email us directly or try again.')
     }

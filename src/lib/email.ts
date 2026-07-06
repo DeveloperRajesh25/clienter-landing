@@ -291,57 +291,6 @@ Log in: ${loginUrl}
 }
 
 /**
- * Deliver a contact-form submission to the support inbox. Replies go straight to
- * the sender via reply-to. Best-effort: the API wraps this in try/catch.
- */
-export async function sendContactMessage(opts: {
-  name: string
-  email: string
-  subject?: string
-  message: string
-}): Promise<void> {
-  const resend = getResend()
-  if (!resend) {
-    // Unlike the other (best-effort) sends in this file, a contact message has
-    // no other record of ever existing — silently dropping it loses a real
-    // inquiry. Throw so the caller's catch block surfaces the failure instead
-    // of reporting success. The ContactForm still has a second delivery
-    // channel (Web3Forms) that can carry the message through.
-    throw new Error('[email] RESEND_API_KEY not set — cannot deliver contact message')
-  }
-
-  const safeName = escapeHtml(opts.name)
-  const safeEmail = escapeHtml(opts.email)
-  const safeSubject = escapeHtml(opts.subject?.trim() || 'New contact form message')
-  const safeMessage = escapeHtml(opts.message).replace(/\n/g, '<br />')
-
-  const body = `
-    <p style="margin:0 0 16px;font-size:17px;font-weight:700;color:${COLOR.textDark};">New contact message</p>
-    <div style="border:1px solid ${COLOR.border};border-radius:12px;padding:18px 20px;margin:0 0 20px;background:#fafaf9;">
-      <p style="margin:0 0 10px;"><span style="color:${COLOR.textMuted};font-size:13px;">From</span><br /><strong>${safeName}</strong> &lt;${safeEmail}&gt;</p>
-      <p style="margin:0 0 10px;"><span style="color:${COLOR.textMuted};font-size:13px;">Subject</span><br />${safeSubject}</p>
-      <p style="margin:0;"><span style="color:${COLOR.textMuted};font-size:13px;">Message</span><br />${safeMessage}</p>
-    </div>
-  `
-
-  const { data, error } = await resend.emails.send({
-    from: FROM,
-    to: process.env.CONTACT_INBOX || 'talaganarajesh@gmail.com',
-    replyTo: opts.email,
-    subject: `[Contact] ${opts.subject?.trim() || 'New message'} — from ${opts.name}`,
-    html: shell(body),
-    text: `New contact message\n\nFrom: ${opts.name} <${opts.email}>\nSubject: ${opts.subject || '(none)'}\n\n${opts.message}`,
-  })
-
-  if (error) {
-    throw new Error(
-      `Resend rejected contact message from ${opts.email}: ${error.message || error.name || 'unknown error'}`
-    )
-  }
-  console.log(`[email] Sent contact message from ${opts.email} (id: ${data?.id ?? 'unknown'})`)
-}
-
-/**
  * Send a newly-created team member their login credentials.
  *
  * Best-effort: if RESEND_API_KEY is not configured we no-op (the owner still

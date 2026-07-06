@@ -26,7 +26,11 @@ SEO infra: `sitemap.ts`, `robots.ts`, `manifest.ts`, `opengraph-image.tsx`
 - `POST /api/waitlist` — landing page signup. Inserts into the shared Supabase
   `waitlist` table (service-role). The **app's admin panel reads this table** to
   onboard people, so it must point at the same Supabase project.
-- `POST /api/contact` — contact form. Sends to `CONTACT_INBOX` via Resend.
+
+The contact form (`/contact`) does NOT go through an API route — it submits
+client-side straight to Web3Forms (see `ContactForm.tsx`). The delivery inbox
+is whatever email is registered against that access key on web3forms.com, not
+anything in this repo or its env vars.
 
 ## Local development
 
