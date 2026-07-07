@@ -258,17 +258,40 @@ function inputToUtc(localValue: string, tz: string): Date {
 }
 
 function getTimezoneOffsetMs(date: Date, tz: string): number {
-  const utcStr = date.toLocaleString('en-US', { timeZone: 'UTC' })
-  const tzStr = date.toLocaleString('en-US', { timeZone: tz })
-  return new Date(tzStr).getTime() - new Date(utcStr).getTime()
+  try {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    }).formatToParts(date)
+    const get = (t: string) => parts.find((p) => p.type === t)?.value ?? '0'
+    const hour = get('hour') === '24' ? '0' : get('hour')
+    const asUtc = Date.UTC(
+      Number(get('year')),
+      Number(get('month')) - 1,
+      Number(get('day')),
+      Number(hour),
+      Number(get('minute')),
+      Number(get('second'))
+    )
+    return asUtc - date.getTime()
+  } catch {
+    return 0
+  }
 }
 
 function getOffsetLabel(date: Date, tz: string): string {
-  const parts = new Intl.DateTimeFormat('en', {
-    timeZone: tz,
-    timeZoneName: 'shortOffset',
-  }).formatToParts(date)
-  return parts.find((p) => p.type === 'timeZoneName')?.value ?? ''
+  const totalMinutes = Math.round(getTimezoneOffsetMs(date, tz) / 60000)
+  const sign = totalMinutes >= 0 ? '+' : '-'
+  const abs = Math.abs(totalMinutes)
+  const h = Math.floor(abs / 60)
+  const m = abs % 60
+  return `GMT${sign}${h}${m ? ':' + String(m).padStart(2, '0') : ''}`
 }
 
 function getDiffLabel(date: Date, fromTz: string, toTz: string): string {
@@ -288,20 +311,21 @@ function getDiffLabel(date: Date, fromTz: string, toTz: string): string {
 type Side = 'left' | 'right'
 
 export default function TimeConverterPage() {
-  const userTz = detectUserTimezone()
-  const defaultLeft = ALL_TIMEZONES.find((t) => t.tz === userTz) ?? POPULAR[0]
-  const defaultRight = POPULAR[1]
-
-  const [leftTz, setLeftTz] = useState(() =>
-    typeof window !== 'undefined' ? (localStorage.getItem('tc_left') ?? defaultLeft.tz) : defaultLeft.tz
-  )
-  const [rightTz, setRightTz] = useState(() =>
-    typeof window !== 'undefined' ? (localStorage.getItem('tc_right') ?? defaultRight.tz) : defaultRight.tz
-  )
+  const [leftTz, setLeftTz] = useState(POPULAR[0].tz)
+  const [rightTz, setRightTz] = useState(POPULAR[1].tz)
   const [anchor, setAnchor] = useState<Date>(new Date())
   const [ticking, setTicking] = useState(true)
   const [leftOpen, setLeftOpen] = useState(false)
   const [rightOpen, setRightOpen] = useState(false)
+
+  useEffect(() => {
+    const savedLeft = localStorage.getItem('tc_left')
+    const savedRight = localStorage.getItem('tc_right')
+    const userTz = detectUserTimezone()
+    const defaultLeft = ALL_TIMEZONES.find((t) => t.tz === userTz)?.tz ?? POPULAR[0].tz
+    setLeftTz(savedLeft ?? defaultLeft)
+    if (savedRight) setRightTz(savedRight)
+  }, [])
 
   useEffect(() => {
     if (!ticking) return
