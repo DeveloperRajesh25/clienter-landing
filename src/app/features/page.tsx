@@ -10,6 +10,12 @@ import {
   Check,
   ArrowRight,
   Sparkles,
+  KanbanSquare,
+  ReceiptText,
+  FileSignature,
+  ClipboardList,
+  LayoutDashboard,
+  CalendarClock,
 } from 'lucide-react'
 import { PageShell } from '@/components/marketing/PageShell'
 import { PageHero } from '@/components/marketing/PageHero'
@@ -22,7 +28,7 @@ import { breadcrumbSchema } from '@/lib/structured-data'
 export const metadata: Metadata = pageMetadata({
   title: 'Features — Clients, Projects, Invoices & Team in One Place',
   description:
-    'Explore everything Clienter does: client management, project tracking with Kanban boards, GST-ready invoicing, team management, revenue analytics, and meeting reminders — built for Indian freelancers and agencies.',
+    'Explore everything Clienter does: a CRM lead pipeline, client management, quotations, proposals with e-signatures, intake forms, project tracking, GST-ready invoicing, a white-label client portal, Google Calendar & Meet, team management, and revenue analytics — built for Indian freelancers and agencies.',
   path: '/features',
   keywords: [
     'freelancer client management features',
@@ -42,6 +48,18 @@ type Feature = {
 
 const FEATURES: Feature[] = [
   {
+    icon: KanbanSquare,
+    title: 'CRM Lead Pipeline',
+    tagline: 'A Kanban sales pipeline to track leads before they become clients.',
+    how: [
+      'Capture every lead in a visual pipeline with custom, drag-and-drop columns.',
+      'Move prospects from first contact to won across the stages you define.',
+      'Convert a won lead into a full client in one click — no re-typing details.',
+    ],
+    benefit:
+      'Stop losing deals in your inbox. See exactly where every prospect stands and turn more conversations into paying clients.',
+  },
+  {
     icon: Users,
     title: 'Client Management',
     tagline: 'Every client, every detail, one organized profile.',
@@ -52,6 +70,42 @@ const FEATURES: Feature[] = [
     ],
     benefit:
       'No more digging through WhatsApp, email, and spreadsheets to remember what a client owes or what you promised. It’s all in one place.',
+  },
+  {
+    icon: ReceiptText,
+    title: 'Quotations',
+    tagline: 'Generate and send quotes before a project begins.',
+    how: [
+      'Draft itemized quotations with rates, quantities, and tax in ₹.',
+      'Send a clean, branded quote for your client to review and approve.',
+      'Turn an approved quote into a project or invoice without re-entering anything.',
+    ],
+    benefit:
+      'Give clients a clear price up front and set the right expectations before a single hour of work begins.',
+  },
+  {
+    icon: FileSignature,
+    title: 'Proposals & E-Signatures',
+    tagline: 'Send professional proposals your clients sign digitally.',
+    how: [
+      'Build polished proposals with your scope, pricing, and terms.',
+      'Deliver them to clients through their branded portal.',
+      'Clients review and sign digitally — no printing, scanning, or back-and-forth.',
+    ],
+    benefit:
+      'Close work faster with proposals that look the part and get signed in minutes, right inside Clienter.',
+  },
+  {
+    icon: ClipboardList,
+    title: 'Intake Forms',
+    tagline: 'Custom onboarding forms with public, tokenized links.',
+    how: [
+      'Build custom intake forms for onboarding new clients or projects.',
+      'Share a secure, tokenized public link — no login required to fill it in.',
+      'Responses flow straight back into the client’s record.',
+    ],
+    benefit:
+      'Collect everything you need to start a project up front, without chasing clients over email for details.',
   },
   {
     icon: Briefcase,
@@ -66,18 +120,6 @@ const FEATURES: Feature[] = [
       'You always know which projects are on track, which are slipping, and how much budget is left — without a single status meeting.',
   },
   {
-    icon: FileText,
-    title: 'Smart Invoicing',
-    tagline: 'Professional, GST-ready invoices in under a minute.',
-    how: [
-      'Build invoices with line items, quantities, rates, and tax.',
-      'Amounts are in ₹ by default, with your business and GST details on every invoice.',
-      'Download a clean, branded PDF and send it to your client in one click.',
-    ],
-    benefit:
-      'Get paid faster with invoices that look like they came from an agency twice your size — no Word templates, no manual math.',
-  },
-  {
     icon: UserPlus,
     title: 'Team Management',
     tagline: 'Add your developers and designers, assign work, track payments.',
@@ -90,16 +132,40 @@ const FEATURES: Feature[] = [
       'Scale from solo freelancer to a small agency without losing control of who’s doing what and who you’ve paid.',
   },
   {
-    icon: TrendingUp,
-    title: 'Revenue Analytics',
-    tagline: 'See your money clearly — revenue, expenses, and profit.',
+    icon: FileText,
+    title: 'Smart Invoicing',
+    tagline: 'Professional, GST-ready invoices in under a minute.',
     how: [
-      'Your dashboard rolls up monthly revenue, outstanding invoices, and expenses automatically.',
-      'Spot your best months and your most valuable clients at a glance.',
-      'No spreadsheets, no formulas — the numbers update as you work.',
+      'Build invoices with line items, quantities, rates, and tax.',
+      'Amounts are in ₹ by default, with your business and GST details on every invoice.',
+      'Download a clean, branded PDF and send it to your client in one click.',
     ],
     benefit:
-      'Make confident decisions about pricing, hiring, and which clients to keep — backed by real numbers, not gut feel.',
+      'Get paid faster with invoices that look like they came from an agency twice your size — no Word templates, no manual math.',
+  },
+  {
+    icon: LayoutDashboard,
+    title: 'White-Label Client Portal',
+    tagline: 'A branded login where clients see everything in one place.',
+    how: [
+      'Give each client their own branded portal login.',
+      'They view project progress, download invoices, and sign documents themselves.',
+      'Everything stays under your brand — not ours.',
+    ],
+    benefit:
+      'Look like the agency you’re becoming. Clients get a premium, self-serve experience that builds trust and cuts down status emails.',
+  },
+  {
+    icon: CalendarClock,
+    title: 'Google Calendar & Meet',
+    tagline: 'Sync meetings with Google Calendar and auto-create Meet links.',
+    how: [
+      'Connect your Google Calendar so meetings stay in sync both ways.',
+      'Auto-generate a Google Meet link for every scheduled call.',
+      'Get push reminders before each meeting so you’re never late.',
+    ],
+    benefit:
+      'Schedule once and let Clienter handle the calendar invite, the video link, and the reminder — no tab-switching.',
   },
   {
     icon: Bell,
@@ -112,6 +178,18 @@ const FEATURES: Feature[] = [
     ],
     benefit:
       'Show up prepared and on time, every time — the small thing that makes clients trust you with bigger work.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Revenue Analytics',
+    tagline: 'See your money clearly — revenue, expenses, and profit.',
+    how: [
+      'Your dashboard rolls up monthly revenue, outstanding invoices, and expenses automatically.',
+      'Spot your best months and your most valuable clients at a glance.',
+      'No spreadsheets, no formulas — the numbers update as you work.',
+    ],
+    benefit:
+      'Make confident decisions about pricing, hiring, and which clients to keep — backed by real numbers, not gut feel.',
   },
 ]
 
@@ -133,7 +211,7 @@ export default function FeaturesPage() {
         }
         title="One app to run your whole"
         highlight="freelance business"
-        subtitle="Stop stitching together six different tools. Clienter handles clients, projects, invoices, team, analytics, and meetings — and looks good doing it."
+        subtitle="Stop stitching together six different tools. Clienter handles leads, clients, proposals, projects, invoices, your client portal, team, and analytics — and looks good doing it."
       >
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link

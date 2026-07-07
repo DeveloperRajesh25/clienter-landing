@@ -70,21 +70,23 @@ export function softwareApplicationSchema() {
         name: 'Free',
         price: '0',
         priceCurrency: 'INR',
-        description: 'Up to 3 clients and 5 projects, free forever.',
+        description: 'Up to 5 clients and 10 projects, full leads & CRM pipeline, free forever.',
       },
       {
         '@type': 'Offer',
         name: 'Pro',
-        price: '499',
+        price: '199',
         priceCurrency: 'INR',
-        description: 'Up to 25 clients, 50 projects, and 3 team members per month.',
+        description:
+          'Launch offer (was ₹499): up to 30 clients, 60 projects, and 5 team members per month.',
       },
       {
         '@type': 'Offer',
         name: 'Ultra',
-        price: '1999',
+        price: '799',
         priceCurrency: 'INR',
-        description: 'Unlimited clients, projects, and team members per month.',
+        description:
+          'Launch offer (was ₹1,999): unlimited clients, projects, and team members per month.',
       },
     ],
     publisher: { '@id': `${SITE_URL}/#organization` },

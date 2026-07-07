@@ -33,6 +33,7 @@ import { HeroPreview } from '@/components/landing/HeroPreview'
 import { Reveal } from '@/components/landing/Reveal'
 import { Faq } from '@/components/landing/Faq'
 import { JsonLd } from '@/components/marketing/JsonLd'
+import { DataSecurity } from '@/components/marketing/DataSecurity'
 import { pageMetadata, FOUNDER, SOCIALS } from '@/lib/site'
 import { faqSchema } from '@/lib/structured-data'
 import { HOME_FAQS } from '@/lib/faq-data'
@@ -74,36 +75,56 @@ const STEPS = [
   },
 ]
 
-// Plan limits mirror src/lib/plans.ts (the enforced source of truth) so the
-// marketing copy never promises more than the app actually allows.
-const PLANS = [
+// Plan limits + launch pricing mirror the /pricing page so the two never drift.
+type Plan = {
+  name: string
+  price: string
+  originalPrice?: string
+  period: string
+  tagline: string
+  features: string[]
+  cta: string
+  popular: boolean
+  launch: boolean
+}
+const PLANS: Plan[] = [
   {
     name: 'Free',
     price: '₹0',
     period: '/month',
     tagline: 'For getting started',
-    features: ['Up to 3 clients', 'Up to 5 projects', 'Invoice generation', 'Basic analytics'],
+    features: [
+      'Up to 5 clients',
+      'Up to 10 projects',
+      'Leads & CRM pipeline',
+      'Invoice generation',
+      'Basic analytics',
+    ],
     cta: 'Get started free',
     popular: false,
+    launch: false,
   },
   {
     name: 'Pro',
-    price: '₹499',
+    price: '₹199',
+    originalPrice: '₹499',
     period: '/month',
     tagline: 'For growing freelancers',
     features: [
-      'Up to 25 clients',
-      'Up to 50 projects',
-      'Full invoice system',
-      'Team management (up to 3 members)',
+      'Up to 30 clients',
+      'Up to 60 projects',
+      'Up to 5 team members',
+      'White-label client portal',
       'Priority support',
     ],
-    cta: 'Start Pro',
+    cta: 'Start Pro →',
     popular: true,
+    launch: true,
   },
   {
     name: 'Ultra',
-    price: '₹1,999',
+    price: '₹799',
+    originalPrice: '₹1,999',
     period: '/month',
     tagline: 'For agencies at scale',
     features: [
@@ -113,8 +134,9 @@ const PLANS = [
       'White-label invoices',
       'Dedicated support',
     ],
-    cta: 'Start Ultra',
+    cta: 'Start Ultra →',
     popular: false,
+    launch: true,
   },
 ]
 
@@ -709,7 +731,17 @@ export default function LandingPage() {
                       )}
                     </div>
                     <p className="mt-1 text-sm text-gray-500">{plan.tagline}</p>
-                    <div className="mt-6 flex items-baseline gap-1">
+                    {plan.launch && (
+                      <span className="mt-4 inline-flex w-fit items-center gap-1 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-sm">
+                        🚀 Launch Offer
+                      </span>
+                    )}
+                    <div className={`flex items-baseline gap-2 ${plan.launch ? 'mt-3' : 'mt-6'}`}>
+                      {plan.originalPrice && (
+                        <span className="font-display text-2xl font-bold text-gray-400 line-through">
+                          {plan.originalPrice}
+                        </span>
+                      )}
                       <span className="font-display text-5xl font-extrabold tracking-tight text-gray-900">
                         {plan.price}
                       </span>
@@ -761,7 +793,11 @@ export default function LandingPage() {
               })}
             </div>
 
-            <Reveal className="mt-10 text-center">
+            <p className="mt-8 text-center text-base font-semibold text-orange-600">
+              🚀 Launch pricing is limited time. Lock in your rate today.
+            </p>
+
+            <Reveal className="mt-6 text-center">
               <Link
                 href="/pricing"
                 className="inline-flex items-center gap-1.5 font-semibold text-orange-600 transition-colors hover:text-orange-700"
@@ -905,6 +941,9 @@ export default function LandingPage() {
             </div>
           </Reveal>
         </section>
+
+        {/* ───────── Data privacy / security ───────── */}
+        <DataSecurity className="pb-24 sm:pb-32" />
       </main>
 
       <div className="relative z-10">

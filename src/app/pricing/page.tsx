@@ -6,6 +6,7 @@ import { PageHero } from '@/components/marketing/PageHero'
 import { Faq } from '@/components/landing/Faq'
 import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
+import { DataSecurity } from '@/components/marketing/DataSecurity'
 import { pageMetadata, APP_URL } from '@/lib/site'
 import {
   breadcrumbSchema,
@@ -16,7 +17,7 @@ import {
 export const metadata: Metadata = pageMetadata({
   title: 'Pricing — Free, Pro & Ultra Plans',
   description:
-    'Simple, honest pricing for Clienter. Start free forever, upgrade to Pro at ₹499/month or Ultra at ₹1,999/month. No hidden fees, no credit card to start, cancel anytime.',
+    'Simple, honest pricing for Clienter. Start free forever, or grab the launch offer: Pro at ₹199/month (was ₹499) and Ultra at ₹799/month (was ₹1,999). No hidden fees, no credit card to start, cancel anytime.',
   path: '/pricing',
   keywords: [
     'Clienter pricing',
@@ -26,35 +27,62 @@ export const metadata: Metadata = pageMetadata({
   ],
 })
 
-const PLANS = [
+type Plan = {
+  name: string
+  /** Current (launch) price. */
+  price: string
+  /** Struck-through pre-launch price, shown only during the launch offer. */
+  originalPrice?: string
+  period: string
+  tagline: string
+  features: string[]
+  cta: string
+  popular: boolean
+  /** Whether to show the "Launch Offer" badge + strikethrough. */
+  launch?: boolean
+}
+
+const PLANS: Plan[] = [
   {
     name: 'Free',
     price: '₹0',
     period: '/month',
     tagline: 'For getting started',
-    features: ['Up to 3 clients', 'Up to 5 projects', 'Invoice generation', 'Meetings & reminders', 'Basic analytics'],
+    features: [
+      'Up to 5 clients',
+      'Up to 10 projects',
+      'Full leads & CRM pipeline (unlimited leads)',
+      'Invoice generation',
+      'Meetings & reminders',
+      'Basic analytics',
+    ],
     cta: 'Get started free',
     popular: false,
   },
   {
     name: 'Pro',
-    price: '₹499',
+    price: '₹199',
+    originalPrice: '₹499',
     period: '/month',
     tagline: 'For growing freelancers',
     features: [
-      'Up to 25 clients',
-      'Up to 50 projects',
+      'Up to 30 clients',
+      'Up to 60 projects',
+      'Up to 5 team members',
       'Full invoice system',
-      'Up to 3 team members',
+      'White-label client portal',
+      'Google Calendar & Meet integration',
       'Project files & payments',
       'Priority support',
     ],
-    cta: 'Start Pro',
+    cta: 'Start Pro →',
     popular: true,
+    launch: true,
   },
   {
     name: 'Ultra',
-    price: '₹1,999',
+    price: '₹799',
+    originalPrice: '₹1,999',
     period: '/month',
     tagline: 'For agencies at scale',
     features: [
@@ -62,32 +90,38 @@ const PLANS = [
       'Unlimited projects',
       'Unlimited team members',
       'White-label invoices',
+      'Lead follow-up push reminders',
       'Everything in Pro',
       'Dedicated support',
     ],
-    cta: 'Start Ultra',
+    cta: 'Start Ultra →',
     popular: false,
+    launch: true,
   },
 ]
 
-// Comparison matrix — keep values aligned with src/lib/plans.ts (source of truth).
+// Comparison matrix — plan gating mirrors the per-plan feature lists above.
 const COMPARE: { label: string; free: string | boolean; pro: string | boolean; ultra: string | boolean }[] = [
-  { label: 'Clients', free: '3', pro: '25', ultra: 'Unlimited' },
-  { label: 'Projects', free: '5', pro: '50', ultra: 'Unlimited' },
-  { label: 'Team members', free: '0', pro: '3', ultra: 'Unlimited' },
+  { label: 'Clients', free: '5', pro: '30', ultra: 'Unlimited' },
+  { label: 'Projects', free: '10', pro: '60', ultra: 'Unlimited' },
+  { label: 'Team members', free: '0', pro: '5', ultra: 'Unlimited' },
+  { label: 'Leads & CRM pipeline', free: true, pro: true, ultra: true },
   { label: 'Invoicing & PDF export', free: true, pro: true, ultra: true },
   { label: 'GST / tax on invoices', free: true, pro: true, ultra: true },
   { label: 'Meetings & reminders', free: true, pro: true, ultra: true },
   { label: 'Revenue analytics', free: 'Basic', pro: 'Full', ultra: 'Full' },
   { label: 'Project files & payments', free: false, pro: true, ultra: true },
+  { label: 'White-label client portal', free: false, pro: true, ultra: true },
+  { label: 'Google Calendar & Meet', free: false, pro: true, ultra: true },
   { label: 'White-label invoices', free: false, pro: false, ultra: true },
+  { label: 'Lead follow-up push reminders', free: false, pro: false, ultra: true },
   { label: 'Support', free: 'Community', pro: 'Priority', ultra: 'Dedicated' },
 ]
 
 const PRICING_FAQS = [
   {
     q: 'Is the Free plan really free?',
-    a: 'Yes — the Free plan is free forever, with no credit card required. It includes up to 3 clients and 5 projects, full invoicing, meetings, and basic analytics.',
+    a: 'Yes — the Free plan is free forever, with no credit card required. It includes up to 5 clients and 10 projects, the full leads & CRM pipeline, invoicing, meetings, and basic analytics.',
   },
   {
     q: 'Can I change or cancel my plan anytime?',
@@ -158,7 +192,21 @@ export default function PricingPage() {
                 <p className={`mt-1 text-sm ${plan.popular ? 'text-gray-300' : 'text-gray-500'}`}>
                   {plan.tagline}
                 </p>
-                <div className="mt-5 flex items-baseline gap-1">
+                {plan.launch && (
+                  <span className="mt-4 inline-flex w-fit items-center gap-1 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-sm">
+                    🚀 Launch Offer
+                  </span>
+                )}
+                <div className={`flex items-baseline gap-2 ${plan.launch ? 'mt-3' : 'mt-5'}`}>
+                  {plan.originalPrice && (
+                    <span
+                      className={`font-display text-2xl font-bold line-through ${
+                        plan.popular ? 'text-gray-500' : 'text-gray-400'
+                      }`}
+                    >
+                      {plan.originalPrice}
+                    </span>
+                  )}
                   <span className="font-display text-5xl font-extrabold tracking-tight">
                     {plan.price}
                   </span>
@@ -194,7 +242,10 @@ export default function PricingPage() {
             </Reveal>
           ))}
         </div>
-        <p className="mt-6 text-center text-sm text-gray-500">
+        <p className="mt-8 text-center text-base font-semibold text-orange-600">
+          🚀 Launch pricing is limited time. Lock in your rate today.
+        </p>
+        <p className="mt-2 text-center text-sm text-gray-500">
           All prices in INR, billed monthly. Start on the Free plan — upgrade anytime, no card required.
         </p>
       </section>
@@ -227,6 +278,9 @@ export default function PricingPage() {
           </table>
         </div>
       </section>
+
+      {/* Data privacy / security */}
+      <DataSecurity className="mt-24" />
 
       {/* Pricing FAQ */}
       <section className="mx-auto mt-24 max-w-3xl px-4 pb-8 sm:px-6 lg:px-8">
