@@ -123,13 +123,10 @@ export const NAV_LINKS = [
 /** Footer link columns. */
 export const FOOTER_NAV = [
   {
-    title: 'Product',
+    title: 'Tools',
     links: [
-      { href: '/features', label: 'Features' },
-      { href: '/how-it-works', label: 'How it works' },
-      { href: '/pricing', label: 'Pricing' },
-      { href: '/demo', label: 'Demo' },
       { href: '/time-converter', label: 'Time Converter' },
+      { href: '/invoice', label: 'Invoice Generator' },
     ],
   },
   {

@@ -148,6 +148,17 @@
     display: none;
   }
 
+  /* Hide number-input spin buttons — they eat width in tight layouts (e.g.
+     invoice line-item rows) and invite accidental scroll-to-change-value. */
+  .no-spinner {
+    -moz-appearance: textfield;
+  }
+  .no-spinner::-webkit-outer-spin-button,
+  .no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   /* Scroll-reveal: elements start hidden + slightly shifted, then ease into
      place when the <Reveal> client component marks them in-view. */
   .reveal {
