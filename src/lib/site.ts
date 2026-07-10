@@ -111,12 +111,36 @@ export const MARKETING_PATHS = [
   '/security',
 ] as const
 
+/** A nav link — optionally has children that render as a dropdown. */
+export type NavLink = {
+  href: string
+  label: string
+  /** Optional description shown in the dropdown card. */
+  description?: string
+  children?: { href: string; label: string; description: string }[]
+}
+
 /** Primary nav links (used in header + footer). In-page anchors resolve on home. */
-export const NAV_LINKS = [
+export const NAV_LINKS: NavLink[] = [
   { href: '/features', label: 'Features' },
   { href: '/how-it-works', label: 'How it works' },
   { href: '/pricing', label: 'Pricing' },
-  { href: '/demo', label: 'Demo' },
+  {
+    href: '#',
+    label: 'Tools',
+    children: [
+      {
+        href: '/time-converter',
+        label: 'Time Converter',
+        description: 'Convert time across any timezone instantly',
+      },
+      {
+        href: '/invoice',
+        label: 'Invoice Generator',
+        description: 'Create professional invoices in seconds',
+      },
+    ],
+  },
   { href: '/contact', label: 'Contact' },
 ]
 

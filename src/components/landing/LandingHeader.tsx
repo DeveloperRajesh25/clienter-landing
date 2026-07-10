@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react'
 import { NAV_LINKS, APP_URL } from '@/lib/site'
 
 /**
@@ -49,15 +49,44 @@ export function LandingHeader() {
         </Link>
 
         <div className="hidden items-center gap-7 md:flex">
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
-            >
-              {l.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((l) =>
+            l.children ? (
+              <div key={l.label} className="group relative py-2">
+                <button className="flex items-center gap-1 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">
+                  {l.label}
+                  <ChevronDown className="h-3.5 w-3.5 text-gray-400 transition-transform duration-200 group-hover:rotate-180" />
+                </button>
+                <div className="invisible absolute left-1/2 top-full -mt-1 w-72 -translate-x-1/2 translate-y-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                  {/* Invisible hover bridge */}
+                  <div className="absolute inset-x-0 -top-4 h-4 bg-transparent" />
+                  <div className="rounded-2xl border border-stone-200/80 bg-white/95 p-2 shadow-[0_16px_48px_-12px_rgba(28,25,23,0.15)] backdrop-blur-xl">
+                    {l.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className="block rounded-xl p-3 transition-colors hover:bg-stone-50"
+                      >
+                        <div className="text-sm font-medium text-gray-900">{child.label}</div>
+                        {child.description && (
+                          <div className="mt-1 text-xs leading-relaxed text-stone-500">
+                            {child.description}
+                          </div>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
+              >
+                {l.label}
+              </Link>
+            )
+          )}
         </div>
 
         <div className="hidden items-center gap-1.5 md:flex">
@@ -91,16 +120,34 @@ export function LandingHeader() {
       {menuOpen && (
         <div className="animate-fade-in mx-auto mt-2 max-w-5xl rounded-2xl border border-stone-200 bg-white/95 p-3 shadow-[0_16px_48px_-12px_rgba(28,25,23,0.25)] backdrop-blur-xl md:hidden">
           <div className="flex flex-col">
-            {NAV_LINKS.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setMenuOpen(false)}
-                className="rounded-xl px-3 py-3 text-base font-medium text-gray-700 transition-colors hover:bg-stone-50 hover:text-gray-900"
-              >
-                {l.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((l) =>
+              l.children ? (
+                <div key={l.label} className="flex flex-col py-1">
+                  <div className="px-3 py-2 text-base font-medium text-gray-900">{l.label}</div>
+                  <div className="mt-1 flex flex-col pl-4">
+                    {l.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="rounded-xl px-3 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-stone-50 hover:text-gray-900"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-xl px-3 py-3 text-base font-medium text-gray-700 transition-colors hover:bg-stone-50 hover:text-gray-900"
+                >
+                  {l.label}
+                </Link>
+              )
+            )}
             <div className="mt-2 flex flex-col gap-2 border-t border-stone-100 pt-3">
               <a
                 href={`${APP_URL}/login`}
