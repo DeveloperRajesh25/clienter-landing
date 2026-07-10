@@ -24,7 +24,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { APP_URL } from '@/lib/site'
-import { LandingHeader } from '@/components/landing/LandingHeader'
+import { SiteHeader } from '@/components/marketing/SiteHeader'
 import { SiteFooter } from '@/components/marketing/SiteFooter'
 import { HeroField } from '@/components/landing/HeroField'
 import { TiltCard } from '@/components/landing/TiltCard'
@@ -423,7 +423,7 @@ export default function LandingPage() {
         <div className="absolute left-0 top-[80rem] h-[30rem] w-[30rem] rounded-full bg-orange-200/20 blur-[130px]" />
       </div>
 
-      <LandingHeader />
+      <SiteHeader />
 
       <main className="relative z-10">
         {/* ───────── Hero ───────── */}
