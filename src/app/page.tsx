@@ -45,6 +45,7 @@ import { Marquee } from '@/components/landing/Marquee'
 import { Faq } from '@/components/landing/Faq'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { DataSecurity } from '@/components/marketing/DataSecurity'
+import { VerifiedReviews } from '@/components/marketing/VerifiedReviews'
 import { pageMetadata, FOUNDER, SOCIALS } from '@/lib/site'
 import { faqSchema } from '@/lib/structured-data'
 import { HOME_FAQS } from '@/lib/faq-data'
@@ -689,6 +690,11 @@ export default function LandingPage() {
               </Link>
             </Reveal>
           </div>
+        </section>
+
+        {/* ───────── Verified Client Reviews (flagship trust feature) ───────── */}
+        <section className="relative py-16 sm:py-24">
+          <VerifiedReviews />
         </section>
 
         {/* ───────── How it works (numbered timeline) ───────── */}

@@ -23,7 +23,7 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
       }
     >
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-7">
           {/* Brand column */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2.5">
@@ -81,15 +81,9 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
                     : 'text-gray-500 transition-colors hover:text-orange-600'
                   return (
                     <li key={link.href}>
-                      {'external' in link && link.external ? (
-                        <a href={link.href} className={linkClass}>
-                          {link.label}
-                        </a>
-                      ) : (
-                        <Link href={link.href} className={linkClass}>
-                          {link.label}
-                        </Link>
-                      )}
+                      <Link href={link.href} className={linkClass}>
+                        {link.label}
+                      </Link>
                     </li>
                   )
                 })}

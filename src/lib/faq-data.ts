@@ -33,6 +33,10 @@ export const FAQS: Faq[] = [
     a: 'On Pro you can add up to 5 developers or designers, assign them to projects, and track their payments. Ultra removes the limit entirely so you can run a full agency.',
   },
   {
+    q: 'How do verified client reviews work?',
+    a: 'When you mark a project as completed, your client is automatically invited to leave a 1–5 star review inside the portal they already use. Because every review is tied to a real client on a real completed project — and you cannot edit or delete them — they are genuinely verified. You get a public review page at your own agency slug and a copy-paste embeddable badge for your website, free on every plan.',
+  },
+  {
     q: 'Is my data secure?',
     a: 'Your data is isolated per account with row-level security and encrypted in transit. We never sell or share your client information, and you can export everything at any time.',
   },

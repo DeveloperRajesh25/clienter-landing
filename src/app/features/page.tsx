@@ -17,6 +17,8 @@ import {
   ClipboardList,
   LayoutDashboard,
   CalendarClock,
+  BadgeCheck,
+  Star,
   type LucideIcon,
 } from 'lucide-react'
 import { PageShell } from '@/components/marketing/PageShell'
@@ -32,7 +34,7 @@ import { breadcrumbSchema } from '@/lib/structured-data'
 export const metadata: Metadata = pageMetadata({
   title: 'Features — Clients, Projects, Invoices & Team in One Place',
   description:
-    'Explore everything Clienter does: a CRM lead pipeline, client management, quotations, proposals with e-signatures, intake forms, project tracking, GST-ready invoicing, a white-label client portal, Google Calendar & Meet, team management, and revenue analytics — built for Indian freelancers and agencies.',
+    'Explore everything Clienter does: a CRM lead pipeline, client management, quotations, proposals with e-signatures, intake forms, project tracking, GST-ready invoicing, a white-label client portal, Google Calendar & Meet, verified client reviews, team management, and revenue analytics — built for Indian freelancers and agencies.',
   path: '/features',
   keywords: [
     'freelancer client management features',
@@ -185,6 +187,18 @@ const FEATURES: Feature[] = [
       'Show up prepared and on time, every time — the small thing that makes clients trust you with bigger work.',
   },
   {
+    icon: BadgeCheck,
+    title: 'Verified Client Reviews',
+    tagline: 'Turn completed projects into credible, verified reviews.',
+    how: [
+      'Mark a project “completed” and your client is automatically invited to review it inside the portal they already use — no links to chase.',
+      'Each review is 1–5 stars tied to a real client on a real project, and you can’t edit or delete them — that’s what makes them verified.',
+      'Get a public review page at your own agency slug plus a copy-paste embeddable badge for your website — free on every plan.',
+    ],
+    benefit:
+      'Build the social proof that wins bigger clients — automatically and credibly, without ever having to ask for a favour.',
+  },
+  {
     icon: TrendingUp,
     title: 'Revenue Analytics',
     tagline: 'See your money clearly — revenue, expenses, and profit.',
@@ -200,6 +214,16 @@ const FEATURES: Feature[] = [
 
 const BY_TITLE: Record<string, Feature> = Object.fromEntries(FEATURES.map((f) => [f.title, f]))
 const pick = (title: string): Feature => BY_TITLE[title]
+
+/** Overview feature title → its dedicated in-depth page, where one exists. */
+const DETAIL_PATHS: Record<string, string> = {
+  'Client Management': '/features/client-management',
+  'CRM Lead Pipeline': '/features/crm-lead-pipeline',
+  'Project Tracking': '/features/project-management',
+  'Smart Invoicing': '/features/invoicing',
+  'White-Label Client Portal': '/features/client-portal',
+  'Verified Client Reviews': '/features/verified-reviews',
+}
 
 /** Slug used for per-feature #anchors — kept identical to the old page so deep links survive. */
 const slug = (title: string) => title.toLowerCase().replace(/[^a-z]+/g, '-')
@@ -364,6 +388,53 @@ function InvoiceVisual() {
   )
 }
 
+const REVIEWS = [
+  { n: 'Ananya R.', s: 5, w: '5/6' },
+  { n: 'Vikram T.', s: 5, w: '4/6' },
+  { n: 'Meera S.', s: 4, w: '3/5' },
+]
+
+function ReviewsVisual() {
+  return (
+    <div>
+      <div className="flex items-center justify-between rounded-xl border border-stone-200/80 bg-stone-50/70 px-3.5 py-2.5">
+        <div className="flex items-center gap-2">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500 to-amber-500 text-xs font-bold text-white">
+            YS
+          </span>
+          <span className="text-sm font-semibold text-gray-800">Your Studio</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <div className="flex gap-0.5 text-orange-400">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="h-3.5 w-3.5 fill-current" />
+            ))}
+          </div>
+          <span className="text-xs font-bold text-gray-800">4.9</span>
+        </div>
+      </div>
+      <div className="mt-2.5 space-y-2">
+        {REVIEWS.map((r) => (
+          <div key={r.n} className="rounded-xl border border-stone-200/80 bg-white p-2.5">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-semibold text-gray-700">{r.n}</span>
+              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-1.5 py-0.5 text-[9px] font-bold text-emerald-600">
+                <BadgeCheck className="h-2.5 w-2.5" /> Verified
+              </span>
+            </div>
+            <div className="mt-1.5 flex gap-0.5 text-orange-400">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className={`h-2.5 w-2.5 ${i < r.s ? 'fill-current' : 'text-stone-200'}`} />
+              ))}
+            </div>
+            <div className="mt-1.5 h-1 rounded bg-stone-200" style={{ width: r.w === '5/6' ? '83%' : r.w === '4/6' ? '66%' : '60%' }} />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 // ── Layout data ─────────────────────────────────────────────────────────────
 
 const VISUALS: Record<string, { node: React.ReactNode; label: string; flip: boolean }> = {
@@ -371,6 +442,7 @@ const VISUALS: Record<string, { node: React.ReactNode; label: string; flip: bool
   'Client Management': { node: <ClientsVisual />, label: 'Clients', flip: true },
   'Project Tracking': { node: <KanbanVisual />, label: 'Projects', flip: false },
   'Smart Invoicing': { node: <InvoiceVisual />, label: 'Invoice', flip: true },
+  'Verified Client Reviews': { node: <ReviewsVisual />, label: 'Reviews', flip: false },
 }
 
 type Group = {
@@ -427,8 +499,8 @@ const GROUPS: Group[] = [
         </span>
       </>
     ),
-    sub: 'GST-ready invoices in a minute and live analytics that turn your day-to-day work into decisions.',
-    flagship: ['Smart Invoicing'],
+    sub: 'GST-ready invoices in a minute, verified reviews that build your reputation, and live analytics that turn your day-to-day work into decisions.',
+    flagship: ['Smart Invoicing', 'Verified Client Reviews'],
     lite: ['Revenue Analytics'],
     liteLayout: 'grid',
   },
@@ -452,7 +524,7 @@ const GROUPS: Group[] = [
 
 const STATS = [
   { to: 6, prefix: '', suffix: '-in-1', label: 'Tools in one app' },
-  { to: 12, prefix: '', suffix: '', label: 'Features, one login' },
+  { to: 13, prefix: '', suffix: '', label: 'Features, one login' },
   { to: 0, prefix: '₹', suffix: '', label: 'To start — free forever' },
   { to: 5, prefix: '~', suffix: ' min', label: 'To your first invoice' },
 ]
@@ -492,6 +564,15 @@ function FlagshipRow({ feature }: { feature: Feature }) {
             </li>
           ))}
         </ul>
+        {DETAIL_PATHS[feature.title] && (
+          <Link
+            href={DETAIL_PATHS[feature.title]}
+            className="mt-6 inline-flex items-center gap-1.5 font-semibold text-orange-600 transition-colors hover:text-orange-700"
+          >
+            Learn more about {feature.title}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        )}
       </Reveal>
 
       <Reveal delay={120} className={v.flip ? 'lg:order-1' : ''}>
@@ -522,6 +603,15 @@ function LiteFeature({ feature }: { feature: Feature }) {
         ))}
       </ul>
       <p className="mt-4 text-sm italic leading-relaxed text-gray-500">{feature.benefit}</p>
+      {DETAIL_PATHS[feature.title] && (
+        <Link
+          href={DETAIL_PATHS[feature.title]}
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-orange-600 transition-colors hover:text-orange-700"
+        >
+          Learn more
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      )}
     </div>
   )
 }

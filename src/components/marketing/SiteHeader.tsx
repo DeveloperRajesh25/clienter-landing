@@ -1,11 +1,41 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import type { ComponentType } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react'
+import {
+  Menu,
+  X,
+  ArrowRight,
+  ChevronDown,
+  Users,
+  Filter,
+  KanbanSquare,
+  ReceiptText,
+  PanelsTopLeft,
+  BadgeCheck,
+  Clock,
+  FileText,
+} from 'lucide-react'
 import { NAV_LINKS, APP_URL } from '@/lib/site'
 import { SpotlightButton } from '@/components/landing/SpotlightButton'
+
+/**
+ * Icon per dropdown item, keyed by href. Kept in the client component (not in
+ * the shared site config) so the icon components aren't pulled into every module
+ * that imports NAV_LINKS.
+ */
+const NAV_ICONS: Record<string, ComponentType<{ className?: string }>> = {
+  '/features/client-management': Users,
+  '/features/crm-lead-pipeline': Filter,
+  '/features/project-management': KanbanSquare,
+  '/features/invoicing': ReceiptText,
+  '/features/client-portal': PanelsTopLeft,
+  '/features/verified-reviews': BadgeCheck,
+  '/time-converter': Clock,
+  '/invoice': FileText,
+}
 
 /**
  * Global site header: a floating glass pill. Fully
@@ -51,32 +81,64 @@ export function SiteHeader() {
         <div className="hidden items-center gap-7 md:flex">
           {NAV_LINKS.map((l) =>
             l.children ? (
-              <div key={l.label} className="group relative py-2">
-                <button className="flex items-center gap-1 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">
-                  {l.label}
-                  <ChevronDown className="h-3.5 w-3.5 text-gray-400 transition-transform duration-200 group-hover:rotate-180" />
-                </button>
-                <div className="invisible absolute left-1/2 top-full -mt-1 w-72 -translate-x-1/2 translate-y-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                  {/* Invisible hover bridge */}
-                  <div className="absolute inset-x-0 -top-4 h-4 bg-transparent" />
-                  <div className="rounded-2xl border border-stone-200/80 bg-white/95 p-2 shadow-[0_16px_48px_-12px_rgba(28,25,23,0.15)] backdrop-blur-xl">
-                    {l.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block rounded-xl p-3 transition-colors hover:bg-stone-50"
-                      >
-                        <div className="text-sm font-medium text-gray-900">{child.label}</div>
-                        {child.description && (
-                          <div className="mt-1 text-xs leading-relaxed text-stone-500">
-                            {child.description}
-                          </div>
-                        )}
-                      </Link>
-                    ))}
+              (() => {
+                // Wide two-column grid for the big Solutions menu; a compact
+                // single column for smaller menus like Tools. The larger panel
+                // is right-anchored so it never runs off the viewport edge.
+                const wide = l.children.length > 3
+                return (
+                  <div key={l.label} className="group relative py-2">
+                    <button className="flex items-center gap-1 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">
+                      {l.label}
+                      <ChevronDown className="h-3.5 w-3.5 text-gray-400 transition-transform duration-200 group-hover:rotate-180" />
+                    </button>
+                    <div
+                      className={`invisible absolute top-full -mt-1 translate-y-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 ${
+                        wide
+                          ? 'left-1/2 w-[42rem] -translate-x-1/2 group-hover:translate-x-[-50%]'
+                          : 'left-1/2 w-80 -translate-x-1/2 group-hover:translate-x-[-50%]'
+                      }`}
+                    >
+                      {/* Invisible hover bridge */}
+                      <div className="absolute inset-x-0 -top-4 h-4 bg-transparent" />
+                      <div className="overflow-hidden rounded-3xl border border-stone-200/80 bg-white/95 p-2.5 shadow-[0_24px_60px_-15px_rgba(28,25,23,0.22)] backdrop-blur-xl">
+                        <div className="px-3 pb-2 pt-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-400">
+                          {l.label}
+                        </div>
+                        <div className={wide ? 'grid grid-cols-2 gap-1' : 'grid grid-cols-1 gap-1'}>
+                          {l.children.map((child) => {
+                            const Icon = NAV_ICONS[child.href]
+                            return (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                className="group/card relative flex items-start gap-3 rounded-2xl p-3 transition-colors duration-150 hover:bg-stone-50"
+                              >
+                                {Icon && (
+                                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-stone-200/80 bg-white text-stone-500 shadow-sm transition-all duration-150 group-hover/card:border-orange-200 group-hover/card:bg-orange-50 group-hover/card:text-orange-600">
+                                    <Icon className="h-[18px] w-[18px]" />
+                                  </span>
+                                )}
+                                <div className="min-w-0">
+                                  <div className="flex items-center gap-1 text-sm font-semibold text-gray-900">
+                                    {child.label}
+                                    <ArrowRight className="h-3.5 w-3.5 -translate-x-1 text-orange-500 opacity-0 transition-all duration-150 group-hover/card:translate-x-0 group-hover/card:opacity-100" />
+                                  </div>
+                                  {child.description && (
+                                    <div className="mt-0.5 text-xs leading-relaxed text-stone-500">
+                                      {child.description}
+                                    </div>
+                                  )}
+                                </div>
+                              </Link>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                )
+              })()
             ) : (
               <Link
                 key={l.href}

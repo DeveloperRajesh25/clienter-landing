@@ -109,6 +109,18 @@ export const MARKETING_PATHS = [
   '/refund',
   '/cookies',
   '/security',
+  '/invoice',
+  '/time-converter',
+  '/client-management-software',
+  '/crm-for-freelancers',
+  '/project-management-crm',
+  '/business-management-software',
+  '/features/client-management',
+  '/features/crm-lead-pipeline',
+  '/features/project-management',
+  '/features/invoicing',
+  '/features/client-portal',
+  '/features/verified-reviews',
 ] as const
 
 /** A nav link — optionally has children that render as a dropdown. */
@@ -123,7 +135,45 @@ export type NavLink = {
 /** Primary nav links (used in header + footer). In-page anchors resolve on home. */
 export const NAV_LINKS: NavLink[] = [
   { href: '/features', label: 'Features' },
-  { href: '/how-it-works', label: 'How it works' },
+  {
+    // Core-feature deep-dives. Kept in sync with FEATURE_PAGES in
+    // lib/feature-pages.ts (hardcoded here so the huge config isn't pulled into
+    // the client nav bundle).
+    href: '#',
+    label: 'Solutions',
+    children: [
+      {
+        href: '/features/client-management',
+        label: 'Client Management',
+        description: 'Every client’s details, projects & history in one profile',
+      },
+      {
+        href: '/features/crm-lead-pipeline',
+        label: 'CRM & Lead Pipeline',
+        description: 'Track leads on a visual sales pipeline before they become clients',
+      },
+      {
+        href: '/features/project-management',
+        label: 'Project Management',
+        description: 'Kanban boards, deadlines, budgets & tasks for every project',
+      },
+      {
+        href: '/features/invoicing',
+        label: 'Invoicing & Payments',
+        description: 'GST-ready invoices, PDF export & payment tracking',
+      },
+      {
+        href: '/features/client-portal',
+        label: 'Client Portal',
+        description: 'A white-label login where clients view work & pay',
+      },
+      {
+        href: '/features/verified-reviews',
+        label: 'Verified Reviews',
+        description: 'Turn completed projects into credible public reviews',
+      },
+    ],
+  },
   { href: '/pricing', label: 'Pricing' },
   {
     href: '#',
@@ -146,6 +196,24 @@ export const NAV_LINKS: NavLink[] = [
 
 /** Footer link columns. */
 export const FOOTER_NAV = [
+  {
+    title: 'Product',
+    links: [
+      { href: '/features', label: 'Features' },
+      { href: '/how-it-works', label: 'How it works' },
+      { href: '/pricing', label: 'Pricing' },
+      { href: '/demo', label: 'Demo' },
+    ],
+  },
+  {
+    title: 'Use cases',
+    links: [
+      { href: '/client-management-software', label: 'Client Management Software' },
+      { href: '/crm-for-freelancers', label: 'CRM for Freelancers' },
+      { href: '/project-management-crm', label: 'Project Management CRM' },
+      { href: '/business-management-software', label: 'Business Management Software' },
+    ],
+  },
   {
     title: 'Tools',
     links: [
@@ -171,14 +239,6 @@ export const FOOTER_NAV = [
       { href: '/refund', label: 'Refund & Cancellation' },
     ],
   },
-  {
-    title: 'Get started',
-    links: [
-      { href: `${APP_URL}/signup`, label: 'Create account', external: true },
-      { href: `${APP_URL}/login`, label: 'Sign in', external: true },
-      { href: '/pricing', label: 'See pricing' },
-    ],
-  },
 ] as const
 
 /**
@@ -198,8 +258,14 @@ export function pageMetadata(opts: {
   /** Mark a page as noindex (e.g. thin/utility pages). */
   noindex?: boolean
   keywords?: string[]
+  /** Override the OpenGraph/Twitter title (defaults to `title`). */
+  ogTitle?: string
+  /** Override the OpenGraph/Twitter description (defaults to `description`). */
+  ogDescription?: string
 }): Metadata {
   const url = opts.path === '/' ? SITE_URL : `${SITE_URL}${opts.path}`
+  const ogTitle = opts.ogTitle ?? opts.title
+  const ogDescription = opts.ogDescription ?? opts.description
   return {
     title: opts.title,
     description: opts.description,
@@ -212,14 +278,14 @@ export function pageMetadata(opts: {
       type: 'website',
       url,
       siteName: SITE_NAME,
-      title: opts.title,
-      description: opts.description,
+      title: ogTitle,
+      description: ogDescription,
       ...(opts.image ? { images: [{ url: opts.image }] } : {}),
     },
     twitter: {
       card: 'summary_large_image',
-      title: opts.title,
-      description: opts.description,
+      title: ogTitle,
+      description: ogDescription,
       ...(opts.image ? { images: [opts.image] } : {}),
     },
   }
