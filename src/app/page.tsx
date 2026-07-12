@@ -11,7 +11,6 @@ import {
   Check,
   X,
   ArrowRight,
-  ArrowUpRight,
   Play,
   Sparkles,
   ShieldCheck,
@@ -22,6 +21,13 @@ import {
   Youtube,
   Linkedin,
   Twitter,
+  Sheet,
+  MessageCircle,
+  StickyNote,
+  Mail,
+  CalendarDays,
+  Wallet,
+  Clock,
   type LucideIcon,
 } from 'lucide-react'
 import { APP_URL } from '@/lib/site'
@@ -34,6 +40,8 @@ import { TiltCard } from '@/components/landing/TiltCard'
 import { GlowCard } from '@/components/landing/GlowCard'
 import { HeroPreview } from '@/components/landing/HeroPreview'
 import { Reveal } from '@/components/landing/Reveal'
+import { CountUp } from '@/components/landing/CountUp'
+import { Marquee } from '@/components/landing/Marquee'
 import { Faq } from '@/components/landing/Faq'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { DataSecurity } from '@/components/marketing/DataSecurity'
@@ -144,12 +152,26 @@ const PLANS: Plan[] = [
 ]
 
 // Honest product facts — no fabricated traction or usage numbers. Each is
-// true of the product itself, not of a user base.
+// true of the product itself, not of a user base. `to`/prefix/suffix drive the
+// scroll-triggered count-up in the stats band.
 const STATS = [
-  { value: '6-in-1', label: 'Tools in one app' },
-  { value: '₹0', label: 'To start — free forever' },
-  { value: '~5 min', label: 'To your first invoice' },
-  { value: '100%', label: 'Your data, always yours' },
+  { to: 6, prefix: '', suffix: '-in-1', label: 'Tools in one app' },
+  { to: 0, prefix: '₹', suffix: '', label: 'To start — free forever' },
+  { to: 5, prefix: '~', suffix: ' min', label: 'To your first invoice' },
+  { to: 100, prefix: '', suffix: '%', label: 'Your data, always yours' },
+]
+
+// The scattered stack Clienter replaces — generic categories, no brand names.
+// Rendered as two counter-sliding marquee rows under the stats band.
+const REPLACES = [
+  { icon: Sheet, label: 'Spreadsheets' },
+  { icon: FileText, label: 'Word invoices' },
+  { icon: MessageCircle, label: 'WhatsApp threads' },
+  { icon: StickyNote, label: 'Sticky notes' },
+  { icon: Mail, label: 'Email chains' },
+  { icon: CalendarDays, label: 'Calendar apps' },
+  { icon: Wallet, label: 'Payment trackers' },
+  { icon: Clock, label: 'Reminder alarms' },
 ]
 
 // The "before" (chaos) vs "after" (Clienter) contrast.
@@ -182,19 +204,6 @@ const FOUNDER_SOCIALS = [
   { href: SOCIALS.twitter, label: 'X', Icon: Twitter },
 ]
 
-/** Icon chip + title + copy shared by every bento feature card. */
-function FeatureHeader({ icon: Icon, title, desc }: { icon: LucideIcon; title: string; desc: string }) {
-  return (
-    <>
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/25">
-        <Icon className="h-6 w-6" />
-      </div>
-      <h3 className="mt-5 font-display text-lg font-bold text-gray-900">{title}</h3>
-      <p className="mt-2 text-[15px] leading-relaxed text-gray-600">{desc}</p>
-    </>
-  )
-}
-
 /** Centered section intro: eyebrow chip + headline + optional subcopy. */
 function SectionIntro({
   eyebrow,
@@ -220,6 +229,81 @@ function SectionIntro({
       </h2>
       {sub && <p className="mt-4 text-lg text-gray-600">{sub}</p>}
     </Reveal>
+  )
+}
+
+/**
+ * Large alternating feature showcase row — text on one side, a framed product
+ * visual on the other. Replaces the old repetitive bento grid; `flip` swaps the
+ * sides so consecutive features zig-zag down the page (Stripe/Linear style).
+ */
+function FeatureSplit({
+  eyebrow,
+  icon: Icon,
+  title,
+  desc,
+  points,
+  visual,
+  flip = false,
+}: {
+  eyebrow: string
+  icon: LucideIcon
+  title: string
+  desc: string
+  points: string[]
+  visual: React.ReactNode
+  flip?: boolean
+}) {
+  return (
+    <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+      <Reveal className={flip ? 'lg:order-2' : ''}>
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-orange-600">
+          <Icon className="h-3.5 w-3.5" /> {eyebrow}
+        </span>
+        <h3 className="mt-5 font-display text-2xl font-extrabold tracking-tight text-gray-900 sm:text-[2rem] sm:leading-[1.15]">
+          {title}
+        </h3>
+        <p className="mt-4 text-[15px] leading-relaxed text-gray-600 sm:text-base">{desc}</p>
+        <ul className="mt-6 space-y-3">
+          {points.map((p) => (
+            <li key={p} className="flex items-center gap-3 text-[15px] text-gray-700">
+              <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-orange-100 text-orange-600">
+                <Check className="h-3 w-3" />
+              </span>
+              {p}
+            </li>
+          ))}
+        </ul>
+      </Reveal>
+
+      <Reveal delay={120} className={flip ? 'lg:order-1' : ''}>
+        <div className="relative">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.5rem] bg-[radial-gradient(ellipse_60%_60%_at_50%_40%,rgba(249,115,22,0.14),transparent_70%)] blur-2xl"
+          />
+          {/* Faux product window so each visual reads as a real screen. */}
+          <div className="overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-soft-lg">
+            <div className="flex items-center gap-1.5 border-b border-stone-100 px-4 py-3">
+              <span className="h-2.5 w-2.5 rounded-full bg-orange-400" />
+              <span className="h-2.5 w-2.5 rounded-full bg-stone-200" />
+              <span className="h-2.5 w-2.5 rounded-full bg-stone-200" />
+            </div>
+            <div className="px-5 pb-6 pt-1 sm:px-6">{visual}</div>
+          </div>
+        </div>
+      </Reveal>
+    </div>
+  )
+}
+
+/** Sliding pill for the "replaces your stack" marquee band. */
+function ToolChip({ icon: Icon, label }: { icon: LucideIcon; label: string }) {
+  return (
+    <span className="mx-1.5 inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-stone-200/80 bg-white px-4 py-2 text-sm font-medium text-gray-500 shadow-soft">
+      <Icon className="h-4 w-4 text-orange-400" />
+      {label}
+    </span>
   )
 }
 
@@ -253,31 +337,6 @@ function ClientsVisual() {
           </span>
         </div>
       ))}
-    </div>
-  )
-}
-
-function AnalyticsVisual() {
-  const bars = [35, 55, 42, 70, 58, 85, 66, 96]
-  return (
-    <div className="mt-6 rounded-xl border border-stone-200/80 bg-stone-50/70 p-4">
-      <div className="flex items-center justify-between">
-        <span className="text-[11px] font-medium text-gray-400">This month</span>
-        <span className="flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-600">
-          <ArrowUpRight className="h-3 w-3" /> +18%
-        </span>
-      </div>
-      <div className="mt-3 flex h-20 items-end gap-1.5">
-        {bars.map((h, i) => (
-          <div
-            key={i}
-            className={`flex-1 rounded-t bg-gradient-to-t from-orange-200 to-orange-500 ${
-              i === bars.length - 1 ? 'shadow-[0_0_14px_rgba(249,115,22,0.4)]' : ''
-            }`}
-            style={{ height: `${h}%` }}
-          />
-        ))}
-      </div>
     </div>
   )
 }
@@ -334,80 +393,6 @@ function KanbanVisual() {
               </div>
             ))}
           </div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-const TEAM_AVATARS = [
-  { ch: 'R', tint: 'bg-orange-100 text-orange-600' },
-  { ch: 'S', tint: 'bg-sky-100 text-sky-600' },
-  { ch: 'A', tint: 'bg-violet-100 text-violet-600' },
-  { ch: 'K', tint: 'bg-emerald-100 text-emerald-600' },
-]
-
-function TeamVisual() {
-  return (
-    <div className="mt-6">
-      <div className="flex items-center gap-3">
-        <div className="flex -space-x-2.5">
-          {TEAM_AVATARS.map(({ ch, tint }) => (
-            <div
-              key={ch}
-              className={`flex h-9 w-9 items-center justify-center rounded-full border-2 border-white text-xs font-bold ${tint}`}
-            >
-              {ch}
-            </div>
-          ))}
-          <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-stone-100 text-[10px] font-semibold text-gray-500">
-            +2
-          </div>
-        </div>
-        <span className="text-xs text-gray-500">6 members · 4 assigned today</span>
-      </div>
-      <div className="mt-3.5 flex flex-wrap gap-2">
-        {['Developer', 'Designer', 'Video editor'].map((role) => (
-          <span
-            key={role}
-            className="rounded-full border border-stone-200/80 bg-stone-50/70 px-3 py-1 text-[11px] font-medium text-gray-500"
-          >
-            {role}
-          </span>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-const REMINDERS = [
-  { title: 'Client call — Acme Co.', when: 'Today · 4:30 PM', hot: true },
-  { title: 'Project review — Nova', when: 'Tomorrow · 11 AM', hot: false },
-]
-
-function RemindersVisual() {
-  return (
-    <div className="mt-6 space-y-2">
-      {REMINDERS.map((r) => (
-        <div
-          key={r.title}
-          className="flex items-center gap-3 rounded-xl border border-stone-200/80 bg-stone-50/70 px-3.5 py-2.5"
-        >
-          <div
-            className={`flex h-8 w-8 flex-none items-center justify-center rounded-lg ${
-              r.hot ? 'bg-orange-100 text-orange-600' : 'bg-stone-100 text-gray-400'
-            }`}
-          >
-            <Bell className="h-4 w-4" />
-          </div>
-          <span className="flex-1 truncate text-sm font-medium text-gray-800">{r.title}</span>
-          <span
-            className={`flex-none rounded-full px-2.5 py-1 text-[11px] font-semibold ${
-              r.hot ? 'bg-orange-50 text-orange-600' : 'bg-stone-100 text-gray-500'
-            }`}
-          >
-            {r.when}
-          </span>
         </div>
       ))}
     </div>
@@ -519,69 +504,103 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ───────── Stats bar ───────── */}
-        <section className="relative mt-24 border-y border-stone-200/70 bg-white/50 backdrop-blur-sm sm:mt-28">
-          <div className="mx-auto grid max-w-6xl grid-cols-2 px-4 sm:px-6 lg:grid-cols-4 lg:px-8">
+        {/* ───────── Stats + "replaces your stack" band ───────── */}
+        <section className="relative mt-16 border-y border-stone-200/70 bg-white/60 backdrop-blur-sm sm:mt-20">
+          {/* Product facts — each number counts up the first time it's seen. */}
+          <div className="mx-auto grid max-w-6xl grid-cols-2 lg:grid-cols-4">
             {STATS.map((s, i) => (
-              <Reveal key={s.label} delay={i * 80} className="px-2 py-8 text-center sm:py-10">
-                <div className="text-gradient-brand font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-                  {s.value}
+              <Reveal
+                key={s.label}
+                delay={i * 80}
+                className="group relative border-stone-200/70 px-4 py-9 text-center sm:py-11 [&:nth-child(n+3)]:border-t lg:border-l lg:first:border-l-0 lg:[&:nth-child(n+3)]:border-t-0"
+              >
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-b from-orange-50/0 to-orange-50/70 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                />
+                <div className="relative">
+                  <div className="text-gradient-brand font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
+                    <CountUp to={s.to} prefix={s.prefix} suffix={s.suffix} />
+                  </div>
+                  <div className="mt-2 text-sm text-gray-500">{s.label}</div>
                 </div>
-                <div className="mt-1.5 text-sm text-gray-500">{s.label}</div>
               </Reveal>
             ))}
           </div>
-        </section>
 
-        {/* ───────── Problem → Solution ───────── */}
-        <section className="relative py-24 sm:py-32">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <SectionIntro
-              title="Freelancing is hard enough. Your tools shouldn’t make it harder."
-              sub="Most freelancers run their business across a dozen disconnected apps. Clienter replaces the mess with one calm system."
-            />
-
-            <div className="mt-16 grid gap-5 md:grid-cols-2">
-              <Reveal>
-                <div className="h-full rounded-3xl border border-stone-200 bg-white p-8 shadow-soft">
-                  <h3 className="font-display text-lg font-bold text-gray-500">Without Clienter</h3>
-                  <ul className="mt-6 space-y-4">
-                    {CHAOS.map((c) => (
-                      <li key={c} className="flex items-start gap-3 text-[15px] text-gray-600">
-                        <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-stone-100 text-gray-400">
-                          <X className="h-3 w-3" />
-                        </span>
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-              <Reveal delay={100}>
-                <div className="relative h-full overflow-hidden rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50/40 p-8 shadow-soft-lg">
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-orange-200/40 blur-3xl"
-                  />
-                  <h3 className="font-display text-lg font-bold text-orange-600">With Clienter</h3>
-                  <ul className="mt-6 space-y-4">
-                    {CALM.map((c) => (
-                      <li key={c} className="flex items-start gap-3 text-[15px] text-gray-700">
-                        <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-orange-100 text-orange-600">
-                          <Check className="h-3.5 w-3.5" />
-                        </span>
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
+          {/* Two counter-sliding rows of the tools Clienter quietly replaces. */}
+          <div className="border-t border-stone-200/70 bg-white/40">
+            <div className="mx-auto flex max-w-6xl flex-col gap-5 px-4 py-9 sm:flex-row sm:items-center sm:gap-8 sm:px-6 lg:px-8">
+              <p className="shrink-0 text-center font-display text-sm font-bold uppercase tracking-[0.14em] text-gray-400 sm:text-left">
+                One app instead
+                <br className="hidden sm:block" /> of ten tabs
+              </p>
+              <div className="min-w-0 flex-1 space-y-3">
+                <Marquee speed={40}>
+                  {REPLACES.map((t) => (
+                    <ToolChip key={t.label} icon={t.icon} label={t.label} />
+                  ))}
+                </Marquee>
+                <Marquee speed={48} reverse>
+                  {[...REPLACES].reverse().map((t) => (
+                    <ToolChip key={t.label} icon={t.icon} label={t.label} />
+                  ))}
+                </Marquee>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ───────── Features (bento) ───────── */}
-        <section id="features" className="relative scroll-mt-24 py-24 sm:py-32">
+        {/* ───────── Problem → Solution (transformation ledger) ───────── */}
+        <section className="relative py-16 sm:py-24">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <SectionIntro
+              title="Freelancing is hard enough. Your tools shouldn’t make it harder."
+              sub="Most freelancers run their business across a dozen disconnected apps. Here’s what changes the day you switch."
+            />
+
+            {/* One clean before→after ledger instead of two big cards. */}
+            <Reveal className="mt-14">
+              <div className="overflow-hidden rounded-3xl border border-stone-200/70 bg-white/60 shadow-soft-lg backdrop-blur-sm">
+                {/* Column headers */}
+                <div className="grid grid-cols-2 text-sm font-semibold">
+                  <div className="flex items-center gap-2 px-5 py-4 text-gray-400 sm:px-8">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-stone-100 text-gray-400">
+                      <X className="h-3.5 w-3.5" />
+                    </span>
+                    The old way
+                  </div>
+                  <div className="flex items-center gap-2 bg-gradient-to-r from-orange-50/60 to-amber-50/40 px-5 py-4 text-orange-600 sm:px-8">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-orange-100 text-orange-600">
+                      <Sparkles className="h-3.5 w-3.5" />
+                    </span>
+                    The Clienter way
+                  </div>
+                </div>
+
+                {/* Paired rows: chaos on the left transforms into calm on the right */}
+                {CHAOS.map((chaos, i) => (
+                  <div
+                    key={chaos}
+                    className="group grid grid-cols-2 border-t border-stone-200/70 text-[15px]"
+                  >
+                    <div className="flex items-start gap-3 px-5 py-4 text-gray-500 sm:px-8">
+                      <X className="mt-0.5 h-4 w-4 flex-none text-stone-300" />
+                      <span className="line-clamp-3">{chaos}</span>
+                    </div>
+                    <div className="flex items-start gap-3 bg-gradient-to-r from-orange-50/60 to-amber-50/40 px-5 py-4 text-gray-800 transition-colors group-hover:from-orange-100/70 sm:px-8">
+                      <Check className="mt-0.5 h-4 w-4 flex-none text-orange-500" />
+                      <span className="font-medium">{CALM[i]}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ───────── Features (alternating showcase) ───────── */}
+        <section id="features" className="relative scroll-mt-24 py-16 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <SectionIntro
               eyebrow="Everything in one place"
@@ -590,87 +609,77 @@ export default function LandingPage() {
               sub="Stop stitching together six different tools. Clienter does it all — and looks good doing it."
             />
 
-            <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-12">
-              <Reveal className="lg:col-span-7">
-                <GlowCard className="rounded-2xl">
-                  <div className="p-6 sm:p-7">
-                    <FeatureHeader
-                      icon={Users}
-                      title="Client Management"
-                      desc="Track every client, their status, and full project history in one organized place."
-                    />
-                    <ClientsVisual />
-                  </div>
-                </GlowCard>
-              </Reveal>
-
-              <Reveal delay={100} className="lg:col-span-5">
-                <GlowCard className="rounded-2xl">
-                  <div className="p-6 sm:p-7">
-                    <FeatureHeader
-                      icon={TrendingUp}
-                      title="Revenue Analytics"
-                      desc="See monthly revenue, expenses, and profit at a glance — no spreadsheets."
-                    />
-                    <AnalyticsVisual />
-                  </div>
-                </GlowCard>
-              </Reveal>
-
-              <Reveal className="lg:col-span-5">
-                <GlowCard className="rounded-2xl">
-                  <div className="p-6 sm:p-7">
-                    <FeatureHeader
-                      icon={FileText}
-                      title="Smart Invoicing"
-                      desc="Professional, GST-ready invoices with line items, tax, and one-click PDF download."
-                    />
-                    <InvoiceVisual />
-                  </div>
-                </GlowCard>
-              </Reveal>
-
-              <Reveal delay={100} className="lg:col-span-7">
-                <GlowCard className="rounded-2xl">
-                  <div className="p-6 sm:p-7">
-                    <FeatureHeader
-                      icon={Briefcase}
-                      title="Project Tracking"
-                      desc="Kanban boards, deadlines, budgets, and team assignments — for every project."
-                    />
-                    <KanbanVisual />
-                  </div>
-                </GlowCard>
-              </Reveal>
-
-              <Reveal className="lg:col-span-6">
-                <GlowCard className="rounded-2xl">
-                  <div className="p-6 sm:p-7">
-                    <FeatureHeader
-                      icon={UserPlus}
-                      title="Team Management"
-                      desc="Add developers and designers, assign them to projects, and track payments."
-                    />
-                    <TeamVisual />
-                  </div>
-                </GlowCard>
-              </Reveal>
-
-              <Reveal delay={100} className="lg:col-span-6">
-                <GlowCard className="rounded-2xl">
-                  <div className="p-6 sm:p-7">
-                    <FeatureHeader
-                      icon={Bell}
-                      title="Meeting Reminders"
-                      desc="Schedule client meetings with automatic browser push reminders."
-                    />
-                    <RemindersVisual />
-                  </div>
-                </GlowCard>
-              </Reveal>
+            {/* Three flagship features zig-zag down the page — no bento cards. */}
+            <div className="mt-14 space-y-16 sm:mt-20 sm:space-y-24">
+              <FeatureSplit
+                eyebrow="Client Management"
+                icon={Users}
+                title="Every client, in one calm profile"
+                desc="Track every client, their status, and full project history in one organized place — no more digging through WhatsApp threads and old emails."
+                points={[
+                  'Full contact & project history',
+                  'A status pipeline you can see at a glance',
+                  'Notes, files, and payments in one view',
+                ]}
+                visual={<ClientsVisual />}
+              />
+              <FeatureSplit
+                flip
+                eyebrow="Smart Invoicing"
+                icon={FileText}
+                title="Send GST-ready invoices in a minute"
+                desc="Professional, branded invoices with line items, tax, and one-click PDF download — so you get paid faster and look sharp doing it."
+                points={[
+                  'GST-compliant, branded templates',
+                  'One-click PDF export',
+                  'Track paid, pending & overdue live',
+                ]}
+                visual={<InvoiceVisual />}
+              />
+              <FeatureSplit
+                eyebrow="Project Tracking"
+                icon={Briefcase}
+                title="See exactly where every project stands"
+                desc="Kanban boards, deadlines, budgets, and team assignments for every project — the whole studio on one clean board."
+                points={[
+                  'Drag-and-drop Kanban board',
+                  'Deadlines & budgets per project',
+                  'Assign your team in a click',
+                ]}
+                visual={<KanbanVisual />}
+              />
             </div>
 
-            <Reveal className="mt-12 text-center">
+            {/* The rest — a light icon row, deliberately not more cards. */}
+            <div className="mt-16 grid gap-x-10 gap-y-10 border-t border-stone-200/70 pt-12 sm:mt-24 sm:grid-cols-3">
+              {[
+                {
+                  icon: TrendingUp,
+                  title: 'Revenue Analytics',
+                  desc: 'See monthly revenue, expenses, and profit at a glance — no spreadsheets.',
+                },
+                {
+                  icon: UserPlus,
+                  title: 'Team Management',
+                  desc: 'Add developers and designers, assign them to projects, and track payments.',
+                },
+                {
+                  icon: Bell,
+                  title: 'Meeting Reminders',
+                  desc: 'Schedule client meetings with automatic browser push reminders.',
+                },
+              ].map(({ icon: Icon, title, desc }, i) => (
+                <Reveal key={title} delay={i * 100} className="group">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/25 transition-transform duration-300 group-hover:-translate-y-0.5">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 font-display text-lg font-bold text-gray-900">{title}</h3>
+                  <p className="mt-1.5 text-[15px] leading-relaxed text-gray-600">{desc}</p>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal className="mt-14 text-center">
               <Link
                 href="/features"
                 className="inline-flex items-center gap-1.5 font-semibold text-orange-600 transition-colors hover:text-orange-700"
@@ -682,8 +691,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ───────── How it works ───────── */}
-        <section id="how" className="relative scroll-mt-24 py-24 sm:py-32">
+        {/* ───────── How it works (numbered timeline) ───────── */}
+        <section id="how" className="relative scroll-mt-24 py-16 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <SectionIntro
               eyebrow="Up and running in minutes"
@@ -691,28 +700,36 @@ export default function LandingPage() {
               title="From signup to paid in three steps"
             />
 
-            <div className="relative mt-16 grid grid-cols-1 gap-5 md:grid-cols-3">
+            <div className="relative mt-16 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+              {/* Connector line, aligned to the number nodes (desktop) */}
               <div
                 aria-hidden
-                className="absolute left-0 right-0 top-1/2 hidden h-px bg-gradient-to-r from-transparent via-orange-200 to-transparent md:block"
+                className="absolute inset-x-[16%] top-7 hidden h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-orange-200 to-transparent md:block"
               />
+              {/* Directional arrows sitting in the gaps between the nodes */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 top-7 hidden -translate-y-1/2 md:grid md:grid-cols-3 md:gap-8"
+              >
+                {[0, 1].map((k) => (
+                  <div key={k} className="relative">
+                    <span className="absolute right-0 top-0 flex h-8 w-8 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full border border-orange-200 bg-white text-orange-500 shadow-soft">
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                ))}
+              </div>
               {STEPS.map((step, i) => (
-                <Reveal key={step.n} delay={i * 120}>
-                  <GlowCard className="rounded-2xl">
-                    <div className="relative overflow-hidden p-7 sm:p-8">
-                      <span
-                        aria-hidden
-                        className="pointer-events-none absolute -right-2 -top-6 select-none font-display text-[7rem] font-extrabold leading-none text-stone-900/[0.035]"
-                      >
-                        {step.n}
-                      </span>
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-b from-orange-500 to-orange-600 font-display text-base font-bold text-white shadow-lg shadow-orange-500/30">
-                        {i + 1}
-                      </div>
-                      <h3 className="mt-6 font-display text-xl font-bold text-gray-900">{step.title}</h3>
-                      <p className="mt-2 leading-relaxed text-gray-600">{step.desc}</p>
-                    </div>
-                  </GlowCard>
+                <Reveal key={step.n} delay={i * 120} className="relative">
+                  {/* Number node sits on the connector line */}
+                  <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-orange-500 to-orange-600 font-display text-xl font-bold text-white shadow-lg shadow-orange-500/30">
+                    {i + 1}
+                  </div>
+                  <span className="mt-6 block text-xs font-bold uppercase tracking-[0.16em] text-orange-500">
+                    Step {step.n}
+                  </span>
+                  <h3 className="mt-2 font-display text-xl font-bold text-gray-900">{step.title}</h3>
+                  <p className="mt-2 max-w-xs leading-relaxed text-gray-600">{step.desc}</p>
                 </Reveal>
               ))}
             </div>
@@ -720,7 +737,7 @@ export default function LandingPage() {
         </section>
 
         {/* ───────── Pricing ───────── */}
-        <section id="pricing" className="relative scroll-mt-24 py-24 sm:py-32">
+        <section id="pricing" className="relative scroll-mt-24 py-16 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <SectionIntro
               eyebrow="Pricing"
@@ -728,7 +745,7 @@ export default function LandingPage() {
               sub="Start free. Upgrade only when you’re ready. No hidden fees, ever."
             />
 
-            <div className="mt-16 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
+            <div className="mt-14 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
               {PLANS.map((plan, i) => {
                 const inner = (
                   <div className="flex h-full flex-col p-7 sm:p-8">
@@ -819,68 +836,68 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ───────── Founder ───────── */}
-        <section className="py-24 sm:py-32">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        {/* ───────── Founder (editorial pull-quote) ───────── */}
+        <section className="relative py-16 sm:py-24">
+          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
             <Reveal>
-              <div className="relative overflow-hidden rounded-[2rem] border border-stone-200 bg-white p-8 shadow-soft-lg sm:p-12">
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-orange-100/70 blur-3xl"
+              <span
+                aria-hidden
+                className="block select-none font-serif-display text-[5.5rem] leading-[0.7] text-orange-200"
+              >
+                &rdquo;
+              </span>
+              <span className="mt-4 block text-xs font-semibold uppercase tracking-[0.18em] text-orange-500">
+                From the founder
+              </span>
+              <blockquote className="mt-6 font-display text-2xl font-bold leading-[1.35] tracking-tight text-gray-900 sm:text-[2rem]">
+                I’m building Clienter for the same people I make content for — freelancers and
+                agency owners who want to grow without{' '}
+                <span className="text-gradient-brand font-serif-display text-[1.1em] font-normal italic">
+                  drowning in tools
+                </span>
+                . This is the app I wished I had.
+              </blockquote>
+
+              <div className="mt-10 flex flex-col items-center gap-4">
+                <Image
+                  src={FOUNDER.photo}
+                  alt={FOUNDER.name}
+                  width={144}
+                  height={144}
+                  className="h-20 w-20 rounded-full object-cover shadow-lg shadow-orange-500/25 ring-2 ring-orange-200"
                 />
-                <div className="flex flex-col gap-8 sm:flex-row sm:items-center">
-                  <Image
-                    src={FOUNDER.photo}
-                    alt={FOUNDER.name}
-                    width={224}
-                    height={224}
-                    className="h-40 w-40 shrink-0 rounded-3xl object-cover shadow-lg shadow-orange-500/25 ring-2 ring-orange-200 sm:h-56 sm:w-56"
-                  />
-                  <div className="min-w-0">
-                    <span className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-500">
-                      From the founder
-                    </span>
-                    <blockquote className="mt-4 font-display text-2xl font-bold leading-snug text-gray-900 sm:text-3xl">
-                      “I’m building Clienter for the same people I make content for — freelancers
-                      and agency owners who want to grow without drowning in tools. This is the app
-                      I wished I had.”
-                    </blockquote>
-                    <div className="mt-7 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-                      <div>
-                        <p className="font-display text-lg font-bold text-gray-900">{FOUNDER.name}</p>
-                        <p className="text-sm text-gray-500">{FOUNDER.role}</p>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        {FOUNDER_SOCIALS.map(({ href, label, Icon }) => (
-                          <a
-                            key={label}
-                            href={href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${FOUNDER.name} on ${label}`}
-                            className="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-200 text-gray-500 transition-colors hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600"
-                          >
-                            <Icon className="h-4 w-4" />
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                    <Link
-                      href="/about"
-                      className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-orange-600 transition-colors hover:text-orange-700"
-                    >
-                      Read the full story
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </div>
+                <div>
+                  <p className="font-display text-lg font-bold text-gray-900">{FOUNDER.name}</p>
+                  <p className="text-sm text-gray-500">{FOUNDER.role}</p>
                 </div>
+                <div className="flex items-center gap-2">
+                  {FOUNDER_SOCIALS.map(({ href, label, Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${FOUNDER.name} on ${label}`}
+                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-200 text-gray-500 transition-colors hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600"
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  ))}
+                </div>
+                <Link
+                  href="/about"
+                  className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-orange-600 transition-colors hover:text-orange-700"
+                >
+                  Read the full story
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </Reveal>
           </div>
         </section>
 
         {/* ───────── FAQ ───────── */}
-        <section id="faq" className="scroll-mt-24 pb-24 sm:pb-32">
+        <section id="faq" className="scroll-mt-24 py-16 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <SectionIntro
               title="Frequently asked questions"
@@ -901,7 +918,7 @@ export default function LandingPage() {
         </section>
 
         {/* ───────── Final CTA ───────── */}
-        <section className="px-4 pb-24 sm:px-6 sm:pb-32 lg:px-8">
+        <section className="px-4 pb-16 sm:px-6 sm:pb-24 lg:px-8">
           <Reveal className="mx-auto max-w-5xl">
             <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-orange-500 via-orange-500 to-amber-500 px-6 py-16 text-center shadow-[0_30px_80px_-30px_rgba(249,115,22,0.6)] sm:px-12 sm:py-24">
               <div
@@ -953,7 +970,7 @@ export default function LandingPage() {
         </section>
 
         {/* ───────── Data privacy / security ───────── */}
-        <DataSecurity className="pb-24 sm:pb-32" />
+        <DataSecurity className="pb-16 sm:pb-24" />
       </main>
 
       <div className="relative z-10">

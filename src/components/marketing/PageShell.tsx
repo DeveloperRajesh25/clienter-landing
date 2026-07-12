@@ -7,7 +7,7 @@ import { SiteFooter } from './SiteFooter'
  */
 export function PageShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 antialiased">
+    <div className="min-h-screen bg-[#FFF8F2] font-sans text-gray-900 antialiased">
       <SiteHeader />
       <main>{children}</main>
       <SiteFooter />
