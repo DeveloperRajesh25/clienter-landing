@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react'
 import { NAV_LINKS, APP_URL } from '@/lib/site'
+import { SpotlightButton } from '@/components/landing/SpotlightButton'
 
 /**
  * Global site header: a floating glass pill. Fully
@@ -95,13 +96,14 @@ export function SiteHeader() {
           >
             Sign in
           </a>
-          <a
+          <SpotlightButton
             href={`${APP_URL}/signup`}
-            className="press inline-flex items-center gap-1.5 rounded-full bg-gradient-to-b from-orange-500 to-orange-600 px-4 py-2 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_6px_20px_-6px_rgba(249,115,22,0.7)] transition-all hover:brightness-105"
+            className="px-4 py-2 text-sm font-semibold"
+            dropClassName="h-8 w-8"
           >
             Get started
             <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+          </SpotlightButton>
         </div>
 
         <button

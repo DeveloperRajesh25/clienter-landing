@@ -188,6 +188,22 @@
     background-size: 56px 56px;
   }
 
+  /* Premium warm hero grid: a fine 32px mesh over a bolder 128px one, tinted
+     with brand-orange so it reads on the cream canvas. Pair with a radial mask
+     to fade it into the page. */
+  .bg-grid-hero {
+    background-image:
+      linear-gradient(to right, rgba(249, 115, 22, 0.11) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(249, 115, 22, 0.11) 1px, transparent 1px),
+      linear-gradient(to right, rgba(120, 90, 60, 0.09) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(120, 90, 60, 0.09) 1px, transparent 1px);
+    background-size:
+      128px 128px,
+      128px 128px,
+      32px 32px,
+      32px 32px;
+  }
+
   .mask-fade-edges {
     -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
     mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);

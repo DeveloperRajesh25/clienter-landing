@@ -12,6 +12,7 @@ import {
   X,
   ArrowRight,
   ArrowUpRight,
+  Play,
   Sparkles,
   ShieldCheck,
   Zap,
@@ -26,7 +27,9 @@ import {
 import { APP_URL } from '@/lib/site'
 import { SiteHeader } from '@/components/marketing/SiteHeader'
 import { SiteFooter } from '@/components/marketing/SiteFooter'
-import { HeroField } from '@/components/landing/HeroField'
+import { HeroGrid } from '@/components/landing/HeroGrid'
+import { HeroScroll } from '@/components/landing/HeroScroll'
+import { SpotlightButton } from '@/components/landing/SpotlightButton'
 import { TiltCard } from '@/components/landing/TiltCard'
 import { GlowCard } from '@/components/landing/GlowCard'
 import { HeroPreview } from '@/components/landing/HeroPreview'
@@ -427,76 +430,83 @@ export default function LandingPage() {
 
       <main className="relative z-10">
         {/* ───────── Hero ───────── */}
-        <section className="relative pt-32 sm:pt-40">
-          {/* Interactive cursor-lit dot field, scoped to the hero */}
-          <HeroField />
+        <section className="relative">
+          {/* Interactive 3D grid — pops toward the cursor for a depth effect */}
+          <HeroGrid />
 
-          <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6">
-            <Reveal>
-              <a
-                href={`${APP_URL}/signup`}
-                className="group inline-flex items-center gap-2.5 rounded-full border border-orange-200/80 bg-white/70 px-4 py-1.5 text-sm font-medium text-orange-700 shadow-sm backdrop-blur transition-colors hover:border-orange-300"
-              >
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500" />
-                </span>
-                Now live — start for free
-                <ArrowRight className="h-3.5 w-3.5 text-orange-400 transition-transform group-hover:translate-x-0.5" />
-              </a>
-            </Reveal>
-
-            <Reveal delay={80}>
-              <h1 className="mt-8 text-balance font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
-                Run your freelance business{' '}
-                <br className="hidden lg:block" />
-                without the{' '}
-                <span className="text-gradient-brand animate-gradient-pan font-serif-display text-[1.14em] font-normal italic drop-shadow-[0_2px_20px_rgba(249,115,22,0.25)]">
-                  chaos
-                </span>
-              </h1>
-            </Reveal>
-
-            <Reveal delay={160}>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl">
-                Clienter brings your clients, projects, invoices, and team together in one beautiful
-                place, built for freelancers and agencies.
-              </p>
-            </Reveal>
-
-            <Reveal delay={240}>
-              <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <a
-                  href={`${APP_URL}/signup`}
-                  className="press group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-b from-orange-500 to-orange-600 px-8 py-4 text-base font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_10px_34px_-10px_rgba(249,115,22,0.75)] transition-all hover:brightness-105 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_12px_44px_-10px_rgba(249,115,22,0.9)] sm:w-auto"
-                >
-                  Start for free
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </a>
-                <Link
-                  href="/how-it-works"
-                  className="inline-flex w-full items-center justify-center rounded-full border border-stone-200 bg-white/80 px-8 py-4 text-base font-semibold text-gray-700 shadow-sm backdrop-blur transition-colors hover:border-stone-300 hover:bg-white sm:w-auto"
-                >
-                  See how it works
-                </Link>
-              </div>
-            </Reveal>
-
-            {/* Trust strip */}
-            <Reveal delay={320}>
-              <div className="mx-auto mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-sm text-gray-500">
-                {TRUST.map(({ icon: Icon, label }) => (
-                  <span key={label} className="inline-flex items-center gap-1.5">
-                    <Icon className="h-4 w-4 text-orange-500" />
-                    {label}
+          {/* Hero copy — vertically centered in the viewport, transform-pinned +
+              zoomed out on scroll (see HeroScroll) so the dashboard below rises
+              and stacks on top of it. */}
+          <HeroScroll className="relative z-0 mx-auto flex min-h-[100svh] max-w-5xl flex-col px-4 pt-20 pb-10 text-center sm:px-6">
+            {/* Main copy group — centered in the space above the trust strip */}
+            <div className="flex flex-1 flex-col items-center justify-center">
+              <Reveal>
+                <h1 className="text-balance font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+                  Run your freelance business{' '}
+                  <br className="hidden lg:block" />
+                  without the{' '}
+                  <span className="text-gradient-brand animate-gradient-pan font-serif-display text-[1.14em] font-normal italic drop-shadow-[0_2px_20px_rgba(249,115,22,0.25)]">
+                    chaos
                   </span>
-                ))}
-              </div>
-            </Reveal>
-          </div>
+                </h1>
+              </Reveal>
 
-          {/* Product preview */}
-          <div className="relative mx-auto mt-16 max-w-5xl px-4 sm:mt-20 sm:px-6 lg:px-8">
+              <Reveal delay={160}>
+                <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-gray-600 sm:text-base">
+                  Clienter brings your clients, projects, invoices, and team together in one
+                  beautiful place, built for freelancers and agencies.
+                </p>
+              </Reveal>
+
+              <Reveal delay={240}>
+                <div className="mt-10 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
+                  {/* Primary — black pill, orange spotlight tracks the cursor on hover */}
+                  <SpotlightButton
+                    href={`${APP_URL}/signup`}
+                    className="w-full px-8 py-[15px] text-base font-semibold sm:w-auto"
+                  >
+                    Start for free
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </SpotlightButton>
+
+                  {/* Secondary — glass pill, brand glow ring + play chip that fills on hover */}
+                  <Link
+                    href="/how-it-works"
+                    className="press group relative inline-flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full border border-stone-200/90 bg-white/70 px-7 py-[15px] text-base font-semibold text-gray-700 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-orange-200 hover:text-orange-700 hover:shadow-[0_14px_36px_-14px_rgba(249,115,22,0.5)] sm:w-auto"
+                  >
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-r from-orange-50/0 via-orange-50 to-amber-50/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    />
+                    <span className="relative flex h-6 w-6 items-center justify-center rounded-full bg-orange-100 text-orange-600 transition-colors duration-300 group-hover:bg-orange-500 group-hover:text-white">
+                      <Play className="h-3 w-3 translate-x-[0.5px] fill-current" />
+                    </span>
+                    <span className="relative">See how it works</span>
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Trust strip — sits in normal flow near the bottom of the hero.
+                Uses a plain CSS fade-in (not <Reveal>'s IntersectionObserver)
+                so it renders immediately on first paint, never gated behind
+                a scroll-triggered visibility check. */}
+            <div
+              className="animate-fade-in mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-6 gap-y-2.5 text-sm text-gray-500"
+              style={{ animationDelay: '320ms' }}
+            >
+              {TRUST.map(({ icon: Icon, label }) => (
+                <span key={label} className="inline-flex items-center gap-1.5">
+                  <Icon className="h-4 w-4 text-orange-500" />
+                  {label}
+                </span>
+              ))}
+            </div>
+          </HeroScroll>
+
+          {/* Product preview — sits above the hero copy (z-20) and rises up to
+              stack on top of it as the hero recedes. */}
+          <div className="relative z-20 mx-auto -mt-4 max-w-5xl px-4 sm:mt-0 sm:px-6 lg:px-8">
             <div
               aria-hidden
               className="absolute inset-x-6 -top-10 bottom-10 -z-10 bg-[radial-gradient(ellipse_55%_55%_at_50%_20%,rgba(249,115,22,0.16),transparent_70%)] blur-2xl"
