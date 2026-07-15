@@ -10,12 +10,17 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { Reveal } from '@/components/landing/Reveal'
+import { Parallax } from '@/components/landing/Parallax'
+import { SectionLabel } from '@/components/landing/SectionLabel'
 
 /**
  * Verified Client Reviews — the flagship trust feature. A Trustpilot-style
  * system that turns completed projects into credible, verified reviews the
- * freelancer can show off (public page + embeddable badge). Reused on the
- * homepage and the "business management software" SEO page.
+ * freelancer can show off (public page + embeddable badge).
+ *
+ * Art direction: the whole band sits on warm cream paper so it reads as a
+ * distinct, tangible artefact in the page's light/dark rhythm — the review
+ * page is the hero object here, not an illustration beside a list.
  *
  * Note: no ratings/counts are hard-coded as real traction — the mock visual is
  * clearly illustrative, and the copy frames reviews as "coming from real
@@ -57,7 +62,7 @@ function ReviewCard({
   date: string
 }) {
   return (
-    <div className="rounded-xl border border-stone-200/80 bg-white p-3.5 shadow-soft">
+    <div className="rounded-xl border border-stone-200/80 bg-white p-3.5 shadow-lift-1">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="flex h-7 w-7 items-center justify-center rounded-full bg-orange-100 text-[11px] font-bold text-orange-600">
@@ -83,62 +88,79 @@ function ReviewCard({
 function ReviewPageMock() {
   return (
     <div className="relative">
+      {/* Warm bloom, drifting slower than the page so the object sits in space. */}
+      <Parallax
+        speed={30}
+        className="pointer-events-none absolute -inset-10 -z-10 rounded-[3rem] bg-[radial-gradient(ellipse_60%_60%_at_50%_45%,rgba(249,115,22,0.20),transparent_70%)] blur-2xl"
+      >
+        <span />
+      </Parallax>
+
+      {/* A second sheet peeking out behind — the page has depth, it's a real
+          artefact rather than a flat screenshot. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -inset-6 -z-10 rounded-[2.5rem] bg-[radial-gradient(ellipse_60%_60%_at_50%_40%,rgba(249,115,22,0.16),transparent_70%)] blur-2xl"
+        className="absolute inset-x-8 -top-3 h-20 rotate-[-2deg] rounded-2xl border border-stone-200/70 bg-white/60 shadow-lift-1"
       />
-      <div className="overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-soft-lg">
-        <div className="flex items-center gap-1.5 border-b border-stone-100 px-4 py-3">
-          <span className="h-2.5 w-2.5 rounded-full bg-orange-400" />
-          <span className="h-2.5 w-2.5 rounded-full bg-stone-200" />
-          <span className="h-2.5 w-2.5 rounded-full bg-stone-200" />
-          <span className="ml-2 truncate text-[11px] font-medium text-gray-400">
-            clienter.co.in/your-studio
-          </span>
-        </div>
 
-        <div className="p-5 sm:p-6">
-          {/* Agency header */}
-          <div className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-base font-bold text-white shadow-lg shadow-orange-500/25">
-              YS
+      <Parallax speed={-18} className="relative">
+        <div className="overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-lift-4">
+          <div className="flex items-center gap-1.5 border-b border-stone-100 bg-stone-50/60 px-4 py-3">
+            <span className="h-2.5 w-2.5 rounded-full bg-orange-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-stone-200" />
+            <span className="h-2.5 w-2.5 rounded-full bg-stone-200" />
+            <span className="ml-2 truncate text-[11px] font-medium text-gray-400">
+              clienter.co.in/your-studio
             </span>
-            <div>
-              <div className="font-display text-base font-bold text-gray-900">Your Studio</div>
-              <div className="flex items-center gap-1.5">
-                <div className="flex gap-0.5 text-orange-400">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-current" />
-                  ))}
+          </div>
+
+          <div className="p-5 sm:p-6">
+            {/* Agency header */}
+            <div className="flex items-center gap-3">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-base font-bold text-white shadow-ember">
+                YS
+              </span>
+              <div>
+                <div className="font-display text-base font-bold text-gray-900">Your Studio</div>
+                <div className="flex items-center gap-1.5">
+                  <div className="flex gap-0.5 text-orange-400">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                    ))}
+                  </div>
+                  <span className="text-xs font-semibold text-gray-700">4.9</span>
+                  <span className="text-xs text-stone-400">· verified reviews</span>
                 </div>
-                <span className="text-xs font-semibold text-gray-700">4.9</span>
-                <span className="text-xs text-stone-400">· verified reviews</span>
               </div>
             </div>
-          </div>
 
-          {/* Reviews */}
-          <div className="mt-4 space-y-2.5">
-            <ReviewCard
-              name="Ananya R."
-              stars={5}
-              text="Delivered ahead of schedule and kept us in the loop the whole way. Would hire again in a heartbeat."
-              date="Verified Project · Jun 2026"
-            />
-            <ReviewCard
-              name="Vikram T."
-              stars={5}
-              text="Professional from the first call to the final invoice. Exactly what a growing brand needs."
-              date="Verified Project · May 2026"
-            />
-          </div>
+            {/* Reviews */}
+            <div className="mt-4 space-y-2.5">
+              <ReviewCard
+                name="Ananya R."
+                stars={5}
+                text="Delivered ahead of schedule and kept us in the loop the whole way. Would hire again in a heartbeat."
+                date="Verified Project · Jun 2026"
+              />
+              <ReviewCard
+                name="Vikram T."
+                stars={5}
+                text="Professional from the first call to the final invoice. Exactly what a growing brand needs."
+                date="Verified Project · May 2026"
+              />
+            </div>
 
-          <p className="mt-3 text-center text-[10px] text-stone-400">Powered by Clienter</p>
+            <p className="mt-3 text-center text-[10px] text-stone-400">Powered by Clienter</p>
+          </div>
         </div>
-      </div>
+      </Parallax>
 
-      {/* Floating embeddable badge */}
-      <div className="absolute -bottom-5 -left-4 hidden rounded-2xl border border-stone-200/80 bg-white p-3 shadow-soft-lg sm:block">
+      {/* Floating embeddable badge — leads the parallax so it reads as nearest
+          to the viewer. */}
+      <Parallax
+        speed={-42}
+        className="absolute -bottom-6 -left-5 hidden rounded-2xl border border-stone-200/80 bg-white/95 p-3.5 shadow-lift-4 backdrop-blur sm:block"
+      >
         <div className="flex items-center gap-2">
           <div className="flex gap-0.5 text-orange-400">
             {Array.from({ length: 5 }).map((_, i) => (
@@ -148,68 +170,99 @@ function ReviewPageMock() {
           <span className="text-xs font-bold text-gray-900">4.9</span>
         </div>
         <p className="mt-1 text-[10px] font-medium text-stone-400">Embeddable badge · your site</p>
-      </div>
+      </Parallax>
     </div>
   )
 }
 
 export function VerifiedReviews({ className = '' }: { className?: string }) {
   return (
-    <section className={`relative ${className}`}>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-orange-600">
-            <BadgeCheck className="h-3.5 w-3.5" /> New · Built-in trust
-          </span>
-          <h2 className="mt-5 font-display text-3xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
-            Turn finished projects into{' '}
-            <span className="text-gradient-brand font-serif-display text-[1.1em] font-normal italic">
-              verified reviews
-            </span>
-          </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Social proof is the hardest thing for a freelancer to build — so Clienter builds it for
-            you. Real reviews, from real clients, on real completed projects.
-          </p>
-        </Reveal>
+    <section
+      className={`grain grain-light relative overflow-hidden border-y border-line/60 bg-cream py-20 sm:py-32 ${className}`}
+    >
+      {/* Paper texture: a faint dot field, masked so it never reads as a grid. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 bg-dot-warm opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_80%_20%,black,transparent)]"
+      />
 
-        <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <Reveal>
-            <ul className="space-y-6">
-              {HOW.map(({ icon: Icon, title, desc }) => (
-                <li key={title} className="flex gap-4">
-                  <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-lg shadow-orange-500/25">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <h3 className="font-display text-lg font-bold text-gray-900">{title}</h3>
-                    <p className="mt-1 text-[15px] leading-relaxed text-gray-600">{desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <Reveal>
+              <SectionLabel icon={BadgeCheck}>New · Built-in trust</SectionLabel>
+            </Reveal>
+            <Reveal variant="mask" delay={90}>
+              <h2 className="mt-6 font-display text-3xl font-extrabold tracking-tight text-gray-900 sm:text-display-sm lg:text-display">
+                Turn finished projects into{' '}
+                <span className="text-gradient-brand font-serif-display text-[1.12em] font-normal italic">
+                  verified reviews
+                </span>
+              </h2>
+            </Reveal>
+            <Reveal delay={180}>
+              <p className="mt-5 max-w-measure text-lg leading-relaxed text-gray-600">
+                Social proof is the hardest thing for a freelancer to build — so Clienter builds it
+                for you. Real reviews, from real clients, on real completed projects.
+              </p>
+            </Reveal>
 
-            <div className="mt-8 flex items-center gap-2 rounded-2xl border border-stone-200/70 bg-white/70 px-4 py-3 text-sm text-gray-600 shadow-soft backdrop-blur">
-              <Lock className="h-4 w-4 flex-none text-orange-500" />
-              Free on every plan — including Free — because the more agencies embed their badge, the
-              more people discover Clienter.
-            </div>
-          </Reveal>
+            <Reveal delay={240}>
+              <div className="mt-8 flex gap-3 border-l-2 border-orange-500/30 pl-4 text-sm leading-relaxed text-gray-600">
+                <Lock className="mt-0.5 h-4 w-4 flex-none text-orange-500" />
+                <span>
+                  Free on every plan — including Free — because the more agencies embed their badge,
+                  the more people discover Clienter.
+                </span>
+              </div>
+            </Reveal>
 
-          <Reveal delay={120}>
+            <Reveal delay={300}>
+              <Link
+                href="/features#verified-client-reviews"
+                className="focus-ember group mt-8 inline-flex items-center gap-2 rounded-full text-sm font-bold uppercase tracking-[0.14em] text-orange-600 transition-colors hover:text-orange-700"
+              >
+                See how verified reviews work
+                <span className="flex h-7 w-7 items-center justify-center rounded-full border border-orange-200 transition-all duration-300 group-hover:border-orange-400 group-hover:bg-orange-100/60">
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            </Reveal>
+          </div>
+
+          <Reveal delay={120} className="lg:col-span-7">
             <ReviewPageMock />
           </Reveal>
         </div>
 
-        <Reveal className="mt-14 text-center">
-          <Link
-            href="/features#verified-client-reviews"
-            className="inline-flex items-center gap-1.5 font-semibold text-orange-600 transition-colors hover:text-orange-700"
-          >
-            See how verified reviews work
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Reveal>
+        {/* The four points as a printed index — numbered, hairline-separated,
+            running the full width under the artefact. Never a bulleted list. */}
+        <div className="mt-24 sm:mt-32">
+          <div className="rule-warm" />
+          <div className="grid gap-x-8 gap-y-10 pt-12 sm:grid-cols-2 lg:grid-cols-4">
+            {HOW.map(({ icon: Icon, title, desc }, i) => (
+              <Reveal key={title} delay={i * 100} className="group relative">
+                {i > 0 && (
+                  <span
+                    aria-hidden
+                    className="absolute -left-4 top-1 hidden h-14 w-px bg-gradient-to-b from-line to-transparent lg:block"
+                  />
+                )}
+                <div className="flex items-baseline gap-3">
+                  <span className="font-display text-xs font-bold tracking-[0.16em] text-orange-500/60">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="h-px flex-1 bg-line/70" />
+                  <Icon className="h-4 w-4 flex-none text-orange-500 transition-transform duration-300 group-hover:-translate-y-0.5" />
+                </div>
+                <h3 className="mt-5 font-display text-lg font-bold tracking-tight text-gray-900">
+                  {title}
+                </h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-gray-600">{desc}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

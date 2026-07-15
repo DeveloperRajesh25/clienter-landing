@@ -8,7 +8,20 @@ interface RevealProps {
   as?: ElementType
   /** Stagger delay in ms — handy for grids/lists. */
   delay?: number
+  /**
+   * `rise` (default) fades + slides up. `mask` wipes the content in from
+   * below with no movement — reserved for editorial headlines, where a
+   * sliding block of large type reads as cheap. `wipeX` draws left-to-right,
+   * for connective rules and spines.
+   */
+  variant?: 'rise' | 'mask' | 'wipeX'
   className?: string
+}
+
+const VARIANT_CLASS: Record<NonNullable<RevealProps['variant']>, string> = {
+  rise: 'reveal',
+  mask: 'reveal-mask',
+  wipeX: 'reveal-wipe-x',
 }
 
 /**
@@ -16,7 +29,13 @@ interface RevealProps {
  * viewport. Pairs with the `.reveal` / `.is-visible` styles in globals.css and
  * degrades gracefully when `prefers-reduced-motion` is set.
  */
-export function Reveal({ children, as: Tag = 'div', delay = 0, className = '' }: RevealProps) {
+export function Reveal({
+  children,
+  as: Tag = 'div',
+  delay = 0,
+  variant = 'rise',
+  className = '',
+}: RevealProps) {
   const ref = useRef<HTMLElement | null>(null)
   const [visible, setVisible] = useState(false)
 
@@ -41,7 +60,7 @@ export function Reveal({ children, as: Tag = 'div', delay = 0, className = '' }:
   return (
     <Tag
       ref={ref as never}
-      className={`reveal ${visible ? 'is-visible' : ''} ${className}`}
+      className={`${VARIANT_CLASS[variant]} ${visible ? 'is-visible' : ''} ${className}`}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}

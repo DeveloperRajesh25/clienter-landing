@@ -13,20 +13,33 @@ const SOCIAL_ICONS = [
 /**
  * Site-wide marketing footer: brand, link columns, socials, legal bar.
  * Defaults to the light style used across marketing pages; pass `dark` on
- * dark surfaces (the landing page).
+ * dark surfaces.
+ *
+ * Shared by every marketing page (via PageShell) as well as the landing page,
+ * so it stays one design in two tones — a footer that differed per page would
+ * read as a bug, not art direction.
  */
 export function SiteFooter({ dark = false }: { dark?: boolean }) {
+  const heading = dark ? 'text-white' : 'text-gray-900'
+  const body = dark ? 'text-stone-400' : 'text-gray-500'
+  const rule = dark ? 'border-white/[0.06]' : 'border-line/70'
+
   return (
     <footer
-      className={
-        dark ? 'relative border-t border-white/[0.06]' : 'border-t border-gray-200 bg-white'
-      }
+      className={`relative overflow-hidden border-t ${rule} ${dark ? '' : 'bg-white/60 backdrop-blur-sm'}`}
     >
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-7">
+      {/* A single warm bloom anchored under the brand mark — the only
+          decoration down here; the rest is structure and hairlines. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-32 -top-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.10),transparent_65%)] blur-2xl"
+      />
+
+      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-6 lg:grid-cols-7">
           {/* Brand column */}
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-2.5">
+            <Link href="/" className="focus-ember inline-flex items-center gap-2.5 rounded-lg">
               <Image
                 src="/logo.png"
                 alt="Clienter logo"
@@ -34,21 +47,15 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
                 height={32}
                 className={`h-8 w-8 rounded-lg ${dark ? 'ring-1 ring-white/10' : 'ring-1 ring-black/5'}`}
               />
-              <span
-                className={`font-display text-lg font-bold ${dark ? 'text-white' : 'text-gray-900'}`}
-              >
+              <span className={`font-display text-lg font-bold tracking-tight ${heading}`}>
                 {SITE_NAME}
               </span>
             </Link>
-            <p
-              className={`mt-4 max-w-xs text-sm leading-relaxed ${
-                dark ? 'text-stone-400' : 'text-gray-500'
-              }`}
-            >
+            <p className={`mt-5 max-w-xs text-sm leading-relaxed ${body}`}>
               Run your freelance business without the chaos. The all-in-one client, project,
               invoice &amp; team workspace built for freelancers and agencies.
             </p>
-            <div className="mt-5 flex items-center gap-2">
+            <div className="mt-6 flex items-center gap-1.5">
               {SOCIAL_ICONS.map(({ href, label, Icon }) => (
                 <a
                   key={label}
@@ -56,13 +63,13 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className={`flex h-9 w-9 items-center justify-center rounded-lg border transition-colors ${
+                  className={`focus-ember flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200 hover:-translate-y-0.5 ${
                     dark
-                      ? 'border-white/10 text-stone-400 hover:border-orange-500/30 hover:bg-orange-500/10 hover:text-orange-400'
-                      : 'border-gray-200 text-gray-500 hover:border-orange-200 hover:bg-orange-50 hover:text-orange-600'
+                      ? 'text-stone-400 hover:bg-orange-500/10 hover:text-orange-400'
+                      : 'text-stone-400 hover:bg-orange-50 hover:text-orange-600'
                   }`}
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className="h-[17px] w-[17px]" />
                 </a>
               ))}
             </div>
@@ -71,22 +78,28 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
           {/* Link columns */}
           {FOOTER_NAV.map((col) => (
             <div key={col.title}>
-              <h4 className={`text-sm font-semibold ${dark ? 'text-white' : 'text-gray-900'}`}>
+              <h4
+                className={`text-[11px] font-bold uppercase tracking-[0.18em] ${
+                  dark ? 'text-stone-500' : 'text-stone-400'
+                }`}
+              >
                 {col.title}
               </h4>
-              <ul className="mt-4 space-y-3 text-sm">
-                {col.links.map((link) => {
-                  const linkClass = dark
-                    ? 'text-stone-400 transition-colors hover:text-orange-400'
-                    : 'text-gray-500 transition-colors hover:text-orange-600'
-                  return (
-                    <li key={link.href}>
-                      <Link href={link.href} className={linkClass}>
-                        {link.label}
-                      </Link>
-                    </li>
-                  )
-                })}
+              <ul className="mt-5 space-y-3 text-sm">
+                {col.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={`focus-ember rounded transition-colors ${
+                        dark
+                          ? 'text-stone-400 hover:text-orange-400'
+                          : 'text-gray-500 hover:text-orange-600'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           ))}
@@ -94,8 +107,8 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
 
         {/* Bottom bar */}
         <div
-          className={`mt-12 flex flex-col items-center justify-between gap-4 border-t pt-6 text-sm sm:flex-row ${
-            dark ? 'border-white/[0.06] text-stone-500' : 'border-gray-100 text-gray-400'
+          className={`mt-16 flex flex-col items-center justify-between gap-4 border-t pt-7 text-sm sm:flex-row ${rule} ${
+            dark ? 'text-stone-500' : 'text-stone-400'
           }`}
         >
           <p>© 2026 {SITE_NAME}. All rights reserved.</p>
