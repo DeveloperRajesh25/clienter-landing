@@ -239,7 +239,16 @@
      convention; nothing depends on it for layout. */
 
   /* Self-contained grain wash. Sits as an ::after so a section only needs
-     one class instead of an extra overlay div. Tuned to be felt, not seen. */
+     one class instead of an extra overlay div. Tuned to be felt, not seen.
+
+     `isolation: isolate` is load-bearing, not decoration: it pins the
+     soft-light blend to this element's own backdrop. Without it the blend
+     escapes to the nearest stacking context — the document root — and
+     Chromium then recomposites the whole page, which measurably shifts
+     antialiasing in unrelated sections (the hero included). */
+  .grain {
+    isolation: isolate;
+  }
   .grain::after {
     content: '';
     position: absolute;
