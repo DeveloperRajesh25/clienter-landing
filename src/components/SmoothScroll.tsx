@@ -6,8 +6,8 @@ import { ReactLenis } from 'lenis/react'
 
 /** Pages where Lenis smooth scroll should be disabled — these rely on native
  *  overflow scrolling for independently-scrollable panels (e.g. the invoice
- *  form + preview layout). */
-const NATIVE_SCROLL_PATHS = ['/invoice']
+ *  form + preview layout, or the time converter's timezone dropdown list). */
+const NATIVE_SCROLL_PATHS = ['/invoice', '/time-converter']
 
 /**
  * Site-wide inertia scrolling (the "locomotive" feel), powered by Lenis in
