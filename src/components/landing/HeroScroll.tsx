@@ -39,6 +39,11 @@ export function HeroScroll({
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
+    // Skip the transform-pin effect on small viewports: mobile browsers resize
+    // the visual viewport as the URL bar shows/hides mid-scroll, which fights
+    // the scrollY-driven transform here and reads as a stuck/glitchy scroll.
+    if (window.matchMedia('(max-width: 767px)').matches) return
+
     let raf = 0
 
     const update = () => {

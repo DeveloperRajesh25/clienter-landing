@@ -33,6 +33,10 @@ export function Parallax({ children, speed = 40, as: Tag = 'div', className = ''
     if (!el) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
+    // Scroll-linked drift is a common source of mobile scroll jank (the URL
+    // bar resizing mid-scroll fights the rAF-driven transform); skip it below md.
+    if (window.matchMedia('(max-width: 767px)').matches) return
+
     let raf = 0
     let active = false
 
