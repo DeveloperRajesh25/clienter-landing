@@ -214,38 +214,68 @@ function detectUserTimezone(): string {
 }
 
 function formatTime(date: Date, tz: string): string {
-  return date.toLocaleTimeString('en-US', {
-    timeZone: tz,
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: true,
-  })
+  try {
+    return date.toLocaleTimeString('en-US', {
+      timeZone: tz,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true,
+    })
+  } catch {
+    return '--:-- --'
+  }
 }
 
 function formatDate(date: Date, tz: string): string {
-  return date.toLocaleDateString('en-IN', {
-    timeZone: tz,
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  })
+  try {
+    return date.toLocaleDateString('en-IN', {
+      timeZone: tz,
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    })
+  } catch {
+    return ''
+  }
 }
 
 function toInputValue(date: Date, tz: string): string {
-  const parts = new Intl.DateTimeFormat('en-CA', {
-    timeZone: tz,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-  }).formatToParts(date)
-  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? '00'
-  const h = get('hour') === '24' ? '00' : get('hour')
-  return `${get('year')}-${get('month')}-${get('day')}T${h}:${get('minute')}`
+  try {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: tz,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    }).formatToParts(date)
+    const get = (t: string) => parts.find((p) => p.type === t)?.value ?? '00'
+    const h = get('hour') === '24' ? '00' : get('hour')
+    return `${get('year')}-${get('month')}-${get('day')}T${h}:${get('minute')}`
+  } catch {
+    return ''
+  }
+}
+
+/** localStorage can throw (private browsing, storage disabled, blocked by
+ *  extension) — a saved timezone preference is nice-to-have, never critical. */
+function readStoredTz(key: string): string | null {
+  try {
+    return localStorage.getItem(key)
+  } catch {
+    return null
+  }
+}
+
+function writeStoredTz(key: string, value: string) {
+  try {
+    localStorage.setItem(key, value)
+  } catch {
+    // Unavailable — the choice just won't persist across visits.
+  }
 }
 
 function inputToUtc(localValue: string, tz: string): Date {
@@ -319,8 +349,8 @@ export default function TimeConverterPage() {
   const [rightOpen, setRightOpen] = useState(false)
 
   useEffect(() => {
-    const savedLeft = localStorage.getItem('tc_left')
-    const savedRight = localStorage.getItem('tc_right')
+    const savedLeft = readStoredTz('tc_left')
+    const savedRight = readStoredTz('tc_right')
     const userTz = detectUserTimezone()
     const defaultLeft = ALL_TIMEZONES.find((t) => t.tz === userTz)?.tz ?? POPULAR[0].tz
     setLeftTz(savedLeft ?? defaultLeft)
@@ -345,8 +375,8 @@ export default function TimeConverterPage() {
     [leftTz, rightTz]
   )
 
-  const updateLeftTz = (tz: string) => { setLeftTz(tz); localStorage.setItem('tc_left', tz) }
-  const updateRightTz = (tz: string) => { setRightTz(tz); localStorage.setItem('tc_right', tz) }
+  const updateLeftTz = (tz: string) => { setLeftTz(tz); writeStoredTz('tc_left', tz) }
+  const updateRightTz = (tz: string) => { setRightTz(tz); writeStoredTz('tc_right', tz) }
 
   const swapZones = () => { updateLeftTz(rightTz); updateRightTz(leftTz) }
   const resetToNow = () => { setAnchor(new Date()); setTicking(true) }
