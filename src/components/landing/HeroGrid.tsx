@@ -255,7 +255,7 @@ export function HeroGrid() {
     <div aria-hidden className="pointer-events-none absolute inset-0">
       <div
         ref={wrapRef}
-        className="sticky top-0 h-[100svh] w-full overflow-hidden [mask-image:radial-gradient(ellipse_88%_78%_at_50%_42%,black_45%,transparent_92%)]"
+        className="h-full w-full overflow-hidden [mask-image:radial-gradient(ellipse_88%_78%_at_50%_42%,black_45%,transparent_92%)] md:sticky md:top-0 md:h-[100svh]"
       >
         <canvas ref={canvasRef} className="absolute inset-0" />
         <div

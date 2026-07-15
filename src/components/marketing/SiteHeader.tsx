@@ -45,6 +45,7 @@ const NAV_ICONS: Record<string, ComponentType<{ className?: string }>> = {
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [openGroup, setOpenGroup] = useState<string | null>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -170,7 +171,10 @@ export function SiteHeader() {
 
         <button
           type="button"
-          onClick={() => setMenuOpen((o) => !o)}
+          onClick={() => {
+            setMenuOpen((o) => !o)
+            setOpenGroup(null)
+          }}
           className="inline-flex h-10 w-10 items-center justify-center rounded-xl text-gray-700 transition-colors hover:bg-stone-100 md:hidden"
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
@@ -186,19 +190,33 @@ export function SiteHeader() {
             {NAV_LINKS.map((l) =>
               l.children ? (
                 <div key={l.label} className="flex flex-col py-1">
-                  <div className="px-3 py-2 text-base font-medium text-gray-900">{l.label}</div>
-                  <div className="mt-1 flex flex-col pl-4">
-                    {l.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        onClick={() => setMenuOpen(false)}
-                        className="rounded-xl px-3 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-stone-50 hover:text-gray-900"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setOpenGroup((g) => (g === l.label ? null : l.label))}
+                    aria-expanded={openGroup === l.label}
+                    className="flex items-center justify-between rounded-xl px-3 py-3 text-base font-medium text-gray-900 transition-colors hover:bg-stone-50"
+                  >
+                    {l.label}
+                    <ChevronDown
+                      className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${
+                        openGroup === l.label ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  {openGroup === l.label && (
+                    <div className="mt-1 flex flex-col pl-4">
+                      {l.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => setMenuOpen(false)}
+                          className="rounded-xl px-3 py-2.5 text-sm font-medium text-gray-600 transition-colors hover:bg-stone-50 hover:text-gray-900"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ) : (
                 <Link
