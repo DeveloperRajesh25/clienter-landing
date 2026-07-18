@@ -57,7 +57,10 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rajesh Talagana' }],
   creator: 'Rajesh Talagana',
   publisher: SITE_NAME,
-  alternates: { canonical: '/' },
+  alternates: {
+    canonical: '/',
+    languages: { 'en-IN': '/', 'x-default': '/' },
+  },
   category: 'business software',
   formatDetection: { telephone: false, email: false, address: false },
   icons: {
@@ -102,7 +105,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${display.variable} ${serifDisplay.variable}`}>
+    <html lang="en-IN" className={`${inter.variable} ${display.variable} ${serifDisplay.variable}`}>
       <head>
         {/* Google Analytics */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-PGZEEJYGE6" />

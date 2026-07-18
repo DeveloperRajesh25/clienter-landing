@@ -13,6 +13,7 @@ import { pageMetadata, APP_URL } from '@/lib/site'
 import {
   breadcrumbSchema,
   softwareApplicationSchema,
+  pricingProductSchema,
   faqSchema,
 } from '@/lib/structured-data'
 
@@ -224,6 +225,7 @@ export default function PricingPage() {
       <JsonLd
         data={[
           softwareApplicationSchema(),
+          pricingProductSchema(),
           faqSchema(PRICING_FAQS),
           breadcrumbSchema([
             { name: 'Home', path: '/' },
