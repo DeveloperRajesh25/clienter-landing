@@ -37,10 +37,8 @@ import { SiteFooter } from '@/components/marketing/SiteFooter'
 import { HeroGrid } from '@/components/landing/HeroGrid'
 import { HeroScroll } from '@/components/landing/HeroScroll'
 import { SpotlightButton } from '@/components/landing/SpotlightButton'
-import { TiltCard } from '@/components/landing/TiltCard'
-import { HeroPreview } from '@/components/landing/HeroPreview'
+import { DashboardShowcase } from '@/components/landing/DashboardShowcase'
 import { Reveal } from '@/components/landing/Reveal'
-import { CountUp } from '@/components/landing/CountUp'
 import { Marquee } from '@/components/landing/Marquee'
 import { Faq } from '@/components/landing/Faq'
 import { Parallax } from '@/components/landing/Parallax'
@@ -153,16 +151,6 @@ const PLANS: Plan[] = [
     popular: false,
     launch: true,
   },
-]
-
-// Honest product facts — no fabricated traction or usage numbers. Each is
-// true of the product itself, not of a user base. `to`/prefix/suffix drive the
-// scroll-triggered count-up in the stats band.
-const STATS = [
-  { to: 6, prefix: '', suffix: '-in-1', label: 'Tools in one app' },
-  { to: 0, prefix: '₹', suffix: '', label: 'To start — free forever' },
-  { to: 5, prefix: '~', suffix: ' min', label: 'To your first invoice' },
-  { to: 100, prefix: '', suffix: '%', label: 'Your data, always yours' },
 ]
 
 // The scattered stack Clienter replaces — generic categories, no brand names.
@@ -579,56 +567,19 @@ export default function LandingPage() {
             </div>
           </HeroScroll>
 
-          {/* Product preview — sits above the hero copy (z-20) and rises up to
-              stack on top of it as the hero recedes. */}
-          <div className="relative z-20 mx-auto -mt-4 max-w-5xl px-4 sm:mt-0 sm:px-6 lg:px-8">
+          {/* Product preview — an interactive, pixel-faithful replica of the real
+              app dashboard, framed as a browser window. Sits above the hero copy
+              (z-20) and rises up to stack on top of it as the hero recedes. It's
+              scrollable and cursor-reactive, so the very first beat of the page
+              lets visitors explore the actual product. */}
+          <div className="relative z-20 mx-auto -mt-4 max-w-7xl px-4 sm:mt-0 sm:px-6 lg:px-8">
             <div
               aria-hidden
               className="absolute inset-x-6 -top-10 bottom-10 -z-10 bg-[radial-gradient(ellipse_55%_55%_at_50%_20%,rgba(249,115,22,0.16),transparent_70%)] blur-2xl"
             />
             <Reveal delay={200}>
-              <TiltCard>
-                <HeroPreview />
-              </TiltCard>
+              <DashboardShowcase />
             </Reveal>
-          </div>
-        </section>
-
-        {/* ───────── Product facts ─────────
-            An editorial rail rather than a boxed band: figures set large and
-            left-aligned, separated by hairlines that fade out at both ends. */}
-        <section className="relative mt-20 sm:mt-28">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="rule-warm" />
-            <div className="grid grid-cols-2 lg:grid-cols-4">
-              {STATS.map((s, i) => (
-                <Reveal
-                  key={s.label}
-                  delay={i * 90}
-                  className="group relative px-1 py-9 sm:px-6 sm:py-14"
-                >
-                  {/* Hairline separators — vertical on desktop, horizontal on
-                      the 2-col mobile grid. Never a full box. */}
-                  {i > 0 && (
-                    <span
-                      aria-hidden
-                      className="absolute inset-y-8 left-0 hidden w-px bg-gradient-to-b from-transparent via-line to-transparent lg:block"
-                    />
-                  )}
-                  {i > 1 && (
-                    <span
-                      aria-hidden
-                      className="absolute inset-x-2 top-0 h-px bg-gradient-to-r from-transparent via-line to-transparent lg:hidden"
-                    />
-                  )}
-                  <div className="text-gradient-brand font-display text-[2.75rem] font-extrabold leading-none tracking-[-0.03em] sm:text-[3.5rem]">
-                    <CountUp to={s.to} prefix={s.prefix} suffix={s.suffix} />
-                  </div>
-                  <div className="mt-3.5 text-sm leading-snug text-gray-500">{s.label}</div>
-                </Reveal>
-              ))}
-            </div>
-            <div className="rule-warm" />
           </div>
         </section>
 
@@ -1138,10 +1089,7 @@ export default function LandingPage() {
             </div>
 
             <Reveal className="mt-10 flex flex-col items-center gap-5 text-center">
-              <p className="inline-flex items-center gap-2 text-base font-semibold text-orange-600">
-                <Rocket className="h-4 w-4 flex-none" />
-                Launch pricing is limited time. Lock in your rate today.
-              </p>
+              
               <Link
                 href="/pricing"
                 className="focus-ember group inline-flex items-center gap-2 rounded-full text-sm font-bold uppercase tracking-[0.14em] text-gray-500 transition-colors hover:text-orange-600"
@@ -1152,6 +1100,9 @@ export default function LandingPage() {
             </Reveal>
           </div>
         </section>
+
+        {/* ───────── Data privacy / security ───────── */}
+        <DataSecurity variant="editorial" />
 
         {/* ───────── Founder (editorial pull-quote) ─────────
             Asymmetric: the quote runs wide on the left, attribution sits in a
@@ -1323,8 +1274,6 @@ export default function LandingPage() {
           </Reveal>
         </section>
 
-        {/* ───────── Data privacy / security ───────── */}
-        <DataSecurity variant="editorial" className="pt-16 pb-16 sm:pt-24 sm:pb-24" />
       </main>
 
       <div className="relative z-10">
