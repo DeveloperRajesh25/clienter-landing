@@ -58,6 +58,21 @@ const nextConfig = {
     // client bundles and faster compiles (especially in dev).
     optimizePackageImports: ['lucide-react'],
   },
+  // Enforce ONE canonical host. The site is already indexed on the non-www apex
+  // (https://clienter.co.in), so we 301 every www request to non-www rather than
+  // migrate an indexed site. To flip to www later, reverse the host value and
+  // destination here and update SITE_URL in src/lib/site.ts — that's the only
+  // change needed, since every canonical/OG/sitemap URL derives from SITE_URL.
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.clienter.co.in' }],
+        destination: 'https://clienter.co.in/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       // Security headers on every route.

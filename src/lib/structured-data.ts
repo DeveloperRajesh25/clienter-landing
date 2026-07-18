@@ -50,6 +50,15 @@ export function websiteSchema() {
     description: SITE_DESCRIPTION,
     publisher: { '@id': `${SITE_URL}/#organization` },
     inLanguage: 'en-IN',
+    // Sitelinks search box → our blog search (which reads the `q` query param).
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_URL}/blog?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   }
 }
 
@@ -116,6 +125,85 @@ export function breadcrumbSchema(crumbs: { name: string; path: string }[]) {
       position: i + 1,
       name: c.name,
       item: c.path === '/' ? SITE_URL : `${SITE_URL}${c.path}`,
+    })),
+  }
+}
+
+/**
+ * Blog-post Article schema. datePublished/dateModified are ISO dates; author is
+ * a plain name. Publisher resolves to our Organization node.
+ */
+export function articleSchema(opts: {
+  headline: string
+  description: string
+  path: string
+  datePublished: string
+  dateModified?: string
+  authorName: string
+  image?: string
+}) {
+  const url = `${SITE_URL}${opts.path}`
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: opts.headline,
+    description: opts.description,
+    image: opts.image ?? LOGO,
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified ?? opts.datePublished,
+    author: { '@type': 'Person', name: opts.authorName },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      logo: { '@type': 'ImageObject', url: LOGO },
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    inLanguage: 'en-IN',
+  }
+}
+
+/**
+ * Product + AggregateOffer for the pricing page. Prices are the current launch
+ * offer (Free ₹0 / Pro ₹199 / Ultra ₹799). aggregateRating is deliberately
+ * omitted — we do not fabricate ratings without real, verifiable reviews.
+ */
+export function pricingProductSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `${SITE_NAME} — Client Management Software`,
+    description: SITE_DESCRIPTION,
+    brand: { '@type': 'Brand', name: SITE_NAME },
+    image: LOGO,
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'INR',
+      lowPrice: '0',
+      highPrice: '799',
+      offerCount: 3,
+      offers: [
+        { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'INR' },
+        { '@type': 'Offer', name: 'Pro', price: '199', priceCurrency: 'INR' },
+        { '@type': 'Offer', name: 'Ultra', price: '799', priceCurrency: 'INR' },
+      ],
+    },
+  }
+}
+
+/**
+ * ItemList for hub/index pages (blog index, tools hub, glossary hub, comparisons
+ * hub). Helps Google understand the page as a curated list of links.
+ */
+export function itemListSchema(items: { name: string; path: string }[], listName?: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    ...(listName ? { name: listName } : {}),
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      url: `${SITE_URL}${it.path}`,
     })),
   }
 }

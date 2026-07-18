@@ -176,25 +176,65 @@ export const NAV_LINKS: NavLink[] = [
   },
   { href: '/pricing', label: 'Pricing' },
   {
-    href: '#',
-    label: 'Tools',
+    href: '/tools',
+    label: 'Free Tools',
     children: [
-      {
-        href: '/time-converter',
-        label: 'Time Converter',
-        description: 'Convert time across any timezone instantly',
-      },
       {
         href: '/invoice',
         label: 'Invoice Generator',
-        description: 'Create professional invoices in seconds',
+        description: 'Create professional GST invoices in seconds',
+      },
+      {
+        href: '/tools/gst-calculator',
+        label: 'GST Calculator',
+        description: 'Add or remove GST and split CGST/SGST',
+      },
+      {
+        href: '/tools/freelance-rate-calculator',
+        label: 'Rate Calculator',
+        description: 'Work out the rate you should charge',
+      },
+      {
+        href: '/templates',
+        label: 'Templates',
+        description: 'Free contract, proposal & invoice templates',
+      },
+      {
+        href: '/tools',
+        label: 'All free tools',
+        description: 'Every calculator and generator in one place',
       },
     ],
   },
-  { href: '/contact', label: 'Contact' },
+  {
+    href: '/blog',
+    label: 'Resources',
+    children: [
+      {
+        href: '/blog',
+        label: 'Blog',
+        description: 'Guides on freelancing, pricing & getting clients',
+      },
+      {
+        href: '/glossary',
+        label: 'Glossary',
+        description: 'Freelance & agency terms explained simply',
+      },
+      {
+        href: '/compare',
+        label: 'Compare',
+        description: 'How Clienter stacks up against the alternatives',
+      },
+      {
+        href: '/for',
+        label: 'Who it’s for',
+        description: 'Clienter for your kind of work',
+      },
+    ],
+  },
 ]
 
-/** Footer link columns. */
+/** Footer link columns — categorised links to every major section of the site. */
 export const FOOTER_NAV = [
   {
     title: 'Product',
@@ -202,6 +242,7 @@ export const FOOTER_NAV = [
       { href: '/features', label: 'Features' },
       { href: '/how-it-works', label: 'How it works' },
       { href: '/pricing', label: 'Pricing' },
+      { href: '/security', label: 'Security' },
       { href: '/demo', label: 'Demo' },
     ],
   },
@@ -210,15 +251,38 @@ export const FOOTER_NAV = [
     links: [
       { href: '/client-management-software', label: 'Client Management Software' },
       { href: '/crm-for-freelancers', label: 'CRM for Freelancers' },
-      { href: '/project-management-crm', label: 'Project Management CRM' },
-      { href: '/business-management-software', label: 'Business Management Software' },
+      { href: '/for/freelancers', label: 'For Freelancers' },
+      { href: '/for/web-design-agencies', label: 'For Agencies' },
+      { href: '/for', label: 'All use cases' },
     ],
   },
   {
-    title: 'Tools',
+    title: 'Free tools',
     links: [
-      { href: '/time-converter', label: 'Time Converter' },
       { href: '/invoice', label: 'Invoice Generator' },
+      { href: '/tools/gst-calculator', label: 'GST Calculator' },
+      { href: '/tools/freelance-rate-calculator', label: 'Rate Calculator' },
+      { href: '/templates', label: 'Templates' },
+      { href: '/tools', label: 'All free tools' },
+    ],
+  },
+  {
+    title: 'Compare',
+    links: [
+      { href: '/compare/clienter-vs-hubspot', label: 'vs HubSpot' },
+      { href: '/compare/clienter-vs-bonsai', label: 'vs Bonsai' },
+      { href: '/compare/clienter-vs-notion', label: 'vs Notion' },
+      { href: '/alternatives/best-free-crm-alternatives', label: 'Free CRM alternatives' },
+      { href: '/compare', label: 'All comparisons' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { href: '/blog', label: 'Blog' },
+      { href: '/glossary', label: 'Glossary' },
+      { href: '/templates', label: 'Templates' },
+      { href: '/faq', label: 'FAQ' },
     ],
   },
   {
@@ -226,17 +290,9 @@ export const FOOTER_NAV = [
     links: [
       { href: '/about', label: 'About' },
       { href: '/contact', label: 'Contact' },
-      { href: '/faq', label: 'FAQ' },
-      { href: '/security', label: 'Security' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { href: '/privacy', label: 'Privacy Policy' },
-      { href: '/terms', label: 'Terms of Service' },
-      { href: '/cookies', label: 'Cookie Policy' },
-      { href: '/refund', label: 'Refund & Cancellation' },
+      { href: '/privacy', label: 'Privacy' },
+      { href: '/terms', label: 'Terms' },
+      { href: '/refund', label: 'Refund policy' },
     ],
   },
 ] as const
@@ -262,22 +318,49 @@ export function pageMetadata(opts: {
   ogTitle?: string
   /** Override the OpenGraph/Twitter description (defaults to `description`). */
   ogDescription?: string
+  /** OG type — "article" for blog posts, "website" (default) elsewhere. */
+  ogType?: 'website' | 'article'
 }): Metadata {
   const url = opts.path === '/' ? SITE_URL : `${SITE_URL}${opts.path}`
   const ogTitle = opts.ogTitle ?? opts.title
   const ogDescription = opts.ogDescription ?? opts.description
+
+  // Full crawler directives. IMPORTANT: because Next.js replaces (does not deep
+  // -merge) the `robots` field when a page sets it, we must repeat the detailed
+  // googleBot block here — otherwise every page would silently drop the
+  // max-image-preview / max-snippet / max-video-preview hints set in the root
+  // layout, shrinking our search snippets and image thumbnails.
+  const robots: Metadata['robots'] = opts.noindex
+    ? { index: false, follow: true, googleBot: { index: false, follow: true } }
+    : {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+          'max-video-preview': -1,
+        },
+      }
+
   return {
     title: opts.title,
     description: opts.description,
     keywords: opts.keywords,
-    alternates: { canonical: url },
-    robots: opts.noindex
-      ? { index: false, follow: true }
-      : { index: true, follow: true },
+    alternates: {
+      canonical: url,
+      // We serve one language (Indian English). Declaring en-IN + x-default on
+      // the same URL tells Google this page is the canonical target for both
+      // Indian-English searchers and everyone else, with no duplicate variants.
+      languages: { 'en-IN': url, 'x-default': url },
+    },
+    robots,
     openGraph: {
-      type: 'website',
+      type: opts.ogType ?? 'website',
       url,
       siteName: SITE_NAME,
+      locale: 'en_IN',
       title: ogTitle,
       description: ogDescription,
       ...(opts.image ? { images: [{ url: opts.image }] } : {}),
@@ -286,6 +369,7 @@ export function pageMetadata(opts: {
       card: 'summary_large_image',
       title: ogTitle,
       description: ogDescription,
+      creator: '@talaganaRajesh',
       ...(opts.image ? { images: [opts.image] } : {}),
     },
   }
