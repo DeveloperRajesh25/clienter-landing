@@ -14,29 +14,35 @@ export function SectionLabel({
 }: {
   children: React.ReactNode
   icon?: LucideIcon
-  /** `dark` inverts the rule + label for espresso surfaces. */
-  tone?: 'light' | 'dark'
+  /** `dark` inverts the rule + label for espresso surfaces; `onbrand` turns
+   *  everything white for use directly on a saturated orange surface. */
+  tone?: 'light' | 'dark' | 'onbrand'
   className?: string
 }) {
   const dark = tone === 'dark'
+  const onbrand = tone === 'onbrand'
   return (
     <span className={`inline-flex items-center gap-3 ${className}`}>
       <span aria-hidden className="relative flex h-1.5 w-1.5 flex-none">
-        <span className="absolute inset-0 rounded-full bg-orange-500" />
+        <span className={`absolute inset-0 rounded-full ${onbrand ? 'bg-white' : 'bg-orange-500'}`} />
         <span
-          className={`absolute -inset-1 rounded-full ${dark ? 'bg-orange-500/25' : 'bg-orange-500/20'}`}
+          className={`absolute -inset-1 rounded-full ${onbrand ? 'bg-white/40' : dark ? 'bg-orange-500/25' : 'bg-orange-500/20'}`}
         />
       </span>
       <span
         aria-hidden
         className={`h-px w-6 flex-none bg-gradient-to-r ${
-          dark ? 'from-orange-500/60 to-orange-500/0' : 'from-orange-500/70 to-orange-500/0'
+          onbrand ? 'from-white/80 to-white/0' : dark ? 'from-orange-500/60 to-orange-500/0' : 'from-orange-500/70 to-orange-500/0'
         }`}
       />
-      {Icon && <Icon className={`h-3.5 w-3.5 flex-none ${dark ? 'text-orange-400' : 'text-orange-500'}`} />}
+      {Icon && (
+        <Icon
+          className={`h-3.5 w-3.5 flex-none ${onbrand ? 'text-white' : dark ? 'text-orange-400' : 'text-orange-500'}`}
+        />
+      )}
       <span
         className={`text-[11px] font-bold uppercase leading-none tracking-[0.22em] ${
-          dark ? 'text-orange-300' : 'text-orange-600'
+          onbrand ? 'text-white' : dark ? 'text-orange-300' : 'text-orange-600'
         }`}
       >
         {children}

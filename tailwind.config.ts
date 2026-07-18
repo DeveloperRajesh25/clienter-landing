@@ -157,6 +157,17 @@ const config: Config = {
           '0%, 100%': { transform: 'translate3d(0,0,0) scale(1)' },
           '50%': { transform: 'translate3d(0,-18px,0) scale(1.05)' },
         },
+        // Tide-like drift for the section wave dividers — a double-width
+        // wave tile scrolls one full pattern-width for a seamless, gentle
+        // rolling motion (not a fast marquee).
+        'wave-x': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'wave-x-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
       },
       animation: {
         float: 'float 6s ease-in-out infinite',
@@ -169,6 +180,8 @@ const config: Config = {
         'fade-in-fast': 'fade-in-fast 0.2s ease-out both',
         sheen: 'sheen 5.5s ease-in-out infinite',
         drift: 'drift 16s ease-in-out infinite',
+        'wave-x': 'wave-x 16s linear infinite',
+        'wave-x-reverse': 'wave-x-reverse 20s linear infinite',
       },
     },
   },

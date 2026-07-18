@@ -227,10 +227,11 @@ function SectionHead({
   title: React.ReactNode
   sub?: string
   align?: 'left' | 'center'
-  tone?: 'light' | 'dark'
+  tone?: 'light' | 'dark' | 'onbrand'
   className?: string
 }) {
   const dark = tone === 'dark'
+  const onbrand = tone === 'onbrand'
   const centered = align === 'center'
   return (
     <div className={`${centered ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl'} ${className}`}>
@@ -245,7 +246,7 @@ function SectionHead({
         <h2
           className={`font-display text-3xl font-extrabold tracking-tight sm:text-display-sm lg:text-display ${
             label ? 'mt-6' : ''
-          } ${dark ? 'text-espresso-text' : 'text-gray-900'}`}
+          } ${onbrand ? 'text-white' : dark ? 'text-espresso-text' : 'text-gray-900'}`}
         >
           {title}
         </h2>
@@ -254,7 +255,7 @@ function SectionHead({
         <Reveal delay={180}>
           <p
             className={`mt-5 text-lg leading-relaxed ${centered ? 'mx-auto max-w-measure' : 'max-w-measure'} ${
-              dark ? 'text-espresso-muted' : 'text-gray-600'
+              onbrand ? 'text-white/85' : dark ? 'text-espresso-muted' : 'text-gray-600'
             }`}
           >
             {sub}
@@ -363,11 +364,11 @@ function ToolChip({
     <span
       className={`mx-1.5 inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-medium ${
         dark
-          ? 'border-espresso-line/80 bg-espresso-soft/70 text-espresso-muted'
+          ? 'border-white/25 bg-white/12 text-white/80 backdrop-blur-sm'
           : 'border-stone-200/80 bg-white text-gray-500 shadow-soft'
       }`}
     >
-      <Icon className={`h-4 w-4 ${dark ? 'text-terracotta-400' : 'text-orange-400'}`} />
+      <Icon className={`h-4 w-4 ${dark ? 'text-white/80' : 'text-orange-400'}`} />
       {label}
     </span>
   )
@@ -587,16 +588,37 @@ export default function LandingPage() {
             The page's first dark beat. The scattered stack slides overhead as
             two tilted, dimmed marquees — the "ten tabs" made literal — then
             resolves into the lit, ordered panel on the right. */}
-        <section className="grain relative mt-20 overflow-hidden bg-espresso text-espresso-text sm:mt-28">
-          {/* Ambient warmth: one deep bloom, drifting slowly on scroll. */}
+        <section className="grain relative mt-20 overflow-hidden bg-[linear-gradient(172deg,#f4741e_0%,#e4550a_45%,#c9440a_100%)] text-white sm:mt-28">
+          {/* Top divider — a soft multi-wave edge (echoing the curved panel
+              split on the app login page) so the section flows out of the light
+              page instead of meeting it on a hard straight line. Fill = page
+              canvas; sits above the aurora wash but below content. */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-[70px] w-full overflow-hidden leading-[0] sm:h-[112px]"
+          >
+            <div className="flex h-full w-[200%] animate-wave-x">
+              <svg viewBox="0 0 1440 120" preserveAspectRatio="none" fill="#FFF8F2" className="block h-full w-1/2">
+                <path d="M0,0 H1440 V52 C1320,78 1200,78 1080,52 C960,26 840,26 720,52 C600,78 480,78 360,52 C240,26 120,26 0,52 Z" />
+              </svg>
+              <svg viewBox="0 0 1440 120" preserveAspectRatio="none" fill="#FFF8F2" className="block h-full w-1/2">
+                <path d="M0,0 H1440 V52 C1320,78 1200,78 1080,52 C960,26 840,26 720,52 C600,78 480,78 360,52 C240,26 120,26 0,52 Z" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Premium aurora: the section glows in the brand orange (the logo
+              colour), lit by soft peach + orange blooms — no coffee-brown. */}
           <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
+            <div className="absolute -left-24 -top-24 h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(circle,rgba(255,231,206,0.55),transparent_60%)] blur-3xl" />
             <Parallax
               speed={-70}
-              className="absolute -top-52 right-[-10%] h-[46rem] w-[46rem] rounded-full bg-[radial-gradient(circle,rgba(234,88,12,0.20),transparent_65%)] blur-3xl"
+              className="absolute -top-40 right-[-8%] h-[44rem] w-[44rem] rounded-full bg-[radial-gradient(circle,rgba(255,163,82,0.55),transparent_62%)] blur-3xl"
             >
               <span />
             </Parallax>
-            <div className="absolute inset-0 bg-dot-ember opacity-[0.35] [mask-image:radial-gradient(ellipse_70%_45%_at_50%_0%,black,transparent)]" />
+            <div className="absolute bottom-[-8rem] right-[8%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(255,241,224,0.40),transparent_62%)] blur-3xl" />
+            <div className="absolute inset-x-0 top-0 h-40 bg-[linear-gradient(180deg,rgba(255,255,255,0.14),transparent)]" />
           </div>
 
           <div className="relative z-10 py-20 sm:py-28">
@@ -618,12 +640,12 @@ export default function LandingPage() {
               <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
                 <div className="lg:col-span-5">
                   <SectionHead
-                    tone="dark"
+                    tone="onbrand"
                     label="One app instead of ten tabs"
                     title={
                       <>
                         Freelancing is hard enough. Your tools shouldn’t make it{' '}
-                        <span className="text-gradient-ember font-serif-display text-[1.12em] font-normal italic">
+                        <span className="font-serif-display text-[1.12em] font-normal italic text-orange-50 [text-shadow:0_2px_18px_rgba(0,0,0,0.15)]">
                           harder
                         </span>
                         .
@@ -637,8 +659,8 @@ export default function LandingPage() {
                   <div className="grid gap-8 sm:grid-cols-2 sm:gap-6">
                     {/* Old way — the stack literally doesn't line up. */}
                     <div>
-                      <div className="flex items-center gap-2.5 pb-5 text-xs font-bold uppercase tracking-[0.2em] text-espresso-muted">
-                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-espresso-soft text-espresso-muted ring-1 ring-inset ring-espresso-line">
+                      <div className="flex items-center gap-2.5 pb-5 text-xs font-bold uppercase tracking-[0.2em] text-white/70">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/15 text-white/80 ring-1 ring-inset ring-white/25">
                           <X className="h-3 w-3" strokeWidth={3} />
                         </span>
                         The old way
@@ -647,13 +669,13 @@ export default function LandingPage() {
                         {CHAOS.map((chaos, i) => (
                           <Reveal key={chaos} delay={i * 70} as="li">
                             <div
-                              className="flex gap-3 rounded-xl border border-espresso-line/70 bg-espresso-soft/50 px-4 py-3 text-[14px] leading-snug text-espresso-muted"
+                              className="flex gap-3 rounded-xl border border-white/25 bg-white/10 px-4 py-3 text-[14px] leading-snug text-white/85 backdrop-blur-sm"
                               style={{
                                 transform: `rotate(${CHAOS_SCATTER[i][0]}deg)`,
                                 marginLeft: `${CHAOS_SCATTER[i][1]}px`,
                               }}
                             >
-                              <X className="mt-0.5 h-3.5 w-3.5 flex-none text-espresso-muted/60" />
+                              <X className="mt-0.5 h-3.5 w-3.5 flex-none text-white/55" />
                               <span>{chaos}</span>
                             </div>
                           </Reveal>
@@ -667,21 +689,21 @@ export default function LandingPage() {
                     <div className="relative">
                       <div
                         aria-hidden
-                        className="pointer-events-none absolute -inset-4 -z-10 rounded-[2rem] bg-[radial-gradient(ellipse_70%_60%_at_50%_40%,rgba(234,88,12,0.16),transparent_70%)] blur-xl"
+                        className="pointer-events-none absolute -inset-4 -z-10 rounded-[2rem] bg-[radial-gradient(ellipse_70%_60%_at_50%_40%,rgba(255,240,224,0.30),transparent_70%)] blur-xl"
                       />
-                      <div className="flex items-center gap-2.5 pb-5 text-xs font-bold uppercase tracking-[0.2em] text-orange-300">
-                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-orange-500/15 text-orange-400 ring-1 ring-inset ring-orange-500/30">
+                      <div className="flex items-center gap-2.5 pb-5 text-xs font-bold uppercase tracking-[0.2em] text-white">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20 text-white ring-1 ring-inset ring-white/35">
                           <Sparkles className="h-3 w-3" />
                         </span>
                         The Clienter way
                       </div>
-                      <div className="rounded-2xl border border-orange-500/25 bg-gradient-to-b from-orange-500/[0.09] to-transparent px-4 py-1 shadow-ember sm:px-5">
-                        <ul className="divide-y divide-orange-500/10">
+                      <div className="rounded-2xl border border-white/70 bg-[#FFF8F2] px-4 py-1 shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)] sm:px-5">
+                        <ul className="divide-y divide-stone-200/80">
                           {CALM.map((calm, i) => (
                             <Reveal key={calm} delay={i * 70} as="li">
-                              <div className="flex gap-3 py-3 text-[14px] font-medium leading-snug text-espresso-text">
+                              <div className="flex gap-3 py-3 text-[14px] font-medium leading-snug text-stone-800">
                                 <Check
-                                  className="mt-0.5 h-3.5 w-3.5 flex-none text-orange-400"
+                                  className="mt-0.5 h-3.5 w-3.5 flex-none text-orange-600"
                                   strokeWidth={3}
                                 />
                                 <span>{calm}</span>
@@ -694,6 +716,22 @@ export default function LandingPage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Bottom divider — the mirror multi-wave edge, easing back out into
+              the light section below so it closes as softly as it opened. */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-[70px] w-full overflow-hidden leading-[0] sm:h-[112px]"
+          >
+            <div className="flex h-full w-[200%] animate-wave-x-reverse">
+              <svg viewBox="0 0 1440 120" preserveAspectRatio="none" fill="#FFF8F2" className="block h-full w-1/2">
+                <path d="M0,120 H1440 V68 C1320,42 1200,42 1080,68 C960,94 840,94 720,68 C600,42 480,42 360,68 C240,94 120,94 0,68 Z" />
+              </svg>
+              <svg viewBox="0 0 1440 120" preserveAspectRatio="none" fill="#FFF8F2" className="block h-full w-1/2">
+                <path d="M0,120 H1440 V68 C1320,42 1200,42 1080,68 C960,94 840,94 720,68 C600,42 480,42 360,68 C240,94 120,94 0,68 Z" />
+              </svg>
             </div>
           </div>
         </section>
@@ -899,7 +937,7 @@ export default function LandingPage() {
         {/* ───────── How it works (numbered spine) ───────── */}
         <section
           id="how"
-          className="grain relative scroll-mt-24 overflow-hidden bg-espresso py-20 text-espresso-text sm:py-32"
+          className="grain relative scroll-mt-24 overflow-hidden bg-[linear-gradient(165deg,#2E1710_0%,#1D120C_50%,#150D0A_100%)] py-20 text-espresso-text sm:py-32"
         >
           <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
             <Parallax
