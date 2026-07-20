@@ -126,7 +126,7 @@ const MONTH_CARDS: {
 }[] = [
   {
     label: 'Revenue',
-    value: '$45,634.21',
+    value: '$5,634.21',
     sub: '7 new projects',
     hint: 'Sum of new project budgets this month',
     icon: TrendingUp,
@@ -135,7 +135,7 @@ const MONTH_CARDS: {
   },
   {
     label: 'Received',
-    value: '$1,046.1',
+    value: '$2,046.1',
     sub: 'Payments collected this month',
     icon: DollarSign,
     accent: 'stone',
@@ -143,7 +143,7 @@ const MONTH_CARDS: {
   },
   {
     label: 'Expenses',
-    value: '$3',
+    value: '$400',
     sub: 'Team payouts & tools',
     icon: TrendingDown,
     accent: 'red',
