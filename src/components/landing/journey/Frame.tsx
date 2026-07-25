@@ -59,6 +59,10 @@ export function Frame({
   /** 0 → 1 sweep of the navigation bar, fired when an act changes destination. */
   loading,
   className = '',
+  /** Caps the whole window (chrome + viewport) to this many px, so a wide
+      stage never grows taller than the screen has room for. Omit to scale
+      off available width alone, as the mobile crop does. */
+  maxHeight,
 }: {
   url: string
   children: ReactNode
@@ -66,21 +70,38 @@ export function Frame({
   view?: View
   loading?: MotionValue<number>
   className?: string
+  maxHeight?: number
 }) {
   const typed = useTyped(url, !reduced)
   const display = reduced ? url : typed
   const typing = !reduced && display.length < url.length
 
+  const root = useRef<HTMLDivElement>(null)
+  const chrome = useRef<HTMLDivElement>(null)
   const box = useRef<HTMLDivElement>(null)
   const [scale, setScale] = useState(0)
+  const [capWidth, setCapWidth] = useState<number | undefined>(undefined)
 
   const measure = useCallback(() => {
     const el = box.current
     if (el) setScale(el.clientWidth / view.w)
   }, [view.w])
 
+  // The height cap has to land before the width measure below, or the box
+  // still reports its old (uncapped) clientWidth for one frame.
+  const measureCap = useCallback(() => {
+    if (maxHeight == null) {
+      setCapWidth(undefined)
+      return
+    }
+    const chromeH = chrome.current?.getBoundingClientRect().height ?? 0
+    const availH = Math.max(0, maxHeight - chromeH)
+    setCapWidth((availH * view.w) / view.h)
+  }, [maxHeight, view.w, view.h])
+
   // Before paint, so the stage never flashes at full size and snap back.
-  useLayoutEffect(measure, [measure])
+  useLayoutEffect(measureCap, [measureCap])
+  useLayoutEffect(measure, [measure, capWidth])
 
   useEffect(() => {
     const el = box.current
@@ -92,11 +113,16 @@ export function Frame({
 
   return (
     <div
-      className={`overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-lift-4 ${className}`}
+      ref={root}
+      className={`w-full overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-lift-4 ${className}`}
+      style={capWidth ? { width: `${capWidth}px`, maxWidth: '100%' } : undefined}
     >
       {/* Chrome. Warm traffic lights — the first dot is brand-orange, matching
           the product-window vocabulary used elsewhere on the page. */}
-      <div className="relative flex items-center gap-1.5 border-b border-stone-100 bg-stone-50/70 px-3 py-2.5 sm:px-4">
+      <div
+        ref={chrome}
+        className="relative flex items-center gap-1.5 border-b border-stone-100 bg-stone-50/70 px-3 py-2.5 sm:px-4"
+      >
         <span className="h-2.5 w-2.5 flex-none rounded-full bg-orange-400" />
         <span className="h-2.5 w-2.5 flex-none rounded-full bg-stone-200" />
         <span className="h-2.5 w-2.5 flex-none rounded-full bg-stone-200" />

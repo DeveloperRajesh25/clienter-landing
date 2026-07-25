@@ -131,6 +131,21 @@ export function useLayoutMode(): 'ssr' | 'wide' | 'narrow' {
   return mode
 }
 
+/** Live `window.innerHeight`, so the pinned window can be capped to the
+    screen instead of scaling purely off available width. */
+export function useViewportHeight(): number {
+  const [h, setH] = useState(0)
+
+  useEffect(() => {
+    const sync = () => setH(window.innerHeight)
+    sync()
+    window.addEventListener('resize', sync)
+    return () => window.removeEventListener('resize', sync)
+  }, [])
+
+  return h
+}
+
 /**
  * Mobile scenes replay their beats on entry instead of following the scrollbar:
  * a phone scrolls in flicks, and mapping four beats onto that reads as

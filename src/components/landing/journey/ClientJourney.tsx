@@ -12,7 +12,7 @@ import { CROP_DEFAULT, Frame } from './Frame'
 import { ActDivider } from './ActCard'
 import { Cursor, TapRipple } from './Cursor'
 import { Thread, ThreadMobile } from './Thread'
-import { useBeatOnView, useJourney, useLayoutMode, useReducedMotion } from './useJourney'
+import { useBeatOnView, useJourney, useLayoutMode, useReducedMotion, useViewportHeight } from './useJourney'
 import { LeadDrawer, LeadsBoard } from './scenes/act1'
 import { ClientPage, ConvertForm, PortalInvited } from './scenes/act2'
 import {
@@ -69,12 +69,20 @@ const SCREENS: Record<string, (p: SceneProps) => JSX.Element> = {
   'public-reviews': PublicReviews,
 }
 
+/** The sticky box's own top/bottom padding, in px — kept in sync with the
+    `pt-[...]`/`pb-*` classes below so the window's height cap matches what's
+    actually left over once the floating header is cleared. */
+const STICKY_PT = 112
+const STICKY_PB = 32
+
 export function ClientJourney() {
   const reduced = useReducedMotion()
   const mode = useLayoutMode()
   const trackRef = useRef<HTMLDivElement>(null)
   const { slot, scene, act, intro, beat, progress } = useJourney(trackRef, reduced)
   const live = SCENES[scene]
+  const viewportH = useViewportHeight()
+  const frameMaxHeight = viewportH ? viewportH - STICKY_PT - STICKY_PB : undefined
 
   /** Total scroll length: the sum of per-slot dwell, plus one screen for the
       final scene to sit still in. */
@@ -131,19 +139,25 @@ export function ClientJourney() {
             present copy would still be read aloud alongside the stacked version
             below, and would have the device building a mock nobody can see. */}
         {mode !== 'narrow' && (
-          <div className="mx-auto h-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto h-full max-w-6xl px-4 sm:px-6 lg:max-w-[78rem] lg:px-8 xl:max-w-[92rem] 2xl:max-w-[104rem]">
             <div className="relative h-full">
-              {/* Top-aligned, not centred. Centring a 537px window in a
-                  screen-height sticky box parks it ~150px down, and that slack
-                  is the gap that reads as a hole under the title copy. `pt`
-                  clears the floating header and nothing more. */}
-              <div className="sticky top-0 flex h-screen items-start pb-8 pt-[7rem]">
+              {/* Centred, not top-aligned: the window is now height-capped to
+                  fit under the floating header with room to spare, so
+                  centring it in the sticky box is what uses the screen
+                  instead of leaving air under the title. `pt` still clears
+                  the header — see STICKY_PT above. */}
+              <div className="sticky top-0 flex h-screen items-center pb-8 pt-[7rem]">
                 <div className="flex w-full items-center gap-7">
                   <Thread scene={scene} act={act} intro={intro} />
                   <Rail slot={slot} scene={scene} act={act} intro={intro} />
 
-                  <div className="min-w-0 flex-1" aria-hidden>
-                    <Frame url={live.url} reduced={reduced} loading={loading}>
+                  <div className="flex min-w-0 flex-1 justify-center" aria-hidden>
+                    <Frame
+                      url={live.url}
+                      reduced={reduced}
+                      loading={loading}
+                      maxHeight={frameMaxHeight}
+                    >
                       {/* Only the live screen and its neighbours are mounted, and
                           layers cross-fade with opacity alone. */}
                       {SCENES.map((s, i) => {
