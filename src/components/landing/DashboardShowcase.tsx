@@ -360,8 +360,14 @@ function ShowcaseSidebar() {
       {/* Org switcher */}
       <div className="px-3 pb-3">
         <div className="flex items-center gap-2.5 rounded-xl border border-stone-200/70 bg-stone-50 px-2.5 py-2">
-          <span className="flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-gradient-to-br from-stone-800 to-stone-950 text-sm font-bold text-white">
-            W
+          <span className="flex h-8 w-8 flex-none items-center justify-center overflow-hidden rounded-lg bg-white ring-1 ring-stone-200/80">
+            <Image
+              src="/webcros-logo.jpg"
+              alt="Webcros"
+              width={32}
+              height={32}
+              className="h-full w-full object-cover"
+            />
           </span>
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-semibold text-ink">Webcros</p>
