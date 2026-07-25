@@ -296,7 +296,11 @@ export function PublicReviews({ beat }: SceneProps) {
   return (
     <PublicShell>
       <div className="text-center">
-        <OrgMark name={STUDIO.name} className="mx-auto h-14 w-14 rounded-2xl !text-xl" />
+        <OrgMark
+          name={STUDIO.name}
+          src={STUDIO.logo}
+          className="mx-auto h-14 w-14 rounded-2xl !text-xl"
+        />
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-ink">{STUDIO.name}</h1>
 
         <div className="mt-3 flex items-center justify-center gap-3">

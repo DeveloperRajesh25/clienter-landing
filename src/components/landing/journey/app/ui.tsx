@@ -151,8 +151,31 @@ export function Avatar({
   )
 }
 
-/** Org mark — the app's OrgAvatar, in its initials fallback. */
-export function OrgMark({ name, className = 'h-9 w-9' }: { name: string; className?: string }) {
+/**
+ * Org mark — the app's OrgAvatar. With `src` it shows the real uploaded logo,
+ * exactly as an org with a logo looks in the product; without one it falls back
+ * to the initial, which is what a fresh org gets.
+ */
+export function OrgMark({
+  name,
+  src,
+  className = 'h-9 w-9',
+}: {
+  name: string
+  src?: string
+  className?: string
+}) {
+  if (src) {
+    return (
+      <span
+        className={`flex flex-none items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-stone-200/80 ${className}`}
+        aria-hidden
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={src} alt="" className="h-full w-full object-cover" />
+      </span>
+    )
+  }
   return (
     <span
       className={`flex flex-none items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 text-sm font-bold text-white ${className}`}

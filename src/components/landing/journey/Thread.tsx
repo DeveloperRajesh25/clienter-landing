@@ -1,177 +1,115 @@
 'use client'
 
-import { motion, useMotionValue, useTransform, type MotionValue } from 'framer-motion'
-import { ACTS, INTRO_SLOTS, SLOTS, SLOT_STARTS, TOTAL_WEIGHT, slotRange } from './data'
+import { ACTS, SCENES } from './data'
 
 /* ──────────────────────────────────────────────────────────────────────────
-   THE THREAD — the section's only decoration.
+   THE THREAD — the section's only decoration, and its table of contents.
 
-   One continuous ink line runs the whole height of the journey. It is the
-   scroll-progress indicator and the visual spine at the same time: a faint
-   guide path is always there, and the inked path draws over it as you scroll.
-   At the end it ties itself into a knot and heads back up — the referral
-   closing the loop.
+   It does NOT scroll. The rail lives inside the same sticky box as the window,
+   so the spine stays put while the story moves through it. Five big nodes, one
+   per act, sit at fixed heights; the node for the act you are in is the loud
+   one and it does not hand over until that whole act — every scene in it — is
+   behind you. Under the live node its scenes unfold as small ticks, so you can
+   always see where you are inside the chapter as well as which chapter it is.
 
-   Act boundaries get a larger node, so the line itself marks the five chapters
-   rather than twenty-one indistinguishable ticks.
-
-   The long path is drawn into a stretched viewBox (preserveAspectRatio="none")
-   with vector-effect="non-scaling-stroke", so a ~9000px-tall line keeps a
-   hairline weight instead of ballooning. The loop-back gets its own un-stretched
-   SVG so its curve stays true.
+   Everything is drawn segment by segment (a connector above every dot) rather
+   than as one line with a measured fill, so no layout measuring is needed and
+   the expanding act can never desynchronise from its rail.
    ────────────────────────────────────────────────────────────────────────── */
 
-/**
- * The spine. Wide swings on purpose: the viewBox is stretched to thousands of
- * pixels tall, so anything gentler flattens into a ruled line and stops reading
- * as drawn by hand. Each bend overshoots slightly differently, for the same reason.
- */
-const SPINE =
-  'M50 0 C50 42 16 64 21 106 C26 148 82 170 76 212 C70 254 14 274 19 316 ' +
-  'C24 358 84 380 78 422 C72 464 15 486 21 528 C27 570 86 592 79 634 ' +
-  'C72 676 16 698 22 740 C28 782 85 804 77 846 C70 888 44 942 50 1000'
-
-const INK = 'rgb(234 88 12)'
-
-export function Thread({
-  progress,
-  slot,
-  reduced,
-}: {
-  progress: MotionValue<number>
-  slot: number
-  reduced: boolean
-}) {
-  const loop = useTransform(progress, [0.955, 0.998], [0, 1], { clamp: true })
-
+export function Thread({ scene, act, intro }: { scene: number; act: number; intro: boolean }) {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute left-0 top-0 hidden h-full w-12 lg:block"
+      className="relative hidden w-14 flex-none select-none flex-col items-center pl-2 lg:flex"
     >
-      <svg
-        className="absolute inset-0 h-full w-full"
-        viewBox="0 0 100 1000"
-        preserveAspectRatio="none"
-        fill="none"
-      >
-        <path
-          d={SPINE}
-          stroke={INK}
-          strokeOpacity={0.1}
-          strokeWidth={1.5}
-          strokeLinecap="round"
-          vectorEffect="non-scaling-stroke"
-        />
-        <motion.path
-          d={SPINE}
-          stroke={INK}
-          strokeOpacity={0.42}
-          strokeWidth={1.5}
-          strokeLinecap="round"
-          vectorEffect="non-scaling-stroke"
-          style={{ pathLength: reduced ? 1 : progress }}
-        />
-      </svg>
+      {ACTS.map((a, i) => {
+        const own = SCENES.map((s, si) => ({ s, si })).filter(({ s }) => s.act === i)
+        const current = i === act
+        const done = i < act
+        const reached = i <= act
 
-      {/* Nodes. Act openings are ringed; scenes inside an act are small ticks. */}
-      {SLOTS.map((s, i) => {
-        const top = (SLOT_STARTS[i] + s.weight / TOTAL_WEIGHT / 2) * 100
-        const reached = slot >= i
-        const isAct = s.kind === 'intro'
         return (
-          <span
-            key={i}
-            className="absolute left-1/2 -translate-x-1/2"
-            style={{ top: `${top}%` }}
-          >
-            <span
-              className={`block rounded-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                isAct ? 'h-2.5 w-2.5' : 'h-1.5 w-1.5'
-              } ${
-                reached
-                  ? isAct
-                    ? 'bg-orange-500 ring-4 ring-orange-500/15'
-                    : 'bg-orange-500/60'
-                  : 'bg-orange-500/20'
+          <div key={a.n} className="flex w-full flex-col items-center">
+            {/* The spine between acts. */}
+            {i > 0 && (
+              <span
+                className={`w-px transition-colors duration-500 ${
+                  reached ? 'bg-orange-500/45' : 'bg-orange-500/12'
+                } h-7`}
+              />
+            )}
+
+            {/* The act node — the big mark. It stays lit for the whole act. */}
+            <span className="relative flex h-5 items-center justify-center">
+              <span
+                className={`absolute right-full mr-2.5 whitespace-nowrap font-serif-display italic leading-none transition-all duration-500 ${
+                  current
+                    ? 'text-[15px] text-orange-600'
+                    : done
+                      ? 'text-[11px] text-orange-600/55'
+                      : 'text-[11px] text-orange-600/25'
+                }`}
+              >
+                {a.n}
+              </span>
+
+              {current && intro && (
+                <span className="absolute h-5 w-5 animate-ping rounded-full bg-orange-500/30" />
+              )}
+
+              <span
+                className={`block rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  current
+                    ? 'h-3.5 w-3.5 bg-orange-500 ring-4 ring-orange-500/18 shadow-[0_0_18px_4px_rgba(234,88,12,0.30)]'
+                    : done
+                      ? 'h-2 w-2 bg-orange-500/60'
+                      : 'h-2 w-2 bg-orange-500/20'
+                }`}
+              />
+            </span>
+
+            {/* The act's scenes — only the live chapter opens up. */}
+            <div
+              className={`grid w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                current ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
               }`}
-            />
-          </span>
+            >
+              <div className="flex flex-col items-center overflow-hidden">
+                {own.map(({ si }) => {
+                  const passed = si < scene || (si === scene && !intro)
+                  const live = si === scene && !intro
+                  return (
+                    <span key={si} className="flex flex-col items-center">
+                      <span
+                        className={`h-3.5 w-px transition-colors duration-500 ${
+                          passed ? 'bg-orange-500/40' : 'bg-orange-500/12'
+                        }`}
+                      />
+                      <span
+                        className={`block rounded-full transition-all duration-500 ${
+                          live
+                            ? 'h-2 w-2 bg-orange-500 ring-[3px] ring-orange-500/15'
+                            : passed
+                              ? 'h-1.5 w-1.5 bg-orange-500/55'
+                              : 'h-1.5 w-1.5 bg-orange-500/18'
+                        }`}
+                      />
+                    </span>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
         )
       })}
-
-      {/* Roman numerals beside each act node — the spine reads as five chapters. */}
-      {INTRO_SLOTS.map((s, a) => {
-        const top = (SLOT_STARTS[s] + SLOTS[s].weight / TOTAL_WEIGHT / 2) * 100
-        return (
-          <span
-            key={a}
-            className={`absolute right-full mr-1 -translate-y-1/2 whitespace-nowrap font-serif-display text-[11px] italic transition-colors duration-700 ${
-              slot >= s ? 'text-orange-600/70' : 'text-orange-600/25'
-            }`}
-            style={{ top: `${top}%` }}
-          >
-            {ACTS[a].n}
-          </span>
-        )
-      })}
-
-      <LoopBack progress={loop} reduced={reduced} />
     </div>
   )
 }
 
 /**
- * The referral. The thread turns back on itself and heads up toward act I.
- *
- * Timed to the very end of the track and confined to the gutter: the panel is
- * pinned while the thread scrolls behind it, so anything wider would sooner or
- * later be sitting on a word of the chapter copy.
- */
-function LoopBack({ progress, reduced }: { progress: MotionValue<number>; reduced: boolean }) {
-  const fadeIn = useTransform(progress, [0, 0.12], [0, 1], { clamp: true })
-  const tipIn = useTransform(progress, [0.78, 1], [0, 1], { clamp: true })
-  const one = useMotionValue(1)
-
-  return (
-    <motion.div
-      className="absolute left-0 top-[93%] h-[26rem] w-12"
-      style={{ opacity: reduced ? one : fadeIn }}
-    >
-      <svg className="h-full w-full" viewBox="0 0 48 416" fill="none">
-        <motion.path
-          d="M23 410 C23 386 31 364 39 344 C46 324 45 300 36 286 C26 268 13 272 10 290 C8 304 11 318 15 328"
-          stroke={INK}
-          strokeOpacity={0.42}
-          strokeWidth={1.5}
-          strokeLinecap="round"
-          style={{ pathLength: reduced ? one : progress }}
-        />
-        <motion.path
-          d="M9 338 L15 326 L22 333"
-          stroke={INK}
-          strokeOpacity={0.55}
-          strokeWidth={1.5}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-          style={{ opacity: reduced ? one : tipIn }}
-        />
-      </svg>
-      <motion.span
-        className="absolute left-0 top-[20.5rem] whitespace-nowrap font-serif-display text-[10px] italic text-orange-600/55"
-        style={{ writingMode: 'vertical-rl', opacity: reduced ? one : tipIn }}
-      >
-        back to act I
-      </motion.span>
-    </motion.div>
-  )
-}
-
-/**
- * Mobile's thread: the same spine, straightened into a single hairline that the
- * stacked cards hang off. Static — a scroll-linked draw on a phone costs more
- * than it says.
+ * Mobile's thread: the same spine as a single hairline that the stacked cards
+ * hang off. Static — a scroll-linked draw on a phone costs more than it says.
  */
 export function ThreadMobile() {
   return (

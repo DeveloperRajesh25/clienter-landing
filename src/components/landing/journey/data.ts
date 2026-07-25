@@ -11,7 +11,11 @@ export const STUDIO = {
   name: 'Webcros',
   owner: 'Rajesh',
   initials: 'W',
+  logo: '/webcros-logo.jpg',
 } as const
+
+/** Clienter's own mark, as it sits in the owner app's rail. */
+export const CLIENTER_LOGO = '/logo.png'
 
 export const CLIENT = {
   name: 'Nova Studio',
@@ -125,8 +129,9 @@ export const LEAD_STAGES = [
 /* ══════════════════════════════════════════════════════════════════════════
    THE TIMELINE
 
-   Five acts. Each act opens with a title card, then plays its scenes one at a
-   time as you scroll — a scene never advances on its own.
+   Five acts. Each act opens with a rest — the window holds still on the act's
+   first screen while the thread marks the chapter — then plays its scenes one at
+   a time as you scroll. A scene never advances on its own.
 
    `weight` is scroll dwell. Scenes that perform an action (a cursor travels and
    clicks something) get more room than scenes that simply reveal a result, and
@@ -137,7 +142,8 @@ export interface Act {
   n: string
   title: string
   line: string
-  /** Dwell for the title card. */
+  /** Dwell for the act's opening rest — deliberately long, so a chapter turn
+      reads as a stop rather than one more scroll tick. */
   weight: number
 }
 
@@ -169,31 +175,31 @@ export const ACTS: Act[] = [
     n: 'I',
     title: 'The lead',
     line: 'A stranger messages you on Instagram. She lands in a pipeline, not an inbox.',
-    weight: 0.5,
+    weight: 1.15,
   },
   {
     n: 'II',
     title: 'The client',
     line: 'One click turns the won lead into a client — with a front door of her own.',
-    weight: 0.44,
+    weight: 1.15,
   },
   {
     n: 'III',
     title: 'The work',
     line: 'A project, a team, an invoice, a meeting. Everything in the same place.',
-    weight: 0.44,
+    weight: 1.15,
   },
   {
     n: 'IV',
     title: 'Her side',
     line: 'The portal, from where Ananya sits. Your name on it, not ours.',
-    weight: 0.44,
+    weight: 1.15,
   },
   {
     n: 'V',
     title: 'The loop',
     line: 'Completed, reviewed, referred. And then it starts again.',
-    weight: 0.44,
+    weight: 1.15,
   },
 ]
 

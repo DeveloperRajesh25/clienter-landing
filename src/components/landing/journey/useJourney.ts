@@ -2,7 +2,7 @@
 
 import { useScroll, useMotionValueEvent, type MotionValue } from 'framer-motion'
 import { useEffect, useMemo, useRef, useState, type RefObject } from 'react'
-import { SLOTS, SLOT_STARTS, TOTAL_WEIGHT, outgoingScene } from './data'
+import { SLOTS, SLOT_STARTS, TOTAL_WEIGHT } from './data'
 
 /* ──────────────────────────────────────────────────────────────────────────
    ONE scroll value drives everything.
@@ -24,9 +24,6 @@ import { SLOTS, SLOT_STARTS, TOTAL_WEIGHT, outgoingScene } from './data'
     the part worth looking at. */
 const BEAT_STOPS = [0, 0.14, 0.34, 0.56]
 
-/** How far into an act's title card the screen behind it swaps over. Hidden,
-    because the card is fully opaque from ~16% to ~62%. */
-const CARD_SWAP = 0.44
 
 export interface JourneyState {
   /** Live timeline slot. */
@@ -54,11 +51,10 @@ function resolve(p: number): { slot: number; beat: number } {
   const span = SLOTS[slot].weight / TOTAL_WEIGHT
   const local = span > 0 ? (p - SLOT_STARTS[slot]) / span : 1
 
-  if (SLOTS[slot].kind === 'intro') {
-    // A title card has exactly two states: the screen we are leaving, then the
-    // screen we are arriving at. Both sit behind an opaque panel.
-    return { slot, beat: local < CARD_SWAP ? 0 : 1 }
-  }
+  // An act opening is a rest, not a performance: the act's first screen is
+  // already up and it simply sits there while the rail marks the chapter. No
+  // beats to resolve.
+  if (SLOTS[slot].kind === 'intro') return { slot, beat: 0 }
 
   let beat = 0
   for (let b = BEAT_STOPS.length - 1; b >= 0; b -= 1) {
@@ -85,10 +81,11 @@ export function useJourney(ref: RefObject<HTMLElement>, reduced: boolean): Journ
 
   const slot = SLOTS[raw.slot]
   const intro = slot.kind === 'intro'
-  // During a card: the outgoing screen first, the incoming one after the swap.
-  const scene = intro && raw.beat === 0 ? outgoingScene(raw.slot) : slot.scene
+  const scene = slot.scene
   // Reduced motion: every scene sits in its finished state, always.
-  const beat = reduced ? 3 : intro ? 3 : raw.beat
+  // During an act opening the screen holds at rest — it plays once the act's
+  // first scene proper takes over.
+  const beat = reduced ? 3 : intro ? 0 : raw.beat
 
   return useMemo(
     () => ({ slot: raw.slot, scene, act: slot.act, intro, beat, progress: scrollYProgress }),

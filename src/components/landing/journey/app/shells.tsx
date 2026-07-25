@@ -25,7 +25,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { CLIENT, STUDIO } from '../data'
+import { CLIENT, CLIENTER_LOGO, STUDIO } from '../data'
 import { Avatar, OrgMark } from './ui'
 
 /* ──────────────────────────────────────────────────────────────────────────
@@ -107,7 +107,11 @@ export function OwnerShell({
       <aside className="flex w-64 flex-none flex-col border-r border-stone-200/70 bg-white">
         <div className="flex h-16 items-center justify-between px-5">
           <span className="flex items-center gap-2.5">
-            <OrgMark name="Clienter" className="h-8 w-8 rounded-lg !text-[13px]" />
+            <OrgMark
+              name="Clienter"
+              src={CLIENTER_LOGO}
+              className="h-8 w-8 rounded-lg !ring-0"
+            />
             <span className="text-lg font-bold tracking-tight text-ink">Clienter</span>
           </span>
           <Bell className="h-5 w-5 text-stone-400" aria-hidden />
@@ -115,7 +119,7 @@ export function OwnerShell({
 
         <div className="px-3 pb-3">
           <span className="flex items-center gap-2.5 rounded-xl border border-stone-200/70 bg-stone-50 px-3 py-2.5">
-            <OrgMark name={STUDIO.name} className="h-8 w-8 rounded-lg !text-[13px]" />
+            <OrgMark name={STUDIO.name} src={STUDIO.logo} className="h-8 w-8 rounded-lg" />
             <span className="min-w-0">
               <span className="block truncate text-sm font-semibold text-ink">{STUDIO.name}</span>
               <span className="mt-0.5 inline-flex rounded-full bg-purple-50 px-1.5 py-0.5 text-[10px] font-medium text-purple-700">
@@ -176,7 +180,7 @@ export function PortalShell({
     <div className="flex h-full bg-canvas">
       <aside className="flex w-64 flex-none flex-col border-r border-line bg-white">
         <div className="flex h-16 items-center gap-3 px-5">
-          <OrgMark name={STUDIO.name} className="h-9 w-9 rounded-xl" />
+          <OrgMark name={STUDIO.name} src={STUDIO.logo} className="h-9 w-9 rounded-xl" />
           <span className="min-w-0">
             <span className="block truncate text-sm font-bold text-ink">{STUDIO.name}</span>
             <span className="block text-xs text-ink-muted">Client portal</span>

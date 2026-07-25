@@ -9,7 +9,7 @@ import { Reveal } from '@/components/landing/Reveal'
 import { SectionLabel } from '@/components/landing/SectionLabel'
 import { ACTS, CLIENT, SCENES, SLOTS, TOTAL_WEIGHT, VH_PER_WEIGHT, slotRange } from './data'
 import { CROP_DEFAULT, Frame } from './Frame'
-import { ActCards, ActDivider } from './ActCard'
+import { ActDivider } from './ActCard'
 import { Cursor, TapRipple } from './Cursor'
 import { Thread, ThreadMobile } from './Thread'
 import { useBeatOnView, useJourney, useLayoutMode, useReducedMotion } from './useJourney'
@@ -38,9 +38,10 @@ import type { SceneProps } from './scenes/types'
 
    The desktop track is a tall scroll region with a single sticky viewport inside
    it. The browser frame mounts once and never unmounts; the screens cross-fade
-   behind it, and an act card slides through whenever the story moves to a new
-   part of the product. That is why this reads as one window travelling through
-   an app rather than a scrolling list of screenshots.
+   behind it, and nothing is ever thrown over the window — when the story moves
+   to a new act, the window simply holds still and the chapter turn happens on
+   the thread and the rail beside it. That is why this reads as one window
+   travelling through an app rather than a scrolling list of screenshots.
    ══════════════════════════════════════════════════════════════════════════ */
 
 /** Scene id → component. Adding a scene is one entry here and one in data.ts. */
@@ -131,15 +132,14 @@ export function ClientJourney() {
             below, and would have the device building a mock nobody can see. */}
         {mode !== 'narrow' && (
           <div className="mx-auto h-full max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="relative h-full pl-12">
-              <Thread progress={progress} slot={slot} reduced={reduced} />
-
+            <div className="relative h-full">
               {/* Top-aligned, not centred. Centring a 537px window in a
                   screen-height sticky box parks it ~150px down, and that slack
                   is the gap that reads as a hole under the title copy. `pt`
                   clears the floating header and nothing more. */}
               <div className="sticky top-0 flex h-screen items-start pb-8 pt-[7rem]">
                 <div className="flex w-full items-center gap-7">
+                  <Thread scene={scene} act={act} intro={intro} />
                   <Rail slot={slot} scene={scene} act={act} intro={intro} />
 
                   <div className="min-w-0 flex-1" aria-hidden>
@@ -171,9 +171,6 @@ export function ClientJourney() {
                           reduced={reduced}
                         />
                       )}
-
-                      {/* The five title cards. */}
-                      <ActCards progress={progress} reduced={reduced} />
                     </Frame>
                   </div>
                 </div>
@@ -298,13 +295,18 @@ function Rail({
           )
         })}
 
-        {/* The act card's own copy takes the rail while it is passing through. */}
+        {/* The chapter turn. No panel over the screen any more — the act
+            announces itself here, on the rail, beside the thread's lit node. */}
         <li
           className={`absolute inset-x-0 top-0 transition-all duration-[450ms] ${
             intro ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'
           }`}
         >
-          <h3 className="font-serif-display text-2xl font-normal italic leading-tight text-gray-900">
+          <span className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-orange-700 ring-1 ring-orange-200/70">
+            <span className="h-1.5 w-1.5 rounded-full bg-orange-500 shadow-[0_0_10px_2px_rgba(234,88,12,0.55)]" />
+            New chapter
+          </span>
+          <h3 className="mt-3 font-serif-display text-2xl font-normal italic leading-tight text-gray-900">
             {ACTS[act].title}
           </h3>
           <p className="mt-2.5 text-[13px] leading-relaxed text-gray-600">{ACTS[act].line}</p>
