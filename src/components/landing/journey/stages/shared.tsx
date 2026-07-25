@@ -87,6 +87,7 @@ export const OTHER_LEADS = [
   { name: 'Dev P.', company: 'Saffron Foods', value: '₹80,000', source: 'Referral', tint: 'bg-emerald-50 text-emerald-700' },
   { name: 'Ritu B.', company: 'Kalpa Interiors', value: '₹32,000', source: 'Ads', tint: 'bg-violet-50 text-violet-700' },
   { name: 'Imran S.', company: 'Northline Cargo', value: '₹1,10,000', source: 'Cold Call', tint: 'bg-sky-50 text-sky-700' },
+  { name: 'Farah N.', company: 'Anchor Dental', value: '₹58,000', source: 'Other', tint: 'bg-stone-100 text-stone-600' },
 ] as const
 
 /** A quiet lead card for the columns Nova Studio isn't in. */

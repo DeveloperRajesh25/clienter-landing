@@ -8,12 +8,12 @@ import { APP_URL } from '@/lib/site'
 import { Reveal } from '@/components/landing/Reveal'
 import { SectionLabel } from '@/components/landing/SectionLabel'
 import { CHAPTERS, CLIENT, TOTAL_WEIGHT, VH_PER_WEIGHT, type Chapter } from './data'
-import { Frame } from './Frame'
+import { Frame, RATIO_TALL } from './Frame'
 import { Cursor, TapRipple } from './Cursor'
 import { Sidebar } from './Sidebar'
 import { Thread, ThreadMobile } from './Thread'
 import { SharedChip } from './primitives'
-import { useBeatOnView, useJourney, useReducedMotion } from './useJourney'
+import { useBeatOnView, useJourney, useLayoutMode, useReducedMotion } from './useJourney'
 import { Stage01, Stage02 } from './stages/ActI'
 import { Stage03, Stage04, Stage05, Stage06 } from './stages/ActII'
 import { Stage07, Stage08, Stage09, Stage10 } from './stages/ActIII'
@@ -92,6 +92,7 @@ const RAIL_PAD = 'pl-[7.75rem] sm:pl-[8.75rem]'
 
 export function ClientJourney() {
   const reduced = useReducedMotion()
+  const mode = useLayoutMode()
   const trackRef = useRef<HTMLDivElement>(null)
   const { index, beat, progress } = useJourney(trackRef, reduced)
   const chapter = CHAPTERS[index]
@@ -132,8 +133,23 @@ export function ClientJourney() {
           rail is a real ordered list holding all ten chapters, so a screen
           reader gets the whole story in order even though only one chapter is
           visible at a time. Only the window — a mock with three layers mounted —
-          is marked decorative. */}
-      <div ref={trackRef} className="relative hidden lg:block" style={{ height: trackHeight }}>
+          is marked decorative.
+
+          Collapsed to zero height below `lg` rather than `display: none`. A
+          hidden element has no offsetParent, and framer-motion's scroll
+          observer cannot compute an offset against one — so `hidden lg:block`
+          would leave the phone quietly measuring a detached box. `overflow`
+          has to go back to visible at `lg`, or the sticky child stops sticking. */}
+      <div
+        ref={trackRef}
+        className="relative h-0 overflow-hidden lg:h-[var(--journey-track)] lg:overflow-visible"
+        style={{ '--journey-track': trackHeight } as React.CSSProperties}
+      >
+        {/* Gone entirely on a phone once we know it's a phone. Clipping it to
+            zero height would still leave the chapter list exposed to a screen
+            reader alongside the stacked version below — one story, read twice —
+            and would have the device building an app mock nobody can see. */}
+        {mode !== 'narrow' && (
         <div className="mx-auto h-full max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="relative h-full pl-14">
             <Thread progress={progress} activeIndex={index} reduced={reduced} />
@@ -220,17 +236,20 @@ export function ClientJourney() {
             </div>
           </div>
         </div>
+        )}
       </div>
 
       {/* ── The journey · mobile ───────────────────────────────────────── */}
-      <div className="relative lg:hidden">
-        <ThreadMobile />
-        <ol className="space-y-12 py-4 sm:space-y-16">
-          {CHAPTERS.map((c, i) => (
-            <MobileChapter key={c.n} chapter={c} index={i} reduced={reduced} />
-          ))}
-        </ol>
-      </div>
+      {mode !== 'wide' && (
+        <div className="relative lg:hidden">
+          <ThreadMobile />
+          <ol className="space-y-12 py-4 sm:space-y-16">
+            {CHAPTERS.map((c, i) => (
+              <MobileChapter key={c.n} chapter={c} index={i} reduced={reduced} />
+            ))}
+          </ol>
+        </div>
+      )}
 
       {/* ── The resolution beat ────────────────────────────────────────── */}
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24 lg:px-8">
@@ -238,8 +257,10 @@ export function ClientJourney() {
           <div className="rule-warm" />
           <div className="grid items-end gap-8 pt-12 sm:grid-cols-12 sm:gap-12">
             <Reveal className="sm:col-span-7">
+              {/* 8 July to the end of the month — the same span the opening
+                  beat promises, counted out. Not a rounded-up "one month". */}
               <p className="font-serif-display text-2xl italic leading-snug text-orange-700/80 sm:text-3xl">
-                Thirty-seven days. One client. Not one spreadsheet.
+                Twenty-three days. One client. Not one spreadsheet.
               </p>
               <h3 className="mt-5 font-display text-2xl font-extrabold tracking-tight text-gray-900 sm:text-[2rem]">
                 And that was one client. Run your whole business this way.
@@ -281,7 +302,7 @@ export function ClientJourney() {
    ────────────────────────────────────────────────────────────────────────── */
 function ChapterRail({ index }: { index: number }) {
   return (
-    <div className="relative h-[19rem] w-[12.5rem] flex-none xl:w-[14rem]">
+    <div className="relative h-[16.5rem] w-[12.5rem] flex-none xl:w-[14rem]">
       <ol>
         {CHAPTERS.map((c, i) => {
           const live = i === index
@@ -444,7 +465,7 @@ function ScaledFrame({
         ref={inner}
         style={{ width: DESIGN_WIDTH, transform: `scale(${scale})`, transformOrigin: 'top left' }}
       >
-        <Frame url={url} reduced={reduced}>
+        <Frame url={url} reduced={reduced} ratio={RATIO_TALL}>
           {children}
         </Frame>
       </div>

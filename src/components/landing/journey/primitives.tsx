@@ -269,6 +269,8 @@ export function Count({
   prefix = '',
   suffix = '',
   duration,
+  /** Counts in tenths and renders one decimal — for the 4.9 public rating. */
+  decimal = false,
   className = '',
 }: {
   to: number
@@ -276,13 +278,14 @@ export function Count({
   prefix?: string
   suffix?: string
   duration?: number
+  decimal?: boolean
   className?: string
 }) {
-  const value = useCountUp(to, run, duration)
+  const value = useCountUp(decimal ? to * 10 : to, run, duration)
   return (
     <span className={`tabular-nums ${className}`}>
       {prefix}
-      {value.toLocaleString('en-IN')}
+      {decimal ? (value / 10).toFixed(1) : value.toLocaleString('en-IN')}
       {suffix}
     </span>
   )

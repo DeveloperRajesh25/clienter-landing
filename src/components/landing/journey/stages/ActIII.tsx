@@ -10,6 +10,7 @@ import {
   Gift,
   LogIn,
   Receipt,
+  RotateCcw,
   Send,
   Star,
   Video,
@@ -240,14 +241,18 @@ export function Stage08({ on, beat }: StageProps) {
 
           {/* Everything else on the calendar, quietly. */}
           <div className="min-h-0 flex-1 space-y-1 opacity-70">
-            <QuietRow
-              name="Loomcraft"
-              right={<span className="text-[8px] text-stone-400">21 Jul · 4:00 PM</span>}
-            />
-            <QuietRow
-              name="Saffron Foods"
-              right={<span className="text-[8px] text-stone-400">24 Jul · 11:30 AM</span>}
-            />
+            {[
+              ['Loomcraft', '21 Jul · 4:00 PM'],
+              ['Saffron Foods', '24 Jul · 11:30 AM'],
+              ['Kalpa Interiors', '27 Jul · 2:00 PM'],
+              ['Northline Cargo', '31 Jul · 10:00 AM'],
+            ].map(([who, when]) => (
+              <QuietRow
+                key={who}
+                name={who}
+                right={<span className="text-[8px] text-stone-400">{when}</span>}
+              />
+            ))}
           </div>
 
           <Tip on={beat === 1} className="right-[4%] top-[16%]">
@@ -291,6 +296,8 @@ export function Stage09({ on, beat }: StageProps) {
             </div>
             <QuietRow name="Loomcraft" />
             <QuietRow name="Saffron Foods" />
+            <QuietRow name="Kalpa Interiors" />
+            <QuietRow name="Northline Cargo" />
           </div>
 
           {/* The conversation */}
@@ -338,9 +345,13 @@ export function Stage09({ on, beat }: StageProps) {
                     <span
                       key={i}
                       className="journey-dot h-1 w-1 rounded-full bg-stone-400"
+                      // Delay lives inside the shorthand: setting `animation`
+                      // and `animationDelay` separately makes React warn about
+                      // shorthand/longhand conflicts on rerender.
                       style={{
-                        animation: typing ? 'journey-typing 1.2s ease-in-out infinite' : 'none',
-                        animationDelay: `${i * 160}ms`,
+                        animation: typing
+                          ? `journey-typing 1.2s ease-in-out ${i * 160}ms infinite`
+                          : 'none',
                       }}
                     />
                   ))}
@@ -420,48 +431,71 @@ export function Stage10({ on, beat }: StageProps) {
             {/* The review */}
             <div className="col-span-3 flex min-h-0 flex-col gap-2">
               <Panel
-                className={`flex-none p-2 transition-all duration-[640ms] ease-[cubic-bezier(0.2,1.04,0.3,1)] ${
+                className={`flex min-h-0 flex-1 flex-col p-2.5 transition-all duration-[640ms] ease-[cubic-bezier(0.2,1.04,0.3,1)] ${
                   completed ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
                 }`}
               >
-                <div className="flex items-center gap-1.5">
+                <div className="flex flex-none items-center gap-1.5">
                   <Stars run={completed} />
                   <Badge tint="bg-emerald-50 text-emerald-700" className="ml-auto">
                     <BadgeCheck className="h-2.5 w-2.5" aria-hidden />
                     Verified
                   </Badge>
                 </div>
-                <p className="mt-1.5 text-[9.5px] font-medium leading-snug text-stone-700">
+                <p className="mt-2 flex-none text-[11px] font-medium leading-snug text-stone-700">
                   “{REVIEW.body}”
                 </p>
-                <div className="mt-1.5 flex items-center gap-1.5 border-t border-stone-100 pt-1.5">
+                <div className="mt-2 flex flex-none items-center gap-1.5 border-t border-stone-100 pt-2">
                   <Avatar initials="AR" size="xs" />
-                  <span className="text-[8.5px] font-semibold text-stone-600">{REVIEW.author}</span>
-                  <span className="text-[8px] text-stone-400">· {REVIEW.month}</span>
+                  <span className="text-[9px] font-semibold text-stone-600">{REVIEW.author}</span>
+                  <span className="text-[8.5px] text-stone-400">· {REVIEW.month}</span>
                 </div>
+
+                {/* The reviews that came before, so the 4.9 has something behind
+                    it. Twelve verified in total: this one, four listed, seven
+                    folded away — the numbers on screen have to add up. */}
+                <ul className="mt-2 flex min-h-0 flex-1 flex-col gap-1.5 border-t border-stone-100 pt-2">
+                  {[
+                    { who: 'Ritu B.', when: 'Jun 2026', line: 'Clear updates, no chasing.' },
+                    { who: 'Dev P.', when: 'May 2026', line: 'Shipped exactly what we agreed.' },
+                    { who: 'Meera K.', when: 'Apr 2026', line: 'Invoices always made sense.' },
+                    { who: 'Imran S.', when: 'Mar 2026', line: 'Second project with them.' },
+                  ].map((r) => (
+                    <li key={r.who} className="flex flex-none items-center gap-1.5 opacity-70">
+                      <Stars run={completed} small />
+                      <span className="min-w-0 flex-1 truncate text-[8.5px] text-stone-500">
+                        {r.line}
+                      </span>
+                      <span className="flex-none text-[8px] text-stone-400">
+                        {r.who} · {r.when}
+                      </span>
+                    </li>
+                  ))}
+                  <li className="mt-auto flex-none border-t border-stone-100 pt-1.5 text-[8px] font-medium text-stone-400">
+                    7 more verified reviews
+                  </li>
+                </ul>
               </Panel>
 
               {/* The public badge this earns. */}
               <div
-                className={`flex flex-none items-center gap-2 rounded-lg bg-espresso px-2 py-1.5 transition-all duration-[560ms] delay-[260ms] ${
+                className={`flex flex-none items-center gap-2 rounded-lg bg-espresso px-2.5 py-2 transition-all duration-[560ms] delay-[260ms] ${
                   completed ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
                 }`}
               >
-                <span className="flex items-baseline gap-0.5">
-                  <span className="font-display text-[15px] font-bold leading-none text-white tabular-nums">
-                    <Count to={49} run={completed} duration={900} />
-                  </span>
+                <span className="font-display text-[17px] font-bold leading-none tabular-nums text-white">
+                  <Count to={4.9} decimal run={completed} duration={900} />
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-[8.5px] font-semibold leading-tight text-espresso-text">
+                  <span className="block text-[9px] font-semibold leading-tight text-espresso-text">
                     Public rating on your site
                   </span>
-                  <span className="block text-[7.5px] leading-tight text-espresso-muted">
+                  <span className="block text-[8px] leading-tight text-espresso-muted">
                     {REVIEW.reviewCount} verified reviews
                   </span>
                 </span>
                 <Star
-                  className="ml-auto h-3 w-3 flex-none text-orange-400"
+                  className="ml-auto h-3.5 w-3.5 flex-none text-orange-400"
                   fill="currentColor"
                   strokeWidth={0}
                   aria-hidden
@@ -476,10 +510,10 @@ export function Stage10({ on, beat }: StageProps) {
                 <Caption>Leads · New</Caption>
               </div>
 
-              <div className="mt-1 min-h-0 flex-1 rounded-lg border border-stone-200/60 bg-stone-100/50 p-1">
+              <div className="mt-1 flex min-h-0 flex-1 flex-col rounded-lg border border-stone-200/60 bg-stone-100/50 p-1.5">
                 {/* The referral card, dropping in. */}
                 <div
-                  className={`rounded-lg border bg-white p-1.5 transition-all duration-[700ms] ease-[cubic-bezier(0.2,1.08,0.3,1)] ${
+                  className={`flex-none rounded-lg border bg-white p-1.5 transition-all duration-[700ms] ease-[cubic-bezier(0.2,1.08,0.3,1)] ${
                     referred
                       ? 'translate-y-0 border-teal-200 opacity-100 shadow-[0_8px_18px_-8px_rgba(67,36,16,0.2)] ring-1 ring-teal-200/70'
                       : '-translate-y-4 border-stone-200 opacity-0'
@@ -489,26 +523,37 @@ export function Stage10({ on, beat }: StageProps) {
                     <span className="truncate text-[10px] font-semibold leading-tight text-ink">
                       {REFERRAL.name}
                     </span>
-                    <span className="flex-none text-[8.5px] font-semibold tabular-nums text-ink">
+                    <span className="flex-none text-[9px] font-semibold tabular-nums text-ink">
                       {REFERRAL.value}
                     </span>
                   </div>
-                  <span className="mt-0.5 block truncate text-[8.5px] leading-tight text-stone-400">
+                  <span className="mt-0.5 block truncate text-[9px] leading-tight text-stone-400">
                     {REFERRAL.company}
                   </span>
-                  <div className="mt-1 border-t border-stone-100 pt-1">
+                  <div className="mt-1.5 flex items-center gap-1 border-t border-stone-100 pt-1.5">
                     <Badge tint={REFERRAL.sourceBadge}>{REFERRAL.sourceLabel}</Badge>
                   </div>
                 </div>
 
                 <p
-                  className={`mt-1.5 px-0.5 font-serif-display text-[9px] italic leading-snug text-orange-700/70 transition-opacity duration-700 delay-300 ${
+                  className={`mt-2 flex-none px-0.5 font-serif-display text-[11px] italic leading-snug text-orange-700/75 transition-opacity duration-700 delay-300 ${
                     referred ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
-                  {CLIENT.contact.split(' ')[0]} referred him from her portal — so chapter one
-                  starts again.
+                  Referred by {CLIENT.contact.split(' ')[0]}, from her own portal.
                 </p>
+
+                {/* Where it goes next: straight back to chapter one. */}
+                <div
+                  className={`mt-2 flex flex-none items-center gap-1 rounded-md bg-white/70 px-1.5 py-1 transition-all duration-700 delay-500 ${
+                    referred ? 'translate-y-0 opacity-100' : 'translate-y-1 opacity-0'
+                  }`}
+                >
+                  <RotateCcw className="h-2.5 w-2.5 flex-none text-orange-600" aria-hidden />
+                  <span className="text-[8.5px] font-semibold text-stone-500">
+                    Chapter one, new stranger
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -524,13 +569,13 @@ export function Stage10({ on, beat }: StageProps) {
 
 /** Five stars that fill one at a time. The stagger is the point — all five at
     once reads as an image, not an event. */
-function Stars({ run }: { run: boolean }) {
+function Stars({ run, small }: { run: boolean; small?: boolean }) {
   return (
-    <span className="inline-flex items-center gap-0.5" aria-hidden>
+    <span className="inline-flex flex-none items-center gap-0.5" aria-hidden>
       {[0, 1, 2, 3, 4].map((i) => (
         <Star
           key={i}
-          className={`h-3 w-3 transition-all duration-300 ease-[cubic-bezier(0.34,1.5,0.64,1)] ${
+          className={`${small ? 'h-2 w-2' : 'h-3.5 w-3.5'} transition-all duration-300 ease-[cubic-bezier(0.34,1.5,0.64,1)] ${
             run ? 'scale-100 text-orange-500 opacity-100' : 'scale-50 text-stone-300 opacity-40'
           }`}
           style={{ transitionDelay: run ? `${180 + i * 110}ms` : '0ms' }}

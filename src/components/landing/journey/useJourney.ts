@@ -80,6 +80,29 @@ export function useJourney(ref: RefObject<HTMLElement>, reduced: boolean): Journ
   )
 }
 
+/**
+ * Which layout is actually in play.
+ *
+ * Starts as `'ssr'`, where BOTH the pinned desktop track and the stacked mobile
+ * list render exactly as the server sent them — so there is no first-paint flash
+ * and every chapter of copy is in the HTML for crawlers. After mount it settles
+ * to one or the other and the unused half unmounts, so a phone isn't carrying
+ * three pre-mounted desktop app mocks it will never show (and vice versa).
+ */
+export function useLayoutMode(): 'ssr' | 'wide' | 'narrow' {
+  const [mode, setMode] = useState<'ssr' | 'wide' | 'narrow'>('ssr')
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const sync = () => setMode(mq.matches ? 'wide' : 'narrow')
+    sync()
+    mq.addEventListener('change', sync)
+    return () => mq.removeEventListener('change', sync)
+  }, [])
+
+  return mode
+}
+
 /** Tracks `prefers-reduced-motion` live, not just on first paint. */
 export function useReducedMotion(): boolean {
   const [reduced, setReduced] = useState(false)

@@ -1,6 +1,6 @@
 'use client'
 
-import { Building2, CheckCircle2, Phone, Plus, UserPlus } from 'lucide-react'
+import { CheckCircle2, Phone, Plus, UserPlus } from 'lucide-react'
 import { Badge, Caption, NovaChip, Spotlight, Tip } from '../primitives'
 import { TopBar } from '../Sidebar'
 import { CLIENT, LEAD_STAGES } from '../data'
@@ -25,6 +25,15 @@ const COLS = [
 /** Where the Nova Studio card sits, per beat, in % of the board box. */
 const PROPOSAL_COL = 2
 const WON_COL = 3
+
+/** The book of business Nova Studio is joining. Same names as the pipeline's
+    quiet leads, one stage further on — so the two screens agree. */
+const CLIENT_LIST = [
+  { name: 'Loomcraft', value: '₹45,000' },
+  { name: 'Saffron Foods', value: '₹80,000' },
+  { name: 'Kalpa Interiors', value: '₹32,000' },
+  { name: 'Northline Cargo', value: '₹1,10,000' },
+] as const
 
 /**
  * The lead card. The company line is the shared Nova Studio chip — the one
@@ -59,8 +68,7 @@ function LeadCard({
         </span>
       </div>
 
-      <div className="mt-1 flex items-center gap-1">
-        <Building2 className="h-2.5 w-2.5 flex-none text-stone-400" aria-hidden />
+      <div className="mt-1 flex items-center">
         <NovaChip on={on} size="sm" />
       </div>
 
@@ -68,14 +76,12 @@ function LeadCard({
         <Phone className="h-2.5 w-2.5 flex-none" aria-hidden />
         <span className="truncate">{CLIENT.phone}</span>
       </div>
+      {/* The created date sits as a line, not a second pill: two pills in the
+          footer overflow the column once the board is scaled down for a phone. */}
+      <div className="mt-0.5 truncate text-[8px] text-stone-400">Added {CLIENT.created}</div>
 
       <div className="mt-1 flex items-center gap-1 border-t border-stone-100 pt-1">
         <Badge tint={CLIENT.sourceBadge}>{CLIENT.sourceLabel}</Badge>
-        {convert ? null : (
-          <Badge tint="bg-stone-100 text-stone-500" className="ml-auto">
-            {CLIENT.created}
-          </Badge>
-        )}
       </div>
 
       {convert && (
@@ -88,6 +94,22 @@ function LeadCard({
           </Spotlight>
         </div>
       )}
+    </div>
+  )
+}
+
+/**
+ * The gap the travelling card leaves behind.
+ *
+ * An invisible copy of the card itself, not a hand-measured height: the card's
+ * height is content-driven, and a hardcoded spacer drifts the moment a line of
+ * copy rewraps — which is exactly how the flying card ends up sitting on top of
+ * its neighbour.
+ */
+function NovaSlot({ convert }: { convert?: boolean }) {
+  return (
+    <div className="invisible" aria-hidden>
+      <LeadCard on={false} convert={convert} />
     </div>
   )
 }
@@ -121,13 +143,19 @@ export function Stage01({ on, beat }: StageProps) {
               count={i === PROPOSAL_COL ? (won ? 1 : 2) : i === WON_COL ? (won ? 2 : 1) : c.count}
               highlight={won && i === WON_COL}
             >
-              {/* Nova Studio's slot is left to the flying card below. */}
-              {i === PROPOSAL_COL && !won && <span className="block h-[4.6rem]" />}
-              {i === WON_COL && won && <span className="block h-[4.6rem]" />}
-              {i !== WON_COL && <QuietLead i={i} />}
-              {i === 0 && <QuietLead i={3} />}
-              {i === WON_COL && !won && <QuietLead i={1} />}
-              {i === WON_COL && won && <QuietLead i={1} />}
+              {/* Nova Studio's own slot is left empty — the card that belongs
+                  here is positioned absolutely below so it can travel. */}
+              {i === PROPOSAL_COL && !won && <NovaSlot />}
+              {i === WON_COL && won && <NovaSlot />}
+              {i === 0 && (
+                <>
+                  <QuietLead i={0} />
+                  <QuietLead i={3} />
+                </>
+              )}
+              {i === 1 && <QuietLead i={1} />}
+              {i === PROPOSAL_COL && <QuietLead i={2} />}
+              {i === WON_COL && <QuietLead i={4} />}
             </BoardColumn>
           ))}
 
@@ -175,7 +203,7 @@ export function Stage02({ on, beat }: StageProps) {
     <Screen>
       <TopBar title={converted ? 'Clients' : 'Leads'}>
         <Badge tint={converted ? 'bg-emerald-50 text-emerald-700' : 'bg-stone-100 text-stone-600'}>
-          {converted ? '4 active' : '8 open'}
+          {converted ? '5 active' : '8 open'}
         </Badge>
         <Btn>
           <Plus className="h-2.5 w-2.5" aria-hidden />
@@ -202,8 +230,8 @@ export function Stage02({ on, beat }: StageProps) {
               >
                 {i === WON_COL ? (
                   <>
-                    <span className="block h-[6.2rem]" />
-                    <QuietLead i={1} />
+                    <NovaSlot convert />
+                    <QuietLead i={4} />
                   </>
                 ) : (
                   <QuietLead i={i} />
@@ -223,20 +251,22 @@ export function Stage02({ on, beat }: StageProps) {
                 <Caption>All clients</Caption>
                 <Caption>Value</Caption>
               </div>
-              {/* Nova Studio's landing slot. */}
-              <span className="block h-[2.85rem] flex-none" />
-              <QuietRow
-                name="Loomcraft"
-                right={<span className="text-[9px] font-semibold tabular-nums text-stone-500">₹45,000</span>}
-              />
-              <QuietRow
-                name="Saffron Foods"
-                right={<span className="text-[9px] font-semibold tabular-nums text-stone-500">₹80,000</span>}
-              />
-              <QuietRow
-                name="Kalpa Interiors"
-                right={<span className="text-[9px] font-semibold tabular-nums text-stone-500">₹32,000</span>}
-              />
+              {/* Nova Studio's landing slot — again, an invisible copy of the
+                  row that's about to arrive rather than a guessed height. */}
+              <div className="invisible flex-none" aria-hidden>
+                <NewClientRow on={false} />
+              </div>
+              {CLIENT_LIST.map((c) => (
+                <QuietRow
+                  key={c.name}
+                  name={c.name}
+                  right={
+                    <span className="text-[9px] font-semibold tabular-nums text-stone-500">
+                      {c.value}
+                    </span>
+                  }
+                />
+              ))}
             </div>
           </div>
 

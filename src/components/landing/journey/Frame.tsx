@@ -16,15 +16,32 @@ import { useTyped } from './primitives'
  * changes, which is the cheapest possible way to tell the visitor "you just
  * navigated" without moving anything else.
  */
+/**
+ * Desktop viewport shape — laptop-ish, so the screens fill it rather than
+ * trailing off into empty canvas.
+ */
+export const RATIO_WIDE = 16 / 9.4
+
+/**
+ * Mobile viewport shape. Taller, and not a stylistic choice: the stacked layout
+ * drops the app rail and scales the whole mock down to stay legible, which
+ * leaves the screens with ~75% of the desktop width but the same absolute type
+ * sizes. Keeping the wide ratio would crop the bottom off every screen — a
+ * squarer box gives back the vertical room the narrower width costs.
+ */
+export const RATIO_TALL = 16 / 13.6
+
 export function Frame({
   url,
   children,
   reduced,
+  ratio = RATIO_WIDE,
   className = '',
 }: {
   url: string
   children: ReactNode
   reduced: boolean
+  ratio?: number
   className?: string
 }) {
   const typed = useTyped(url, !reduced)
@@ -56,9 +73,14 @@ export function Frame({
         </div>
       </div>
 
-      {/* Viewport. 16:10 so the mock keeps its proportions at every width; the
-          stage layers stack absolutely inside. */}
-      <div className="relative aspect-[16/10.2] w-full overflow-hidden bg-canvas">{children}</div>
+      {/* Viewport. A fixed ratio so the mock keeps its proportions at every
+          width; the stage layers stack absolutely inside. */}
+      <div
+        className="relative w-full overflow-hidden bg-canvas"
+        style={{ aspectRatio: String(ratio) }}
+      >
+        {children}
+      </div>
     </div>
   )
 }

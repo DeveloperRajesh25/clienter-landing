@@ -1,7 +1,6 @@
 'use client'
 
 import {
-  ArrowRight,
   CalendarDays,
   Check,
   Download,
@@ -69,9 +68,9 @@ export function Stage03({ on, beat }: StageProps) {
 
           <div className="grid min-h-0 flex-1 grid-cols-5 gap-2">
             {/* Contact — real values, carried over from the lead. */}
-            <Panel className="col-span-2 p-2">
+            <Panel className="col-span-2 flex flex-col p-2">
               <Caption>Contact</Caption>
-              <ul className="mt-1.5 space-y-1.5">
+              <ul className="mt-1.5 flex-none space-y-1.5">
                 <li className="flex items-center gap-1.5 text-[9.5px] text-stone-600">
                   <Mail className="h-2.5 w-2.5 flex-none text-stone-400" aria-hidden />
                   <span className="truncate">{CLIENT.email}</span>
@@ -85,11 +84,35 @@ export function Stage03({ on, beat }: StageProps) {
                   Came from {CLIENT.sourceLabel}
                 </li>
               </ul>
-              <div className="mt-2 border-t border-stone-100 pt-1.5">
-                <Caption>Projects</Caption>
-                <p className="mt-1 text-[9.5px] leading-snug text-stone-400">
-                  Nothing here yet — that&apos;s next.
-                </p>
+
+              {/* The "nothing gets retyped" claim, evidenced. Every row here
+                  happened in an earlier chapter — the profile remembers. */}
+              <div className="mt-2 min-h-0 flex-1 border-t border-stone-100 pt-1.5">
+                <Caption>History</Caption>
+                <ol className="mt-1.5 space-y-1.5">
+                  {[
+                    { when: 'Today', what: 'Client portal enabled', live: true },
+                    { when: CLIENT.converted, what: 'Converted from lead' },
+                    { when: CLIENT.won, what: 'Deal marked won' },
+                    { when: CLIENT.created, what: `Lead created · ${CLIENT.sourceLabel}` },
+                  ].map((row) => (
+                    <li key={row.what} className="flex items-start gap-1.5">
+                      <span
+                        className={`mt-1 h-1 w-1 flex-none rounded-full ${
+                          row.live ? 'bg-orange-500' : 'bg-stone-300'
+                        }`}
+                      />
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate text-[9px] font-medium leading-tight text-stone-600">
+                          {row.what}
+                        </span>
+                        <span className="block text-[8px] leading-tight text-stone-400">
+                          {row.when}
+                        </span>
+                      </span>
+                    </li>
+                  ))}
+                </ol>
               </div>
             </Panel>
 
@@ -234,13 +257,14 @@ export function Stage04({ on, beat, reduced }: StageProps) {
           </div>
         </div>
 
-        {/* What the drawer leaves behind. */}
+        {/* What the drawer leaves behind: the new project at the top of a real
+            project list, not a lone card floating in an empty screen. */}
         <div
-          className={`absolute inset-0 p-2.5 transition-all duration-[620ms] delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          className={`absolute inset-0 flex flex-col gap-2 p-2.5 transition-all duration-[620ms] delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             created ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
           }`}
         >
-          <Panel className="p-2.5">
+          <Panel className="flex-none p-2.5" ring>
             <div className="flex items-start gap-2">
               <span className="flex h-8 w-8 flex-none items-center justify-center rounded-lg bg-orange-100 text-orange-600">
                 <FileText className="h-4 w-4" aria-hidden />
@@ -258,14 +282,11 @@ export function Stage04({ on, beat, reduced }: StageProps) {
                   <Badge tint="bg-stone-100 text-stone-600">{PROJECT.budget}</Badge>
                 </div>
               </div>
-              <span className="flex flex-none -space-x-1.5">
+              {/* Side by side rather than an overlapping stack: at this scale the
+                  overlap just reads as one clipped avatar. */}
+              <span className="flex flex-none items-center gap-1">
                 {TEAM.map((m) => (
-                  <Avatar
-                    key={m.name}
-                    initials={m.initials}
-                    tint={`${m.tint} ring-2 ring-white`}
-                    size="xs"
-                  />
+                  <Avatar key={m.name} initials={m.initials} tint={m.tint} size="xs" />
                 ))}
               </span>
             </div>
@@ -274,6 +295,35 @@ export function Stage04({ on, beat, reduced }: StageProps) {
               Created {PROJECT.created} · {CLIENT.name}
             </div>
           </Panel>
+
+          <div className="min-h-0 flex-1">
+            <Caption className="mb-1 block">Everything else on the go</Caption>
+            <div className="space-y-1">
+              {[
+                { name: 'Menu photography', client: 'Saffron Foods', pct: 40 },
+                { name: 'Catalogue redesign', client: 'Loomcraft', pct: 80 },
+                { name: 'Showroom microsite', client: 'Kalpa Interiors', pct: 15 },
+              ].map((p) => (
+                <div
+                  key={p.name}
+                  className="flex items-center gap-2 rounded-lg border border-stone-200/60 bg-white px-2 py-1.5"
+                >
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-[10px] font-semibold text-stone-600">
+                      {p.name}
+                    </span>
+                    <span className="block truncate text-[8px] text-stone-400">{p.client}</span>
+                  </span>
+                  <span className="flex w-16 flex-none items-center gap-1.5">
+                    <Progress value={p.pct} run className="flex-1" height="h-1" />
+                    <span className="text-[8px] font-semibold tabular-nums text-stone-400">
+                      {p.pct}%
+                    </span>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         <Tip on={beat === 1} className="bottom-[16%] right-[4%]">
@@ -488,8 +538,37 @@ export function Stage06({ on, beat }: StageProps) {
               </div>
             </Panel>
 
+            {/* Everything already banked on this client, so the ledger doesn't
+                stop dead under the new row. */}
+            <Panel className="min-h-0 flex-1 p-2">
+              <Caption>Earlier payments</Caption>
+              <ul className="mt-1.5 space-y-1">
+                {[
+                  { label: 'Kalpa Interiors', meta: '2 Jul 2026', value: '₹18,000' },
+                  { label: 'Loomcraft', meta: '28 Jun 2026', value: '₹22,500' },
+                  { label: 'Saffron Foods', meta: '19 Jun 2026', value: '₹40,000' },
+                  { label: 'Northline Cargo', meta: '11 Jun 2026', value: '₹55,000' },
+                ].map((p) => (
+                  <li
+                    key={p.label}
+                    className="flex items-center gap-1.5 rounded-md border border-stone-200/60 px-1.5 py-1"
+                  >
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-[9px] font-semibold text-stone-600">
+                        {p.label}
+                      </span>
+                      <span className="block text-[8px] text-stone-400">{p.meta}</span>
+                    </span>
+                    <span className="flex-none text-[9px] font-semibold tabular-nums text-stone-500">
+                      {p.value}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </Panel>
+
             {!recorded && (
-              <div className="relative mt-auto flex-none">
+              <div className="relative flex-none">
                 <Spotlight on={beat === 1} radius="rounded-md">
                   <Btn>
                     <Plus className="h-2.5 w-2.5" aria-hidden />
@@ -500,8 +579,9 @@ export function Stage06({ on, beat }: StageProps) {
             )}
           </div>
 
-          {/* The document. Paper, not a panel — a dashed perforation and a slight
-              tilt so it reads as a generated tax invoice. */}
+          {/* The document. Paper, not a panel — a perforated header, a bill-to
+              block, line items, and a tilt, so it reads as a tax invoice that
+              was generated rather than a card that says "invoice". */}
           <div className="relative col-span-3">
             {/* Empty state, before. */}
             <div
@@ -515,70 +595,111 @@ export function Stage06({ on, beat }: StageProps) {
 
             {/* The invoice, generated. */}
             <div
-              className={`absolute inset-x-1 top-0 transition-all duration-[760ms] ease-[cubic-bezier(0.2,1.02,0.3,1)] ${
+              className={`absolute inset-x-2 bottom-8 top-0 transition-all duration-[760ms] ease-[cubic-bezier(0.2,1.02,0.3,1)] ${
                 recorded
-                  ? 'translate-y-0 rotate-[-0.8deg] opacity-100'
+                  ? 'translate-y-0 rotate-[-0.7deg] opacity-100'
                   : 'translate-y-4 rotate-0 opacity-0'
               }`}
             >
-              <div className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-[0_18px_40px_-16px_rgba(67,36,16,0.28)]">
-                <div className="flex items-center justify-between border-b border-dashed border-stone-200 bg-stone-50/70 px-2 py-1">
+              <div className="flex h-full flex-col overflow-hidden rounded-xl border border-stone-200 bg-white shadow-[0_18px_40px_-16px_rgba(67,36,16,0.28)]">
+                <div className="flex flex-none items-center justify-between border-b border-dashed border-stone-200 bg-stone-50/70 px-2.5 py-1.5">
                   <span className="text-[8px] font-bold uppercase tracking-[0.16em] text-stone-400">
                     Tax Invoice
                   </span>
-                  <span className="text-[8px] font-bold text-orange-600">{STUDIO.name}</span>
+                  <span className="text-[9px] font-bold text-orange-600">{STUDIO.name}</span>
                 </div>
 
-                <div className="p-2">
-                  <div className="flex items-start justify-between gap-2">
-                    <span>
+                <div className="flex min-h-0 flex-1 flex-col px-2.5 py-2">
+                  <div className="flex flex-none items-start justify-between gap-2">
+                    <span className="min-w-0">
+                      <Caption>Billed to</Caption>
+                      <span className="mt-0.5 block truncate text-[10px] font-bold text-ink">
+                        {CLIENT.name}
+                      </span>
+                      <span className="block truncate text-[8px] text-stone-400">
+                        {CLIENT.contact} · {CLIENT.email}
+                      </span>
+                    </span>
+                    <span className="flex-none text-right">
                       <span className="block text-[10px] font-bold tabular-nums text-ink">
                         {INVOICE.number}
                       </span>
                       <span className="mt-0.5 block text-[8px] text-stone-400">
-                        Billed to {CLIENT.name}
+                        {INVOICE.paidOn}
+                      </span>
+                      <span
+                        className={`mt-1 block transition-all duration-500 delay-300 ${
+                          settled ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
+                        }`}
+                      >
+                        <Badge tint="bg-emerald-50 text-emerald-700">{INVOICE.status}</Badge>
                       </span>
                     </span>
-                    <span
-                      className={`transition-all duration-500 delay-300 ${
-                        settled ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
-                      }`}
-                    >
-                      <Badge tint="bg-emerald-50 text-emerald-700">{INVOICE.status}</Badge>
-                    </span>
                   </div>
 
-                  <div className="mt-1.5 space-y-1 border-t border-stone-100 pt-1.5">
-                    <Row label={`${PROJECT.name} — advance`} value={INVOICE.subtotal} />
-                    <Row label={INVOICE.gstLabel} value={INVOICE.gst} muted />
+                  {/* Line items */}
+                  <div className="mt-2 flex-none border-t border-stone-100 pt-1.5">
+                    <div className="flex items-baseline justify-between pb-1">
+                      <Caption>Description</Caption>
+                      <Caption>Amount</Caption>
+                    </div>
+                    <div className="space-y-1">
+                      <Row label={`${PROJECT.name} — advance`} value={INVOICE.subtotal} />
+                    </div>
+                    <p className="mt-1 text-[8px] leading-snug text-stone-400">
+                      Advance against a {PROJECT.budget} {PROJECT.type.toLowerCase()} engagement,
+                      due {PROJECT.deadline}.
+                    </p>
                   </div>
 
-                  <div className="mt-1.5 flex items-baseline justify-between border-t border-dashed border-stone-300 pt-1.5">
-                    <span className="text-[8px] font-semibold uppercase tracking-[0.12em] text-stone-400">
-                      Total
-                    </span>
-                    <span className="text-[13px] font-bold tabular-nums text-ink">
-                      {INVOICE.total}
-                    </span>
+                  {/* Terms — the middle of a real invoice isn't empty. */}
+                  <div className="mt-2 flex-none rounded-md bg-stone-50 px-1.5 py-1">
+                    <Caption>Terms</Caption>
+                    <p className="mt-0.5 text-[8px] leading-snug text-stone-500">
+                      Balance invoiced on delivery. GST charged at 18% as per Indian tax rules.
+                    </p>
+                  </div>
+
+                  {/* Totals block, pushed to the foot of the sheet. */}
+                  <div className="mt-auto flex-none pt-2">
+                    <div className="space-y-1 border-t border-stone-100 pt-1.5">
+                      <Row label="Subtotal" value={INVOICE.subtotal} muted />
+                      <Row label={INVOICE.gstLabel} value={INVOICE.gst} muted />
+                    </div>
+                    <div className="mt-1.5 flex items-baseline justify-between border-t border-dashed border-stone-300 pt-1.5">
+                      <span className="text-[8px] font-semibold uppercase tracking-[0.12em] text-stone-400">
+                        Total
+                      </span>
+                      <span className="text-[15px] font-bold tabular-nums text-ink">
+                        {INVOICE.total}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-[7.5px] leading-snug text-stone-400">
+                      Payment received {INVOICE.paidOn}. {INVOICE.remaining} remaining on this
+                      project.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* The receipt, stacking on top of the invoice a beat later. */}
+            {/* The receipt, landing on the sheet's bottom corner a beat later.
+                Kept clear of the total — that number is the point of the stage. */}
             <div
-              className={`absolute -bottom-0.5 right-1 w-[62%] transition-all duration-[620ms] delay-[220ms] ease-[cubic-bezier(0.2,1.06,0.3,1)] ${
-                settled ? 'translate-y-0 rotate-[1.6deg] opacity-100' : 'translate-y-6 rotate-0 opacity-0'
+              className={`absolute bottom-0 right-0 w-[74%] transition-all duration-[620ms] delay-[220ms] ease-[cubic-bezier(0.2,1.06,0.3,1)] ${
+                settled
+                  ? 'translate-y-0 rotate-[1.8deg] opacity-100'
+                  : 'translate-y-6 rotate-0 opacity-0'
               }`}
             >
-              <div className="rounded-lg border border-stone-200 bg-white px-2 py-1.5 shadow-[0_14px_30px_-12px_rgba(67,36,16,0.3)]">
+              <div className="rounded-lg border border-stone-200 bg-white px-2 py-1.5 shadow-[0_16px_34px_-12px_rgba(67,36,16,0.34)]">
                 <div className="flex items-center gap-1.5">
                   <Receipt className="h-3 w-3 flex-none text-orange-600" aria-hidden />
                   <span className="min-w-0">
                     <span className="block text-[9px] font-bold leading-tight text-ink">
                       Receipt · {INVOICE.total}
                     </span>
-                    <span className="block text-[8px] leading-tight text-stone-400">
+                    <span className="block truncate text-[8px] leading-tight text-stone-400">
                       {INVOICE.number} · {INVOICE.paidOn}
                     </span>
                   </span>
@@ -592,20 +713,12 @@ export function Stage06({ on, beat }: StageProps) {
           </div>
         </div>
 
+        {/* No confirmation toast here on purpose: the invoice number, the GST
+            line, the PAID badge and the receipt chip already say everything a
+            toast would, and a banner across the sheet would cover the total. */}
         <Tip on={beat === 1} className="bottom-[8%] left-[3%]">
           Record the payment — the GST invoice and receipt write themselves.
         </Tip>
-
-        <div
-          className={`absolute bottom-1 left-1/2 -translate-x-1/2 transition-all duration-500 delay-500 ${
-            settled ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
-          }`}
-        >
-          <span className="inline-flex items-center gap-1 rounded-full bg-espresso px-2 py-1 text-[9px] font-medium text-espresso-text shadow-lift-3">
-            <ArrowRight className="h-2.5 w-2.5 text-orange-400" aria-hidden />
-            {INVOICE.number} generated · GST 18% applied · receipt ready
-          </span>
-        </div>
       </Body>
     </Screen>
   )
