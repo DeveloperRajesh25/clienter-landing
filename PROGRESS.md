@@ -5,90 +5,73 @@ Branch: `feat/nova-studio-journey` (never pushed — app is in production)
 ## What this replaces
 
 `<section id="features">` in [src/app/page.tsx](src/app/page.tsx) — the
-"Your entire agency, beautifully organized" head plus the three
-`FeatureSplit` rows (Client Management / Smart Invoicing / Project Tracking).
-The anchor `id="features"` and `scroll-mt-24` are preserved so the header nav
-link keeps working.
+"Your entire agency, beautifully organized" head plus the three `FeatureSplit`
+rows. The anchor `id="features"` and `scroll-mt-24` are preserved.
+
+## Shape
+
+Five acts, twenty-one scenes, in one pinned browser window.
+
+| Act | Scenes |
+| --- | --- |
+| **I · The lead** | leads board (drag to Won) · lead drawer (convert) |
+| **II · The client** | convert form · client page (enable portal) · invite sent |
+| **III · The work** | new project · overview & progress · payments → GST invoice · team & payouts · deliverables & files · schedule the kickoff · projects board |
+| **IV · Her side** | portal login · portal home · portal project · portal messages · owner messages |
+| **V · The loop** | mark completed · 5★ review · referral → lead · public reviews page |
+
+Each act opens with a **title card** that slides up through the window, holds
+while the screen behind it swaps, and leaves through the top — with the browser
+chrome running its page-load bar and the URL retyping at the same moment. Three
+cues, one message: you just went somewhere new. Sub-scenes only ever advance on
+scroll; nothing plays on its own.
 
 ## Decisions logged
 
-1. **framer-motion added** (`^11.18.2`). The spec requires shared-layout/FLIP for
-   the persistent Nova Studio chip and a single scroll-progress source. Hand-rolling
-   FLIP across 10 stages is fragile; `layoutId` + `useScroll` is the right tool.
-   Cost is mitigated by `next/dynamic` code-splitting the section (SSR kept on so
-   the chapter copy still ships in the HTML for SEO).
-2. **The orphaned "04 / 05 / 06" supporting-feature index was dropped**, not kept.
-   Its numbering continued from the three deleted FeatureSplits, and three
-   equal-weight cards immediately after the story's resolution beat is exactly the
-   generic-SaaS rhythm the brief forbids. Those features still live in full on
-   `/features`, and the "Explore all features" link into that page is kept.
-3. **Stage transitions cross-fade with opacity only — no transform on the layer.**
-   A transformed ancestor distorts framer-motion's FLIP measurement, which would
-   make the shared chip glide to the wrong place. Inner content blocks still
-   translate/scale freely; only the chip's ancestor chain stays untransformed.
-4. **Stage animation is driven by quantised "beats", not raw scroll.** A continuous
-   scroll value re-rendering 10 React trees is a jank machine. One scroll listener
-   maps progress to `{ stage, beat }` (4 beats per stage) and CSS/framer tween
-   between beats. The ink thread reads the raw motion value directly, so it stays
-   smooth without re-rendering anything.
-5. **The sidebar/frame chrome never unmount** — they live outside the stage layers,
-   so there is nothing to pop in. Only the screen body swaps.
-6. **The referral loop closes in-panel.** The ink thread branches back upward at
-   stage 10, and the panel itself shows the new lead dropping into the same Leads
-   board from stage 1 — so the loop is literal, not just decorative.
-
-## Beat grammar (all 10 stages share it)
-
-| beat | meaning                                                       |
-| ---- | ------------------------------------------------------------- |
-| 0    | screen at rest — the "before" state                           |
-| 1    | cursor has arrived at the one key control; ring + tooltip up  |
-| 2    | click ripple → the stage's signature animation fires          |
-| 3    | settled "after" state, cursor gone                            |
-
-## Decisions logged (second pass, after looking at it in a browser)
-
-7. **The frame's aspect ratio differs by breakpoint** (`RATIO_WIDE` 16:9.4 desktop,
-   `RATIO_TALL` 16:13.6 mobile). Mobile drops the app rail and scales the mock to
-   stay legible, which costs ~25% of the width but not one pixel of the absolute
-   type sizes. Keeping the wide ratio cropped the bottom off every screen — the
-   invoice total, the last rows of every list. A squarer box gives the vertical
-   room back.
-8. **The desktop track collapses to `h-0 overflow-hidden` below `lg`, not
-   `display: none`**, and its contents unmount once JS confirms a narrow
-   viewport. A hidden element has no `offsetParent`, so framer-motion cannot
-   compute a scroll offset against it; and leaving the rail visible-to-AT inside a
-   clipped box meant a screen reader read the ten chapters twice. First paint
-   still renders both halves so there is no flash and all ten chapters ship in the
-   SSR HTML.
-9. **The loop-back knot is timed to 0.93→1.0 of the track, not to chapter 10.**
-   The panel is pinned while the thread scrolls behind it, so a mark anchored to
-   the track is only ever on screen for part of a chapter. That window is where
-   chapter 10 hits beat 3 — the knot and Vikram's referral card land together.
-10. **Card spacers are invisible copies of the card, never measured heights.** The
-    travelling lead card leaves a gap behind it; a hardcoded `h-[4.6rem]` drifted
-    the moment a line rewrapped and the flying card sat on its neighbour.
-11. **No confirmation toast on chapter 06.** The invoice number, GST line, PAID
-    badge and receipt chip already say it, and a banner across the sheet covered
-    the ₹47,200 total — which is the whole point of the stage.
+1. **framer-motion added** (`^11.18.2`), for one `useScroll` source, the act
+   cards and the ink thread — all of which animate outside React. The section is
+   code-split via `next/dynamic` (SSR kept on, so all the copy ships in the HTML):
+   framer lands in its own chunk and the homepage's First Load JS is 190 kB.
+2. **Screens render on a fixed 1440 × 846 stage, CSS-scaled to fit the window.**
+   This is the single decision that makes the mocks match the product. At 1440 the
+   app's own class names are correct — `w-64` really is the sidebar, `.card` really
+   is `p-6`, `.input` really is `h-11`, `text-sm` really is 14px — so the screens
+   are built from the same strings the app uses (both codebases define `.card`,
+   `.btn-primary`, `.input`, `.badge` in globals.css). Hand-shrinking every value
+   to fit a 700px box is what makes a mock drift into looking like a different app.
+   The trade: a transformed ancestor rules out framer's shared-layout FLIP, so the
+   persistent client chip was dropped. Fidelity is worth more than the chip.
+3. **The mobile frame crops rather than shrinks.** 1440px of app at 374px wide is a
+   3.8× reduction — 14px type lands at 4px. So a phone gets ~60% of the content
+   column, positioned per scene (`Scene.crop`) so the region where the action
+   happens is the region you see. Boards and the three-pane messages screen point
+   the window somewhere other than the default.
+4. **Scroll drives quantised beats, not raw values.** One listener maps progress to
+   `{slot, scene, beat}`; twenty-one screens never see the raw scroll value. State
+   changes ~80 times across the section instead of thousands, and CSS tweens the gaps.
+5. **The pinned window is top-aligned, not centred.** Centring a 537px window in a
+   screen-height sticky box parks it ~150px down, and that slack *was* the gap under
+   the title copy. Top-aligning cut it from 222px to 156px.
+6. **Act V returns to act III's overview screen by prop, not by a second copy.**
+   `ProjectOverview` takes `status`/`statusRing`, so completing the project visibly
+   happens on the screen the visitor already knows.
+7. **Card spacers are invisible copies of the card**, never measured heights — a
+   hardcoded height drifts the moment a line rewraps and the travelling lead card
+   lands on its neighbour.
 
 ## Known, accepted
 
 - framer-motion logs a dev-only warning that the scroll container is
-  `position: static`. It fires for any `useScroll({ target })` against the
-  document scroller and is compiled out of production. The fix would be
-  `position: relative` on `<html>` site-wide; not worth it for a dev log.
+  `position: static`. It fires for any `useScroll({ target })` against the document
+  scroller and is compiled out of production. The fix would be `position: relative`
+  on `<html>` site-wide; not worth it for a dev log.
 
 ## Status — complete
 
-- [x] Foundation: data, primitives, frame, cursor, thread, scroll driver
-- [x] Act I hero — chapter 02 (won lead morphs into a client row)
-- [x] Act II hero — chapter 06 (payment → GST invoice sheet → receipt PDF)
-- [x] Act III hero — chapter 10 (5★ verified review + referral loops back)
-- [x] Connective beats — chapters 1, 3, 4, 5, 7, 8, 9
-- [x] Mobile stacked sequence, beats replayed on entry, tap ripples
-- [x] Reduced motion (every chapter renders settled, no cursor) + a11y pass
-- [x] Verified in a real browser at 1440 / 1024 / 390 across all ten chapters
-- [x] Wired into page.tsx, dead code removed, type-check + lint + build green
-- [x] framer-motion confirmed code-split into its own chunk — the homepage's
-      First Load JS moved 179 kB → 180 kB
+- [x] Five acts, twenty-one scenes, act title cards + nav-progress + URL retype
+- [x] Every screen rebuilt against the real app's markup at true 1440px width
+- [x] Cursor targets in stage pixels; one action per scene, verified on screen
+- [x] Mobile: stacked cards, per-scene crops, act dividers, tap ripples
+- [x] Reduced motion — every scene renders settled, no cursor, no cards
+- [x] Verified in a real browser at 1440 / 390 across all five acts
+- [x] No console errors from the section; type-check, lint and build green

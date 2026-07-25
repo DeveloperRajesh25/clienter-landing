@@ -1,110 +1,100 @@
 'use client'
 
 import Link from 'next/link'
-import { LayoutGroup } from 'framer-motion'
+import { useTransform } from 'framer-motion'
 import { ArrowRight, MoveRight } from 'lucide-react'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import { APP_URL } from '@/lib/site'
 import { Reveal } from '@/components/landing/Reveal'
 import { SectionLabel } from '@/components/landing/SectionLabel'
-import { CHAPTERS, CLIENT, TOTAL_WEIGHT, VH_PER_WEIGHT, type Chapter } from './data'
-import { Frame, RATIO_TALL } from './Frame'
+import { ACTS, CLIENT, SCENES, SLOTS, TOTAL_WEIGHT, VH_PER_WEIGHT, slotRange } from './data'
+import { CROP_DEFAULT, Frame } from './Frame'
+import { ActCards, ActDivider } from './ActCard'
 import { Cursor, TapRipple } from './Cursor'
-import { Sidebar } from './Sidebar'
 import { Thread, ThreadMobile } from './Thread'
-import { SharedChip } from './primitives'
 import { useBeatOnView, useJourney, useLayoutMode, useReducedMotion } from './useJourney'
-import { Stage01, Stage02 } from './stages/ActI'
-import { Stage03, Stage04, Stage05, Stage06 } from './stages/ActII'
-import { Stage07, Stage08, Stage09, Stage10 } from './stages/ActIII'
-import type { StageProps } from './stages/shared'
+import { LeadDrawer, LeadsBoard } from './scenes/act1'
+import { ClientPage, ConvertForm, PortalInvited } from './scenes/act2'
+import {
+  MeetingNew,
+  ProjectFiles,
+  ProjectNew,
+  ProjectOverview,
+  ProjectPayments,
+  ProjectTeam,
+  ProjectsBoard,
+} from './scenes/act3'
+import { OwnerMessages, PortalHome, PortalLogin, PortalMessages, PortalProject } from './scenes/act4'
+import { MarkCompleted, PortalReferral, PortalReview, PublicReviews } from './scenes/act5'
+import type { SceneProps } from './scenes/types'
 
 /* ══════════════════════════════════════════════════════════════════════════
-   ONE CLIENT, TEN CHAPTERS.
-
-   Structure, top to bottom:
+   ONE CLIENT, FIVE ACTS.
 
      · a title beat        — "Meet Nova Studio."
-     · the journey         — desktop: one pinned window, ten screens
-                             mobile:  ten stacked cards, same screens
+     · the journey         — desktop: one pinned window, five acts of screens
+                             mobile:  the same screens, stacked
      · a resolution beat   — and the ask
 
-   The desktop track is a tall scroll region with a single sticky viewport
-   inside it. The browser frame and the app rail inside that viewport mount once
-   and never unmount; the ten stage layers cross-fade behind them. That is why
-   this reads as one window travelling through a product rather than a scrolling
-   list of screenshots.
+   The desktop track is a tall scroll region with a single sticky viewport inside
+   it. The browser frame mounts once and never unmounts; the screens cross-fade
+   behind it, and an act card slides through whenever the story moves to a new
+   part of the product. That is why this reads as one window travelling through
+   an app rather than a scrolling list of screenshots.
    ══════════════════════════════════════════════════════════════════════════ */
 
-const STAGES: ((p: StageProps) => JSX.Element)[] = [
-  Stage01,
-  Stage02,
-  Stage03,
-  Stage04,
-  Stage05,
-  Stage06,
-  Stage07,
-  Stage08,
-  Stage09,
-  Stage10,
-]
-
-/** Which rail item is lit, per chapter. */
-const NAV = [
-  '/leads',
-  '/clients',
-  '/clients',
-  '/projects',
-  '/projects',
-  '/payments',
-  '/portal',
-  '/meetings',
-  '/messages',
-  '/reviews',
-]
-
-/** Chapter 07 is the client's portal, so the rail changes vocabulary. */
-const PORTAL_STAGE = 6
-
-/** Chapter 07's login is genuinely full-bleed — it owns its own left offset. */
-const FULL_BLEED = new Set([PORTAL_STAGE])
-
-/**
- * Where the cursor goes, as a percentage of the screen body (the area right of
- * the rail). Body-relative rather than frame-relative, because the rail is a
- * fixed pixel width and the frame is fluid — percentages of the frame would
- * drift off the target between 1024px and 1440px.
- */
-const TARGETS: { to: { x: number; y: number }; dragTo?: { x: number; y: number } }[] = [
-  { to: { x: 61, y: 20 }, dragTo: { x: 86, y: 21 } }, // 01 drag the card to Won
-  { to: { x: 81, y: 31 } }, // 02 Convert to client
-  { to: { x: 47, y: 40 } }, // 03 Enable portal
-  { to: { x: 87, y: 87 } }, // 04 Create project
-  { to: { x: 80, y: 15 } }, // 05 Visible to client
-  { to: { x: 13, y: 83 } }, // 06 Record payment
-  { to: { x: 50, y: 67 } }, // 07 Sign in  (full-bleed: frame-relative)
-  { to: { x: 82, y: 10 } }, // 08 Schedule meeting
-  { to: { x: 94, y: 91 } }, // 09 Send
-  { to: { x: 84, y: 12 } }, // 10 Mark completed
-]
-
-const RAIL_PAD = 'pl-[7.75rem] sm:pl-[8.75rem]'
+/** Scene id → component. Adding a scene is one entry here and one in data.ts. */
+const SCREENS: Record<string, (p: SceneProps) => JSX.Element> = {
+  'leads-board': LeadsBoard,
+  'lead-drawer': LeadDrawer,
+  'convert-form': ConvertForm,
+  'client-page': ClientPage,
+  'portal-invited': PortalInvited,
+  'project-new': ProjectNew,
+  'project-overview': ProjectOverview,
+  'project-payments': ProjectPayments,
+  'project-team': ProjectTeam,
+  'project-files': ProjectFiles,
+  'meeting-new': MeetingNew,
+  'projects-board': ProjectsBoard,
+  'portal-login': PortalLogin,
+  'portal-home': PortalHome,
+  'portal-project': PortalProject,
+  'portal-messages': PortalMessages,
+  'owner-messages': OwnerMessages,
+  'mark-completed': MarkCompleted,
+  'portal-review': PortalReview,
+  'portal-referral': PortalReferral,
+  'public-reviews': PublicReviews,
+}
 
 export function ClientJourney() {
   const reduced = useReducedMotion()
   const mode = useLayoutMode()
   const trackRef = useRef<HTMLDivElement>(null)
-  const { index, beat, progress } = useJourney(trackRef, reduced)
-  const chapter = CHAPTERS[index]
+  const { slot, scene, act, intro, beat, progress } = useJourney(trackRef, reduced)
+  const live = SCENES[scene]
 
-  /** Total scroll length: sum of the per-chapter dwell, plus one screen for the
-      final chapter to sit still in. Heroes are worth ~1.7× a connective beat. */
+  /** Total scroll length: the sum of per-slot dwell, plus one screen for the
+      final scene to sit still in. */
   const trackHeight = `${Math.round(TOTAL_WEIGHT * VH_PER_WEIGHT) + 100}vh`
+
+  /** The chrome's page-load bar runs while the act card is over the window. */
+  const introRange = intro ? slotRange(slot) : null
+  const loading = useTransform(
+    progress,
+    introRange ? [introRange[0] + 0.002, introRange[1] * 0.999] : [0, 1],
+    introRange ? [0, 1] : [0, 0],
+    { clamp: true }
+  )
 
   return (
     <section id="features" className="relative scroll-mt-24">
-      {/* ── The title beat ─────────────────────────────────────────────── */}
-      <div className="mx-auto max-w-6xl px-4 pb-8 pt-20 sm:px-6 sm:pb-10 sm:pt-32 lg:px-8">
+      {/* ── The title beat ───────────────────────────────────────────────
+          Almost no bottom padding: the pinned window centres itself in its own
+          screen-height sticky box, which already puts ~120px of air under this
+          copy. Adding more on top of that reads as a hole in the page. */}
+      <div className="mx-auto max-w-6xl px-4 pb-1 pt-20 sm:px-6 sm:pt-28 lg:px-8">
         <div className="max-w-3xl">
           <Reveal>
             <SectionLabel icon={MoveRight}>One client, end to end</SectionLabel>
@@ -120,122 +110,76 @@ export function ClientJourney() {
           </Reveal>
           <Reveal delay={180}>
             <p className="mt-5 max-w-measure text-lg leading-relaxed text-gray-600">
-              A cold Instagram message on {CLIENT.created}. A five-star review and a referral
-              before the month is out. Every step below is a real screen, in order — one client,
-              start to finish.
+              A cold Instagram message on {CLIENT.created}. A five-star review and a referral before
+              the month is out. Five acts, every one a real screen — one client, start to finish.
             </p>
           </Reveal>
         </div>
       </div>
 
       {/* ── The journey · desktop ──────────────────────────────────────── */}
-      {/* Note on accessibility: the track itself is NOT aria-hidden. The chapter
-          rail is a real ordered list holding all ten chapters, so a screen
-          reader gets the whole story in order even though only one chapter is
-          visible at a time. Only the window — a mock with three layers mounted —
-          is marked decorative.
-
-          Collapsed to zero height below `lg` rather than `display: none`. A
-          hidden element has no offsetParent, and framer-motion's scroll
-          observer cannot compute an offset against one — so `hidden lg:block`
-          would leave the phone quietly measuring a detached box. `overflow`
-          has to go back to visible at `lg`, or the sticky child stops sticking. */}
+      {/* The track is NOT aria-hidden: the rail is a real ordered list of every
+          act and scene, so a screen reader gets the whole story in order even
+          though one screen shows at a time. Only the window is decorative. */}
       <div
         ref={trackRef}
         className="relative h-0 overflow-hidden lg:h-[var(--journey-track)] lg:overflow-visible"
         style={{ '--journey-track': trackHeight } as React.CSSProperties}
       >
-        {/* Gone entirely on a phone once we know it's a phone. Clipping it to
-            zero height would still leave the chapter list exposed to a screen
-            reader alongside the stacked version below — one story, read twice —
-            and would have the device building an app mock nobody can see. */}
+        {/* Dropped entirely on a phone once we know it's a phone: a clipped-but-
+            present copy would still be read aloud alongside the stacked version
+            below, and would have the device building a mock nobody can see. */}
         {mode !== 'narrow' && (
-        <div className="mx-auto h-full max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="relative h-full pl-14">
-            <Thread progress={progress} activeIndex={index} reduced={reduced} />
+          <div className="mx-auto h-full max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="relative h-full pl-12">
+              <Thread progress={progress} slot={slot} reduced={reduced} />
 
-            <div className="sticky top-0 flex h-screen items-center pb-10 pt-20">
-              <div className="flex w-full items-center gap-8">
-                <ChapterRail index={index} />
+              {/* Top-aligned, not centred. Centring a 537px window in a
+                  screen-height sticky box parks it ~150px down, and that slack
+                  is the gap that reads as a hole under the title copy. `pt`
+                  clears the floating header and nothing more. */}
+              <div className="sticky top-0 flex h-screen items-start pb-8 pt-[7rem]">
+                <div className="flex w-full items-center gap-7">
+                  <Rail slot={slot} scene={scene} act={act} intro={intro} />
 
-                <div className="min-w-0 flex-1" aria-hidden>
-                  {/* LayoutGroup scopes the shared-element animations (the
-                      client chip, the rail accent) to this one window. */}
-                  <LayoutGroup id="clienter-journey">
-                    <Frame url={chapter.url} reduced={reduced}>
-                      {/* The rail. Mounted once, behind the stage layers. */}
-                      <div className="absolute inset-y-0 left-0 z-0">
-                        <div className="relative h-full">
-                          <div
-                            className={`absolute inset-0 transition-opacity duration-500 ${
-                              index === PORTAL_STAGE ? 'opacity-0' : 'opacity-100'
-                            }`}
-                          >
-                            <Sidebar
-                              variant="owner"
-                              active={NAV[index] ?? '/dashboard'}
-                              unread={index >= 8 ? 1 : 0}
-                            />
-                          </div>
-                          <div
-                            className={`absolute inset-0 transition-opacity duration-500 ${
-                              index === PORTAL_STAGE ? 'opacity-100' : 'opacity-0'
-                            }`}
-                          >
-                            <Sidebar variant="portal" active="/portal" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* The ten screens. Only the live one and its immediate
-                          neighbours are mounted, and layers cross-fade with
-                          opacity alone — a transform here would distort the
-                          measurement the chip's FLIP depends on. */}
-                      {STAGES.map((Stage, i) => {
-                        const near = Math.abs(i - index) <= 1
-                        if (!near) return null
-                        const live = i === index
+                  <div className="min-w-0 flex-1" aria-hidden>
+                    <Frame url={live.url} reduced={reduced} loading={loading}>
+                      {/* Only the live screen and its neighbours are mounted, and
+                          layers cross-fade with opacity alone. */}
+                      {SCENES.map((s, i) => {
+                        if (Math.abs(i - scene) > 1) return null
+                        const Screen = SCREENS[s.id]
+                        const on = i === scene
                         return (
                           <div
-                            key={i}
-                            className={`absolute inset-0 z-10 transition-opacity duration-[520ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                              live ? 'opacity-100' : 'pointer-events-none opacity-0'
+                            key={s.id}
+                            className={`absolute inset-0 transition-opacity duration-[460ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                              on ? 'opacity-100' : 'opacity-0'
                             }`}
                           >
-                            <div className={`h-full ${FULL_BLEED.has(i) ? '' : RAIL_PAD}`}>
-                              <Stage
-                                on={live}
-                                beat={live ? beat : i < index ? 3 : 0}
-                                reduced={reduced}
-                              />
-                            </div>
+                            <Screen beat={on ? beat : i < scene ? 3 : 0} reduced={reduced} />
                           </div>
                         )
                       })}
 
-                      {/* The hand. One per journey, positioned in the same
-                          coordinate space the stage laid its controls out in. */}
-                      <div
-                        className={`pointer-events-none absolute inset-0 z-40 ${
-                          FULL_BLEED.has(index) ? '' : RAIL_PAD
-                        }`}
-                      >
-                        <div className="relative h-full w-full">
-                          <Cursor
-                            beat={beat}
-                            to={TARGETS[index].to}
-                            dragTo={TARGETS[index].dragTo}
-                            reduced={reduced}
-                          />
-                        </div>
-                      </div>
+                      {/* The hand, in the stage's own coordinates. */}
+                      {live.cursor && !intro && (
+                        <Cursor
+                          beat={beat}
+                          to={live.cursor}
+                          dragTo={live.cursor.dragTo}
+                          reduced={reduced}
+                        />
+                      )}
+
+                      {/* The five title cards. */}
+                      <ActCards progress={progress} reduced={reduced} />
                     </Frame>
-                  </LayoutGroup>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         )}
       </div>
 
@@ -243,9 +187,18 @@ export function ClientJourney() {
       {mode !== 'wide' && (
         <div className="relative lg:hidden">
           <ThreadMobile />
-          <ol className="space-y-12 py-4 sm:space-y-16">
-            {CHAPTERS.map((c, i) => (
-              <MobileChapter key={c.n} chapter={c} index={i} reduced={reduced} />
+          <ol className="py-4">
+            {SCENES.map((s, i) => (
+              <li key={s.id}>
+                {/* An act divider precedes the first scene of each act, so the
+                    five chapters are as legible stacked as they are pinned. */}
+                {(i === 0 || SCENES[i - 1].act !== s.act) && (
+                  <div className="px-4 pb-8 pl-12 pt-10 first:pt-2">
+                    <ActDivider act={s.act} />
+                  </div>
+                )}
+                <MobileScene index={i} reduced={reduced} />
+              </li>
             ))}
           </ol>
         </div>
@@ -257,8 +210,8 @@ export function ClientJourney() {
           <div className="rule-warm" />
           <div className="grid items-end gap-8 pt-12 sm:grid-cols-12 sm:gap-12">
             <Reveal className="sm:col-span-7">
-              {/* 8 July to the end of the month — the same span the opening
-                  beat promises, counted out. Not a rounded-up "one month". */}
+              {/* 8 July to the end of the month — the span the opening beat
+                  promises, counted out. Not a rounded-up "one month". */}
               <p className="font-serif-display text-2xl italic leading-snug text-orange-700/80 sm:text-3xl">
                 Twenty-three days. One client. Not one spreadsheet.
               </p>
@@ -294,57 +247,79 @@ export function ClientJourney() {
   )
 }
 
-/* ── The chapter rail ──────────────────────────────────────────────────────
-   All ten chapters live in the DOM as a real ordered list, so the story is
-   readable by a screen reader and indexable in order; only the live one is
-   visible. The number is set in the hero's accent serif, italic, because that
-   is the page's established voice for a chapter mark.
+/* ── The rail ──────────────────────────────────────────────────────────────
+   Every act and every scene lives in the DOM as a real ordered list, so the
+   story is readable by a screen reader and indexable in order; only the live
+   one is visible. The act numeral is set in the hero's accent serif because
+   that is this page's established voice for a chapter mark.
    ────────────────────────────────────────────────────────────────────────── */
-function ChapterRail({ index }: { index: number }) {
+function Rail({
+  slot,
+  scene,
+  act,
+  intro,
+}: {
+  slot: number
+  scene: number
+  act: number
+  intro: boolean
+}) {
+  const sceneCount = SCENES.filter((s) => s.act === act).length
+  const sceneNo = SCENES.slice(0, scene + 1).filter((s) => s.act === act).length
+
   return (
-    <div className="relative h-[16.5rem] w-[12.5rem] flex-none xl:w-[14rem]">
-      <ol>
-        {CHAPTERS.map((c, i) => {
-          const live = i === index
+    <div className="relative h-[17.5rem] w-[11.5rem] flex-none xl:w-[13rem]">
+      <div className="absolute inset-x-0 top-0 flex items-baseline gap-2">
+        <span className="font-serif-display text-3xl italic leading-none text-orange-600/85">
+          Act {ACTS[act].n}
+        </span>
+        <span className="h-px flex-1 bg-line" />
+      </div>
+
+      <ol className="absolute inset-x-0 top-14">
+        {SCENES.map((s, i) => {
+          const live = i === scene && !intro
           return (
             <li
-              key={c.n}
-              className={`absolute inset-x-0 top-1/2 -translate-y-1/2 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              key={s.id}
+              className={`absolute inset-x-0 top-0 transition-all duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 live
-                  ? 'translate-y-[-50%] opacity-100'
-                  : i < index
-                    ? 'pointer-events-none translate-y-[-70%] opacity-0'
-                    : 'pointer-events-none translate-y-[-30%] opacity-0'
+                  ? 'translate-y-0 opacity-100'
+                  : i < scene
+                    ? 'pointer-events-none -translate-y-3 opacity-0'
+                    : 'pointer-events-none translate-y-3 opacity-0'
               }`}
             >
-              <span className="flex items-baseline gap-2">
-                <span className="font-serif-display text-4xl italic leading-none text-orange-600/85">
-                  {c.n}
-                </span>
-                <span className="h-px flex-1 bg-line" />
-                <span className="font-serif-display text-[11px] italic text-stone-400">
-                  Act {c.act}
-                </span>
-              </span>
-
-              <h3 className="mt-4 font-display text-xl font-extrabold leading-tight tracking-tight text-gray-900">
-                {c.title}
+              <h3 className="font-display text-lg font-extrabold leading-tight tracking-tight text-gray-900">
+                {s.title}
               </h3>
-              <p className="mt-2.5 text-[13.5px] leading-relaxed text-gray-600">{c.line}</p>
+              <p className="mt-2.5 text-[13px] leading-relaxed text-gray-600">{s.line}</p>
             </li>
           )
         })}
+
+        {/* The act card's own copy takes the rail while it is passing through. */}
+        <li
+          className={`absolute inset-x-0 top-0 transition-all duration-[450ms] ${
+            intro ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'
+          }`}
+        >
+          <h3 className="font-serif-display text-2xl font-normal italic leading-tight text-gray-900">
+            {ACTS[act].title}
+          </h3>
+          <p className="mt-2.5 text-[13px] leading-relaxed text-gray-600">{ACTS[act].line}</p>
+        </li>
       </ol>
 
       {/* Position in the story — a hairline, not a scrollbar. */}
       <div className="absolute inset-x-0 bottom-0 flex items-center gap-2">
         <span className="font-display text-[10px] font-bold tabular-nums tracking-[0.14em] text-stone-400">
-          {CHAPTERS[index].n} / 10
+          {intro ? `ACT ${ACTS[act].n}` : `${sceneNo} / ${sceneCount}`}
         </span>
         <span className="relative h-px flex-1 overflow-hidden bg-line">
           <span
             className="absolute inset-y-0 left-0 bg-orange-500 transition-[width] duration-500 ease-out"
-            style={{ width: `${((index + 1) / CHAPTERS.length) * 100}%` }}
+            style={{ width: `${((slot + 1) / SLOTS.length) * 100}%` }}
           />
         </span>
       </div>
@@ -353,31 +328,21 @@ function ChapterRail({ index }: { index: number }) {
 }
 
 /* ── Mobile ────────────────────────────────────────────────────────────────
-   Not a degraded desktop: a stacked editorial sequence where each chapter is a
-   card that plays its beat once as it arrives. No pinning, no fake cursor — a
-   tap ripple on the control instead, because a pointer on a touch device is a
-   lie about how the product is used.
+   Not a degraded desktop: a stacked editorial sequence where each scene plays
+   its beat once as it arrives. No pinning and no fake cursor — a tap ripple
+   instead, because a pointer on a touch device is a lie about how the product
+   is used. The frame crops past the app rail so the content is still legible
+   after scaling down.
    ────────────────────────────────────────────────────────────────────────── */
-
-/** The width every stage was laid out against, minus the rail mobile drops. */
-const DESIGN_WIDTH = 476
-
-function MobileChapter({
-  chapter,
-  index,
-  reduced,
-}: {
-  chapter: Chapter
-  index: number
-  reduced: boolean
-}) {
-  const { ref, beat, seen } = useBeatOnView<HTMLLIElement>(reduced)
-  const Stage = STAGES[index]
+function MobileScene({ index, reduced }: { index: number; reduced: boolean }) {
+  const { ref, beat, seen } = useBeatOnView<HTMLDivElement>(reduced)
+  const s = SCENES[index]
+  const Screen = SCREENS[s.id]
+  const sceneNo = SCENES.slice(0, index + 1).filter((x) => x.act === s.act).length
 
   return (
-    <li ref={ref} className="relative">
+    <div ref={ref} className="relative pb-12">
       <div className="pl-12 pr-4">
-        {/* The node on the thread. */}
         <span
           aria-hidden
           className={`absolute left-[0.875rem] top-1.5 h-2.5 w-2.5 rounded-full transition-all duration-700 ${
@@ -385,88 +350,36 @@ function MobileChapter({
           }`}
         />
         <span className="flex items-baseline gap-2">
-          <span className="font-serif-display text-2xl italic leading-none text-orange-600/85">
-            {chapter.n}
+          <span className="font-serif-display text-lg italic leading-none text-orange-600/85">
+            {ACTS[s.act].n}.{sceneNo}
           </span>
           <span className="h-px flex-1 bg-line" />
-          <span className="font-serif-display text-[10px] italic text-stone-400">
-            Act {chapter.act}
-          </span>
         </span>
         <h3 className="mt-3 font-display text-lg font-extrabold leading-tight tracking-tight text-gray-900">
-          {chapter.title}
+          {s.title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-gray-600">{chapter.line}</p>
+        <p className="mt-2 text-sm leading-relaxed text-gray-600">{s.line}</p>
       </div>
 
-      <div className="mt-4 px-2" aria-hidden>
-        <SharedChip.Provider value={false}>
-          <ScaledFrame url={chapter.url} reduced={reduced}>
-            {seen ? (
-              <>
-                <Stage on beat={beat} reduced={reduced} compact />
-                {!reduced && <TapRipple on={beat >= 2} />}
-              </>
-            ) : (
-              <span className="block h-full w-full bg-canvas" />
-            )}
-          </ScaledFrame>
-        </SharedChip.Provider>
-      </div>
-    </li>
-  )
-}
-
-/**
- * Renders the frame at its design width and scales it to fit.
- *
- * A phone is ~360px wide; these screens were composed at 476. Reflowing them
- * would mean ten bespoke mobile layouts, and squeezing them would break the
- * grids. Scaling keeps the composition exactly as designed — the same choice a
- * product screenshot makes.
- */
-function ScaledFrame({
-  url,
-  reduced,
-  children,
-}: {
-  url: string
-  reduced: boolean
-  children: React.ReactNode
-}) {
-  const outer = useRef<HTMLDivElement>(null)
-  const inner = useRef<HTMLDivElement>(null)
-  const [scale, setScale] = useState(1)
-  const [height, setHeight] = useState<number | undefined>()
-
-  const measure = () => {
-    const o = outer.current
-    const i = inner.current
-    if (!o || !i) return
-    const next = Math.min(1, o.clientWidth / DESIGN_WIDTH)
-    setScale(next)
-    setHeight(i.offsetHeight * next)
-  }
-
-  // Before paint, so the card never renders at full width and snap back.
-  useLayoutEffect(measure, [])
-
-  useEffect(() => {
-    const o = outer.current
-    if (!o || typeof ResizeObserver === 'undefined') return
-    const ro = new ResizeObserver(measure)
-    ro.observe(o)
-    return () => ro.disconnect()
-  }, [])
-
-  return (
-    <div ref={outer} style={{ height }} className="overflow-hidden">
-      <div
-        ref={inner}
-        style={{ width: DESIGN_WIDTH, transform: `scale(${scale})`, transformOrigin: 'top left' }}
-      >
-        <Frame url={url} reduced={reduced} ratio={RATIO_TALL}>
-          {children}
+      <div className="mt-4 px-3" aria-hidden>
+        <Frame
+          url={s.url}
+          reduced={reduced}
+          view={{
+            x: s.crop?.x ?? CROP_DEFAULT.x,
+            y: s.crop?.y ?? CROP_DEFAULT.y,
+            w: s.crop?.w ?? CROP_DEFAULT.w,
+            h: s.crop?.h ?? CROP_DEFAULT.h,
+          }}
+        >
+          {seen ? (
+            <>
+              <Screen beat={beat} reduced={reduced} />
+              {s.cursor && !reduced && <TapRipple on={beat >= 2} />}
+            </>
+          ) : (
+            <span className="block h-full w-full bg-canvas" />
+          )}
         </Frame>
       </div>
     </div>

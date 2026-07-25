@@ -1,10 +1,10 @@
 /**
- * The Nova Studio story — one client, ten chapters.
+ * The Nova Studio story — one client, five acts.
  *
  * Every number, name and date on screen comes from here. If a value appears in
- * two stages it is read from the same constant, so the story can never
- * contradict itself. Nothing in this file is real: it is the sample data a
- * freelancer would see, dressed as one coherent month of work.
+ * two scenes it is read from the same constant, so the story can never
+ * contradict itself. Nothing here is real: it is the sample data a freelancer
+ * would see, dressed as one coherent month of work.
  */
 
 export const STUDIO = {
@@ -16,12 +16,12 @@ export const STUDIO = {
 export const CLIENT = {
   name: 'Nova Studio',
   contact: 'Ananya Rao',
+  first: 'Ananya',
   short: 'Ananya R.',
   phone: '+91 98211 04477',
   email: 'ananya@novastudio.in',
-  source: 'instagram',
   sourceLabel: 'Instagram',
-  /** Matches the app's SOURCE_BADGE map. */
+  /** Mirrors SOURCE_BADGE.instagram in the app. */
   sourceBadge: 'bg-pink-50 text-pink-700',
   initials: 'NS',
   created: '8 Jul 2026',
@@ -32,203 +32,476 @@ export const CLIENT = {
 
 export const PROJECT = {
   name: 'Brand Website Revamp',
-  type: 'Freelance',
+  slug: 'brand-website-revamp',
+  type: 'One-off Project',
   budget: '₹1,20,000',
   created: '12 Jul 2026',
+  start: '12 Jul 2026',
   deadline: '15 Aug 2026',
   progress: 65,
 } as const
 
 export const TEAM = [
-  { name: 'Arjun M.', role: 'Developer', initials: 'AM', tint: 'bg-sky-100 text-sky-700' },
-  { name: 'Priya S.', role: 'Designer', initials: 'PS', tint: 'bg-violet-100 text-violet-700' },
+  {
+    name: 'Arjun M.',
+    email: 'arjun@webcros.in',
+    role: 'Developer',
+    initials: 'A',
+    paid: '₹9,000',
+    of: '₹18,000',
+    pct: 50,
+  },
+  {
+    name: 'Priya S.',
+    email: 'priya@webcros.in',
+    role: 'Designer',
+    initials: 'P',
+    paid: '₹6,000',
+    of: '₹15,000',
+    pct: 40,
+  },
 ] as const
 
 export const INVOICE = {
   number: 'INV-2026-058',
   paidOn: '14 Jul 2026',
+  issued: '14/07/2026',
+  short: '14/07',
   subtotal: '₹40,000',
   gstLabel: 'GST 18%',
   gst: '₹7,200',
   total: '₹47,200',
   totalValue: 47200,
-  status: 'PAID',
+  status: 'Paid',
   remaining: '₹80,000',
 } as const
 
 export const MEETING = {
   title: 'Kickoff call',
+  day: '18',
+  month: 'Jul',
   date: '18 Jul 2026',
-  time: '11:00 AM IST',
-  platform: 'Google Meet',
-  reminder: '30 min before',
+  time: '11:00 AM',
+  zone: 'IST',
+  duration: '1 hour',
+  reminder: '30 minutes before',
 } as const
 
 export const MESSAGES = [
-  {
-    from: 'client' as const,
-    body: 'Hi Rajesh, loving the first drafts! Quick change on the hero?',
-    time: '10:42 AM',
-    ago: 'yesterday',
-  },
-  {
-    from: 'owner' as const,
-    body: 'On it — sending an updated version today.',
-    time: '10:44 AM',
-    ago: 'yesterday',
-  },
+  { from: 'client', body: 'Hi Rajesh, loving the first drafts! Quick change on the hero?', time: '10:42 am' },
+  { from: 'owner', body: 'On it — sending an updated version today.', time: '10:44 am' },
 ] as const
 
 export const REVIEW = {
   author: CLIENT.short,
   rating: 5,
   body: 'Delivered ahead of schedule and kept us in the loop the whole way. Would hire again.',
-  month: 'Jul 2026',
-  publicScore: '4.9',
-  reviewCount: 12,
+  on: '22 Jul 2026',
+  month: 'July 2026',
+  publicScore: 4.9,
+  count: 12,
 } as const
 
 export const REFERRAL = {
   name: 'Vikram T.',
   company: 'Tandem Coffee',
-  initials: 'VT',
+  email: 'vikram@tandemcoffee.in',
+  note: 'They need a new site before their second outlet opens.',
   sourceLabel: 'Portal Referral',
-  /** Matches the app's SOURCE_BADGE.portal_referral. */
+  /** Mirrors SOURCE_BADGE.portal_referral in the app. */
   sourceBadge: 'bg-teal-50 text-teal-700',
   value: '₹65,000',
+  on: '24 Jul 2026',
 } as const
 
-/** The pipeline columns are the app's seeded lead stages, in order. */
+/** The app's seeded lead stages, with the colours it seeds them with. */
 export const LEAD_STAGES = [
-  { name: 'New', dot: 'bg-blue-500' },
-  { name: 'Contacted', dot: 'bg-purple-500' },
-  { name: 'Qualified', dot: 'bg-amber-500' },
-  { name: 'Proposal Sent', dot: 'bg-orange-500' },
-  { name: 'Won', dot: 'bg-emerald-500' },
+  { name: 'New', dot: 'bg-blue-400', count: 12 },
+  { name: 'Contacted', dot: 'bg-purple-400', count: 6 },
+  { name: 'Qualified', dot: 'bg-amber-400', count: 3 },
+  { name: 'Won', dot: 'bg-emerald-400', count: 5 },
 ] as const
 
-// ── Chapters ────────────────────────────────────────────────────────────────
-// `weight` is scroll dwell. The three hero moments (2, 6, 10) get noticeably
-// more room; connective beats move fast so the section breathes instead of
-// metronoming through ten identical panels.
+/* ══════════════════════════════════════════════════════════════════════════
+   THE TIMELINE
 
-export interface Chapter {
+   Five acts. Each act opens with a title card, then plays its scenes one at a
+   time as you scroll — a scene never advances on its own.
+
+   `weight` is scroll dwell. Scenes that perform an action (a cursor travels and
+   clicks something) get more room than scenes that simply reveal a result, and
+   the three hero moments get the most.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+export interface Act {
   n: string
-  /** Section-level chapter title. */
+  title: string
+  line: string
+  /** Dwell for the title card. */
+  weight: number
+}
+
+export interface Scene {
+  id: string
+  act: number
+  /** Path typed into the URL bar. */
+  url: string
+  /** Sidebar item to light, or null for screens with no app rail. */
+  nav: string | null
+  chrome: 'owner' | 'portal' | 'public'
+  /** Rail heading for this scene. */
   title: string
   /** One line of story, not a feature description. */
   line: string
-  /** The plain-language payoff, shown on the highlighted control. */
-  tip: string
-  url: string
+  /** Plain-language payoff on the highlighted control. */
+  tip?: string
+  /** Where the cursor goes, in stage pixels. Absent = no cursor, just a reveal. */
+  cursor?: { x: number; y: number; dragTo?: { x: number; y: number } }
   weight: number
   hero?: boolean
-  act: 'I' | 'II' | 'III'
+  /** Mobile crop override, in stage pixels. Boards and three-pane screens need
+      the window pointed somewhere other than the default content column. */
+  crop?: { x: number; y?: number; w: number; h?: number }
 }
 
-export const CHAPTERS: Chapter[] = [
+export const ACTS: Act[] = [
   {
-    n: '01',
-    title: 'The first message',
-    line: 'Ananya finds you on Instagram. She lands in your pipeline — not somewhere in your inbox.',
-    tip: 'Your own stages. Every lead tagged with where it came from.',
-    url: 'clienter.co.in/leads',
-    weight: 1.05,
-    act: 'I',
+    n: 'I',
+    title: 'The lead',
+    line: 'A stranger messages you on Instagram. She lands in a pipeline, not an inbox.',
+    weight: 0.5,
   },
   {
-    n: '02',
-    title: 'Stranger becomes client',
-    line: 'You mark the deal won. Nova Studio moves itself into Clients — contact, value and history intact.',
-    tip: 'One click converts a won lead. Nothing gets retyped.',
-    url: 'clienter.co.in/clients',
-    weight: 1.55,
-    hero: true,
-    act: 'I',
+    n: 'II',
+    title: 'The client',
+    line: 'One click turns the won lead into a client — with a front door of her own.',
+    weight: 0.44,
   },
   {
-    n: '03',
-    title: 'Her own front door',
-    line: 'You switch on a portal that carries your name, not ours — built for this one client.',
-    tip: 'White-label, per client. She never sees another client’s work.',
-    url: 'clienter.co.in/clients/nova-studio',
-    weight: 0.85,
-    act: 'II',
+    n: 'III',
+    title: 'The work',
+    line: 'A project, a team, an invoice, a meeting. Everything in the same place.',
+    weight: 0.44,
   },
   {
-    n: '04',
-    title: 'The work begins',
-    line: 'A budget, a deadline, and the two people who’ll actually build it.',
-    tip: 'Freelance or retainer — set the shape of the work up front.',
-    url: 'clienter.co.in/projects/new',
-    weight: 0.95,
-    act: 'II',
+    n: 'IV',
+    title: 'Her side',
+    line: 'The portal, from where Ananya sits. Your name on it, not ours.',
+    weight: 0.44,
   },
   {
-    n: '05',
-    title: 'Sixty-five percent',
-    line: 'Tasks move, files land, progress climbs — and you choose exactly what she can see.',
-    tip: 'Flip one toggle to share progress. Keep the rest internal.',
-    url: 'clienter.co.in/projects/brand-website-revamp',
-    weight: 1.05,
-    act: 'II',
-  },
-  {
-    n: '06',
-    title: 'The advance lands',
-    line: 'You record ₹40,000. A GST invoice writes itself, and the receipt is already a PDF.',
-    tip: 'Record a payment — the tax invoice and receipt generate themselves.',
-    url: 'clienter.co.in/payments',
-    weight: 1.6,
-    hero: true,
-    act: 'II',
-  },
-  {
-    n: '07',
-    title: 'Her side of the glass',
-    line: 'Ananya signs in with a password and sees her projects, her invoices, her files. Only hers.',
-    tip: 'Password sign-in. No app to install, nothing to explain.',
-    url: 'portal.clienter.co.in/nova-studio',
-    weight: 1.0,
-    act: 'III',
-  },
-  {
-    n: '08',
-    title: 'A room to meet in',
-    line: 'The kickoff call gets a Google Meet link and a reminder that fires before either of you forgets.',
-    tip: 'Meet link generated, reminder 30 minutes ahead.',
-    url: 'clienter.co.in/meetings',
-    weight: 0.85,
-    act: 'III',
-  },
-  {
-    n: '09',
-    title: 'Still talking',
-    line: 'One thread per client — the whole conversation in the same place as the work.',
-    tip: 'Live messaging with your client. No more WhatsApp archaeology.',
-    url: 'clienter.co.in/messages',
-    weight: 1.0,
-    act: 'III',
-  },
-  {
-    n: '10',
-    title: 'The loop closes',
-    line: 'The project completes. Five stars, verified. Then Ananya sends you Vikram — and it starts again.',
-    tip: 'Verified reviews become a public badge. Referrals arrive as leads.',
-    url: 'clienter.co.in/reviews',
-    weight: 1.7,
-    hero: true,
-    act: 'III',
+    n: 'V',
+    title: 'The loop',
+    line: 'Completed, reviewed, referred. And then it starts again.',
+    weight: 0.44,
   },
 ]
 
-export const TOTAL_WEIGHT = CHAPTERS.reduce((sum, c) => sum + c.weight, 0)
+export const SCENES: Scene[] = [
+  // ── ACT I ────────────────────────────────────────────────────────────────
+  {
+    id: 'leads-board',
+    act: 0,
+    url: 'clienter.co.in/leads',
+    nav: '/leads',
+    chrome: 'owner',
+    title: 'She lands in the pipeline',
+    line: 'Ananya messages you on Instagram. You add her once, tag where she came from, and drag her along as the deal moves.',
+    tip: 'Your own stages. Drag a deal across as it moves.',
+    cursor: { x: 992, y: 292, dragTo: { x: 1280, y: 286 } },
+    weight: 1.0,
+    crop: { x: 840, y: 126, w: 600, h: 600 },
+  },
+  {
+    id: 'lead-drawer',
+    act: 0,
+    url: 'clienter.co.in/leads',
+    nav: '/leads',
+    chrome: 'owner',
+    title: 'Won, with everything attached',
+    line: 'Her details, her stage, her whole activity log — sitting in one drawer, ready to become a client.',
+    tip: 'Nothing to retype. Convert straight from the lead.',
+    cursor: { x: 1266, y: 68 },
+    weight: 0.9,
+    crop: { x: 500, y: 0, w: 720, h: 720 },
+  },
 
-/** Scroll height, in vh, granted to each stage — hero moments dwell longer. */
-export const VH_PER_WEIGHT = 84
+  // ── ACT II ───────────────────────────────────────────────────────────────
+  {
+    id: 'convert-form',
+    act: 1,
+    url: 'clienter.co.in/clients/new?from=lead',
+    nav: '/clients',
+    chrome: 'owner',
+    title: 'Stranger becomes client',
+    line: 'The form arrives prefilled from the lead. Set the currency and save — the lead is marked won on the way through.',
+    tip: 'Prefilled from the lead. Just pick a currency.',
+    cursor: { x: 1094, y: 648 },
+    weight: 0.85,
+  },
+  {
+    id: 'client-page',
+    act: 1,
+    url: 'clienter.co.in/clients/nova-studio',
+    nav: '/clients',
+    chrome: 'owner',
+    title: 'A front door of her own',
+    line: 'Switch on a portal that carries your name, not ours, and Clienter emails her a temporary password.',
+    tip: 'White-label, per client. Password sign-in, no magic links.',
+    cursor: { x: 1266, y: 522 },
+    weight: 0.95,
+  },
+  {
+    id: 'portal-invited',
+    act: 1,
+    url: 'clienter.co.in/clients/nova-studio',
+    nav: '/clients',
+    chrome: 'owner',
+    title: 'Invite sent',
+    line: 'Her sign-in is live at your own portal address. She picks her own password the first time she opens it.',
+    weight: 0.72,
+  },
 
-/** Cumulative start offset (0–1 of the track) for each stage. */
-export const STAGE_STARTS = CHAPTERS.reduce<number[]>((acc, c, i) => {
-  acc.push((acc[i - 1] ?? 0) + (i === 0 ? 0 : CHAPTERS[i - 1].weight / TOTAL_WEIGHT))
+  // ── ACT III ──────────────────────────────────────────────────────────────
+  {
+    id: 'project-new',
+    act: 2,
+    url: 'clienter.co.in/projects/new',
+    nav: '/projects',
+    chrome: 'owner',
+    title: 'The work begins',
+    line: 'One-off or monthly retainer, a budget, a deadline. The shape of the job, set once.',
+    tip: 'One-off or retainer — Clienter bills each differently.',
+    cursor: { x: 1142, y: 668 },
+    weight: 0.9,
+  },
+  {
+    id: 'project-overview',
+    act: 2,
+    url: 'clienter.co.in/projects/brand-website-revamp',
+    nav: '/projects',
+    chrome: 'owner',
+    title: 'Progress she can see',
+    line: 'Post an update and it appears in her portal. Ask for sign-off and she can approve it there too.',
+    weight: 0.82,
+  },
+  {
+    id: 'project-payments',
+    act: 2,
+    url: 'clienter.co.in/projects/brand-website-revamp',
+    nav: '/projects',
+    chrome: 'owner',
+    title: 'The advance lands',
+    line: 'Record ₹40,000. A GST invoice numbers itself, the PDF is ready, and the balance updates on its own.',
+    tip: 'Record the payment — the GST invoice writes itself.',
+    cursor: { x: 884, y: 630 },
+    weight: 1.15,
+    hero: true,
+  },
+  {
+    id: 'project-team',
+    act: 2,
+    url: 'clienter.co.in/projects/brand-website-revamp',
+    nav: '/projects',
+    chrome: 'owner',
+    title: 'Who is building it',
+    line: 'Arjun and Priya get assigned, and what you owe each of them is tracked against the same project.',
+    tip: 'Track what you owe your team, project by project.',
+    cursor: { x: 1328, y: 424 },
+    weight: 0.9,
+  },
+  {
+    id: 'project-files',
+    act: 2,
+    url: 'clienter.co.in/projects/brand-website-revamp',
+    nav: '/projects',
+    chrome: 'owner',
+    title: 'Deliverables, shipped',
+    line: 'Files land here, and the ones you mark shared show up in her portal to download.',
+    weight: 0.75,
+  },
+  {
+    id: 'meeting-new',
+    act: 2,
+    url: 'clienter.co.in/meetings',
+    nav: '/meetings',
+    chrome: 'owner',
+    title: 'A room to meet in',
+    line: 'The kickoff call gets a Google Meet link on your calendar and a reminder before either of you forgets.',
+    tip: 'A real Meet link, and a reminder that actually fires.',
+    cursor: { x: 1048, y: 674 },
+    weight: 0.9,
+  },
+  {
+    id: 'projects-board',
+    act: 2,
+    url: 'clienter.co.in/projects',
+    nav: '/projects',
+    chrome: 'owner',
+    title: 'The whole studio, one board',
+    line: 'Every project across every client, with budget and what is still pending on each.',
+    weight: 0.8,
+    crop: { x: 560, y: 126, w: 620, h: 620 },
+  },
+
+  // ── ACT IV ───────────────────────────────────────────────────────────────
+  {
+    id: 'portal-login',
+    act: 3,
+    url: 'portal.clienter.co.in/nova-studio',
+    nav: null,
+    chrome: 'portal',
+    title: 'Her side of the glass',
+    line: 'She signs in with the email and password you sent. No app to install, nothing to explain.',
+    tip: 'A password she already has. Never a magic link.',
+    cursor: { x: 720, y: 566 },
+    weight: 0.8,
+  },
+  {
+    id: 'portal-home',
+    act: 3,
+    url: 'portal.clienter.co.in/nova-studio',
+    nav: '/portal',
+    chrome: 'portal',
+    title: 'Everything, and only hers',
+    line: 'What is running, what is owed, what needs her. One client, one portal — she never sees another.',
+    weight: 0.92,
+  },
+  {
+    id: 'portal-project',
+    act: 3,
+    url: 'portal.clienter.co.in/projects/brand-website-revamp',
+    nav: '/portal/projects',
+    chrome: 'portal',
+    title: 'The work, from her chair',
+    line: 'Timeline, budget, the files you shared and the invoice you sent — no email thread required.',
+    weight: 0.82,
+  },
+  {
+    id: 'portal-messages',
+    act: 3,
+    url: 'portal.clienter.co.in/messages',
+    nav: '/portal/messages',
+    chrome: 'portal',
+    title: 'She just types',
+    line: 'One thread per client, live. No WhatsApp archaeology, no lost context.',
+    tip: 'Live messaging, in the same place as the work.',
+    cursor: { x: 1392, y: 812 },
+    weight: 0.9,
+    crop: { x: 256, y: 60, w: 700, h: 700 },
+  },
+  {
+    id: 'owner-messages',
+    act: 3,
+    url: 'clienter.co.in/messages',
+    nav: '/messages',
+    chrome: 'owner',
+    title: 'And you answer',
+    line: 'Your side of the same thread, next to every other client conversation.',
+    weight: 0.85,
+    crop: { x: 556, y: 0, w: 660, h: 700 },
+  },
+
+  // ── ACT V ────────────────────────────────────────────────────────────────
+  {
+    id: 'mark-completed',
+    act: 4,
+    url: 'clienter.co.in/projects/brand-website-revamp',
+    nav: '/projects',
+    chrome: 'owner',
+    title: 'Delivered',
+    line: 'You move it to completed. That is what asks her for a review.',
+    tip: 'Completing a project invites the review.',
+    cursor: { x: 326, y: 106 },
+    weight: 0.78,
+  },
+  {
+    id: 'portal-review',
+    act: 4,
+    url: 'portal.clienter.co.in/projects/brand-website-revamp',
+    nav: '/portal/projects',
+    chrome: 'portal',
+    title: 'Five stars, from her',
+    line: 'She rates it in her own portal. Because only she can reach it, the review is verified by definition.',
+    tip: 'Only a real client can leave one. That is the point.',
+    cursor: { x: 512, y: 344 },
+    weight: 1.05,
+    hero: true,
+  },
+  {
+    id: 'portal-referral',
+    act: 4,
+    url: 'portal.clienter.co.in/referrals',
+    nav: '/portal/referrals',
+    chrome: 'portal',
+    title: 'And she sends you Vikram',
+    line: 'She introduces someone who needs the same work. He arrives in your pipeline as a lead.',
+    tip: 'Referrals drop straight into Leads, tagged as referrals.',
+    cursor: { x: 448, y: 404 },
+    weight: 0.95,
+  },
+  {
+    id: 'public-reviews',
+    act: 4,
+    url: 'clienter.co.in/r/webcros',
+    nav: null,
+    chrome: 'public',
+    title: 'Proof, on a page you can send',
+    line: 'Every review on it came through a client portal. That is a claim nobody else on a proposal can make.',
+    weight: 1.0,
+    hero: true,
+  },
+]
+
+/* ── Timeline assembly ─────────────────────────────────────────────────────
+   Flattened to a list of slots: an act's title card, then its scenes. One
+   scroll-progress value indexes straight into this.
+   ────────────────────────────────────────────────────────────────────────── */
+
+export type Slot =
+  | { kind: 'intro'; act: number; scene: number; weight: number }
+  | { kind: 'scene'; act: number; scene: number; weight: number }
+
+export const SLOTS: Slot[] = ACTS.flatMap((act, a) => {
+  const first = SCENES.findIndex((s) => s.act === a)
+  const own = SCENES.filter((s) => s.act === a)
+  return [
+    { kind: 'intro' as const, act: a, scene: first, weight: act.weight },
+    ...own.map((s) => ({
+      kind: 'scene' as const,
+      act: a,
+      scene: SCENES.indexOf(s),
+      weight: s.weight,
+    })),
+  ]
+})
+
+export const TOTAL_WEIGHT = SLOTS.reduce((sum, s) => sum + s.weight, 0)
+
+/** Scroll height, in vh, granted per unit of weight. */
+export const VH_PER_WEIGHT = 60
+
+/** Cumulative start offset (0–1 of the track) for each slot. */
+export const SLOT_STARTS = SLOTS.reduce<number[]>((acc, _, i) => {
+  acc.push((acc[i - 1] ?? 0) + (i === 0 ? 0 : SLOTS[i - 1].weight / TOTAL_WEIGHT))
   return acc
 }, [])
+
+/** Start/end track fraction for a slot — used by the act cards and the thread. */
+export function slotRange(i: number): [number, number] {
+  return [SLOT_STARTS[i], SLOT_STARTS[i] + SLOTS[i].weight / TOTAL_WEIGHT]
+}
+
+/** Index of each act's title-card slot. */
+export const INTRO_SLOTS = SLOTS.reduce<number[]>((acc, s, i) => {
+  if (s.kind === 'intro') acc.push(i)
+  return acc
+}, [])
+
+/** The scene shown behind an act card before the swap — the previous act's last. */
+export function outgoingScene(slot: number): number {
+  for (let i = slot - 1; i >= 0; i -= 1) {
+    if (SLOTS[i].kind === 'scene') return SLOTS[i].scene
+  }
+  return SLOTS[slot].scene
+}

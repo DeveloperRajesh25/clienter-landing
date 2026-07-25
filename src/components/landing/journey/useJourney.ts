@@ -2,51 +2,63 @@
 
 import { useScroll, useMotionValueEvent, type MotionValue } from 'framer-motion'
 import { useEffect, useMemo, useRef, useState, type RefObject } from 'react'
-import { CHAPTERS, STAGE_STARTS, TOTAL_WEIGHT } from './data'
+import { SLOTS, SLOT_STARTS, TOTAL_WEIGHT, outgoingScene } from './data'
 
 /* ──────────────────────────────────────────────────────────────────────────
    ONE scroll value drives everything.
 
-   There is a single `useScroll` on the track. From it we derive two things:
+   From a single `useScroll` on the track we derive two things:
 
-   • `progress` — the raw MotionValue, handed straight to the ink thread. It
-     animates outside React entirely, so a 9000px SVG can follow the scrollbar
-     without re-rendering a single component.
+   • `progress` — the raw MotionValue, handed straight to the ink thread and the
+     act cards. Those animate outside React entirely, so a 9000px SVG and five
+     full-cover panels can follow the scrollbar without re-rendering anything.
 
-   • `{ index, beat }` — quantised React state. Ten stages re-rendering on every
-     scroll frame is how these sections end up feeling like a stuck box, so the
-     stages never see the raw value: they see which chapter is live and which of
-     four beats it is on. State changes ~40 times over the whole section instead
-     of a few thousand, and CSS/framer tweens the gaps.
+   • `{ slot, scene, beat, … }` — quantised React state. Twenty-one screens
+     re-rendering on every scroll frame is how these sections end up feeling
+     like a stuck box, so the scenes never see the raw value: they see which one
+     is live and which of four beats it is on. State changes ~80 times across
+     the whole section instead of a few thousand, and CSS tweens the gaps.
    ────────────────────────────────────────────────────────────────────────── */
 
+/** Where within a slot each beat begins. Beat 3 holds longest — the result is
+    the part worth looking at. */
+const BEAT_STOPS = [0, 0.14, 0.34, 0.56]
+
+/** How far into an act's title card the screen behind it swaps over. Hidden,
+    because the card is fully opaque from ~16% to ~62%. */
+const CARD_SWAP = 0.44
+
 export interface JourneyState {
-  /** Live chapter, 0-based. */
-  index: number
-  /** 0 rest · 1 cursor arrived · 2 click fires · 3 settled result. */
+  /** Live timeline slot. */
+  slot: number
+  /** Scene on screen right now (during a title card, the one behind it). */
+  scene: number
+  /** Act the live slot belongs to. */
+  act: number
+  /** True while an act title card is passing through. */
+  intro: boolean
+  /** 0 rest · 1 cursor arrived · 2 click fires · 3 settled. */
   beat: number
   progress: MotionValue<number>
 }
 
-/** Where within a stage each beat begins. Beat 3 holds longest — the payoff is
-    the part worth looking at. */
-const BEAT_STOPS = [0, 0.14, 0.34, 0.56]
-
-function resolve(p: number): { index: number; beat: number } {
-  // Clamp into the last chapter once the track is finished, so the closing
-  // screen stays put while the resolution beat scrolls up underneath.
-  let index = CHAPTERS.length - 1
-  for (let i = 0; i < CHAPTERS.length; i += 1) {
-    const start = STAGE_STARTS[i]
-    const end = start + CHAPTERS[i].weight / TOTAL_WEIGHT
-    if (p < end || i === CHAPTERS.length - 1) {
-      index = i
+function resolve(p: number): { slot: number; beat: number } {
+  let slot = SLOTS.length - 1
+  for (let i = 0; i < SLOTS.length; i += 1) {
+    const end = SLOT_STARTS[i] + SLOTS[i].weight / TOTAL_WEIGHT
+    if (p < end || i === SLOTS.length - 1) {
+      slot = i
       break
     }
   }
-  const start = STAGE_STARTS[index]
-  const span = CHAPTERS[index].weight / TOTAL_WEIGHT
-  const local = span > 0 ? (p - start) / span : 1
+  const span = SLOTS[slot].weight / TOTAL_WEIGHT
+  const local = span > 0 ? (p - SLOT_STARTS[slot]) / span : 1
+
+  if (SLOTS[slot].kind === 'intro') {
+    // A title card has exactly two states: the screen we are leaving, then the
+    // screen we are arriving at. Both sit behind an opaque panel.
+    return { slot, beat: local < CARD_SWAP ? 0 : 1 }
+  }
 
   let beat = 0
   for (let b = BEAT_STOPS.length - 1; b >= 0; b -= 1) {
@@ -55,52 +67,33 @@ function resolve(p: number): { index: number; beat: number } {
       break
     }
   }
-  return { index, beat }
+  return { slot, beat }
 }
 
 export function useJourney(ref: RefObject<HTMLElement>, reduced: boolean): JourneyState {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })
-  const [state, setState] = useState({ index: 0, beat: reduced ? 3 : 0 })
+  const [raw, setRaw] = useState({ slot: 0, beat: 0 })
   const last = useRef('0:0')
 
   useMotionValueEvent(scrollYProgress, 'change', (p) => {
     const next = resolve(p)
-    const key = `${next.index}:${next.beat}`
+    const key = `${next.slot}:${next.beat}`
     if (key === last.current) return
     last.current = key
-    setState(next)
+    setRaw(next)
   })
 
-  // Reduced motion: every stage sits in its finished state, always.
-  const value = reduced ? { index: state.index, beat: 3 } : state
+  const slot = SLOTS[raw.slot]
+  const intro = slot.kind === 'intro'
+  // During a card: the outgoing screen first, the incoming one after the swap.
+  const scene = intro && raw.beat === 0 ? outgoingScene(raw.slot) : slot.scene
+  // Reduced motion: every scene sits in its finished state, always.
+  const beat = reduced ? 3 : intro ? 3 : raw.beat
 
   return useMemo(
-    () => ({ index: value.index, beat: value.beat, progress: scrollYProgress }),
-    [value.index, value.beat, scrollYProgress]
+    () => ({ slot: raw.slot, scene, act: slot.act, intro, beat, progress: scrollYProgress }),
+    [raw.slot, scene, slot.act, intro, beat, scrollYProgress]
   )
-}
-
-/**
- * Which layout is actually in play.
- *
- * Starts as `'ssr'`, where BOTH the pinned desktop track and the stacked mobile
- * list render exactly as the server sent them — so there is no first-paint flash
- * and every chapter of copy is in the HTML for crawlers. After mount it settles
- * to one or the other and the unused half unmounts, so a phone isn't carrying
- * three pre-mounted desktop app mocks it will never show (and vice versa).
- */
-export function useLayoutMode(): 'ssr' | 'wide' | 'narrow' {
-  const [mode, setMode] = useState<'ssr' | 'wide' | 'narrow'>('ssr')
-
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 1024px)')
-    const sync = () => setMode(mq.matches ? 'wide' : 'narrow')
-    sync()
-    mq.addEventListener('change', sync)
-    return () => mq.removeEventListener('change', sync)
-  }, [])
-
-  return mode
 }
 
 /** Tracks `prefers-reduced-motion` live, not just on first paint. */
@@ -119,15 +112,38 @@ export function useReducedMotion(): boolean {
 }
 
 /**
- * Mobile stages replay their beats on entry instead of following the scrollbar:
+ * Which layout is actually in play.
+ *
+ * Starts as `'ssr'`, where both the pinned desktop track and the stacked mobile
+ * list render exactly as the server sent them — no first-paint flash, and every
+ * scene's copy is in the HTML for crawlers. After mount it settles to one and
+ * the unused half unmounts, so a phone isn't carrying a pinned track it will
+ * never show.
+ */
+export function useLayoutMode(): 'ssr' | 'wide' | 'narrow' {
+  const [mode, setMode] = useState<'ssr' | 'wide' | 'narrow'>('ssr')
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const sync = () => setMode(mq.matches ? 'wide' : 'narrow')
+    sync()
+    mq.addEventListener('change', sync)
+    return () => mq.removeEventListener('change', sync)
+  }, [])
+
+  return mode
+}
+
+/**
+ * Mobile scenes replay their beats on entry instead of following the scrollbar:
  * a phone scrolls in flicks, and mapping four beats onto that reads as
- * stuttering. In view once → 0,1,2,3 with the same rhythm as the desktop dwell.
+ * stuttering. In view once → 0, 1, 2, 3 with the same rhythm as the desktop dwell.
  */
 export function useBeatOnView<T extends HTMLElement = HTMLDivElement>(reduced: boolean) {
   const ref = useRef<T | null>(null)
   const [beat, setBeat] = useState(reduced ? 3 : 0)
-  /** Mount gate: ten app mocks on a phone is not free, so a stage only builds
-      its DOM once it is within a screen of being needed. */
+  /** Mount gate: twenty-one app mocks on a phone is not free, so a scene only
+      builds its DOM once it is within a screen of being needed. */
   const [seen, setSeen] = useState(false)
 
   useEffect(() => {
@@ -160,7 +176,7 @@ export function useBeatOnView<T extends HTMLElement = HTMLDivElement>(reduced: b
           setTimeout(() => setBeat(3), 1900),
         ]
       },
-      { threshold: 0.4 }
+      { threshold: 0.35 }
     )
     play.observe(el)
 
@@ -172,4 +188,32 @@ export function useBeatOnView<T extends HTMLElement = HTMLDivElement>(reduced: b
   }, [reduced])
 
   return { ref, beat, seen }
+}
+
+/* ── Typing ────────────────────────────────────────────────────────────────
+   The URL bar and any field the cursor fills in. Character by character with a
+   touch of jitter, because a perfectly even cadence reads as a marquee rather
+   than a person.
+   ────────────────────────────────────────────────────────────────────────── */
+export function useTyped(text: string, run: boolean, msPerChar = 22) {
+  const [shown, setShown] = useState(run ? text : '')
+
+  useEffect(() => {
+    if (!run) {
+      setShown(text)
+      return
+    }
+    let i = 0
+    let timer: ReturnType<typeof setTimeout>
+    const step = () => {
+      i += 1
+      setShown(text.slice(0, i))
+      if (i < text.length) timer = setTimeout(step, msPerChar + (i % 3) * 8)
+    }
+    setShown('')
+    timer = setTimeout(step, 80)
+    return () => clearTimeout(timer)
+  }, [text, run, msPerChar])
+
+  return shown
 }
