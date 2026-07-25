@@ -1,13 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
 import {
-  Users,
-  Briefcase,
   FileText,
-  UserPlus,
-  TrendingUp,
-  Bell,
   Check,
   X,
   ArrowRight,
@@ -50,6 +46,17 @@ import { VerifiedReviews } from '@/components/marketing/VerifiedReviews'
 import { pageMetadata, FOUNDER, SOCIALS } from '@/lib/site'
 import { faqSchema } from '@/lib/structured-data'
 import { HOME_FAQS } from '@/lib/faq-data'
+
+/**
+ * The Nova Studio journey — the `#features` section. Split out of the main
+ * bundle because it's the only thing on the page that needs framer-motion, and
+ * it sits well below the fold. SSR is deliberately left on: the ten chapters of
+ * story copy are the section's real content and belong in the HTML.
+ */
+const ClientJourney = dynamic(
+  () => import('@/components/landing/journey/ClientJourney').then((m) => m.ClientJourney),
+  { loading: () => <div className="h-[60vh]" /> }
+)
 
 export const metadata: Metadata = {
   ...pageMetadata({
@@ -266,89 +273,6 @@ function SectionHead({
   )
 }
 
-/**
- * Warm product-window chrome. One frame vocabulary for every product mock on
- * the page — hairline edge, warm layered elevation, an optional URL slug so
- * each mock reads as a real screen rather than an illustration.
- */
-function ProductFrame({
-  children,
-  url,
-  className = '',
-}: {
-  children: React.ReactNode
-  url?: string
-  className?: string
-}) {
-  return (
-    <div
-      className={`overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-lift-3 ${className}`}
-    >
-      <div className="flex items-center gap-1.5 border-b border-stone-100 bg-stone-50/60 px-4 py-3">
-        <span className="h-2.5 w-2.5 rounded-full bg-orange-400" />
-        <span className="h-2.5 w-2.5 rounded-full bg-stone-200" />
-        <span className="h-2.5 w-2.5 rounded-full bg-stone-200" />
-        {url && (
-          <span className="ml-2 truncate text-[11px] font-medium text-stone-400">{url}</span>
-        )}
-      </div>
-      <div className="px-5 pb-6 pt-1 sm:px-6">{children}</div>
-    </div>
-  )
-}
-
-/**
- * A flagship feature row. Asymmetric 5/7 split (never 50/50), zig-zagging via
- * `flip`, with the visual free to break its column. Each row passes its own
- * fully-composed visual, so no two read the same.
- */
-function FeatureSplit({
-  eyebrow,
-  icon: Icon,
-  title,
-  desc,
-  points,
-  visual,
-  flip = false,
-}: {
-  eyebrow: string
-  icon: LucideIcon
-  title: string
-  desc: string
-  points: string[]
-  visual: React.ReactNode
-  flip?: boolean
-}) {
-  return (
-    <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
-      <Reveal className={`lg:col-span-5 ${flip ? 'lg:order-2 lg:col-start-8' : ''}`}>
-        <SectionLabel icon={Icon}>{eyebrow}</SectionLabel>
-        <h3 className="mt-6 font-display text-[1.75rem] font-extrabold leading-[1.12] tracking-tight text-gray-900 sm:text-[2.25rem]">
-          {title}
-        </h3>
-        <p className="mt-4 max-w-measure text-[15px] leading-relaxed text-gray-600 sm:text-base">
-          {desc}
-        </p>
-        <ul className="mt-7 space-y-3.5">
-          {points.map((p) => (
-            <li key={p} className="flex items-start gap-3 text-[15px] text-gray-700">
-              {/* Custom bullet: a hairline-ringed ember tick, not a default disc. */}
-              <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-orange-50 text-orange-600 ring-1 ring-inset ring-orange-500/20">
-                <Check className="h-3 w-3" strokeWidth={3} />
-              </span>
-              {p}
-            </li>
-          ))}
-        </ul>
-      </Reveal>
-
-      <Reveal delay={120} className={`lg:col-span-7 ${flip ? 'lg:order-1 lg:col-start-1' : ''}`}>
-        {visual}
-      </Reveal>
-    </div>
-  )
-}
-
 /** Sliding pill for the "replaces your stack" marquee band. */
 function ToolChip({
   icon: Icon,
@@ -371,110 +295,6 @@ function ToolChip({
       <Icon className={`h-4 w-4 ${dark ? 'text-white/80' : 'text-orange-400'}`} />
       {label}
     </span>
-  )
-}
-
-// ── Feature mini-visuals ────────────────────────────────────────────────────
-// Small abstract compositions in the product's design language; pure divs, no
-// screenshots. They give each feature its own "look inside" moment.
-
-const CLIENT_ROWS = [
-  { name: 'Acme Co.', tag: 'Active', tint: 'bg-emerald-50 text-emerald-600' },
-  { name: 'Nova Studio', tag: 'Lead', tint: 'bg-amber-50 text-amber-600' },
-  { name: 'Pixel Labs', tag: 'Active', tint: 'bg-emerald-50 text-emerald-600' },
-]
-
-function ClientsVisual() {
-  return (
-    <div className="mt-6 space-y-2">
-      {CLIENT_ROWS.map((c) => (
-        <div
-          key={c.name}
-          className="flex items-center gap-3 rounded-xl border border-stone-200/80 bg-stone-50/70 px-3.5 py-2.5"
-        >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-100 text-xs font-bold text-orange-600">
-            {c.name[0]}
-          </div>
-          <div className="flex-1">
-            <div className="text-sm font-semibold text-gray-800">{c.name}</div>
-            <div className="mt-1.5 h-1.5 w-24 rounded bg-stone-200" />
-          </div>
-          <span className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${c.tint}`}>
-            {c.tag}
-          </span>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function InvoiceVisual() {
-  return (
-    <div className="p-5 sm:p-6">
-      <div className="flex items-center justify-between">
-        <span className="text-xs font-bold tracking-wide text-gray-600">INV-2026-042</span>
-        <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
-          PAID
-        </span>
-      </div>
-      <div className="mt-3.5 space-y-2">
-        <div className="h-1.5 w-3/4 rounded bg-stone-200" />
-        <div className="h-1.5 w-1/2 rounded bg-stone-200" />
-        <div className="h-1.5 w-2/3 rounded bg-stone-200" />
-      </div>
-      <div className="mt-4 flex items-center justify-between border-t border-dashed border-stone-300 pt-3">
-        <span className="text-[11px] text-gray-400">Total · GST 18%</span>
-        <span className="font-display text-lg font-bold text-gray-900">₹45,000</span>
-      </div>
-    </div>
-  )
-}
-
-const KANBAN = [
-  { title: 'To do', dot: 'bg-stone-400', bar: 'bg-stone-300', cards: [[70, 30], [55, 20]] },
-  {
-    title: 'Doing',
-    dot: 'bg-orange-500',
-    bar: 'bg-gradient-to-r from-orange-500 to-amber-400',
-    cards: [[65, 60], [50, 45]],
-  },
-  { title: 'Done', dot: 'bg-emerald-500', bar: 'bg-emerald-400', cards: [[60, 100]] },
-]
-
-function KanbanVisual() {
-  return (
-    <div className="mt-6 grid grid-cols-3 gap-2.5">
-      {KANBAN.map((col) => (
-        <div key={col.title} className="rounded-xl border border-stone-200/80 bg-stone-50/70 p-2.5">
-          <div className="flex items-center gap-1.5 px-1 pb-2">
-            <span className={`h-1.5 w-1.5 rounded-full ${col.dot}`} />
-            <span className="text-[10px] font-semibold uppercase tracking-wide text-gray-400">
-              {col.title}
-            </span>
-          </div>
-          <div className="space-y-2">
-            {col.cards.map(([title, progress], i) => (
-              <div key={i} className="rounded-lg border border-stone-200/80 bg-white p-2">
-                <div className="h-1.5 rounded bg-stone-200" style={{ width: `${title}%` }} />
-                <div className={`mt-2 h-1 rounded ${col.bar}`} style={{ width: `${progress}%` }} />
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-/** Warm radial bloom behind a product mock. Drifts on scroll for depth. */
-function MockGlow({ className = '' }: { className?: string }) {
-  return (
-    <Parallax
-      speed={26}
-      className={`pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] bg-[radial-gradient(ellipse_60%_60%_at_50%_40%,rgba(249,115,22,0.16),transparent_70%)] blur-2xl ${className}`}
-    >
-      <span />
-    </Parallax>
   )
 }
 
@@ -736,200 +556,11 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* ───────── Features (asymmetric showcase) ───────── */}
-        <section id="features" className="relative scroll-mt-24 py-20 sm:py-32">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <SectionHead
-              label="Everything in one place"
-              icon={Sparkles}
-              title={
-                <>
-                  Your entire agency,{' '}
-                  <span className="text-gradient-brand font-serif-display text-[1.12em] font-normal italic">
-                    beautifully organized
-                  </span>
-                </>
-              }
-              sub="Stop stitching together six different tools. Clienter does it all — and looks good doing it."
-            />
-
-            <div className="mt-16 space-y-20 sm:mt-24 sm:space-y-32">
-              {/* 1 — a plain window, with a live stat card breaking out of it. */}
-              <FeatureSplit
-                eyebrow="Client Management"
-                icon={Users}
-                title="Every client, in one calm profile"
-                desc="Track every client, their status, and full project history in one organized place — no more digging through WhatsApp threads and old emails."
-                points={[
-                  'Full contact & project history',
-                  'A status pipeline you can see at a glance',
-                  'Notes, files, and payments in one view',
-                ]}
-                visual={
-                  <div className="relative">
-                    <MockGlow />
-                    <ProductFrame url="clienter.co.in/clients">
-                      <ClientsVisual />
-                    </ProductFrame>
-                    {/* Breaks the frame — depth without a drop shadow gimmick.
-                        Hung off the corner rather than across it, so it never
-                        sits on top of a client row. */}
-                    <Parallax
-                      speed={-22}
-                      className="absolute -bottom-7 -left-10 hidden rounded-2xl border border-stone-200/80 bg-white/95 p-3.5 shadow-lift-3 backdrop-blur lg:block"
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-100 text-orange-600">
-                          <TrendingUp className="h-4 w-4" />
-                        </span>
-                        <div>
-                          <div className="font-display text-sm font-bold leading-none text-gray-900">
-                            3 active
-                          </div>
-                          <div className="mt-1 text-[10px] font-medium text-stone-400">
-                            1 lead in pipeline
-                          </div>
-                        </div>
-                      </div>
-                    </Parallax>
-                  </div>
-                }
-              />
-
-              {/* 2 — the invoice as a physical document: a stacked sheet behind,
-                  the live one tilted on top. Deliberately not another window. */}
-              <FeatureSplit
-                flip
-                eyebrow="Smart Invoicing"
-                icon={FileText}
-                title="Send GST-ready invoices in a minute"
-                desc="Professional, branded invoices with line items, tax, and one-click PDF download — so you get paid faster and look sharp doing it."
-                points={[
-                  'GST-compliant, branded templates',
-                  'One-click PDF export',
-                  'Track paid, pending & overdue live',
-                ]}
-                visual={
-                  <div className="relative mx-auto max-w-lg lg:mx-0 lg:ml-8">
-                    <MockGlow />
-                    {/* The sheet underneath — the invoice you sent last month. */}
-                    <div
-                      aria-hidden
-                      className="absolute inset-x-6 -top-4 h-24 rotate-[-3deg] rounded-2xl border border-stone-200/70 bg-white/70 shadow-lift-1"
-                    />
-                    <Parallax speed={-16} className="relative">
-                      <div className="rotate-[1.6deg] overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-lift-4">
-                        {/* Perforated header strip — reads as paper, not chrome. */}
-                        <div className="flex items-center justify-between border-b border-dashed border-stone-200 bg-stone-50/70 px-5 py-3">
-                          <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-stone-400">
-                            Tax Invoice
-                          </span>
-                          <span className="font-display text-[10px] font-bold text-orange-600">
-                            Clienter
-                          </span>
-                        </div>
-                        <InvoiceVisual />
-                      </div>
-                    </Parallax>
-                    <Parallax
-                      speed={-30}
-                      className="absolute -bottom-5 -right-2 hidden rounded-xl border border-stone-200/80 bg-white/95 px-3.5 py-2.5 shadow-lift-3 backdrop-blur sm:block"
-                    >
-                      <div className="flex items-center gap-2 text-[11px] font-bold text-emerald-600">
-                        <Download className="h-3.5 w-3.5" />
-                        PDF exported
-                      </div>
-                    </Parallax>
-                  </div>
-                }
-              />
-
-              {/* 3 — a wide board that runs past its column edge. */}
-              <FeatureSplit
-                eyebrow="Project Tracking"
-                icon={Briefcase}
-                title="See exactly where every project stands"
-                desc="Kanban boards, deadlines, budgets, and team assignments for every project — the whole studio on one clean board."
-                points={[
-                  'Drag-and-drop Kanban board',
-                  'Deadlines & budgets per project',
-                  'Assign your team in a click',
-                ]}
-                visual={
-                  <div className="relative lg:-mr-16">
-                    <MockGlow />
-                    <ProductFrame url="clienter.co.in/projects">
-                      <KanbanVisual />
-                    </ProductFrame>
-                  </div>
-                }
-              />
-            </div>
-
-            {/* Supporting features — an editorial index, not three more cards.
-                Staggered vertical offsets + hairline rules keep the eye moving. */}
-            <div className="relative mt-24 sm:mt-32">
-              <div className="rule-warm" />
-              <div className="grid gap-x-10 gap-y-12 pt-14 sm:grid-cols-3">
-                {[
-                  {
-                    icon: TrendingUp,
-                    n: '04',
-                    title: 'Revenue Analytics',
-                    desc: 'See monthly revenue, expenses, and profit at a glance — no spreadsheets.',
-                    offset: 'sm:mt-0',
-                  },
-                  {
-                    icon: UserPlus,
-                    n: '05',
-                    title: 'Team Management',
-                    desc: 'Add developers and designers, assign them to projects, and track payments.',
-                    offset: 'sm:mt-10',
-                  },
-                  {
-                    icon: Bell,
-                    n: '06',
-                    title: 'Meeting Reminders',
-                    desc: 'Schedule client meetings with automatic browser push reminders.',
-                    offset: 'sm:mt-4',
-                  },
-                ].map(({ icon: Icon, n, title, desc, offset }, i) => (
-                  <Reveal key={title} delay={i * 110} className={`group relative ${offset}`}>
-                    {i > 0 && (
-                      <span
-                        aria-hidden
-                        className="absolute -left-5 top-1 hidden h-16 w-px bg-gradient-to-b from-line to-transparent sm:block"
-                      />
-                    )}
-                    <div className="flex items-baseline gap-3">
-                      <span className="font-display text-xs font-bold tracking-[0.16em] text-orange-500/60">
-                        {n}
-                      </span>
-                      <span className="h-px flex-1 bg-line/70" />
-                      <Icon className="h-4 w-4 flex-none text-orange-500 transition-transform duration-300 group-hover:-translate-y-0.5" />
-                    </div>
-                    <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-gray-900">
-                      {title}
-                    </h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-gray-600">{desc}</p>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-
-            <Reveal className="mt-16">
-              <Link
-                href="/features"
-                className="focus-ember group inline-flex items-center gap-2 rounded-full text-sm font-bold uppercase tracking-[0.14em] text-orange-600 transition-colors hover:text-orange-700"
-              >
-                Explore all features
-                <span className="flex h-7 w-7 items-center justify-center rounded-full border border-orange-200 transition-all duration-300 group-hover:border-orange-400 group-hover:bg-orange-50">
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-                </span>
-              </Link>
-            </Reveal>
-          </div>
-        </section>
+        {/* ───────── One client, end to end (the Nova Studio journey) ─────────
+            Replaces the old three-card feature showcase. Code-split because it
+            ships framer-motion; SSR stays on so the ten chapters of copy are in
+            the HTML for crawlers. */}
+        <ClientJourney />
 
         {/* ───────── Verified Client Reviews (flagship trust feature) ───────── */}
         <VerifiedReviews />

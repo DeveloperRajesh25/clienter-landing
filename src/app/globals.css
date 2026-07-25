@@ -401,6 +401,28 @@
   }
 }
 
+/* The client's typing indicator in the journey section's messaging stage. The
+   only looping animation in that whole section — it earns it, because "someone
+   is replying right now" is the feature being sold. */
+@keyframes journey-typing {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-dot {
+    animation: none !important;
+    opacity: 0.7 !important;
+  }
+}
+
 /* Inline spinner for buttons / immediate action feedback. */
 .spinner {
   display: inline-block;
