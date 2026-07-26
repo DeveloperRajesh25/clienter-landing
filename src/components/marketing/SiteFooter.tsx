@@ -73,6 +73,21 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
                 </a>
               ))}
             </div>
+            <div className="mt-6">
+              <a
+                href="https://www.producthunt.com/products/clienter/launches/clienter?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-clienter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  alt="Clienter - Manage clients, projects, payments, quotations in one place | Product Hunt"
+                  width="250"
+                  height="54"
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1171179&theme=light&t=1785056301787"
+                  className="w-full max-w-xs"
+                />
+              </a>
+            </div>
           </div>
 
           {/* Link columns */}
