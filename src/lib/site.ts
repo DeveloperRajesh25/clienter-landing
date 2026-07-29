@@ -206,32 +206,7 @@ export const NAV_LINKS: NavLink[] = [
       },
     ],
   },
-  {
-    href: '/blog',
-    label: 'Resources',
-    children: [
-      {
-        href: '/blog',
-        label: 'Blog',
-        description: 'Guides on freelancing, pricing & getting clients',
-      },
-      {
-        href: '/glossary',
-        label: 'Glossary',
-        description: 'Freelance & agency terms explained simply',
-      },
-      {
-        href: '/compare',
-        label: 'Compare',
-        description: 'How Clienter stacks up against the alternatives',
-      },
-      {
-        href: '/for',
-        label: 'Who it’s for',
-        description: 'Clienter for your kind of work',
-      },
-    ],
-  },
+  { href: '/contact', label: 'Contact' },
 ]
 
 /** Footer link columns — categorised links to every major section of the site. */

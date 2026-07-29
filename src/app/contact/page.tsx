@@ -95,9 +95,9 @@ export default function ContactPage() {
       />
 
       {/* ───────── Contact split: channels + form ───────── */}
-      <section className="mx-auto mt-14 grid max-w-6xl gap-10 px-4 py-16 sm:py-24 sm:px-6 lg:grid-cols-12 lg:gap-14 lg:px-8">
+      <section className="mx-auto mt-14 grid max-w-6xl grid-cols-1 gap-10 px-4 py-16 sm:py-24 sm:px-6 lg:grid-cols-12 lg:gap-14 lg:px-8">
         {/* Left — clean channel list + response promise + socials */}
-        <div className="lg:col-span-5">
+        <div className="order-2 lg:order-1 lg:col-span-5">
           <Reveal>
             <span className="text-xs font-bold uppercase tracking-[0.16em] text-orange-500">
               Reach us directly
@@ -192,7 +192,7 @@ export default function ContactPage() {
         </div>
 
         {/* Right — framed form panel with soft glow */}
-        <div className="lg:col-span-7">
+        <div className="order-1 lg:order-2 lg:col-span-7">
           <Reveal delay={100}>
             <div className="relative">
               <div

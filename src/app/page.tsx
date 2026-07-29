@@ -10,7 +10,6 @@ import {
   Play,
   Sparkles,
   ShieldCheck,
-  Zap,
   Lock,
   Download,
   Instagram,
@@ -24,7 +23,6 @@ import {
   CalendarDays,
   Wallet,
   Clock,
-  Rocket,
   type LucideIcon,
 } from 'lucide-react'
 import { APP_URL } from '@/lib/site'
@@ -40,6 +38,7 @@ import { Faq } from '@/components/landing/Faq'
 import { Parallax } from '@/components/landing/Parallax'
 import { Magnetic } from '@/components/landing/Magnetic'
 import { SectionLabel } from '@/components/landing/SectionLabel'
+import { PricingSection } from '@/components/landing/PricingSection'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { DataSecurity } from '@/components/marketing/DataSecurity'
 import { VerifiedReviews } from '@/components/marketing/VerifiedReviews'
@@ -76,89 +75,6 @@ export const metadata: Metadata = {
   // Home uses an absolute title so the brand template suffix isn't appended.
   title: { absolute: 'Clienter — Client Management Software for Indian Freelancers & Agencies' },
 }
-
-const STEPS = [
-  {
-    n: '01',
-    title: 'Add your clients',
-    desc: 'Import or add clients in seconds and keep every detail in one tidy profile.',
-  },
-  {
-    n: '02',
-    title: 'Run your projects',
-    desc: 'Spin up projects, assign your team, and track progress on a clean Kanban board.',
-  },
-  {
-    n: '03',
-    title: 'Invoice & get paid',
-    desc: 'Generate branded invoices, send them, and watch your revenue analytics update live.',
-  },
-]
-
-// Plan limits + launch pricing mirror the /pricing page so the two never drift.
-type Plan = {
-  name: string
-  price: string
-  originalPrice?: string
-  period: string
-  tagline: string
-  features: string[]
-  cta: string
-  popular: boolean
-  launch: boolean
-}
-const PLANS: Plan[] = [
-  {
-    name: 'Free',
-    price: '₹0',
-    period: '/month',
-    tagline: 'For getting started',
-    features: [
-      'Up to 5 clients',
-      'Up to 10 projects',
-      'Leads & CRM pipeline',
-      'Invoice generation',
-      'Basic analytics',
-    ],
-    cta: 'Get started free',
-    popular: false,
-    launch: false,
-  },
-  {
-    name: 'Pro',
-    price: '₹199',
-    originalPrice: '₹499',
-    period: '/month',
-    tagline: 'For growing freelancers',
-    features: [
-      'Up to 30 clients',
-      'Up to 60 projects',
-      'Up to 5 team members',
-      'White-label client portal',
-      'Priority support',
-    ],
-    cta: 'Start Pro →',
-    popular: true,
-    launch: true,
-  },
-  {
-    name: 'Ultra',
-    price: '₹799',
-    originalPrice: '₹1,999',
-    period: '/month',
-    tagline: 'For agencies at scale',
-    features: [
-      'Unlimited clients',
-      'Unlimited projects',
-      'Unlimited team members',
-      'White-label invoices',
-      'Dedicated support',
-    ],
-    cta: 'Start Ultra →',
-    popular: false,
-    launch: true,
-  },
-]
 
 // The scattered stack Clienter replaces — generic categories, no brand names.
 // Rendered as two counter-sliding marquee rows under the stats band.
@@ -565,210 +481,8 @@ export default function LandingPage() {
         {/* ───────── Verified Client Reviews (flagship trust feature) ───────── */}
         <VerifiedReviews />
 
-        {/* ───────── How it works (numbered spine) ───────── */}
-        <section
-          id="how"
-          className="grain relative scroll-mt-24 overflow-hidden bg-[linear-gradient(165deg,#2E1710_0%,#1D120C_50%,#150D0A_100%)] py-20 text-espresso-text sm:py-32"
-        >
-          <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
-            <Parallax
-              speed={-60}
-              className="absolute -bottom-40 left-[-8%] h-[40rem] w-[40rem] rounded-full bg-[radial-gradient(circle,rgba(234,88,12,0.16),transparent_65%)] blur-3xl"
-            >
-              <span />
-            </Parallax>
-          </div>
-
-          <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <SectionHead
-              tone="dark"
-              label="Up and running in minutes"
-              icon={Zap}
-              title={
-                <>
-                  From signup to paid in{' '}
-                  <span className="text-gradient-ember font-serif-display text-[1.12em] font-normal italic">
-                    three steps
-                  </span>
-                </>
-              }
-            />
-
-            <div className="relative mt-16 sm:mt-24">
-              {/* The spine. Draws itself left-to-right on desktop (top-to-bottom
-                  on mobile) as the section arrives, so the eye is pulled along
-                  the sequence rather than hopping between columns. */}
-              <Reveal
-                variant="wipeX"
-                aria-hidden
-                className="absolute left-[1.75rem] top-0 hidden h-full w-px md:left-0 md:top-[1.75rem] md:h-px md:w-full md:block"
-              >
-                <span className="block h-full w-full bg-gradient-to-r from-orange-500/0 via-orange-500/60 to-orange-500/0" />
-              </Reveal>
-              <span
-                aria-hidden
-                className="mask-fade-y absolute left-[1.75rem] top-0 block h-full w-px bg-gradient-to-b from-orange-500/0 via-orange-500/50 to-orange-500/0 md:hidden"
-              />
-
-              <ol className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
-                {STEPS.map((step, i) => (
-                  <Reveal key={step.n} delay={i * 160} as="li" className="relative pl-20 md:pl-0">
-                    {/* Number node — sits on the spine, with a lit ring. */}
-                    <div className="absolute left-0 top-0 md:relative">
-                      <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border border-orange-500/30 bg-espresso-soft font-display text-xl font-bold text-orange-300 shadow-ember">
-                        {i + 1}
-                        <span
-                          aria-hidden
-                          className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/[0.07] to-transparent"
-                        />
-                      </span>
-                    </div>
-                    <span className="mt-0 block text-[11px] font-bold uppercase tracking-[0.22em] text-orange-400/80 md:mt-8">
-                      Step {step.n}
-                    </span>
-                    <h3 className="mt-2.5 font-display text-xl font-bold tracking-tight text-espresso-text">
-                      {step.title}
-                    </h3>
-                    <p className="mt-2.5 max-w-xs leading-relaxed text-espresso-muted">
-                      {step.desc}
-                    </p>
-                  </Reveal>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </section>
-
-        {/* ───────── Pricing ───────── */}
-        <section id="pricing" className="relative scroll-mt-24 py-20 sm:py-32">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            {/* Centered here on purpose: three peers radiating from a middle
-                hero card is the one place symmetry is the honest layout. */}
-            <SectionHead
-              align="center"
-              label="Pricing"
-              title={
-                <>
-                  Simple,{' '}
-                  <span className="text-gradient-brand font-serif-display text-[1.12em] font-normal italic">
-                    honest
-                  </span>{' '}
-                  pricing
-                </>
-              }
-              sub="Start free. Upgrade only when you’re ready. No hidden fees, ever."
-            />
-
-            <div className="mt-16 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3 lg:gap-5">
-              {PLANS.map((plan, i) => {
-                const inner = (
-                  <div className="relative flex h-full flex-col p-7 sm:p-8">
-                    <div className="flex items-center justify-between gap-3">
-                      <h3 className="font-display text-lg font-bold tracking-tight text-gray-900">
-                        {plan.name}
-                      </h3>
-                      {plan.popular && (
-                        <span className="rounded-full bg-gray-900 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white">
-                          Most popular
-                        </span>
-                      )}
-                    </div>
-                    <p className="mt-1.5 text-sm text-gray-500">{plan.tagline}</p>
-
-                    {/* The badge row is always rendered, even on Free, so the
-                        three price baselines land on the same line across the
-                        set — peers should read as peers. */}
-                    <div className="mt-5 flex h-7 items-center">
-                      {plan.launch && (
-                        <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-orange-500/25 bg-orange-50 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-orange-700">
-                          <Rocket className="h-3 w-3" />
-                          Launch Offer
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="mt-4 flex items-baseline gap-2.5">
-                      {plan.originalPrice && (
-                        // Hairline strike drawn over the old price rather than a
-                        // heavy line-through — reads as a correction, not a slash.
-                        <span className="relative font-display text-2xl font-bold text-stone-400">
-                          {plan.originalPrice}
-                          <span
-                            aria-hidden
-                            className="absolute inset-x-[-2px] top-1/2 h-px -rotate-[8deg] bg-terracotta-500/70"
-                          />
-                        </span>
-                      )}
-                      <span className="font-display text-[3.25rem] font-extrabold leading-none tracking-[-0.03em] text-gray-900">
-                        {plan.price}
-                      </span>
-                      <span className="text-sm text-gray-500">{plan.period}</span>
-                    </div>
-
-                    <ul className="mt-8 flex-1 space-y-3.5">
-                      {plan.features.map((feat) => (
-                        <li key={feat} className="flex items-start gap-3 text-[15px]">
-                          <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-orange-50 text-orange-600 ring-1 ring-inset ring-orange-500/20">
-                            <Check className="h-3 w-3" strokeWidth={3} />
-                          </span>
-                          <span className="text-gray-600">{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <a
-                      href={`${APP_URL}/signup`}
-                      className={`press focus-ember mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-semibold transition-all ${
-                        plan.popular
-                          ? 'bg-gradient-to-b from-orange-500 to-orange-600 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_10px_28px_-10px_rgba(249,115,22,0.8)] hover:brightness-105'
-                          : 'bg-gray-900 text-white hover:bg-gray-800'
-                      }`}
-                    >
-                      {plan.cta}
-                    </a>
-                  </div>
-                )
-
-                return (
-                  <Reveal key={plan.name} delay={i * 110} className="h-full">
-                    {plan.popular ? (
-                      // The one card allowed to be loud: raised, warm-lit, with a
-                      // single slow sheen crossing it. Everything else stays quiet.
-                      <div className="relative h-full rounded-3xl bg-gradient-to-b from-orange-400/60 to-orange-200/30 p-px shadow-ember-lg lg:-translate-y-4">
-                        <div className="relative h-full overflow-hidden rounded-[calc(1.5rem-1px)] bg-gradient-to-b from-orange-50/80 via-white to-white">
-                          <span
-                            aria-hidden
-                            className="animate-sheen pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/60 to-transparent"
-                          />
-                          <span
-                            aria-hidden
-                            className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(ellipse_60%_100%_at_50%_0%,rgba(249,115,22,0.12),transparent)]"
-                          />
-                          {inner}
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="group/plan relative h-full overflow-hidden rounded-3xl border border-stone-200/80 bg-white/70 shadow-lift-1 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-lift-3">
-                        {inner}
-                      </div>
-                    )}
-                  </Reveal>
-                )
-              })}
-            </div>
-
-            <Reveal className="mt-10 flex flex-col items-center gap-5 text-center">
-              
-              <Link
-                href="/pricing"
-                className="focus-ember group inline-flex items-center gap-2 rounded-full text-sm font-bold uppercase tracking-[0.14em] text-gray-500 transition-colors hover:text-orange-600"
-              >
-                Compare plans in detail
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </Link>
-            </Reveal>
-          </div>
-        </section>
+        {/* ───────── Pricing (self-contained: plan data lives with it) ───────── */}
+        <PricingSection />
 
         {/* ───────── Data privacy / security ───────── */}
         <DataSecurity variant="editorial" />
