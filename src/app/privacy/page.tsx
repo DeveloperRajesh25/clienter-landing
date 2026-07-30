@@ -30,7 +30,7 @@ export default function PrivacyPage() {
         act as the <strong>Data Fiduciary</strong> for the personal data described in this policy.
         You can reach us about privacy at any time at{' '}
         <a href={`mailto:${CONTACT.privacy}`}>{CONTACT.privacy}</a>, or contact our Grievance Officer
-        (see section 13).
+        (see section 14).
       </p>
       <p>
         This policy covers both the public marketing website and the {SITE_NAME} application at
@@ -167,7 +167,20 @@ export default function PrivacyPage() {
         Learn more on our <Link href="/security">security page</Link>.
       </p>
 
-      <h2>8. Data retention</h2>
+      <h2>8. Administrative access</h2>
+      <p>
+        {SITE_NAME} is built with Row-Level Security (RLS) enforced at the database level, ensuring
+        your data is fully isolated from other organisations on the platform — no other agency or
+        team can access your data. As the platform operator, {SITE_NAME}’s team may have
+        administrative access to account and usage data strictly for purposes of providing support,
+        resolving technical issues, and ensuring platform integrity. This is standard practice
+        across SaaS platforms and we do not access, browse, or use your business data (clients,
+        projects, invoices, messages) for any other purpose. Sensitive credentials such as Google
+        Calendar tokens are encrypted at rest using AES-256-GCM, meaning even platform
+        administrators cannot read them. We do not sell, share, or monetise your data in any form.
+      </p>
+
+      <h2>9. Data retention</h2>
       <p>We keep personal data only for as long as we need it:</p>
       <ul>
         <li>
@@ -193,7 +206,7 @@ export default function PrivacyPage() {
         </li>
       </ul>
 
-      <h2>9. Your rights</h2>
+      <h2>10. Your rights</h2>
       <p>
         Consistent with applicable law, including the DPDP Act, you have the right to:
       </p>
@@ -212,7 +225,7 @@ export default function PrivacyPage() {
         law.
       </p>
 
-      <h2>10. Data breach notification</h2>
+      <h2>11. Data breach notification</h2>
       <p>
         We maintain safeguards to prevent personal data breaches. In the unlikely event of a breach
         that affects your personal data, we will notify the Data Protection Board of India and
@@ -220,14 +233,14 @@ export default function PrivacyPage() {
         contain and remediate the incident.
       </p>
 
-      <h2>11. Children</h2>
+      <h2>12. Children</h2>
       <p>
         {SITE_NAME} is intended for use by professionals and is <strong>not</strong> directed at
         anyone under the age of 18. We do not knowingly collect personal data from children. If you
         believe a child has provided us personal data, contact us and we will delete it.
       </p>
 
-      <h2>12. Changes to this policy</h2>
+      <h2>13. Changes to this policy</h2>
       <p>
         We may update this Privacy Policy from time to time. When we make material changes, we will
         update the “Last updated” date above and, where appropriate, notify you by email or an
@@ -235,7 +248,7 @@ export default function PrivacyPage() {
         policy.
       </p>
 
-      <h2>13. Grievance Officer &amp; contact</h2>
+      <h2>14. Grievance Officer &amp; contact</h2>
       <p>
         In line with the DPDP Act and the Information Technology Act and rules, you can contact our
         Grievance Officer for any questions, concerns, or complaints about your personal data or this
