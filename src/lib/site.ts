@@ -37,11 +37,18 @@ export const FOUNDER = {
 
 // TODO(owner): clienter.co.in mailboxes aren't receiving mail yet. Every public
 // contact address routes to the founder's personal inbox until that's set up.
+//
+// EXCEPTION — privacy/legal now publish privacy@clienter.co.in. India's DPDP Act
+// requires a published, working contact for the Data Protection / Grievance
+// Officer, and a personal inbox is not a credible one for that role.
+// ⚠️ BLOCKER: this mailbox must actually be provisioned (or forwarded to the
+// founder's inbox) before/at the next deploy — a published grievance address
+// that bounces is worse than none. Tracked in DPDP_COMPLIANCE_PROGRESS.md.
 export const CONTACT = {
   general: 'hello@talaganarajesh.in',
   support: 'hello@talaganarajesh.in',
-  privacy: 'hello@talaganarajesh.in',
-  legal: 'hello@talaganarajesh.in',
+  privacy: 'privacy@clienter.co.in',
+  legal: 'privacy@clienter.co.in',
 }
 
 /**
@@ -71,13 +78,30 @@ export const LEGAL = {
    */
   grievanceOfficer: {
     name: FOUNDER.name,
-    title: 'Grievance Officer',
-    email: CONTACT.legal,
+    // Under the DPDP Act a Data Fiduciary that is not a Significant Data
+    // Fiduciary need not appoint a DPO, but must publish the contact details of
+    // the person able to answer questions about processing. One named person
+    // holds both roles here; the title says so plainly.
+    title: 'Grievance Officer & Data Protection Contact',
+    email: CONTACT.privacy,
   },
   /** Country whose law governs the Terms (no city published — email-only contact). */
   governingCountry: 'India',
   /** Date the current legal documents take effect / were last updated. */
   effectiveDate: '26 June 2026',
+} as const
+
+/**
+ * Non-essential analytics. Google Analytics 4.
+ *
+ * IMPORTANT: this tag is NOT loaded by the root layout. It is injected by
+ * `ConsentManager` only after the visitor explicitly opts in — see
+ * `src/lib/consent.ts` and `src/components/marketing/ConsentManager.tsx`.
+ * Do not add it back to `layout.tsx`; that would fire it before consent and
+ * contradict both the Privacy Notice and the Cookie Policy.
+ */
+export const ANALYTICS = {
+  ga4Id: 'G-PGZEEJYGE6',
 } as const
 
 /** Social / content profiles. Used in the footer + Organization `sameAs`. */
@@ -265,8 +289,11 @@ export const FOOTER_NAV = [
     links: [
       { href: '/about', label: 'About' },
       { href: '/contact', label: 'Contact' },
-      { href: '/privacy', label: 'Privacy' },
+      // "Privacy Notice" (not "Privacy") — DPDP frames the document a Data
+      // Fiduciary must publish as a notice, and the label should match the page.
+      { href: '/privacy', label: 'Privacy Notice' },
       { href: '/terms', label: 'Terms' },
+      { href: '/cookies', label: 'Cookie Policy' },
       { href: '/refund', label: 'Refund policy' },
     ],
   },

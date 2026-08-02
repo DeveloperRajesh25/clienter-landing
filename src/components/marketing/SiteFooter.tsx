@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Instagram, Youtube, Linkedin, Twitter } from 'lucide-react'
-import { FOOTER_NAV, SOCIALS, SITE_NAME, FOUNDER } from '@/lib/site'
+import { FOOTER_NAV, SOCIALS, SITE_NAME, FOUNDER, LEGAL } from '@/lib/site'
+import { CookiePreferencesButton } from './CookiePreferencesButton'
 
 const SOCIAL_ICONS = [
   { href: SOCIALS.instagram, label: 'Instagram', Icon: Instagram },
@@ -120,9 +121,58 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
           ))}
         </div>
 
+        {/* Data-protection bar.
+            India's DPDP Act requires the contact details of the person who
+            answers questions about personal-data processing to be readily
+            available — not buried inside one policy page. Because SiteFooter
+            renders on every marketing page and on the landing page, publishing
+            it here puts the named contact, the Privacy Notice, and the consent
+            withdrawal control on every page of the site at once. */}
+        <div className={`mt-16 border-t pt-7 ${rule}`}>
+          <div className="flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between">
+            <p className={body}>
+              <span className={`font-semibold ${dark ? 'text-stone-300' : 'text-gray-700'}`}>
+                Data protection &amp; grievances:
+              </span>{' '}
+              {LEGAL.grievanceOfficer.name}, {LEGAL.grievanceOfficer.title} —{' '}
+              <a
+                href={`mailto:${LEGAL.grievanceOfficer.email}`}
+                className={`focus-ember rounded font-medium underline underline-offset-2 transition-colors ${
+                  dark ? 'hover:text-orange-400' : 'hover:text-orange-600'
+                }`}
+              >
+                {LEGAL.grievanceOfficer.email}
+              </a>
+            </p>
+            <div className={`flex flex-wrap items-center gap-x-4 gap-y-2 ${body}`}>
+              <Link
+                href="/privacy"
+                className={`focus-ember rounded transition-colors ${
+                  dark ? 'hover:text-orange-400' : 'hover:text-orange-600'
+                }`}
+              >
+                Privacy Notice
+              </Link>
+              <Link
+                href="/cookies"
+                className={`focus-ember rounded transition-colors ${
+                  dark ? 'hover:text-orange-400' : 'hover:text-orange-600'
+                }`}
+              >
+                Cookies
+              </Link>
+              <CookiePreferencesButton
+                className={`focus-ember rounded transition-colors ${
+                  dark ? 'hover:text-orange-400' : 'hover:text-orange-600'
+                }`}
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Bottom bar */}
         <div
-          className={`mt-16 flex flex-col items-center justify-between gap-4 border-t pt-7 text-sm sm:flex-row ${rule} ${
+          className={`mt-6 flex flex-col items-center justify-between gap-4 border-t pt-7 text-sm sm:flex-row ${rule} ${
             dark ? 'text-stone-500' : 'text-stone-400'
           }`}
         >

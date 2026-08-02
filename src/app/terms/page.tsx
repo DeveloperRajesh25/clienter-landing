@@ -80,6 +80,54 @@ export default function TermsPage() {
         described in our <Link href="/privacy">Privacy Policy</Link>.
       </p>
 
+      {/* LEGAL REVIEW REQUIRED — draft copy, not final. Added on the DPDP
+          compliance branch; the processor/controller split and the breach-
+          notification wording in particular need a practitioner's eye. */}
+      <h2>6A. Data protection</h2>
+      <p>
+        Both of us have obligations under India’s Digital Personal Data Protection Act, 2023 (the
+        “DPDP Act”), and they are different obligations.
+      </p>
+      <ul>
+        <li>
+          <strong>For your own account data</strong> — your name, email, and billing details — we are
+          the Data Fiduciary. We handle it as described in our{' '}
+          <Link href="/privacy">Privacy Notice</Link>, which also sets out your rights to access,
+          correct, erase, and nominate, and to withdraw consent.
+        </li>
+        <li>
+          <strong>For the personal data you put into {SITE_NAME} about other people</strong> — your
+          clients, their contacts, your team members — <strong>you</strong> are the Data Fiduciary
+          and we act as your Data Processor. We process it only to provide the service to you and on
+          your instructions. We do not use it for our own purposes, disclose it to anyone outside the
+          providers listed in our Privacy Notice, or use it to train models.
+        </li>
+        <li>
+          <strong>Your responsibilities as Data Fiduciary.</strong> You are responsible for having a
+          lawful basis to hold the data you enter, for giving those people the notice the DPDP Act
+          requires, for the accuracy of what you enter, and for responding to their requests. If
+          someone contacts us about a record you control, we will pass their request to you and tell
+          them we have done so — we will not amend or delete your records on a third party’s say-so.
+        </li>
+        <li>
+          <strong>Security and breaches.</strong> We apply the safeguards described on our{' '}
+          <Link href="/security">security page</Link>. If a personal-data breach affects data you
+          control, we will notify you without undue delay and give you what you reasonably need to
+          meet your own notification duties to the Data Protection Board of India and to affected
+          individuals.
+        </li>
+        <li>
+          <strong>Deletion and return.</strong> You can export your data at any time. On termination,
+          we delete or irreversibly anonymise the personal data we hold for you within the period set
+          out in the Privacy Notice, except records we are required by law to retain.
+        </li>
+        <li>
+          <strong>Sub-processors.</strong> The providers we use to run the service are listed in our
+          Privacy Notice. By using {SITE_NAME} you authorise us to engage them. We remain responsible
+          to you for what they do with your data.
+        </li>
+      </ul>
+
       <h2>7. Feedback</h2>
       <p>
         If you send us suggestions or feedback, you grant us a perpetual, royalty-free right to use
@@ -95,9 +143,11 @@ export default function TermsPage() {
 
       <h2>9. Third-party services</h2>
       <p>
-        The service integrates with third parties such as Razorpay, Supabase, Resend, and Vercel.
-        Your use of those services may be subject to their own terms and policies. We are not
-        responsible for third-party services we do not control.
+        The service relies on third parties including Supabase, Vercel, Razorpay, Stripe, Resend,
+        Google, and Upstash. The complete list, and what each one receives, is in section 5 of our{' '}
+        <Link href="/privacy">Privacy Notice</Link>. Your use of those services may be subject to
+        their own terms and policies. We are not responsible for third-party services we do not
+        control.
       </p>
 
       <h2>10. Disclaimers</h2>
