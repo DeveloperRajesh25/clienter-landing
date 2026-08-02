@@ -35,20 +35,14 @@ export const FOUNDER = {
   photo: '/rajesh-photo.jpg',
 }
 
-// TODO(owner): clienter.co.in mailboxes aren't receiving mail yet. Every public
-// contact address routes to the founder's personal inbox until that's set up.
-//
-// EXCEPTION — privacy/legal now publish privacy@clienter.co.in. India's DPDP Act
-// requires a published, working contact for the Data Protection / Grievance
-// Officer, and a personal inbox is not a credible one for that role.
-// ⚠️ BLOCKER: this mailbox must actually be provisioned (or forwarded to the
-// founder's inbox) before/at the next deploy — a published grievance address
-// that bounces is worse than none. Tracked in DPDP_COMPLIANCE_PROGRESS.md.
+// TODO(owner): clienter.co.in mailboxes aren't receiving mail yet, EXCEPT
+// support@clienter.co.in, which is live and monitored — that's why privacy/
+// legal route there rather than to the founder's personal inbox.
 export const CONTACT = {
   general: 'hello@talaganarajesh.in',
   support: 'hello@talaganarajesh.in',
-  privacy: 'privacy@clienter.co.in',
-  legal: 'privacy@clienter.co.in',
+  privacy: 'support@clienter.co.in',
+  legal: 'support@clienter.co.in',
 }
 
 /**
@@ -88,7 +82,7 @@ export const LEGAL = {
   /** Country whose law governs the Terms (no city published — email-only contact). */
   governingCountry: 'India',
   /** Date the current legal documents take effect / were last updated. */
-  effectiveDate: '26 June 2026',
+  effectiveDate: '5 August 2025',
 } as const
 
 /**

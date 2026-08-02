@@ -212,14 +212,24 @@ Fiduciary obligations (I have assumed **not** — no DPO appointment, no audit, 
 
 ## 🚧 Blockers — must be resolved before this branch ships
 
-1. **`privacy@clienter.co.in` does not exist yet.** `src/lib/site.ts` still carries the note that
-   `clienter.co.in` mailboxes are not receiving mail. This branch now publishes that address, as
-   the goal specified, in the footer of every page and throughout the Privacy Notice. **A published
-   grievance address that bounces is worse than no address at all.** Create the mailbox or forward
-   it to `hello@talaganarajesh.in` before deploying.
-2. **`LEGAL.effectiveDate` is still `26 June 2026`.** Every policy page shows that as "Last
-   updated" while the content has materially changed. Bump it to the deploy date — a one-line edit
-   in `src/lib/site.ts`, left undone deliberately so you set the real date.
+Both of the original blockers below are now **resolved** (2026-08-05, owner-directed):
+
+1. ~~`privacy@clienter.co.in` does not exist yet.~~ **Resolved.** The owner confirmed
+   `support@clienter.co.in` is live and monitored. Every occurrence of `privacy@clienter.co.in` —
+   `CONTACT.privacy`, `CONTACT.legal` in `src/lib/site.ts`, and everywhere those constants are
+   consumed (footer data-protection bar, Privacy Notice §1/§8/§11/§13, Cookie Policy §8, Terms
+   §18) — is now `support@clienter.co.in`. All of these render through the shared `CONTACT` /
+   `LEGAL.grievanceOfficer` constants, so this was a two-line change in `site.ts`; there were no
+   hardcoded literals elsewhere to chase down (verified with a repo-wide grep). The
+   "mailboxes aren't receiving mail" TODO comment in `site.ts` was rewritten to note
+   `support@clienter.co.in` as the live exception, rather than removed outright — `general` and
+   `support` in `CONTACT` still point at the founder's personal inbox, so the caveat is still true
+   for those.
+2. ~~`LEGAL.effectiveDate` is still `26 June 2026`.~~ **Resolved.** Set to `5 August 2025`
+   (owner-directed), matching the existing "D Month YYYY" format used across all policy pages.
+
+No new blockers introduced by this change. `npx tsc --noEmit` clean; no other file references the
+old address or date (verified by grep).
 
 ---
 
