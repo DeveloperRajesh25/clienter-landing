@@ -120,7 +120,7 @@ function ConsentBanner({ onAccept, onDecline }: { onAccept: () => void; onDeclin
               A quick word about analytics
             </h2>
             <p id="consent-body" className="mt-2 line-clamp-3 text-xs leading-relaxed text-gray-600">
-              We use strictly necessary cookies to make this site work. We'd also like to use Google Analytics to understand which pages are useful.{' '}
+              We use strictly necessary cookies to make this site work. We&apos;d also like to use Google Analytics to understand which pages are useful.{' '}
               <Link href="/cookies" className="font-semibold text-orange-600 hover:text-orange-700">
                 Cookie Policy
               </Link>{' '}

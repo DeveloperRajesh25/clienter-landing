@@ -80,10 +80,10 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
+                <Image
                   alt="Clienter - Manage clients, projects, payments, quotations in one place | Product Hunt"
-                  width="250"
-                  height="54"
+                  width={250}
+                  height={54}
                   src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1171179&theme=light&t=1785056301787"
                   className="w-full max-w-xs"
                 />
