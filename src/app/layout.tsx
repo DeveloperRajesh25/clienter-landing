@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Plus_Jakarta_Sans, Instrument_Serif } from 'next/font/google'
-import Script from 'next/script'
 import './globals.css'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { SmoothScroll } from '@/components/SmoothScroll'
+import { ConsentManager } from '@/components/marketing/ConsentManager'
 import {
   organizationSchema,
   websiteSchema,
@@ -107,14 +107,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-IN" className={`${inter.variable} ${display.variable} ${serifDisplay.variable}`}>
       <head>
-        {/* Google Analytics */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-PGZEEJYGE6" />
-        <Script id="google-analytics">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-PGZEEJYGE6');`}
-        </Script>
+        {/* NOTE: Google Analytics used to load here, unconditionally, on every
+            page. It is non-essential and sets `_ga` cookies, so under India's
+            DPDP Act it needs prior, opt-in consent. It now loads ONLY from
+            <ConsentManager /> below, and only after the visitor accepts. Do not
+            reintroduce a tag in <head> — that would fire before any choice is
+            made and contradict /privacy and /cookies. */}
         {/* Site-wide structured data: brand graph + product. Page-level schema
             (FAQ, breadcrumbs) is added per page. */}
         <JsonLd
@@ -123,6 +121,9 @@ gtag('config', 'G-PGZEEJYGE6');`}
       </head>
       <body className="font-sans">
         <SmoothScroll>{children}</SmoothScroll>
+        {/* Consent gate + the only loader for non-essential trackers. Mounted
+            outside SmoothScroll so the banner is never affected by Lenis. */}
+        <ConsentManager />
       </body>
     </html>
   )

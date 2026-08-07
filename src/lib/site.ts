@@ -35,13 +35,12 @@ export const FOUNDER = {
   photo: '/rajesh-photo.jpg',
 }
 
-// TODO(owner): clienter.co.in mailboxes aren't receiving mail yet. Every public
-// contact address routes to the founder's personal inbox until that's set up.
+// support@clienter.co.in is live and monitored for all contact types.
 export const CONTACT = {
-  general: 'hello@talaganarajesh.in',
-  support: 'hello@talaganarajesh.in',
-  privacy: 'hello@talaganarajesh.in',
-  legal: 'hello@talaganarajesh.in',
+  general: 'support@clienter.co.in',
+  support: 'support@clienter.co.in',
+  privacy: 'support@clienter.co.in',
+  legal: 'support@clienter.co.in',
 }
 
 /**
@@ -71,13 +70,30 @@ export const LEGAL = {
    */
   grievanceOfficer: {
     name: FOUNDER.name,
-    title: 'Grievance Officer',
-    email: CONTACT.legal,
+    // Under the DPDP Act a Data Fiduciary that is not a Significant Data
+    // Fiduciary need not appoint a DPO, but must publish the contact details of
+    // the person able to answer questions about processing. One named person
+    // holds both roles here; the title says so plainly.
+    title: 'Grievance Officer & Data Protection Contact',
+    email: CONTACT.privacy,
   },
   /** Country whose law governs the Terms (no city published — email-only contact). */
   governingCountry: 'India',
   /** Date the current legal documents take effect / were last updated. */
-  effectiveDate: '26 June 2026',
+  effectiveDate: '5 August 2025',
+} as const
+
+/**
+ * Non-essential analytics. Google Analytics 4.
+ *
+ * IMPORTANT: this tag is NOT loaded by the root layout. It is injected by
+ * `ConsentManager` only after the visitor explicitly opts in — see
+ * `src/lib/consent.ts` and `src/components/marketing/ConsentManager.tsx`.
+ * Do not add it back to `layout.tsx`; that would fire it before consent and
+ * contradict both the Privacy Notice and the Cookie Policy.
+ */
+export const ANALYTICS = {
+  ga4Id: 'G-PGZEEJYGE6',
 } as const
 
 /** Social / content profiles. Used in the footer + Organization `sameAs`. */
@@ -265,8 +281,11 @@ export const FOOTER_NAV = [
     links: [
       { href: '/about', label: 'About' },
       { href: '/contact', label: 'Contact' },
-      { href: '/privacy', label: 'Privacy' },
+      // "Privacy Notice" (not "Privacy") — DPDP frames the document a Data
+      // Fiduciary must publish as a notice, and the label should match the page.
+      { href: '/privacy', label: 'Privacy Notice' },
       { href: '/terms', label: 'Terms' },
+      { href: '/cookies', label: 'Cookie Policy' },
       { href: '/refund', label: 'Refund policy' },
     ],
   },
