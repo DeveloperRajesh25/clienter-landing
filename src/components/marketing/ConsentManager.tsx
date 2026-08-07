@@ -107,62 +107,54 @@ function ConsentBanner({ onAccept, onDecline }: { onAccept: () => void; onDeclin
       aria-modal="false"
       aria-labelledby="consent-title"
       aria-describedby="consent-body"
-      className="fixed inset-x-0 bottom-0 z-[100] px-3 pb-3 sm:px-5 sm:pb-5"
+      className="fixed bottom-0 left-0 z-[100] px-3 pb-3 sm:px-5 sm:pb-5"
     >
-      <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-line/80 bg-white/95 shadow-[0_18px_50px_-12px_rgba(24,16,8,0.28)] backdrop-blur-md">
-        <div className="relative flex flex-col gap-5 p-5 sm:flex-row sm:items-start sm:gap-6 sm:p-6">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
-            <Cookie className="h-5 w-5" aria-hidden />
+      <div className="max-w-sm overflow-hidden rounded-2xl border border-line/80 bg-white/95 shadow-[0_18px_50px_-12px_rgba(24,16,8,0.28)] backdrop-blur-md">
+        <div className="relative flex gap-4 p-4">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-600">
+            <Cookie className="h-4 w-4" aria-hidden />
           </div>
 
           <div className="min-w-0 flex-1">
-            <h2 id="consent-title" className="font-display text-base font-bold text-gray-900">
+            <h2 id="consent-title" className="text-sm font-bold text-gray-900">
               A quick word about analytics
             </h2>
-            <p id="consent-body" className="mt-2 text-sm leading-relaxed text-gray-600">
-              We use strictly necessary cookies to make this site work — those are always on. We
-              would also like to use Google Analytics to understand which pages are useful.{' '}
-              <strong className="font-semibold text-gray-800">That one is off unless you turn
-              it on</strong>, and you can change your mind any time from the footer. We never use
-              advertising or cross-site tracking cookies.{' '}
-              <Link href="/cookies" className="font-semibold text-orange-600 underline underline-offset-2 hover:text-orange-700">
+            <p id="consent-body" className="mt-2 line-clamp-3 text-xs leading-relaxed text-gray-600">
+              We use strictly necessary cookies to make this site work. We'd also like to use Google Analytics to understand which pages are useful.{' '}
+              <Link href="/cookies" className="font-semibold text-orange-600 hover:text-orange-700">
                 Cookie Policy
               </Link>{' '}
               ·{' '}
-              <Link href="/privacy" className="font-semibold text-orange-600 underline underline-offset-2 hover:text-orange-700">
+              <Link href="/privacy" className="font-semibold text-orange-600 hover:text-orange-700">
                 Privacy Notice
               </Link>
             </p>
 
-            {/* Equal visual weight on both buttons, and "Decline" comes first:
-                consent isn't free if refusing is the harder path. */}
-            <div className="mt-5 flex flex-col gap-2.5 sm:flex-row">
+            <div className="mt-3 flex gap-2">
               <button
                 type="button"
                 onClick={onDecline}
-                className="focus-ember w-full rounded-full border border-line px-5 py-2.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-stone-50 sm:w-auto"
+                className="focus-ember rounded-full border border-line px-3.5 py-1.5 text-xs font-semibold text-gray-700 transition-colors hover:bg-stone-50"
               >
-                Decline analytics
+                Decline
               </button>
               <button
                 type="button"
                 onClick={onAccept}
-                className="focus-ember w-full rounded-full bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-gray-800 sm:w-auto"
+                className="focus-ember rounded-full bg-gray-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-gray-800"
               >
-                Allow analytics
+                Allow
               </button>
             </div>
           </div>
 
-          {/* Dismissing without choosing is a refusal, not a deferral — closing
-              records "denied" so nothing loads either way. */}
           <button
             type="button"
             onClick={onDecline}
             aria-label="Close and decline analytics"
-            className="focus-ember absolute right-4 top-4 rounded-full p-1.5 text-stone-400 transition-colors hover:bg-stone-100 hover:text-gray-700 sm:static sm:right-auto sm:top-auto"
+            className="focus-ember shrink-0 rounded-full p-1 text-stone-400 transition-colors hover:bg-stone-100 hover:text-gray-700"
           >
-            <X className="h-4 w-4" aria-hidden />
+            <X className="h-3.5 w-3.5" aria-hidden />
           </button>
         </div>
       </div>

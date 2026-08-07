@@ -35,12 +35,10 @@ export const FOUNDER = {
   photo: '/rajesh-photo.jpg',
 }
 
-// TODO(owner): clienter.co.in mailboxes aren't receiving mail yet, EXCEPT
-// support@clienter.co.in, which is live and monitored — that's why privacy/
-// legal route there rather than to the founder's personal inbox.
+// support@clienter.co.in is live and monitored for all contact types.
 export const CONTACT = {
-  general: 'hello@talaganarajesh.in',
-  support: 'hello@talaganarajesh.in',
+  general: 'support@clienter.co.in',
+  support: 'support@clienter.co.in',
   privacy: 'support@clienter.co.in',
   legal: 'support@clienter.co.in',
 }
