@@ -85,6 +85,23 @@ const nextConfig = {
         source: '/api/:path*',
         headers: [{ key: 'Cache-Control', value: 'no-store, max-age=0' }],
       },
+      // The Android APK served from /download.
+      //
+      // Two reasons this needs its own rule rather than falling in with the
+      // static assets below. Vercel serves an unknown extension as
+      // application/octet-stream, which some Android browsers won't hand to the
+      // package installer — so the correct type is set explicitly (which also
+      // keeps the global nosniff header happy). And the file is REPLACED in
+      // place on every release under a stable filename, so it must never be
+      // immutable-cached the way a content-addressed asset can be.
+      {
+        source: '/clienter.apk',
+        headers: [
+          { key: 'Content-Type', value: 'application/vnd.android.package-archive' },
+          { key: 'Content-Disposition', value: 'attachment; filename="clienter.apk"' },
+          { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
+        ],
+      },
       // Static public assets (logos, photos, fonts): long-lived, immutable so
       // repeat visits and crawlers are served from Vercel's edge cache.
       {

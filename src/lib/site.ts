@@ -115,6 +115,7 @@ export const SOCIAL_URLS = Object.values(SOCIALS)
 export const MARKETING_PATHS = [
   '/about',
   '/contact',
+  '/download',
   '/features',
   '/how-it-works',
   '/pricing',
@@ -235,6 +236,7 @@ export const FOOTER_NAV = [
       { href: '/pricing', label: 'Pricing' },
       { href: '/security', label: 'Security' },
       { href: '/demo', label: 'Demo' },
+      { href: '/download', label: 'Android app' },
     ],
   },
   {

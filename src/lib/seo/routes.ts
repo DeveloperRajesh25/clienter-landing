@@ -34,6 +34,9 @@ const STATIC_ROUTES: RouteEntry[] = [
   { path: '/features', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/pricing', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/how-it-works', priority: 0.7, changeFrequency: 'monthly' },
+  // Android app download. changeFrequency 'monthly' because the page's version
+  // and size change whenever a new APK ships.
+  { path: '/download', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/demo', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/about', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/faq', priority: 0.6, changeFrequency: 'monthly' },

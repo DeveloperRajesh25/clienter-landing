@@ -68,10 +68,14 @@ export function softwareApplicationSchema() {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: SITE_NAME,
-    operatingSystem: 'Web, iOS, Android',
+    // 'Web, Android' — not 'Web, iOS, Android'. There is a real Android build
+    // (see /download) but no iOS app; claiming one we don't ship is exactly the
+    // kind of mismatch that gets rich results suppressed.
+    operatingSystem: 'Web, Android',
     applicationCategory: 'BusinessApplication',
     description: SITE_DESCRIPTION,
     url: SITE_URL,
+    installUrl: `${SITE_URL}/download`,
     image: LOGO,
     offers: [
       {
@@ -98,6 +102,34 @@ export function softwareApplicationSchema() {
           'Launch offer (was ₹1,999): unlimited clients, projects, and team members per month.',
       },
     ],
+    publisher: { '@id': `${SITE_URL}/#organization` },
+  }
+}
+
+/**
+ * The sideloaded Android APK offered on /download.
+ *
+ * Separate from softwareApplicationSchema() (which describes the SaaS product
+ * and its pricing tiers) because this one describes a downloadable binary —
+ * different downloadUrl, fileSize and softwareVersion. Keep the arguments in
+ * step with the release constants in src/app/download/page.tsx.
+ */
+export function mobileApplicationSchema(opts: { version: string; fileSize: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    name: `${SITE_NAME} for Android`,
+    operatingSystem: 'Android 7.0+',
+    applicationCategory: 'BusinessApplication',
+    description:
+      'Manage clients, leads, projects, invoices and payments from your Android phone with the Clienter app.',
+    softwareVersion: opts.version,
+    fileSize: opts.fileSize,
+    downloadUrl: `${SITE_URL}/clienter.apk`,
+    installUrl: `${SITE_URL}/download`,
+    url: `${SITE_URL}/download`,
+    image: LOGO,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
     publisher: { '@id': `${SITE_URL}/#organization` },
   }
 }
