@@ -59,12 +59,12 @@ const ClientJourney = dynamic(
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: 'Clienter — Client Management Software for Indian Freelancers & Agencies',
+    title: 'Clienter — Client Management Software for Freelancers & Agencies',
     description:
-      'Clienter brings clients, projects, invoices, payments, meetings, and your team into one beautiful workspace. Built for Indian freelancers and agencies. Start free — no credit card required.',
+      'Clienter brings clients, projects, invoices, payments, meetings, and your team into one beautiful workspace. Built for freelancers and agencies everywhere. Start free — no credit card required.',
     path: '/',
     keywords: [
-      'client management software India',
+      'client management software',
       'freelancer CRM',
       'invoice software for freelancers',
       'agency management software',
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     ],
   }),
   // Home uses an absolute title so the brand template suffix isn't appended.
-  title: { absolute: 'Clienter — Client Management Software for Indian Freelancers & Agencies' },
+  title: { absolute: 'Clienter — Client Management Software for Freelancers & Agencies' },
 }
 
 // The scattered stack Clienter replaces — generic categories, no brand names.

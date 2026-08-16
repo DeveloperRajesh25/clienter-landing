@@ -73,8 +73,8 @@ export function ConvertForm({ beat }: SceneProps) {
               <Field label="Phone Number" value={CLIENT.phone} />
               <Select
                 label="Invoice Currency"
-                value="INR — Indian Rupee (₹) · your currency"
-                helper={`Invoices for this client will be shown in INR, same as the rest of your workspace.`}
+                value="Your workspace currency"
+                helper="Invoices for this client will be shown in your workspace's default currency."
               />
             </div>
 
@@ -133,7 +133,7 @@ function ClientHead({ portal }: { portal: boolean }) {
             </p>
             <span className="mt-2.5 inline-flex items-center gap-1.5 rounded-full bg-stone-100 px-2.5 py-1 text-xs font-medium text-stone-600">
               <Globe className="h-3 w-3" aria-hidden />
-              Billed in INR · Indian Rupee
+              Billed in your currency
             </span>
           </div>
           <div className="flex shrink-0 items-center gap-2">

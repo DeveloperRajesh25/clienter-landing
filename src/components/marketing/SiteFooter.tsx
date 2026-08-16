@@ -179,8 +179,8 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
         >
           <p>© 2026 {SITE_NAME}. All rights reserved.</p>
           <p className="flex items-center gap-1.5">
-            Built with <span className="text-orange-500">♥</span> by {FOUNDER.name} for Indian
-            freelancers
+            Built with <span className="text-orange-500">♥</span> by {FOUNDER.name} for freelancers
+            everywhere
           </p>
         </div>
       </div>
