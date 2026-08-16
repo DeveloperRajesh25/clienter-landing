@@ -861,7 +861,7 @@ export function MeetingNew({ beat }: SceneProps) {
                   <span>
                     <span className="block text-sm font-semibold text-ink">Add Google Meet</span>
                     <span className="block text-xs text-ink-muted">
-                      Generate a Meet link on the organizer&apos;s calendar
+                      Generate a Meet link on your Google Calendar
                     </span>
                   </span>
                 </span>
@@ -883,8 +883,8 @@ export function MeetingNew({ beat }: SceneProps) {
         </div>
 
         <Tip on={beat === 1} x={848} y={752} align="center">
-          A real Meet link on your calendar, an invite to her inbox, and a reminder 30 minutes
-          before.
+          Sync your meetings with Google Calendar and generate Google Meet links automatically —
+          plus a reminder 30 minutes before.
         </Tip>
       </Page>
     </OwnerShell>
