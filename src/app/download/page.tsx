@@ -28,8 +28,8 @@ import { breadcrumbSchema, mobileApplicationSchema } from '@/lib/structured-data
  * repo whenever a new build is published — they drive the download card, the
  * structured data, and what users see before they tap.
  */
-const APP_VERSION = '1.0.0'
-const APP_SIZE = '3.4 MB'
+const APP_VERSION = '1.1.0'
+const APP_SIZE = '4.6 MB'
 const APP_UPDATED = 'August 2026'
 
 export const metadata: Metadata = pageMetadata({
