@@ -17,6 +17,11 @@ import {
   BadgeCheck,
   Clock,
   FileText,
+  Smartphone,
+  Percent,
+  Calculator,
+  LayoutTemplate,
+  Grid3x3,
 } from 'lucide-react'
 import { NAV_LINKS, APP_URL } from '@/lib/site'
 import { SpotlightButton } from '@/components/landing/SpotlightButton'
@@ -35,6 +40,10 @@ const NAV_ICONS: Record<string, ComponentType<{ className?: string }>> = {
   '/features/verified-reviews': BadgeCheck,
   '/time-converter': Clock,
   '/invoice': FileText,
+  '/tools/gst-calculator': Percent,
+  '/tools/freelance-rate-calculator': Calculator,
+  '/templates': LayoutTemplate,
+  '/tools': Grid3x3,
 }
 
 /**
@@ -42,10 +51,13 @@ const NAV_ICONS: Record<string, ComponentType<{ className?: string }>> = {
  * transparent at the top, it condenses into a blurred white capsule with a
  * hairline border once the page scrolls.
  */
+const APP_BANNER_DISMISSED_KEY = 'clienter-app-banner-dismissed'
+
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [openGroup, setOpenGroup] = useState<string | null>(null)
+  const [showAppBanner, setShowAppBanner] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -54,10 +66,46 @@ export function SiteHeader() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    if (localStorage.getItem(APP_BANNER_DISMISSED_KEY) !== '1') {
+      setShowAppBanner(true)
+    }
+  }, [])
+
+  const dismissAppBanner = () => {
+    setShowAppBanner(false)
+    localStorage.setItem(APP_BANNER_DISMISSED_KEY, '1')
+  }
+
   const condensed = scrolled || menuOpen
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
+      {showAppBanner && (
+        <Link
+          href="/download"
+          className="group relative mx-auto mb-2 flex h-9 max-w-5xl items-center justify-center gap-2 rounded-full border border-stone-200/80 bg-white/90 px-4 text-center text-xs font-medium text-gray-700 shadow-[0_4px_16px_-4px_rgba(28,25,23,0.15)] backdrop-blur-xl transition-colors duration-200 hover:bg-white sm:h-10 sm:text-sm"
+        >
+          <Smartphone className="hidden h-3.5 w-3.5 shrink-0 text-orange-500 sm:block" />
+          <span className="truncate">
+            <span className="font-semibold text-gray-900">The Clienter mobile app is here.</span>{' '}
+            <span className="font-semibold text-orange-600">Download it now</span>
+          </span>
+          <ArrowRight className="h-3.5 w-3.5 shrink-0 -translate-x-0.5 text-orange-500 transition-transform duration-200 group-hover:translate-x-0" />
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              dismissAppBanner()
+            }}
+            aria-label="Dismiss"
+            className="absolute right-2 flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-gray-400 transition-colors hover:bg-stone-100 hover:text-gray-600"
+          >
+            <X className="h-3.5 w-3.5" />
+          </button>
+        </Link>
+      )}
       <nav
         className={`mx-auto flex h-14 max-w-5xl items-center justify-between rounded-2xl border pl-4 pr-3 transition-all duration-300 ${
           condensed

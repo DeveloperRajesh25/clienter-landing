@@ -80,7 +80,8 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element -- external SVG badge; next/image can't optimize remote SVGs without loosening the site's SVG CSP */}
+                <img
                   alt="Clienter - Manage clients, projects, payments, quotations in one place | Product Hunt"
                   width={250}
                   height={54}

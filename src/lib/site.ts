@@ -32,7 +32,7 @@ export const FOUNDER = {
   // The handle people know him by across his content.
   contentHandle: '@talaganarajesh',
   // Founder photo, served from /public.
-  photo: '/rajesh-photo.jpg',
+  photo: '/rajesh-photo.webp',
 }
 
 // support@clienter.co.in is live and monitored for all contact types.
@@ -210,6 +210,11 @@ export const NAV_LINKS: NavLink[] = [
         href: '/tools/freelance-rate-calculator',
         label: 'Rate Calculator',
         description: 'Work out the rate you should charge',
+      },
+      {
+        href: '/time-converter',
+        label: 'Time Converter',
+        description: 'Convert time zones for calls with clients worldwide',
       },
       {
         href: '/templates',
