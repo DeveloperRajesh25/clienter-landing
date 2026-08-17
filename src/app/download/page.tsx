@@ -28,7 +28,7 @@ import { breadcrumbSchema, mobileApplicationSchema } from '@/lib/structured-data
  * repo whenever a new build is published — they drive the download card, the
  * structured data, and what users see before they tap.
  */
-const APP_VERSION = '1.1.0'
+const APP_VERSION = '1.2.0'
 const APP_SIZE = '4.6 MB'
 const APP_UPDATED = 'August 2026'
 
@@ -101,7 +101,7 @@ const NOTES: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Bell,
     title: 'Notifications',
-    body: 'The in-app notification bell works normally. Lock-screen push notifications are browser-only for now and are coming to the app in a future update.',
+    body: "Meeting reminders, payments and messages reach your lock screen, even when Clienter is closed. You'll be asked to allow notifications the first time you sign in.",
   },
   {
     icon: Download,
