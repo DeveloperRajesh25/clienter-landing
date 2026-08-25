@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { Loader2, CheckCircle2, Send } from 'lucide-react'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
@@ -202,6 +203,14 @@ export function ContactForm() {
           </>
         )}
       </button>
+
+      <p className="text-xs leading-relaxed text-gray-500">
+        By sending this message you agree to our{' '}
+        <Link href="/privacy" className="font-semibold text-orange-600 hover:text-orange-700">
+          Privacy Notice
+        </Link>
+        . Your details are only used to respond to you.
+      </p>
     </form>
   )
 }

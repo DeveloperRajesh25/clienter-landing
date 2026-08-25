@@ -45,6 +45,17 @@ export function CtaSection({
               See pricing
             </Link>
           </div>
+          <p className="mt-4 text-xs text-gray-400">
+            By signing up you agree to our{' '}
+            <Link href="/terms" className="font-semibold text-gray-300 hover:text-white">
+              Terms
+            </Link>{' '}
+            and{' '}
+            <Link href="/privacy" className="font-semibold text-gray-300 hover:text-white">
+              Privacy Notice
+            </Link>
+            .
+          </p>
         </div>
       </div>
     </section>

@@ -151,7 +151,7 @@ export default function CookiePolicyPage() {
       <h2>5. Third parties</h2>
       <p>
         Some strictly necessary cookies come from the providers that run {SITE_NAME} — Supabase for
-        authentication and Vercel for hosting. When you pay, Razorpay (or Stripe, for international
+        authentication and Vercel for hosting. When you pay, Razorpay (or PayPal, for international
         customers) may set cookies on their own secure checkout to process the transaction. If you
         accept analytics, Google sets the cookies listed above.
       </p>

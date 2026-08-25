@@ -34,7 +34,7 @@ export default function PrivacyPage() {
   return (
     <LegalLayout
       title="Privacy Notice"
-      updated={LEGAL.effectiveDate}
+      updated={LEGAL.privacyUpdatedDate}
       path="/privacy"
       intro={`This notice explains, in plain language, what personal data ${SITE_NAME} collects about you, why we need it, how long we keep it, who else sees it, and what you can ask us to do about it. It is written to meet the notice requirements of India’s Digital Personal Data Protection Act, 2023. It is a separate document from our Terms of Service — nothing here is buried in a contract.`}
     >
@@ -208,8 +208,8 @@ export default function PrivacyPage() {
               <td>Your name, email, payment amount, and the card/UPI details you enter directly into their checkout — which never pass through us.</td>
             </tr>
             <tr>
-              <td><strong>Stripe</strong></td>
-              <td>Processing payments for international customers, where Razorpay is not available.</td>
+              <td><strong>PayPal</strong></td>
+              <td>Processing payments for international customers, where Razorpay is not available. Integration in progress — not yet live.</td>
               <td>Same as Razorpay: your billing identifiers and the payment details you enter into their checkout.</td>
             </tr>
             <tr>
