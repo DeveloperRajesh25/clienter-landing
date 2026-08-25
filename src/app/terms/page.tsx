@@ -143,7 +143,7 @@ export default function TermsPage() {
 
       <h2>9. Third-party services</h2>
       <p>
-        The service relies on third parties including Supabase, Vercel, Razorpay, Stripe, Resend,
+        The service relies on third parties including Supabase, Vercel, Razorpay, PayPal, Resend,
         Google, and Upstash. The complete list, and what each one receives, is in section 5 of our{' '}
         <Link href="/privacy">Privacy Notice</Link>. Your use of those services may be subject to
         their own terms and policies. We are not responsible for third-party services we do not

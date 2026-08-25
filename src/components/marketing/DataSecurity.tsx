@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ShieldCheck, KeyRound, Ban, Wand2, Download, Lock, type LucideIcon } from 'lucide-react'
+import { ShieldCheck, KeyRound, Ban, Boxes, Download, Lock, type LucideIcon } from 'lucide-react'
 import { Reveal } from '@/components/landing/Reveal'
 import { Marquee } from '@/components/landing/Marquee'
 
@@ -17,7 +17,7 @@ const GUARANTEES: { icon: LucideIcon; label: string }[] = [
   { icon: ShieldCheck, label: 'Row-level security' },
   { icon: KeyRound, label: 'AES-256 encryption' },
   { icon: Ban, label: 'No data sharing, ever' },
-  { icon: Wand2, label: 'Magic-link client auth' },
+  { icon: Boxes, label: 'Isolated per-account data' },
   { icon: Download, label: 'Export anytime' },
   { icon: Lock, label: 'Encrypted in transit' },
   { icon: Lock, label: 'Your data is 100% private' },

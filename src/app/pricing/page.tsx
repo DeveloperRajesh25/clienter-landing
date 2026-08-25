@@ -273,6 +273,17 @@ export default function PricingPage() {
         <p className="mt-2 text-center text-sm text-gray-500">
           All prices in INR, billed monthly. Start on the Free plan — upgrade anytime, no card required.
         </p>
+        <p className="mt-2 text-center text-xs text-gray-400">
+          By signing up you agree to our{' '}
+          <Link href="/terms" className="font-semibold text-gray-500 hover:text-orange-600">
+            Terms
+          </Link>{' '}
+          and{' '}
+          <Link href="/privacy" className="font-semibold text-gray-500 hover:text-orange-600">
+            Privacy Notice
+          </Link>
+          .
+        </p>
 
         {/* Honest reassurance chips */}
         <Reveal className="mt-10">

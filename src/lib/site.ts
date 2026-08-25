@@ -81,6 +81,8 @@ export const LEGAL = {
   governingCountry: 'India',
   /** Date the current legal documents take effect / were last updated. */
   effectiveDate: '5 August 2025',
+  /** Date the Privacy Notice specifically was last revised (tracked separately since it's amended on its own cadence). */
+  privacyUpdatedDate: '25 August 2026',
 } as const
 
 /**
