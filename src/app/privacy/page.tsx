@@ -261,6 +261,22 @@ export default function PrivacyPage() {
         layer and encrypted in transit with TLS. More detail on our{' '}
         <Link href="/security">security page</Link>.
       </p>
+      <p>
+        <strong>Google user data.</strong> If you connect the Google Calendar / Meet integration, the
+        only Google user data we access is the calendar events {SITE_NAME} creates, reads, updates, or
+        deletes on your explicit instruction — nothing else in your Google account. {SITE_NAME}&rsquo;s
+        use and transfer of information received from Google APIs to any other app will adhere to the{' '}
+        <a
+          href="https://developers.google.com/terms/api-services-user-data-policy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google API Services User Data Policy
+        </a>
+        , including the Limited Use requirements. We never use this data for advertising, and we never
+        transfer it to any other party except the sub-processors listed above, strictly to run the
+        service on your behalf.
+      </p>
 
       <h2>6. Cookies, analytics, and your choice</h2>
       <p>
