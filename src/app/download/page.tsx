@@ -28,7 +28,7 @@ import { breadcrumbSchema, mobileApplicationSchema } from '@/lib/structured-data
  * repo whenever a new build is published — they drive the download card, the
  * structured data, and what users see before they tap.
  */
-const APP_VERSION = '1.3.2'
+const APP_VERSION = '1.3.3'
 const APP_SIZE = '4.6 MB'
 const APP_UPDATED = 'September 2026'
 
