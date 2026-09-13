@@ -14,7 +14,7 @@ export const WEB_DESIGN_AGENCIES: AudiencePageConfig = {
   audience: 'Web design agencies',
   metaTitle: 'CRM for Web Design Agencies — Team & Client Portal',
   metaDescription:
-    'A CRM for web design agencies that runs your designers, projects, and client approvals in one place, with a white-label client portal. Start free today.',
+    'A CRM for web design agencies that runs your designers, projects, and client approvals in one place, with a branded client portal. Start free today.',
   keywords: [
     'CRM for web design agencies',
     'web design agency management software',
@@ -24,7 +24,7 @@ export const WEB_DESIGN_AGENCIES: AudiencePageConfig = {
   ],
   ogTitle: 'CRM for Web Design Agencies — Clienter',
   ogDescription:
-    'Run your team, projects, client approvals, and a white-label portal in one workspace built for web design agencies. Start free.',
+    'Run your team, projects, client approvals, and a branded portal in one workspace built for web design agencies. Start free.',
   breadcrumbLabel: 'For Web Design Agencies',
   eyebrow: 'For web design agencies',
   h1: 'The CRM for web design agencies that runs the whole',
@@ -36,7 +36,7 @@ export const WEB_DESIGN_AGENCIES: AudiencePageConfig = {
     body: [
       'A CRM for web design agencies has a harder job than a solo tool: it has to keep a team of designers, a pipeline of new business, and a roster of clients all moving without anyone stepping on each other. As soon as you go from freelancer to studio, the bottleneck stops being the design and becomes the coordination — who’s working on what, which mockups are waiting on client sign-off, and what you promised in the pitch three weeks ago.',
       'Most growing agencies try to run this on a mix of tools never meant to work together — a project board here, a shared drive there, a spreadsheet of clients, and a group chat where approvals get lost. The result is status-update meetings, duplicated work, and clients who feel out of the loop. Web design agency management software replaces that with one connected system: every client account, project board, proposal, invoice, and team member in the same place.',
-      'It’s built for Indian studios too — GST invoices in rupees, UPI and bank-transfer tracking, role-based access so juniors see only their projects, and a white-label client portal that shows your agency’s brand instead of ours. Your clients experience a polished studio; you get one calm back office.',
+      'It’s built for Indian studios too — GST invoices in rupees, UPI and bank-transfer tracking, role-based access so juniors see only their projects, and a branded client portal that shows your agency’s brand instead of ours. Your clients experience a polished studio; you get one calm back office.',
     ],
   },
   pains: {
@@ -83,7 +83,7 @@ export const WEB_DESIGN_AGENCIES: AudiencePageConfig = {
       },
       {
         title: '4. Share progress in the client portal',
-        desc: 'Clients follow their project, review deliverables, and approve work in a white-label portal — replacing the endless ‘any update?’ messages with a place they can check themselves.',
+        desc: 'Clients follow their project, review deliverables, and approve work in a branded portal — replacing the endless ‘any update?’ messages with a place they can check themselves.',
       },
       {
         title: '5. Invoice, get paid, collect the review',
@@ -117,26 +117,26 @@ export const WEB_DESIGN_AGENCIES: AudiencePageConfig = {
       'Every designer’s workload visible on shared boards',
       'Sign-off captured in the client portal, on record',
       'Clients self-serve progress in their own portal',
-      'A white-label portal that carries your brand',
+      'A branded portal that carries your brand',
       'A shared pipeline that keeps new business moving',
     ],
   },
   pricing: {
     heading: 'Pricing that scales with the studio, not per seat',
     body: [
-      'Start on the Free plan while you’re small — up to 5 clients and 10 projects with the full pipeline, proposals, invoicing, and meetings, free forever. It’s enough to prove the system before you commit.',
-      'As the studio grows, Pro at a launch price of ₹199/month covers up to 30 clients, 60 projects, and 5 team members, and unlocks the white-label client portal your agency’s clients will actually see. Ultra at ₹799/month lifts every limit — unlimited clients, projects, and team members — for a busy agency running many accounts at once. There’s no per-seat enterprise pricing and no annual lock-in, so adding a designer never triggers a painful upgrade.',
+      'Start on the Free plan while you’re small — up to 3 clients and 5 projects with the full pipeline, proposals, invoicing, and meetings, free forever. It’s enough to prove the system before you commit.',
+      'As the studio grows, Pro at a launch price of ₹199/month covers up to 20 clients, 40 projects, and 5 team members, and opens the branded client portal to every client your agency’s clients will actually see. Ultra at ₹799/month lifts every limit — unlimited clients, projects, and team members — for a busy agency running many accounts at once. There’s no per-seat enterprise pricing and no annual lock-in, so adding a designer never triggers a painful upgrade.',
     ],
   },
   faqHeading: 'Web design agency FAQs',
   faqs: [
     {
       q: 'What is the best CRM for web design agencies?',
-      a: 'The best CRM for web design agencies keeps three things moving at once — new business, delivery across a team, and the client relationship — without a stack of disconnected apps. Clienter brings your lead pipeline, project boards, role-based team access, proposals, invoicing, and a white-label client portal into one workspace, free to start and ₹199/month on Pro.',
+      a: 'The best CRM for web design agencies keeps three things moving at once — new business, delivery across a team, and the client relationship — without a stack of disconnected apps. Clienter brings your lead pipeline, project boards, role-based team access, proposals, invoicing, and a branded client portal into one workspace, free to start and ₹199/month on Pro.',
     },
     {
       q: 'Does Clienter give clients a portal for our web design agency?',
-      a: 'Yes. Every paid plan includes a white-label client portal where your clients track project progress, review deliverables, and approve work under your agency’s brand rather than ours. It replaces the steady stream of ‘any update?’ messages and makes a small studio feel like an established one.',
+      a: 'Yes. Every plan includes a branded client portal (one client on Free, every client on Pro and Ultra) where your clients track project progress, review deliverables, and approve work under your agency’s brand rather than ours. It replaces the steady stream of ‘any update?’ messages and makes a small studio feel like an established one.',
     },
     {
       q: 'How do we manage multiple designers on client projects?',
@@ -148,7 +148,7 @@ export const WEB_DESIGN_AGENCIES: AudiencePageConfig = {
     },
   ],
   related: [
-    { href: '/features/client-portal', label: 'Client Portal', desc: 'The white-label portal your clients log in to.' },
+    { href: '/features/client-portal', label: 'Client Portal', desc: 'The branded portal your clients log in to.' },
     { href: '/features/project-management', label: 'Project Management', desc: 'Kanban boards, deadlines, and budgets for the team.' },
     { href: '/features/crm-lead-pipeline', label: 'CRM & Lead Pipeline', desc: 'Keep new business moving while you deliver.' },
     { href: '/for/software-agencies', label: 'For Software Agencies', desc: 'The same, tuned for longer software builds.' },

@@ -27,7 +27,7 @@ export const CLIENTER_VS_VYAPAR: ComparePageConfig = {
     heading: 'Product-and-inventory billing vs client-and-project delivery',
     body: [
       'Vyapar is a genuinely popular Indian app, and for a very good reason: it does GST billing, accounting, and inventory management well. Shops, retailers, and small SMBs across India use it to raise bills fast, track stock and purchases, and keep the books tidy — often offline, straight from a desktop or phone. If you sell products and your day is about billing and inventory, Vyapar is a strong, home-grown fit.',
-      'Clienter is built for a different business entirely: the freelancer or agency selling services, not stock. It combines a simple Kanban lead pipeline to win work, projects with boards, tasks, and budgets to deliver it, GST-ready invoicing and quotations to bill for it, payment and expense tracking with a live profit dashboard, and a white-label client portal plus verified reviews. It manages clients and the work you do for them — not shelves of inventory.',
+      'Clienter is built for a different business entirely: the freelancer or agency selling services, not stock. It combines a simple Kanban lead pipeline to win work, projects with boards, tasks, and budgets to deliver it, GST-ready invoicing and quotations to bill for it, payment and expense tracking with a live profit dashboard, and a branded client portal plus verified reviews. It manages clients and the work you do for them — not shelves of inventory.',
       'So this really isn’t a “which is better” question — it’s “which business are you running”. For a shop doing inventory billing, Vyapar is the right tool and Clienter would feel beside the point. For a freelancer or agency managing clients and projects, Clienter fits the way you actually work and Vyapar’s inventory-first design would get in the way.',
     ],
   },
@@ -40,7 +40,7 @@ export const CLIENTER_VS_VYAPAR: ComparePageConfig = {
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Built in — a core strength' },
     { feature: 'Inventory management', clienter: 'Not the focus', other: 'Yes — strong stock & inventory' },
     { feature: 'Offline / desktop billing', clienter: 'Cloud-based', other: 'Yes — strong offline billing' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Not a feature' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a feature' },
     { feature: 'Meetings + Google Calendar/Meet', clienter: 'Built in', other: 'Not a focus' },
     { feature: 'Pricing', clienter: 'Free, or Pro ₹199/mo (launch)', other: 'Free & paid plans (billing app)' },
   ],
@@ -48,7 +48,7 @@ export const CLIENTER_VS_VYAPAR: ComparePageConfig = {
     'Built for client services — pipeline, projects, invoicing, and a portal together',
     'Simple Kanban lead pipeline to track prospects through to won work',
     'Project delivery with boards, tasks, budgets, and retainer projects',
-    'White-label client portal (Pro & Ultra) plus verified reviews to look established',
+    'Branded client portal (1 client on Free, all on Pro & Ultra) plus verified reviews to look established',
     'GST-ready invoicing with payment/expense tracking and a live profit dashboard',
   ],
   clienterCons: [
@@ -65,14 +65,14 @@ export const CLIENTER_VS_VYAPAR: ComparePageConfig = {
   competitorCons: [
     'Built for product/retail billing, not client-services delivery',
     'No lead pipeline, project boards, tasks, or budgets for service work',
-    'No white-label client portal or verified client reviews',
+    'No branded client portal or verified client reviews',
     'Not designed around freelancer/agency workflows like retainers and delivery',
   ],
   pricing: {
     heading: 'Pricing: two tools for two different jobs',
     body: [
       'Vyapar has a free option and paid plans built around billing, accounting, and inventory for product businesses. We’re not quoting specific Vyapar numbers here because plans change — check vyapar.in for current pricing — but the value it charges for is billing-and-inventory depth, which is exactly what a shop or SMB is paying to get.',
-      'Clienter is priced for a services business: a Free plan forever (up to 5 clients and 10 projects, with the pipeline, invoicing, and meetings included), Pro at a launch price of ₹199/month (up to 30 clients, 60 projects, 5 team members, and the white-label client portal), and Ultra at ₹799/month for unlimited everything. Those launch prices are down from ₹499 and ₹1,999.',
+      'Clienter is priced for a services business: a Free plan forever (up to 3 clients and 5 projects, with the pipeline, invoicing, and meetings included), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client), and Ultra at ₹799/month for unlimited everything. Those launch prices are down from ₹499 and ₹1,999.',
       'The honest takeaway is that price isn’t really the deciding factor here — fit is. Paying for Vyapar’s inventory features you’ll never use, or paying for Clienter’s project and portal features when you just need counter billing, is the wrong trade either way. Pick the tool that matches the business you actually run.',
     ],
   },
@@ -82,7 +82,7 @@ export const CLIENTER_VS_VYAPAR: ComparePageConfig = {
       'Are a freelancer or agency selling services, not products',
       'Need a lead pipeline and project delivery, not stock and inventory',
       'Want GST-ready invoicing alongside projects, tasks, and budgets',
-      'Need a white-label client portal to share work and invoices with clients',
+      'Need a branded client portal to share work and invoices with clients',
       'Want meetings, verified reviews, and team roles in the same workspace',
     ],
   },

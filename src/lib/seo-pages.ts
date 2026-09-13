@@ -163,7 +163,7 @@ const CLIENT_MANAGEMENT: SeoLandingConfig = {
     },
     {
       q: 'Is there free client management software?',
-      a: 'Yes. Clienter has a Free plan that is free forever — no credit card required. It includes up to 5 clients and 10 projects, the full leads & CRM pipeline, invoicing, meetings, and basic analytics, which is plenty to run a solo freelance business. You only upgrade when you outgrow those limits.',
+      a: 'Yes. Clienter has a Free plan that is free forever — no credit card required. It includes up to 3 clients, 5 projects and a teammate, the leads & CRM pipeline, the client portal for one client, Google Calendar sync, invoicing, meetings, and basic analytics — enough to run your first clients properly. You only upgrade when you outgrow those limits.',
     },
     {
       q: 'What is the best client management software for freelancers in India?',
@@ -289,7 +289,7 @@ const CRM_FOR_FREELANCERS: SeoLandingConfig = {
     },
     {
       q: 'Is there a free CRM for freelancers?',
-      a: 'Yes. Clienter’s Free plan is free forever with no credit card — it includes the full leads & CRM pipeline (with unlimited leads), up to 5 clients and 10 projects, invoicing, and basic analytics. It’s a genuinely usable freelance CRM, not a limited trial.',
+      a: 'Yes. Clienter’s Free plan is free forever with no credit card — it includes the full leads & CRM pipeline (up to 20 active leads), up to 3 clients and 5 projects, invoicing, and basic analytics. It’s a genuinely usable freelance CRM, not a limited trial.',
     },
     {
       q: 'How is Clienter different from a normal CRM?',
@@ -403,7 +403,7 @@ const PROJECT_MANAGEMENT_CRM: SeoLandingConfig = {
     },
     {
       q: 'What is the best project management software for freelancers?',
-      a: 'For client-services freelancers, the best project management software is one that also handles clients and invoices. Clienter does exactly this as a project management CRM — free to start, with Pro (up to 60 projects and 5 team members) at a launch price of ₹199/month.',
+      a: 'For client-services freelancers, the best project management software is one that also handles clients and invoices. Clienter does exactly this as a project management CRM — free to start, with Pro (up to 40 projects and 5 team members) at a launch price of ₹199/month.',
     },
     {
       q: 'How do I manage freelance projects and clients together?',
@@ -411,7 +411,7 @@ const PROJECT_MANAGEMENT_CRM: SeoLandingConfig = {
     },
     {
       q: 'Can I add my team to projects?',
-      a: 'Yes. On Pro you can add up to 5 team members, assign them to specific projects and tasks with role-based access, and track what you owe each of them. Ultra removes the limit so you can run a full agency.',
+      a: 'Yes. Free includes one teammate, and on Pro you can add up to 5 team members, assign them to specific projects and tasks with role-based access, and track what you owe each of them. Ultra removes the limit so you can run a full agency.',
     },
   ],
   related: [
@@ -529,7 +529,7 @@ const BUSINESS_MANAGEMENT: SeoLandingConfig = {
     },
     {
       q: 'What is client portal software?',
-      a: 'Client portal software gives your clients a secure login to view their projects, download invoices, access files, and sign documents. Clienter includes a white-label client portal (on Pro and Ultra) branded with your name and logo, so clients get a premium self-serve experience — not a Clienter-branded one.',
+      a: 'Client portal software gives your clients a secure login to view their projects, download invoices, access files, and sign documents. Clienter includes a client portal branded with your name and logo on every plan (one client on Free, every client on Pro and Ultra), so clients get a premium self-serve experience that looks like yours.',
     },
   ],
   related: [

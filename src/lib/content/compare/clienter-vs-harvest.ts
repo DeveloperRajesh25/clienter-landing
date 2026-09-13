@@ -27,7 +27,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     heading: 'Two tools that meet at the invoice — and diverge everywhere else',
     body: [
       'Harvest has earned its reputation as one of the cleanest, most reliable time trackers around. Start a timer, log hours against a project or task, watch budgets burn down, and turn those billable hours into an invoice — Harvest does that loop beautifully, and its team timesheets and utilization reports are genuinely useful for agencies that bill by the hour.',
-      'Clienter starts from a different place. It’s built for the freelancer or small agency who needs to win the client, deliver the project, raise a GST-ready invoice, and get paid — all in one workspace. It includes a simple lead pipeline, project boards with tasks and budgets, quotations and invoicing, payment and expense tracking with a live profit dashboard, and a white-label client portal. Time tracking is one part of a much wider workflow, not the whole product.',
+      'Clienter starts from a different place. It’s built for the freelancer or small agency who needs to win the client, deliver the project, raise a GST-ready invoice, and get paid — all in one workspace. It includes a simple lead pipeline, project boards with tasks and budgets, quotations and invoicing, payment and expense tracking with a live profit dashboard, and a branded client portal. Time tracking is one part of a much wider workflow, not the whole product.',
       'So the honest framing is this: if hourly time tracking and utilization reporting are the beating heart of your business, Harvest is superb at exactly that and hard to beat. If you want your clients, projects, quotes, invoices, and payments to live together in one rupee-first tool built for India, that’s the job Clienter is designed for — and the two can even sit side by side while you decide.',
     ],
   },
@@ -40,7 +40,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Invoices from tracked time, not GST-first' },
     { feature: 'Quotations / estimates', clienter: 'Built in', other: 'Estimates available' },
     { feature: 'Payment & expense tracking', clienter: 'Built in + live profit dashboard', other: 'Expenses yes; payments via integrations' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Not a core feature' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Utilization / capacity reporting', clienter: 'Basic', other: 'Strong (with Forecast add-on)' },
     { feature: 'Pricing', clienter: 'Free, or Pro ₹199/mo (launch)', other: 'Paid per seat, priced in USD' },
   ],
@@ -48,7 +48,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     'Clients, leads, projects, invoices, payments, and a portal in one tool',
     'GST-ready invoicing and quotations with rupee-first pricing for India',
     'A live profit dashboard from payments and expenses, not just tracked hours',
-    'White-label client portal so small teams look established',
+    'Branded client portal so small teams look established',
     'Simple enough to set up and use the same day you sign up',
   ],
   clienterCons: [
@@ -66,13 +66,13 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     'No lead pipeline or client-relationship management',
     'Not built for Indian GST invoicing or rupee-first pricing',
     'Project boards are time budgets, not full delivery workspaces',
-    'No white-label client portal to give clients a branded home',
+    'No branded client portal to give clients a branded home',
   ],
   pricing: {
     heading: 'Pricing: pay-per-seat time tracking vs one flat plan',
     body: [
       'Harvest is priced per user and billed in US dollars, with a limited free option for a single seat and paid plans as your team grows. For a solo freelancer that can be very reasonable; for a small agency the per-seat model adds up as you add people, and you’re paying in dollars for a tool focused on one job — time.',
-      'Clienter is rupee-first and flat: a Free plan forever (up to 5 clients and 10 projects, with the pipeline, invoicing, and meetings included), Pro at a launch price of ₹199/month (up to 30 clients, 60 projects, 5 team members, and the white-label portal), and Ultra at ₹799/month for unlimited everything. Five team members share the Pro plan at one price — there’s no per-seat maths.',
+      'Clienter is rupee-first and flat: a Free plan forever (up to 3 clients and 5 projects, with the pipeline, invoicing, and meetings included), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month for unlimited everything. Five team members share the Pro plan at one price — there’s no per-seat maths.',
       'The honest summary: Harvest can be cheaper if all you need is time tracking for one person. But once you factor in the separate CRM, invoicing, and client-portal tools you’d run alongside it, Clienter’s single flat plan usually wins on total cost for a client-services business.',
     ],
   },

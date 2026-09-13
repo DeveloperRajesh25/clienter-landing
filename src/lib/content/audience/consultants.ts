@@ -100,7 +100,7 @@ export const CONSULTANTS: AudiencePageConfig = {
       { icon: Repeat, title: 'Retainer engagements', desc: 'Set up recurring retainer projects and bill them on schedule, every month.' },
       { icon: FolderKanban, title: 'Engagements & phases', desc: 'A board per engagement with phases, milestones, deadlines, and tasks.' },
       { icon: ReceiptText, title: 'Phase & retainer invoices', desc: 'GST-ready invoices by milestone or by month, reusing the client’s details.' },
-      { icon: Handshake, title: 'White-label client portal', desc: 'A branded portal that makes a solo practice look like an established firm.' },
+      { icon: Handshake, title: 'Branded client portal', desc: 'A branded portal that makes a solo practice look like an established firm.' },
     ],
   },
   compare: {
@@ -124,8 +124,8 @@ export const CONSULTANTS: AudiencePageConfig = {
   pricing: {
     heading: 'Priced for a practice, not a partnership',
     body: [
-      'Clienter’s Free plan is genuinely usable for an independent consultant — up to 5 clients and 10 projects, the full prospect pipeline, proposals, invoicing, and meetings, free forever with no credit card. It’s enough to run your first few engagements properly instead of from a folder of documents.',
-      'When the practice grows, Pro is a launch-priced ₹199/month (was ₹499) — up to 30 clients, 60 projects, and 5 team members — and it unlocks the white-label client portal that gives a solo consultant a firm’s polish. Ultra at ₹799/month (was ₹1,999) removes the limits for a growing boutique. No per-seat enterprise pricing, no annual lock-in.',
+      'Clienter’s Free plan is genuinely usable for an independent consultant — up to 3 clients and 5 projects, the full prospect pipeline, proposals, invoicing, and meetings, free forever with no credit card. It’s enough to run your first few engagements properly instead of from a folder of documents.',
+      'When the practice grows, Pro is a launch-priced ₹199/month (was ₹499) — up to 20 clients, 40 projects, and 5 team members — and it unlocks the branded client portal that gives a solo consultant a firm’s polish. Ultra at ₹799/month (was ₹1,999) removes the limits for a growing boutique. No per-seat enterprise pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Consultant FAQs',
@@ -144,13 +144,13 @@ export const CONSULTANTS: AudiencePageConfig = {
     },
     {
       q: 'Can I look professional to bigger clients as a solo consultant?',
-      a: 'Yes. Clienter’s white-label client portal, branded proposals with e-signature, and verified reviews give an independent consultant the polish of a larger firm — so you compete on credibility and process, not just on expertise.',
+      a: 'Yes. Clienter’s branded client portal, branded proposals with e-signature, and verified reviews give an independent consultant the polish of a larger firm — so you compete on credibility and process, not just on expertise.',
     },
   ],
   related: [
     { href: '/features/project-management', label: 'Project Management', desc: 'Run engagements with phases, milestones, and tasks.' },
     { href: '/features/invoicing', label: 'Invoicing', desc: 'Retainer and milestone invoices, GST-ready.' },
-    { href: '/features/client-portal', label: 'Client Portal', desc: 'A white-label portal that gives a solo practice a firm’s polish.' },
+    { href: '/features/client-portal', label: 'Client Portal', desc: 'A branded portal that gives a solo practice a firm’s polish.' },
     { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
   ],
   ctaTitle: 'Run your consulting practice without the chaos',

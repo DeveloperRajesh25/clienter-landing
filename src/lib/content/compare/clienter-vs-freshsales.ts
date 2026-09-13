@@ -27,7 +27,7 @@ export const CLIENTER_VS_FRESHSALES: ComparePageConfig = {
     heading: 'A sales CRM by Freshworks vs an all-in-one client workspace',
     body: [
       'Freshsales is the sales CRM from Freshworks, an Indian-founded company with a strong suite of business software. It gives sales teams a solid contact and deal pipeline, built-in phone and email, workflow automation, and Freddy AI for scoring and suggestions. For a growing sales team that wants an approachable, well-supported CRM from a major vendor, Freshsales is a capable choice.',
-      'Clienter is built for a different job: the freelancer or small agency who wins a few clients and then has to deliver the work, invoice for it, and get paid. It pairs a simple Kanban lead pipeline with the things a sales CRM leaves out — project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, and a white-label client portal — in one rupee-first workspace.',
+      'Clienter is built for a different job: the freelancer or small agency who wins a few clients and then has to deliver the work, invoice for it, and get paid. It pairs a simple Kanban lead pipeline with the things a sales CRM leaves out — project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, and a branded client portal — in one rupee-first workspace.',
       'So the honest framing is less “which CRM is better” and more “which is built for your work”. If your day is team-based selling and you want AI-assisted sales tooling from a big vendor, Freshsales is a strong pick. If your day is delivering client work and you want the whole lifecycle in one affordable tool, that is exactly what Clienter is for.',
     ],
   },
@@ -38,7 +38,7 @@ export const CLIENTER_VS_FRESHSALES: ComparePageConfig = {
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Not a core feature' },
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via integrations' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Not a core feature' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Live profit dashboard', clienter: 'Built in', other: 'Sales reporting, not profit/expenses' },
     { feature: 'Built-in phone & AI', clienter: 'Not the focus', other: 'Yes — phone, email, Freddy AI' },
     { feature: 'Learning curve', clienter: 'Set up in an afternoon', other: 'Approachable; more to configure' },
@@ -49,7 +49,7 @@ export const CLIENTER_VS_FRESHSALES: ComparePageConfig = {
     'GST-ready invoicing and quotations with rupee-first pricing',
     'Simple enough to set up and use the same day',
     'Free plan forever, with no per-seat sales-team pricing',
-    'White-label client portal and verified reviews to look established',
+    'Branded client portal and verified reviews to look established',
   ],
   clienterCons: [
     'Not a sales-team CRM with built-in calling or AI scoring',
@@ -72,7 +72,7 @@ export const CLIENTER_VS_FRESHSALES: ComparePageConfig = {
     heading: 'Pricing: a sales CRM vs an all-in-one',
     body: [
       'Freshsales offers a free tier and paid plans that scale as you add users and move up tiers, and because Freshworks is Indian-founded, rupee pricing is available. It is fair value for a sales team, but it is a sales CRM — to match what Clienter does, you would add separate tools for project delivery and GST invoicing, and those become extra cost and extra logins.',
-      'Clienter is rupee-first and all-in-one. There is a Free plan forever (up to 5 clients and 10 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 30 clients, 60 projects, 5 team members, and the white-label portal), and Ultra at ₹799/month for unlimited everything. No per-seat sales-team pricing, because Clienter is not built for a sales floor.',
+      'Clienter is rupee-first and all-in-one. There is a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month for unlimited everything. No per-seat sales-team pricing, because Clienter is not built for a sales floor.',
       'The honest summary: Freshsales can be affordable as a sales CRM, especially on its free tier, but a full client-services setup means bolting on delivery and invoicing tools. Clienter bundles the pipeline, projects, invoicing, payments, and a portal into one low monthly price.',
     ],
   },

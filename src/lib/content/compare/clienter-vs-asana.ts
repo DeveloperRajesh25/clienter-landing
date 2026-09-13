@@ -27,7 +27,7 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
     heading: 'Great task management vs a whole client business',
     body: [
       'Asana is one of the most refined project and task managers around. Its interface is clean and intuitive, teams adopt it quickly, and its timelines, workflows, and reporting make coordinating work across a group feel calm and organised. If your main problem is keeping a team’s tasks and projects on track, Asana does that job beautifully and reliably.',
-      'Clienter is built for a different problem. It is for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things Asana leaves to other tools — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a white-label client portal — in one workspace priced for one person.',
+      'Clienter is built for a different problem. It is for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things Asana leaves to other tools — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — in one workspace priced for one person.',
       'So this is less “which is the better project manager” and more “which is built for you”. Asana can organise your project immaculately, but a task board still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. Clienter ties projects to clients, invoices, and payments in one rupee-first tool, so the whole client lifecycle lives together.',
     ],
   },
@@ -38,7 +38,7 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Yes — polished and reliable' },
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via integrations' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Not a core feature' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Client → project → invoice link', clienter: 'Native', other: 'Not available' },
     { feature: 'Task workflows & UX', clienter: 'Focused on client work', other: 'Clean and refined' },
     { feature: 'Learning curve', clienter: 'Set up in an afternoon', other: 'Easy to start; deeper on paid tiers' },
@@ -49,7 +49,7 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
     'GST-ready invoicing and quotations with rupee-first pricing',
     'A live profit dashboard that ties income and expenses to each client',
     'Simple enough to use the day you sign up',
-    'White-label client portal and verified reviews to look established',
+    'Branded client portal and verified reviews to look established',
   ],
   clienterCons: [
     'Not a dedicated, general-purpose project manager for large teams',
@@ -72,7 +72,7 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
     heading: 'Pricing: per-seat project tool vs one flat freelancer plan',
     body: [
       'Asana offers a free tier that works well for individuals and small teams, and its paid plans are priced per seat. That is fair for a growing team, but a solo freelancer pays for team-oriented capacity — and none of those seats add up to GST invoicing, payment collection, or a client portal, so those stay as separate tools and separate costs.',
-      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 5 clients and 10 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (down from ₹499 — up to 30 clients, 60 projects, 5 team members, and the white-label portal), and Ultra at ₹799/month (down from ₹1,999) for unlimited everything. One flat plan covers the whole client-services workflow.',
+      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (down from ₹499 — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month (down from ₹1,999) for unlimited everything. One flat plan covers the whole client-services workflow.',
       'The honest summary: if all you need is excellent task and project management for a team, Asana’s free tier is a great start — but you will still bolt on invoicing, payments, and a client portal. Clienter bundles that client-business stack into one low monthly price.',
     ],
   },

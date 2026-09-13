@@ -129,7 +129,7 @@ const CLIENT_MANAGEMENT: FeaturePageConfig = {
   faqs: [
     { q: 'Can I import my existing clients?', a: 'Yes. You can add clients manually in seconds or bring across an existing list, then attach their projects, invoices, and notes so their full history builds up in one profile.' },
     { q: 'Does each client’s history update automatically?', a: 'Yes. When you raise an invoice, record a payment, or run a project for a client, it’s linked to their profile automatically — so the timeline is always current without extra data entry.' },
-    { q: 'How many clients can I manage?', a: 'The Free plan covers up to 5 clients, Pro up to 30, and Ultra is unlimited. Leads are unlimited on every plan, so you only count clients once a prospect converts.' },
+    { q: 'How many clients can I manage?', a: 'The Free plan covers up to 3 clients, Pro up to 20, and Ultra is unlimited. Leads are counted separately (only open ones — won or lost leads free their slot), so a prospect only uses a client slot once it converts.' },
   ],
   ctaTitle: 'Bring every client into one profile',
   ctaSubtitle: 'Start free and set up your first client in minutes. No credit card required.',
@@ -196,7 +196,7 @@ const CRM_PIPELINE: FeaturePageConfig = {
   ],
   faqHeading: 'Lead pipeline FAQs',
   faqs: [
-    { q: 'How many leads can I track?', a: 'Leads are unlimited on every plan, including Free. You can capture as many enquiries as you like — you only start counting toward your plan’s client limit once a lead converts to a client.' },
+    { q: 'How many leads can I track?', a: 'Free includes up to 20 active leads, Pro up to 200, and Ultra is unlimited. Only open leads count — once a lead is won, lost, or converted to a client it frees its slot, so the pipeline keeps moving.' },
     { q: 'Can I customise the pipeline stages?', a: 'Yes. You can create and reorder the columns to match how you sell. The Won and Lost stages at the ends are protected so your conversion and loss data stays reliable.' },
     { q: 'What happens when I win a deal?', a: 'Marking a lead as won lets you convert it to a client in one click, carrying its details across so you can start projects and invoicing without re-entering anything.' },
   ],
@@ -266,8 +266,8 @@ const PROJECT_MANAGEMENT: FeaturePageConfig = {
   faqHeading: 'Project management FAQs',
   faqs: [
     { q: 'Are projects linked to clients?', a: 'Yes. Every project belongs to a client, so opening a client shows all their projects and opening a project shows the client it’s for — plus the invoices and payments attached.' },
-    { q: 'Can I assign projects to my team?', a: 'Yes. On Pro you can add up to 5 team members and assign them to projects and tasks with role-based access; Ultra makes team members unlimited.' },
-    { q: 'How many projects can I run?', a: 'The Free plan includes up to 10 projects, Pro up to 60, and Ultra is unlimited — so the workspace grows with your business.' },
+    { q: 'Can I assign projects to my team?', a: 'Yes. Free includes one teammate; on Pro you can add up to 5 team members and assign them to projects and tasks with role-based access; Ultra makes team members unlimited.' },
+    { q: 'How many projects can I run?', a: 'The Free plan includes up to 5 projects, Pro up to 40, and Ultra is unlimited — so the workspace grows with your business.' },
   ],
   ctaTitle: 'Run every project like clockwork',
   ctaSubtitle: 'Start free and put your projects, tasks, and budgets on one board.',
@@ -403,9 +403,9 @@ const CLIENT_PORTAL: FeaturePageConfig = {
   ],
   faqHeading: 'Client portal FAQs',
   faqs: [
-    { q: 'Is the portal branded with my name or Clienter’s?', a: 'Yours. The white-label portal shows your agency’s name and logo, so to your clients it looks like your own product — Clienter stays behind the scenes.' },
+    { q: 'Is the portal branded with my name or Clienter’s?', a: 'Yours. The portal shows your agency’s name and logo, so to your clients it looks like your own product. On Free a small “Powered by Clienter” link sits in the footer; on Pro and Ultra it’s gone, and Ultra can repaint the whole portal in your brand colour.' },
     { q: 'How do clients log in?', a: 'Clients sign in with a passwordless magic link sent to their email — there’s no account to create or password to remember, which keeps access simple and secure.' },
-    { q: 'Which plans include the client portal?', a: 'The white-label client portal is available on the Pro and Ultra plans. The Free plan focuses on the core client, project, and invoicing tools.' },
+    { q: 'Which plans include the client portal?', a: 'Every plan. On Free you can switch the portal on for one client to try it properly; Pro and Ultra open it to every client.' },
   ],
   ctaTitle: 'Give your clients a portal to remember',
   ctaSubtitle: 'Start free and see how a branded client experience changes the relationship.',

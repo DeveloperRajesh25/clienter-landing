@@ -83,7 +83,7 @@ export const DIGITAL_MARKETING_AGENCIES: AudiencePageConfig = {
       },
       {
         title: '4. Keep the client in the loop',
-        desc: 'Give the client a white-label portal where they can see progress, approvals and invoices under your brand — so the monthly “where are we?” answers itself.',
+        desc: 'Give the client a branded portal where they can see progress, approvals and invoices under your brand — so the monthly “where are we?” answers itself.',
       },
       {
         title: '5. Bill, collect, and prove the value',
@@ -100,7 +100,7 @@ export const DIGITAL_MARKETING_AGENCIES: AudiencePageConfig = {
       { icon: Repeat, title: 'Retainer projects', desc: 'Set recurring retainers so monthly scope, billing and renewals are tracked instead of forgotten.' },
       { icon: ReceiptText, title: 'GST invoices & quotations', desc: 'Branded, GST-ready invoices and quotes that reuse each account’s details — export to PDF in a click.' },
       { icon: ShieldCheck, title: 'Team roles & access', desc: 'Owner, admin and team roles so each account manager sees the clients they own — and only those.' },
-      { icon: Eye, title: 'White-label client portal', desc: 'A branded portal that shows clients their progress, approvals and invoices — your client reporting, half done for you.' },
+      { icon: Eye, title: 'Branded client portal', desc: 'A branded portal that shows clients their progress, approvals and invoices — your client reporting, half done for you.' },
     ],
   },
   compare: {
@@ -118,21 +118,21 @@ export const DIGITAL_MARKETING_AGENCIES: AudiencePageConfig = {
       'Retainer projects that track scope, billing and renewals',
       'A live dashboard of progress and profit per account',
       'GST invoices on schedule with payments tracked',
-      'A white-label portal that shows clients exactly where things stand',
+      'A branded portal that shows clients exactly where things stand',
     ],
   },
   pricing: {
     heading: 'Priced for a growing agency, not per seat',
     body: [
-      'Start on the Free plan to run your first few accounts properly — up to 5 clients and 10 projects with the full CRM pipeline, invoicing and meetings, free forever. It’s enough to move one or two clients off spreadsheets and feel the difference before you pay anything.',
-      'As the roster grows, Pro is a launch-priced ₹199/month (was ₹499; up to 30 clients, 60 projects and 5 team members) and unlocks the white-label client portal your clients will actually see. Ultra at ₹799/month (was ₹1,999) removes the limits for a full agency with unlimited accounts and team. No per-seat enterprise pricing, no annual lock-in — you add accounts and people as you win them.',
+      'Start on the Free plan to run your first few accounts properly — up to 3 clients and 5 projects with the full CRM pipeline, invoicing and meetings, free forever. It’s enough to move one or two clients off spreadsheets and feel the difference before you pay anything.',
+      'As the roster grows, Pro is a launch-priced ₹199/month (was ₹499; up to 20 clients, 40 projects and 5 team members) and opens the branded client portal to every client your clients will actually see. Ultra at ₹799/month (was ₹1,999) removes the limits for a full agency with unlimited accounts and team. No per-seat enterprise pricing, no annual lock-in — you add accounts and people as you win them.',
     ],
   },
   faqHeading: 'Digital marketing agency FAQs',
   faqs: [
     {
       q: 'What is the best agency management software for digital marketing?',
-      a: 'The best agency management software for digital marketing handles the business around the campaigns — client accounts, retainers, deliverables, reporting and GST invoicing — rather than the ad platforms you already use. Clienter brings all of that into one workspace, with a white-label client portal and launch pricing from ₹199/month.',
+      a: 'The best agency management software for digital marketing handles the business around the campaigns — client accounts, retainers, deliverables, reporting and GST invoicing — rather than the ad platforms you already use. Clienter brings all of that into one workspace, with a branded client portal and launch pricing from ₹199/month.',
     },
     {
       q: 'Does Clienter run our ad campaigns or schedule posts?',
@@ -144,11 +144,11 @@ export const DIGITAL_MARKETING_AGENCIES: AudiencePageConfig = {
     },
     {
       q: 'Can clients see their own reports and progress?',
-      a: 'Yes. On Pro and above you get a white-label client portal where each client sees their projects, approvals and invoices under your brand — which handles a big part of monthly client reporting for you and makes the retainer feel worth it every time they log in.',
+      a: 'Yes. On Pro and above you get a branded client portal for every client, where each client sees their projects, approvals and invoices under your brand — which handles a big part of monthly client reporting for you and makes the retainer feel worth it every time they log in.',
     },
   ],
   related: [
-    { href: '/features/client-portal', label: 'Client Portal', desc: 'The white-label portal clients log into — under your brand.' },
+    { href: '/features/client-portal', label: 'Client Portal', desc: 'The branded portal clients log into — under your brand.' },
     { href: '/features/project-management', label: 'Project Management', desc: 'Kanban boards, deadlines and budgets for every campaign.' },
     { href: '/for/seo-agencies', label: 'For SEO Agencies', desc: 'The same workspace, tuned for long-game SEO retainers.' },
     { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month with the client portal.' },

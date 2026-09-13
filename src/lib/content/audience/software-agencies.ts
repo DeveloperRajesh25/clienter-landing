@@ -87,7 +87,7 @@ export const SOFTWARE_AGENCIES: AudiencePageConfig = {
       },
       {
         title: '5. Give clients a portal, watch the profit',
-        desc: 'Clients follow progress in a white-label portal instead of pinging engineers, while your dashboard shows paid, outstanding, and real profit on every build.',
+        desc: 'Clients follow progress in a branded portal instead of pinging engineers, while your dashboard shows paid, outstanding, and real profit on every build.',
       },
     ],
   },
@@ -98,7 +98,7 @@ export const SOFTWARE_AGENCIES: AudiencePageConfig = {
       { icon: Users, title: 'Client accounts', desc: 'Every client linked to their projects, team, proposals, and invoices in one profile.' },
       { icon: FolderKanban, title: 'Sprint & project boards', desc: 'Boards with milestones, deadlines, and budgets to track long builds across sprints.' },
       { icon: Briefcase, title: 'Team & allocation', desc: 'Role-based access and assignments so you can see who’s on what across every account.' },
-      { icon: LayoutDashboard, title: 'Client portal', desc: 'A white-label portal that gives clients progress without handing over Jira access.' },
+      { icon: LayoutDashboard, title: 'Client portal', desc: 'A branded portal that gives clients progress without handing over Jira access.' },
       { icon: ReceiptText, title: 'Milestone invoicing', desc: 'GST invoices tied to milestones and retainers, with outstanding balances tracked.' },
       { icon: PieChart, title: 'Profit dashboard', desc: 'Live paid, outstanding, and net profit per project — see which builds actually pay.' },
     ],
@@ -124,8 +124,8 @@ export const SOFTWARE_AGENCIES: AudiencePageConfig = {
   pricing: {
     heading: 'Operations software priced without per-seat pain',
     body: [
-      'Try it free while you validate the fit — the Free plan covers up to 5 clients and 10 projects with the full CRM pipeline, proposals, invoicing, and meetings, free forever and no card required.',
-      'For a working agency, Pro at a launch price of ₹199/month covers up to 30 clients, 60 projects, and 5 team members with the white-label client portal, while Ultra at ₹799/month removes every limit — unlimited clients, projects, and team members — for agencies running many builds at once. Because there’s no per-seat enterprise pricing and no annual lock-in, growing the dev team never means a jump in software cost or a renegotiated contract.',
+      'Try it free while you validate the fit — the Free plan covers up to 3 clients and 5 projects with the full CRM pipeline, proposals, invoicing, and meetings, free forever and no card required.',
+      'For a working agency, Pro at a launch price of ₹199/month covers up to 20 clients, 40 projects, and 5 team members with the branded client portal for every client, while Ultra at ₹799/month removes every limit — unlimited clients, projects, and team members — for agencies running many builds at once. Because there’s no per-seat enterprise pricing and no annual lock-in, growing the dev team never means a jump in software cost or a renegotiated contract.',
     ],
   },
   faqHeading: 'Software agency FAQs',
@@ -144,7 +144,7 @@ export const SOFTWARE_AGENCIES: AudiencePageConfig = {
     },
     {
       q: 'Can clients see project progress without technical tools?',
-      a: 'Yes. Non-technical clients get a white-label client portal where they can follow progress, review deliverables, and see what’s billed — no Jira logins, no engineers pulled off work to write status updates. As agency operations software, it keeps clients informed while the team stays focused.',
+      a: 'Yes. Non-technical clients get a branded client portal where they can follow progress, review deliverables, and see what’s billed — no Jira logins, no engineers pulled off work to write status updates. As agency operations software, it keeps clients informed while the team stays focused.',
     },
   ],
   related: [

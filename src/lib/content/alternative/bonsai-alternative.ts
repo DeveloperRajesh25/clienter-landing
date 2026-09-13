@@ -50,7 +50,7 @@ export const BONSAI_ALTERNATIVE: AlternativePageConfig = {
       { icon: KanbanSquare, title: 'Projects', desc: 'Kanban boards, deadlines, budgets, and tasks for the actual delivery.' },
       { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-ready invoices and quotations with your GSTIN, in rupees.' },
       { icon: Wallet, title: 'Payments & profit', desc: 'Track dues, expenses, and net profit — matched to how you get paid in India.' },
-      { icon: LayoutDashboard, title: 'Client portal', desc: 'A white-label portal where clients view work and download invoices.' },
+      { icon: LayoutDashboard, title: 'Client portal', desc: 'A branded portal where clients view work and download invoices.' },
       { icon: BadgeCheck, title: 'Verified reviews', desc: 'Turn finished projects into credible social proof for the next pitch.' },
     ],
   },
@@ -85,7 +85,7 @@ export const BONSAI_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Pricing in rupees, not dollars',
     body: [
       'This is the heart of it. Bonsai is a paid, USD-priced product; for an Indian freelancer that converts to a meaningful monthly cost with no free tier to grow into.',
-      'Clienter starts free forever (up to 5 clients and 10 projects, full pipeline, invoicing, and meetings). Pro is a launch-priced ₹199/month and adds the white-label client portal and higher limits, while Ultra at ₹799/month removes limits entirely. You can export your data anytime, so switching in — or back out — is never a trap.',
+      'Clienter starts free forever (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings). Pro is a launch-priced ₹199/month and adds the branded client portal for every client and higher limits, while Ultra at ₹799/month removes limits entirely. You can export your data anytime, so switching in — or back out — is never a trap.',
     ],
   },
   faqHeading: 'Bonsai alternative FAQs',

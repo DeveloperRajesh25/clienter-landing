@@ -58,12 +58,12 @@ export const CRM_TERMS: GlossaryTermConfig[] = [
       'A portal is not only a convenience — it sets the tone of the entire engagement. Clients who are onboarded through a clean, professional, single-login space tend to treat the relationship more seriously from day one, and that seriousness usually shows up in how promptly they approve work and settle their invoices.',
     ],
     clienterNote:
-      'Clienter includes a white-label client portal on the Pro and Ultra plans, so clients log in under your brand to track projects, approve work, and pay GST invoices — without a single extra email thread.',
+      'Clienter includes a branded client portal (one client on Free, every client on Pro and Ultra), so clients log in under your brand to track projects, approve work, and pay GST invoices — without a single extra email thread.',
     related: [
       { href: '/features/client-portal', label: 'Client Portal', desc: 'A branded space for every client.' },
       { href: '/features/invoicing', label: 'Invoicing', desc: 'Share and collect GST invoices.' },
       { href: '/client-management-software', label: 'Client Management', desc: 'Every client in one profile.' },
-      { href: '/pricing', label: 'Pricing', desc: 'Client portal on Pro and Ultra.' },
+      { href: '/pricing', label: 'Pricing', desc: 'Client portal on every plan.' },
     ],
     relatedTerms: [
       { term: 'White-label', slug: 'white-label' },

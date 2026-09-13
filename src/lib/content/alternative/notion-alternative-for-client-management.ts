@@ -30,7 +30,7 @@ export const NOTION_ALTERNATIVE: AlternativePageConfig = {
     body: [
       'Notion deserves its fans. As a flexible workspace for docs, notes, wikis, and databases, it’s hard to beat, and a lot of freelancers stitch together an impressive client tracker inside it — a leads database here, a projects board there, a table of invoices they update by hand. For notes and knowledge, Notion is genuinely great.',
       'The honest gap is that Notion is a blank canvas, not a client-management system. You build the structure yourself, and then you maintain it — tweaking templates, fixing formulas, and keeping databases in sync as your business changes. More importantly, it has no real invoicing, no payment or expense tracking, no lead-pipeline automation, and no client portal out of the box. When it’s time to send a GST invoice or have a client sign a proposal, Notion can’t, so you bolt on other tools and copy data between them.',
-      'Clienter is the purpose-built alternative: the structure comes ready. A simple lead pipeline, projects with tasks and budgets, GST invoicing, payment tracking, and a white-label client portal are all there on day one — not a canvas you maintain, but a system that runs your client work for you.',
+      'Clienter is the purpose-built alternative: the structure comes ready. A simple lead pipeline, projects with tasks and budgets, GST invoicing, payment tracking, and a branded client portal are all there on day one — not a canvas you maintain, but a system that runs your client work for you.',
     ],
   },
   whySwitch: {
@@ -40,7 +40,7 @@ export const NOTION_ALTERNATIVE: AlternativePageConfig = {
       { title: 'It’s DIY', desc: 'You design and then maintain the whole system — templates, databases, and formulas — instead of it working out of the box.' },
       { title: 'No real invoicing', desc: 'Notion can hold a table of invoices, but it can’t issue a GST invoice or track payments and expenses for real.' },
       { title: 'No pipeline automation', desc: 'A leads database is static; there’s no built-in pipeline that moves work forward or reminds you what’s next.' },
-      { title: 'No client portal', desc: 'There’s no white-label space for clients to view work, sign, and download invoices without extra add-ons.' },
+      { title: 'No client portal', desc: 'There’s no branded space for clients to view work, sign, and download invoices without extra add-ons.' },
     ],
   },
   clienterFit: {
@@ -51,7 +51,7 @@ export const NOTION_ALTERNATIVE: AlternativePageConfig = {
       { icon: FolderKanban, title: 'Projects & tasks', desc: 'Boards, deadlines, budgets, and tasks for real delivery, built in rather than assembled.' },
       { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-ready invoices and quotations with your GSTIN, in rupees — issued, not just recorded.' },
       { icon: CreditCard, title: 'Payments & expenses', desc: 'Track dues, payments, and expenses that feed a live profit view, no manual tables.' },
-      { icon: LayoutDashboard, title: 'Client portal', desc: 'A white-label portal where clients view work and download invoices, on Pro and Ultra.' },
+      { icon: LayoutDashboard, title: 'Client portal', desc: 'A branded portal where clients view work and download invoices (one client on Free, every client on Pro and Ultra).' },
       { icon: FileSignature, title: 'Proposals & e-sign', desc: 'Send proposals and quotations clients accept and sign digitally.' },
     ],
   },
@@ -79,14 +79,14 @@ export const NOTION_ALTERNATIVE: AlternativePageConfig = {
       'GST invoices and quotations built in',
       'Payment and expense tracking included',
       'A simple Kanban lead pipeline out of the box',
-      'White-label client portal on Pro and Ultra',
+      'Branded client portal (one client on Free, every client on Pro and Ultra)',
     ],
   },
   pricing: {
     heading: 'Pay for a system, not for your own time',
     body: [
       'Notion’s own plans are affordable, and it even has a free tier, so on the sticker it looks cheap. The real cost is hidden elsewhere: the hours you spend designing and maintaining your client system, and the extra tools you bolt on for invoicing, e-signature, and payments because Notion doesn’t do them.',
-      'Clienter charges for the system so you don’t pay in time. It’s free forever for up to 5 clients and 10 projects — pipeline, GST invoicing, and meetings included. Pro is launch-priced at ₹199/month and adds the white-label client portal and higher limits, while Ultra at ₹799/month removes limits entirely. Everything exports, so nothing about trying it locks you in.',
+      'Clienter charges for the system so you don’t pay in time. It’s free forever for up to 3 clients and 5 projects — pipeline, GST invoicing, and meetings included. Pro is launch-priced at ₹199/month and adds the branded client portal for every client and higher limits, while Ultra at ₹799/month removes limits entirely. Everything exports, so nothing about trying it locks you in.',
     ],
   },
   faqHeading: 'Notion alternative FAQs',
@@ -105,7 +105,7 @@ export const NOTION_ALTERNATIVE: AlternativePageConfig = {
     },
     {
       q: 'Does Clienter work for Indian freelancers and GST?',
-      a: 'Yes — it’s built for it. Clienter issues GST-ready invoices and quotations with your GSTIN in rupees, tracks payments the way you collect them in India, and gives clients a white-label portal. Pricing is rupee-first too: free forever to start, Pro at a launch price of ₹199/month, and Ultra at ₹799/month for unlimited use.',
+      a: 'Yes — it’s built for it. Clienter issues GST-ready invoices and quotations with your GSTIN in rupees, tracks payments the way you collect them in India, and gives clients a branded portal. Pricing is rupee-first too: free forever to start, Pro at a launch price of ₹199/month, and Ultra at ₹799/month for unlimited use.',
     },
   ],
   related: [

@@ -27,7 +27,7 @@ export const CLIENTER_VS_MOXIE: ComparePageConfig = {
     heading: 'A US freelancer suite vs an India-built all-in-one',
     body: [
       'Moxie — formerly Hectic — is a comprehensive business-management suite built for solo freelancers. In one place it handles a CRM and leads, proposals, contracts, invoicing, time tracking, projects and tasks, a client portal, scheduling, and even bookkeeping and tax-planning tools. It is designed by and for freelancers, and the workflow from lead to paid is genuinely well thought out.',
-      'Clienter is an all-in-one for Indian freelancers and agencies: a simple lead pipeline, projects with boards and budgets, GST-ready invoicing and quotations, proposals with e-signature, payment and expense tracking with a live profit dashboard, meetings with Google Calendar and Meet, team management with role-based access, and a white-label client portal — all priced in rupees, with GST built in.',
+      'Clienter is an all-in-one for Indian freelancers and agencies: a simple lead pipeline, projects with boards and budgets, GST-ready invoicing and quotations, proposals with e-signature, payment and expense tracking with a live profit dashboard, meetings with Google Calendar and Meet, team management with role-based access, and a branded client portal — all priced in rupees, with GST built in.',
       'Both are strong freelancer suites, so this is about fit, not features. Moxie is US-focused and dollar-priced, with tax tools built around US rules. Clienter is built for Indian billing — GST invoicing, rupee pricing, UPI-friendly payments — with a free-forever plan. If you are a US freelancer, Moxie is excellent; if you bill Indian clients, Clienter is the natural home.',
     ],
   },
@@ -41,15 +41,15 @@ export const CLIENTER_VS_MOXIE: ComparePageConfig = {
     { feature: 'Time tracking', clienter: 'Not the focus', other: 'Built in' },
     { feature: 'Bookkeeping / tax tools', clienter: 'Live profit dashboard (India)', other: 'Yes — US bookkeeping/tax' },
     { feature: 'Payments', clienter: 'UPI-friendly, rupee-first', other: 'USD-oriented' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Yes — client portal' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Yes — client portal' },
     { feature: 'Pricing', clienter: 'Free, or Pro ₹199/mo (launch)', other: 'Paid, priced in USD' },
   ],
   clienterPros: [
     'GST-ready invoicing and quotations, priced in rupees for India',
     'UPI-friendly, rupee-first payments and a live profit dashboard',
     'All-in-one: leads, projects with budgets, invoicing, and a client portal',
-    'Free-forever plan to start (5 clients, 10 projects), no credit card needed',
-    'Team management with role-based access, plus a white-label portal on paid plans',
+    'Free-forever plan to start (3 clients, 5 projects), no credit card needed',
+    'Team management with role-based access, plus a branded portal for every client on paid plans',
   ],
   clienterCons: [
     'No built-in time tracking or a dedicated bookkeeping/tax module',
@@ -72,7 +72,7 @@ export const CLIENTER_VS_MOXIE: ComparePageConfig = {
     heading: 'Pricing: US suite vs rupee-first plans',
     body: [
       'Moxie is a paid subscription priced in US dollars. It started life as Hectic, which was free, but Moxie has since moved to paid plans — so check its current pricing on its own site. Much of its value for US freelancers is in tax-planning and bookkeeping tools that are built around US rules and will not map to Indian GST.',
-      'Clienter is rupee-first. Free is ₹0 forever and covers up to 5 clients and 10 projects with the full pipeline, invoicing, quotations, and meetings. Pro is a launch price of ₹199/month (down from ₹499) for up to 30 clients, 60 projects, 5 team members, and the white-label client portal. Ultra is ₹799/month (down from ₹1,999) for unlimited everything.',
+      'Clienter is rupee-first. Free is ₹0 forever and covers up to 3 clients and 5 projects with the full pipeline, invoicing, quotations, and meetings. Pro is a launch price of ₹199/month (down from ₹499) for up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client. Ultra is ₹799/month (down from ₹1,999) for unlimited everything.',
       'The honest summary: for a US freelancer, Moxie’s price buys a comprehensive, well-designed workspace. For an Indian freelancer or agency, Clienter’s GST invoicing, rupee pricing, UPI-friendly payments, and free plan make it the practical choice.',
     ],
   },
@@ -83,7 +83,7 @@ export const CLIENTER_VS_MOXIE: ComparePageConfig = {
       'Want rupee pricing and UPI-friendly payments, not a dollar subscription',
       'Want a free-forever plan to start on',
       'Want leads, projects, invoicing, and a client portal in one India-built tool',
-      'Want role-based team access and a white-label portal as you grow',
+      'Want role-based team access and a branded portal as you grow',
     ],
   },
   chooseOther: {

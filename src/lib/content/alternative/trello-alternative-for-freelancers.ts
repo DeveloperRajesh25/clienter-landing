@@ -51,7 +51,7 @@ export const TRELLO_ALTERNATIVE: AlternativePageConfig = {
       { icon: Users, title: 'Clients & CRM pipeline', desc: 'One profile per client plus a simple visual pipeline for new leads — the CRM side Trello has no room for.' },
       { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-ready invoices and quotations with your GSTIN, raised in rupees without leaving the tool.' },
       { icon: Wallet, title: 'Payments & profit', desc: 'Track dues, log expenses, and watch a live profit dashboard instead of guessing.' },
-      { icon: LayoutDashboard, title: 'White-label client portal', desc: 'Clients see just their work and download their invoices — without ever touching your board (Pro and Ultra).' },
+      { icon: LayoutDashboard, title: 'Branded client portal', desc: 'Clients see just their work and download their invoices — without ever touching your board (one client on Free, every client on Pro and Ultra).' },
       { icon: FileSignature, title: 'Proposals & e-sign', desc: 'Send proposals clients can accept and sign digitally, turning a “yes” into a project in a click.' },
     ],
   },
@@ -78,7 +78,7 @@ export const TRELLO_ALTERNATIVE: AlternativePageConfig = {
       'The same Kanban, tied to real projects',
       'Client profiles and a visual CRM pipeline built in',
       'GST invoicing, quotations, and payments included',
-      'A white-label portal that shows clients only their work',
+      'A branded portal that shows clients only their work',
       'One tool for the whole business, no bolt-ons',
     ],
   },
@@ -86,7 +86,7 @@ export const TRELLO_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Pricing: one tool instead of a stack',
     body: [
       'Trello has a free tier and paid plans, and that’s fair — but paid Trello buys you more boards, automation, and views, not a way to invoice a client or open a portal. The business features still come from other subscriptions stacked on top.',
-      'Clienter starts free forever — up to 5 clients and 10 projects, with the full lead pipeline, invoicing, and meetings included. Pro is launch-priced at ₹199/month (down from ₹499) and adds the white-label client portal, 30 clients, 60 projects, and 5 team members; Ultra at ₹799/month (down from ₹1,999) removes the limits. You can export your data whenever you like, so nothing about switching is a trap.',
+      'Clienter starts free forever — up to 3 clients and 5 projects, with the full lead pipeline, invoicing, and meetings included. Pro is launch-priced at ₹199/month (down from ₹499) and adds the branded client portal for every client, 20 clients, 40 projects, and 5 team members; Ultra at ₹799/month (down from ₹1,999) removes the limits. You can export your data whenever you like, so nothing about switching is a trap.',
     ],
   },
   faqHeading: 'Trello alternative FAQs',
@@ -105,7 +105,7 @@ export const TRELLO_ALTERNATIVE: AlternativePageConfig = {
     },
     {
       q: 'Does Clienter have a free plan like Trello?',
-      a: 'Yes. Clienter’s free plan is free forever with up to 5 clients and 10 projects, the full lead pipeline, GST invoicing, and meetings — so you can run real client work for free, not just tasks.',
+      a: 'Yes. Clienter’s free plan is free forever with up to 3 clients and 5 projects, the full lead pipeline, GST invoicing, and meetings — so you can run real client work for free, not just tasks.',
     },
   ],
   related: [

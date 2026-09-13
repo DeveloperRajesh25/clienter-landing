@@ -50,7 +50,7 @@ export const HONEYBOOK_ALTERNATIVE: AlternativePageConfig = {
       { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-ready invoices and quotations with your GSTIN, in rupees — not a US template.' },
       { icon: KanbanSquare, title: 'Projects', desc: 'Kanban boards, deadlines, budgets, and tasks to run each shoot or engagement.' },
       { icon: Users, title: 'Clients & pipeline', desc: 'One profile per client plus a simple visual lead pipeline for enquiries.' },
-      { icon: LayoutDashboard, title: 'Client portal', desc: 'A white-label portal where clients view work, sign, and download invoices.' },
+      { icon: LayoutDashboard, title: 'Client portal', desc: 'A branded portal where clients view work, sign, and download invoices.' },
       { icon: Wallet, title: 'Payments & profit', desc: 'Track dues, expenses, and net profit the way you actually get paid in India.' },
     ],
   },
@@ -85,7 +85,7 @@ export const HONEYBOOK_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Priced in rupees, ready for GST',
     body: [
       'This is the honest heart of the comparison. HoneyBook is a paid, USD-priced product; for an Indian creative that converts to a meaningful monthly cost, with no free tier to grow into and no GST invoicing when you need to bill a client properly.',
-      'Clienter starts free forever — up to 5 clients and 10 projects, with the full pipeline, proposals, GST invoicing, and meetings included. Pro is launch-priced at ₹199/month and adds the white-label client portal and higher limits, while Ultra at ₹799/month removes limits entirely. Your data exports anytime, so moving in — or back out — is never a trap.',
+      'Clienter starts free forever — up to 3 clients and 5 projects, with the full pipeline, proposals, GST invoicing, and meetings included. Pro is launch-priced at ₹199/month and adds the branded client portal for every client and higher limits, while Ultra at ₹799/month removes limits entirely. Your data exports anytime, so moving in — or back out — is never a trap.',
     ],
   },
   faqHeading: 'HoneyBook alternative FAQs',

@@ -148,15 +148,15 @@ export const VIDEO_EDITORS: AudiencePageConfig = {
   pricing: {
     heading: 'Priced for an editor, not a post house',
     body: [
-      'Clienter’s Free plan works well for an editor with a handful of clients — up to 5 clients and 10 projects, the full leads and CRM pipeline, proposals, invoicing, and meetings, free forever with no credit card. A big edit fits neatly as one project with milestones as tasks, so even long jobs sit comfortably within the free limits while you get organised.',
-      'As you take on more clients, Pro is a launch-priced ₹199/month (up to 30 clients, 60 projects, and 5 team members) and unlocks the white-label client portal — a branded space where clients see project status and approvals instead of chasing you on WhatsApp. It also fits editors working with a small team of assistants or colourists. Ultra at ₹799/month removes the limits entirely for a growing studio. Remember, your footage still lives in your own storage — Clienter runs the business around it.',
+      'Clienter’s Free plan works well for an editor with a handful of clients — up to 3 clients and 5 projects, the full leads and CRM pipeline, proposals, invoicing, and meetings, free forever with no credit card. A big edit fits neatly as one project with milestones as tasks, so even long jobs sit comfortably within the free limits while you get organised.',
+      'As you take on more clients, Pro is a launch-priced ₹199/month (up to 20 clients, 40 projects, and 5 team members) and opens the branded client portal to every client — a branded space where clients see project status and approvals instead of chasing you on WhatsApp. It also fits editors working with a small team of assistants or colourists. Ultra at ₹799/month removes the limits entirely for a growing studio. Remember, your footage still lives in your own storage — Clienter runs the business around it.',
     ],
   },
   faqHeading: 'Video editor FAQs',
   faqs: [
     {
       q: 'What is the best client management for video editors?',
-      a: 'The best client management for video editors handles the long, payment-heavy side of the work — proposals, project timelines, revision rounds, milestone invoices, and payment tracking — without pretending to store your footage. Clienter does exactly that in one workspace, starting free, with Pro at a launch price of ₹199/month that unlocks a white-label client portal.',
+      a: 'The best client management for video editors handles the long, payment-heavy side of the work — proposals, project timelines, revision rounds, milestone invoices, and payment tracking — without pretending to store your footage. Clienter does exactly that in one workspace, starting free, with Pro at a launch price of ₹199/month that opens a branded client portal to every client.',
     },
     {
       q: 'How do I handle milestone payments for video projects?',
@@ -174,7 +174,7 @@ export const VIDEO_EDITORS: AudiencePageConfig = {
   related: [
     { href: '/features/project-management', label: 'Project Management', desc: 'Project boards with milestones and deadlines.' },
     { href: '/features/invoicing', label: 'Invoicing & Quotations', desc: 'Milestone and GST-ready invoicing in rupees.' },
-    { href: '/features/client-portal', label: 'Client Portal', desc: 'A white-label space for status and approvals.' },
+    { href: '/features/client-portal', label: 'Client Portal', desc: 'A branded space for status and approvals.' },
     { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
   ],
   ctaTitle: 'Run your editing business from brief to final payment',

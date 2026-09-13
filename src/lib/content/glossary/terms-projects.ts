@@ -281,10 +281,10 @@ export const PROJECT_TERMS: GlossaryTermConfig[] = [
       'The same discipline pays off at the other end of the relationship in offboarding, but the start is where the tone is set. In India, where a great deal of freelance work still begins with an informal “let’s start Monday”, having even a lightweight onboarding step — one form, one welcome message, one clear list of what you need — is often what marks the difference between someone who takes on tasks and a business that takes on clients.',
     ],
     clienterNote:
-      'Clienter’s client onboarding and intake forms let you collect a new client’s details and requirements in one structured step, and a white-label client portal gives them a professional home for the engagement from day one — so every client starts the same organised way.',
+      'Clienter’s client onboarding and intake forms let you collect a new client’s details and requirements in one structured step, and a branded client portal gives them a professional home for the engagement from day one — so every client starts the same organised way.',
     related: [
       { href: '/features/client-management', label: 'Client Management', desc: 'Onboard every client the same way.' },
-      { href: '/features/client-portal', label: 'Client Portal', desc: 'A white-label home from day one.' },
+      { href: '/features/client-portal', label: 'Client Portal', desc: 'A branded home from day one.' },
       { href: '/for/freelancers', label: 'For Freelancers', desc: 'Start client work professionally.' },
       { href: '/client-management-software', label: 'Client Management Software', desc: 'Intake forms and client profiles.' },
     ],
@@ -313,7 +313,7 @@ export const PROJECT_TERMS: GlossaryTermConfig[] = [
       'For Indian freelancers and agencies, a simple, repeatable offboarding step turns one-off jobs into a pipeline of repeat and referred work. A short closing routine — deliver the finals, confirm payment, ask for feedback, mention what you could do next — costs a few minutes and compounds over years. The businesses that grow are rarely the ones that only win clients well; they are the ones that also finish well, so clients come back and send others.',
     ],
     clienterNote:
-      'In Clienter you can close a project cleanly — mark deliverables complete, raise the final invoice, and hand the client their white-label portal as a lasting record — then keep the client profile on file, ready for the next project, referral, or retainer.',
+      'In Clienter you can close a project cleanly — mark deliverables complete, raise the final invoice, and hand the client their branded portal as a lasting record — then keep the client profile on file, ready for the next project, referral, or retainer.',
     related: [
       { href: '/features/client-management', label: 'Client Management', desc: 'Close and keep every client on file.' },
       { href: '/features/invoicing', label: 'Invoicing', desc: 'Raise and settle the final invoice.' },

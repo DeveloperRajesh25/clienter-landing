@@ -27,7 +27,7 @@ export const CLIENTER_VS_ZOHO_CRM: ComparePageConfig = {
     heading: 'A feature-rich sales suite vs an all-in-one client workspace',
     body: [
       'Zoho CRM is one of the most established sales CRMs in the world, built by Zoho Corp — an Indian-founded company with a genuinely deep product line. It gives sales teams powerful lead and deal management, workflow automation, analytics, and AI assistance, and it plugs into the wider Zoho ecosystem of 40-plus business apps. For a growing sales team that wants room to scale, it is a serious, well-priced platform.',
-      'Clienter is built for a different job: the freelancer or small agency who wins a handful of clients and then has to deliver the work, invoice for it, and get paid. Instead of a sales-first CRM, it combines a simple Kanban lead pipeline with the things a client-services business runs on every day — project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, and a white-label client portal — in one rupee-first workspace.',
+      'Clienter is built for a different job: the freelancer or small agency who wins a handful of clients and then has to deliver the work, invoice for it, and get paid. Instead of a sales-first CRM, it combines a simple Kanban lead pipeline with the things a client-services business runs on every day — project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, and a branded client portal — in one rupee-first workspace.',
       'So the honest framing is less “which CRM is better” and more “which is built for how you work”. If your day is outbound sales across a team and you want to grow into a large suite, Zoho CRM is an excellent choice. If your day is delivering client work and you want the whole lifecycle in one affordable tool, that is exactly what Clienter is for.',
     ],
   },
@@ -38,7 +38,7 @@ export const CLIENTER_VS_ZOHO_CRM: ComparePageConfig = {
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Separate app (Zoho Projects)' },
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Separate app (Zoho Invoice/Books)' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via other Zoho apps/integrations' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Not a core CRM feature' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core CRM feature' },
     { feature: 'Live profit dashboard', clienter: 'Built in', other: 'Via Zoho Analytics/Books' },
     { feature: 'Sales automation & analytics', clienter: 'Focused, growing', other: 'Extensive' },
     { feature: 'Learning curve', clienter: 'Set up in an afternoon', other: 'Steeper; more to configure' },
@@ -72,7 +72,7 @@ export const CLIENTER_VS_ZOHO_CRM: ComparePageConfig = {
     heading: 'Pricing: a sales CRM vs an all-in-one',
     body: [
       'Zoho CRM is competitively priced for a sales CRM — it offers a free tier for very small teams and paid plans that scale up as you add users and unlock higher tiers. Because Zoho is Indian-founded, rupee pricing is available, which is a real plus. The cost to watch is the total: to match what Clienter does in one place, you would typically add other paid Zoho apps — Projects for delivery, Invoice or Books for billing — and those add up as separate line items and separate logins.',
-      'Clienter keeps it simple and rupee-first. There is a Free plan forever (up to 5 clients and 10 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 30 clients, 60 projects, 5 team members, and the white-label portal), and Ultra at ₹799/month for unlimited everything. There is no per-seat sales-team pricing, because Clienter is not built for a sales floor.',
+      'Clienter keeps it simple and rupee-first. There is a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month for unlimited everything. There is no per-seat sales-team pricing, because Clienter is not built for a sales floor.',
       'The honest summary: Zoho CRM can be very affordable if you only need a sales CRM, but a full client-services setup usually means buying and connecting several Zoho apps. Clienter bundles the pipeline, projects, invoicing, payments, and a portal into one low monthly price.',
     ],
   },

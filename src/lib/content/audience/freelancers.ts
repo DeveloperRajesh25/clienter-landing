@@ -124,8 +124,8 @@ export const FREELANCERS: AudiencePageConfig = {
   pricing: {
     heading: 'Priced for one person, not a sales team',
     body: [
-      'Clienter’s Free plan is genuinely usable for a solo freelancer just starting out — up to 5 clients and 10 projects, the full leads and CRM pipeline, invoicing, and meetings, free forever with no credit card. It’s enough to run your first clients properly instead of from a spreadsheet.',
-      'When you outgrow it, Pro is a launch-priced ₹199/month (up to 30 clients, 60 projects, and 5 team members) and unlocks the white-label client portal. Ultra at ₹799/month removes the limits entirely for when you’re busy enough to think about scaling into a small studio. No per-seat enterprise pricing, no annual lock-in.',
+      'Clienter’s Free plan is genuinely usable for a solo freelancer just starting out — up to 3 clients and 5 projects, the full leads and CRM pipeline, invoicing, and meetings, free forever with no credit card. It’s enough to run your first clients properly instead of from a spreadsheet.',
+      'When you outgrow it, Pro is a launch-priced ₹199/month (up to 20 clients, 40 projects, and 5 team members) and opens the branded client portal to every client. Ultra at ₹799/month removes the limits entirely for when you’re busy enough to think about scaling into a small studio. No per-seat enterprise pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Freelancer FAQs',

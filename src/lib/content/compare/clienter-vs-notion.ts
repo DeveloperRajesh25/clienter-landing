@@ -27,7 +27,7 @@ export const CLIENTER_VS_NOTION: ComparePageConfig = {
     heading: 'Build-your-own-system vs purpose-built for clients',
     body: [
       'Notion is a beautiful, flexible canvas. Docs, wikis, and databases combine into almost anything you can imagine, and its template community means you can start from someone else’s clever setup. For notes, knowledge bases, and lightweight trackers it is a genuine pleasure, and many freelancers happily run their second brain inside it.',
-      'Clienter is built for a specific job rather than any job. It is for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things you’d otherwise hand-build in Notion — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a white-label client portal — already wired together in one workspace.',
+      'Clienter is built for a specific job rather than any job. It is for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things you’d otherwise hand-build in Notion — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — already wired together in one workspace.',
       'So this is less “which is more flexible” and more “which is built for you”. In Notion you can design a CRM from databases, but a database still doesn’t know how to raise a GST invoice, hasn’t collected the payment, and isn’t a client portal — you have to build and maintain all of that yourself. Clienter ties projects to clients, invoices, and payments out of the box, in one rupee-first tool.',
     ],
   },
@@ -38,7 +38,7 @@ export const CLIENTER_VS_NOTION: ComparePageConfig = {
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'DIY with databases & templates' },
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not available (build/track manually)' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Manual / DIY' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Shared pages (not white-label)' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Shared pages (not white-label)' },
     { feature: 'Client → project → invoice link', clienter: 'Native', other: 'You design the relations yourself' },
     { feature: 'Docs & knowledge base', clienter: 'Focused notes', other: 'Best-in-class' },
     { feature: 'Setup effort', clienter: 'Ready out of the box', other: 'You build the system first' },
@@ -49,7 +49,7 @@ export const CLIENTER_VS_NOTION: ComparePageConfig = {
     'GST-ready invoicing and quotations with rupee-first pricing',
     'A live profit dashboard that ties income and expenses to each client',
     'Ready out of the box — no system to design or maintain',
-    'White-label client portal and verified reviews to look established',
+    'Branded client portal and verified reviews to look established',
   ],
   clienterCons: [
     'Not an endlessly flexible, build-anything canvas like Notion',
@@ -65,14 +65,14 @@ export const CLIENTER_VS_NOTION: ComparePageConfig = {
   competitorCons: [
     'DIY — you design and maintain your own CRM and invoice tracker',
     'No native GST invoicing, payment collection, or automated portal',
-    'Shared pages aren’t a true white-label client portal',
+    'Shared pages aren’t a true branded client portal',
     'Your handmade system needs upkeep as it grows',
   ],
   pricing: {
     heading: 'Pricing: a blank canvas vs one ready freelancer plan',
     body: [
       'Notion has a capable free tier and paid plans priced per seat. On paper it looks inexpensive, but the real cost of using it as a client system is the time you spend designing and maintaining databases — and it still won’t raise a GST invoice or collect a payment, so those live in separate tools anyway.',
-      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 5 clients and 10 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (down from ₹499 — up to 30 clients, 60 projects, 5 team members, and the white-label portal), and Ultra at ₹799/month (down from ₹1,999) for unlimited everything. One flat plan covers the whole client-services workflow, no assembly required.',
+      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (down from ₹499 — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month (down from ₹1,999) for unlimited everything. One flat plan covers the whole client-services workflow, no assembly required.',
       'The honest summary: if you love building your own workspace and mostly need docs and databases, Notion’s free tier is fantastic value — but the client-business side (real invoices, payments, a portal) is still on you to build or buy. Clienter bundles all of that into one low monthly price.',
     ],
   },
@@ -110,11 +110,11 @@ export const CLIENTER_VS_NOTION: ComparePageConfig = {
     },
     {
       q: 'Can’t I just build a CRM and invoicing in Notion?',
-      a: 'You can build a CRM and a basic invoice tracker from Notion databases, and many people do. But Notion can’t actually generate a GST-compliant invoice, collect a payment, or provide a true white-label client portal — so those still need other tools. Clienter includes all of it natively, wired to each client, with no upkeep on your side.',
+      a: 'You can build a CRM and a basic invoice tracker from Notion databases, and many people do. But Notion can’t actually generate a GST-compliant invoice, collect a payment, or provide a true branded client portal — so those still need other tools. Clienter includes all of it natively, wired to each client, with no upkeep on your side.',
     },
     {
       q: 'Is Notion’s shared page the same as a client portal?',
-      a: 'Not quite. You can share a Notion page with a client, but it isn’t a branded, white-label portal built for handing over projects, invoices, and updates. Clienter’s client portal (on Pro and Ultra) is purpose-built for that, so clients see a professional, branded space instead of a shared document.',
+      a: 'Not quite. You can share a Notion page with a client, but it isn’t a branded client portal built for handing over projects, invoices, and updates. Clienter’s client portal (one client on Free, every client on Pro and Ultra) is purpose-built for that, so clients see a professional, branded space instead of a shared document.',
     },
     {
       q: 'Which is cheaper, Clienter or Notion?',

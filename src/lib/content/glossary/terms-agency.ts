@@ -25,12 +25,12 @@ export const AGENCY_TERMS: GlossaryTermConfig[] = [
       'Used well, white labelling lets a small team punch well above its weight. Clients assume a polished, branded portal took real money and engineering to build, when in reality you are standing on top of software that does the heavy lifting for a few hundred rupees a month. That perception gap — looking like a bigger, more established operation than your actual headcount suggests — is exactly what helps freelancers and small Indian agencies win larger, more valuable clients.',
     ],
     clienterNote:
-      'Clienter’s client portal is white-labelled on the Pro and Ultra plans: your clients log in to a portal that carries your agency’s name and logo, not Clienter’s. The whole workspace feels like your own product, so the tool reinforces your brand instead of advertising ours.',
+      'Clienter’s client portal carries your agency’s name and logo, not Clienter’s, on every plan — and Ultra goes full white label, with your brand colour and logo across the whole app for you and your teammates. The whole workspace feels like your own product, so the tool reinforces your brand instead of advertising ours.',
     related: [
       { href: '/features/client-portal', label: 'Client Portal', desc: 'A branded portal for every client.' },
       { href: '/for/web-design-agencies', label: 'For Web Design Agencies', desc: 'White-label tools for studios.' },
       { href: '/for/digital-marketing-agencies', label: 'For Marketing Agencies', desc: 'Brand every client touchpoint.' },
-      { href: '/pricing', label: 'Pricing', desc: 'White label on Pro and Ultra.' },
+      { href: '/pricing', label: 'Pricing', desc: 'Full white label on Ultra.' },
     ],
     relatedTerms: [
       { term: 'Client portal', slug: 'client-portal' },
