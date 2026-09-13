@@ -111,7 +111,7 @@ function ProjectHead({
 
       <div className="mb-5 flex shrink-0 items-start justify-between gap-4">
         <div className="min-w-0">
-          <h1 className="truncate text-2xl font-bold tracking-tight text-ink">{PROJECT.name}</h1>
+          <p className="truncate text-2xl font-bold tracking-tight text-ink">{PROJECT.name}</p>
           <div className="mt-2 flex items-center gap-3">
             {statusRing ? <Ring on radius="rounded-full">{statusEl}</Ring> : statusEl}
             <span className="flex items-center gap-1 text-sm text-ink-muted">
@@ -160,7 +160,7 @@ export function ProjectNew({ beat }: SceneProps) {
           Back
         </div>
         <div className="mb-5 shrink-0">
-          <h1 className="text-2xl font-bold tracking-tight text-ink">Create New Project</h1>
+          <p className="text-2xl font-bold tracking-tight text-ink">Create New Project</p>
           <p className="mt-1 text-sm text-ink-muted">Set up a new project for your client</p>
         </div>
 

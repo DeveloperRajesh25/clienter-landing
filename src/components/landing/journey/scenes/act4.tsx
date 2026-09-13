@@ -53,7 +53,7 @@ export function PortalLogin({ beat }: SceneProps) {
             <span className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-500 text-white shadow-soft-md">
               <LogIn className="h-5 w-5" aria-hidden />
             </span>
-            <h1 className="text-xl font-bold tracking-tight text-ink">Client portal</h1>
+            <p className="text-xl font-bold tracking-tight text-ink">Client portal</p>
             <p className="mt-1 text-sm text-ink-muted">
               Sign in with the email and password {STUDIO.name} shared with you.
             </p>
@@ -122,9 +122,9 @@ export function PortalHome({ beat }: SceneProps) {
 
   return (
     <PortalShell nav="/portal">
-      <h1 className="text-2xl font-bold tracking-tight text-ink">
+      <p className="text-2xl font-bold tracking-tight text-ink">
         Welcome back, {CLIENT.first}
-      </h1>
+      </p>
       <p className="mt-1 text-sm text-ink-muted">Here&apos;s where things stand today.</p>
 
       <div className="mt-5 grid grid-cols-4 gap-4">
@@ -191,7 +191,7 @@ export function PortalProject({ beat }: SceneProps) {
       </div>
 
       <div className="flex items-start justify-between gap-4">
-        <h1 className="text-2xl font-bold tracking-tight text-ink">{PROJECT.name}</h1>
+        <p className="text-2xl font-bold tracking-tight text-ink">{PROJECT.name}</p>
         <Badge tone="green">Ongoing</Badge>
       </div>
 
@@ -383,7 +383,7 @@ export function OwnerMessages({ beat }: SceneProps) {
         {/* Thread list */}
         <div className="flex w-[300px] flex-none flex-col border-r border-stone-200/70 bg-white">
           <div className="flex items-center justify-between px-5 py-4">
-            <h1 className="text-lg font-bold tracking-tight text-ink">Messages</h1>
+            <p className="text-lg font-bold tracking-tight text-ink">Messages</p>
             <span className="flex items-center gap-1 text-sm font-semibold text-primary-600">
               <Plus className="h-4 w-4" aria-hidden />
               New

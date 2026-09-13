@@ -241,7 +241,14 @@ export default function LandingPage() {
             {/* Main copy group — centered in the space above the trust strip */}
             <div className="flex flex-1 flex-col items-center justify-center">
               <Reveal>
+                <p className="mb-5 inline-flex items-center gap-2 font-display text-lg font-bold tracking-tight text-gray-900 sm:text-xl">
+                  <Image src="/logo.png" alt="" width={28} height={28} className="h-7 w-7 rounded-md" />
+                  Clienter
+                </p>
+              </Reveal>
+              <Reveal>
                 <h1 className="text-balance font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+                  <span className="sr-only">Clienter: </span>
                   Run your freelance business{' '}
                   <br className="hidden lg:block" />
                   without the{' '}

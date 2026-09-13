@@ -39,7 +39,7 @@ export function ConvertForm({ beat }: SceneProps) {
       <Page>
         <div className="mb-6 flex shrink-0 items-start justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight text-ink">Convert Lead to Client</h1>
+            <p className="text-2xl font-bold tracking-tight text-ink">Convert Lead to Client</p>
             <p className="mt-1 text-sm text-ink-muted">
               Review the lead&apos;s details and set the client&apos;s currency, then save
             </p>
@@ -125,7 +125,7 @@ function ClientHead({ portal }: { portal: boolean }) {
       <Card className="mb-5 shrink-0 !p-6">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
-            <h1 className="truncate text-2xl font-bold tracking-tight text-ink">{CLIENT.name}</h1>
+            <p className="truncate text-2xl font-bold tracking-tight text-ink">{CLIENT.name}</p>
             <p className="mt-1.5 flex items-center gap-2 text-sm text-ink-muted">
               <Phone className="h-4 w-4 text-stone-400" aria-hidden />
               {CLIENT.phone}

@@ -91,7 +91,7 @@ export function PortalReview({ beat }: SceneProps) {
       </div>
 
       <div className="flex items-start justify-between gap-4">
-        <h1 className="text-2xl font-bold tracking-tight text-ink">{PROJECT.name}</h1>
+        <p className="text-2xl font-bold tracking-tight text-ink">{PROJECT.name}</p>
         <Badge tone="blue" icon={CheckCircle2}>
           Completed
         </Badge>
@@ -208,7 +208,7 @@ export function PortalReferral({ beat }: SceneProps) {
           <Gift className="h-5 w-5 text-primary-600" aria-hidden />
         </span>
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-ink">Referrals</h1>
+          <p className="text-2xl font-bold tracking-tight text-ink">Referrals</p>
           <p className="mt-0.5 text-sm text-ink-muted">
             Know someone who needs our services? Introduce us.
           </p>
@@ -298,10 +298,9 @@ export function PublicReviews({ beat }: SceneProps) {
       <div className="text-center">
         <OrgMark
           name={STUDIO.name}
-          src={STUDIO.logo}
           className="mx-auto h-14 w-14 rounded-2xl !text-xl"
         />
-        <h1 className="mt-4 text-3xl font-bold tracking-tight text-ink">{STUDIO.name}</h1>
+        <p className="mt-4 text-3xl font-bold tracking-tight text-ink">{STUDIO.name}</p>
 
         <div className="mt-3 flex items-center justify-center gap-3">
           <span className="text-4xl font-bold tabular-nums text-ink">

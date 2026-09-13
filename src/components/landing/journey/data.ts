@@ -8,10 +8,9 @@
  */
 
 export const STUDIO = {
-  name: 'Webcros',
+  name: 'Nova Studio',
   owner: 'Rajesh',
-  initials: 'W',
-  logo: '/webcros-logo.jpg',
+  initials: 'N',
 } as const
 
 /** Clienter's own mark, as it sits in the owner app's rail. */

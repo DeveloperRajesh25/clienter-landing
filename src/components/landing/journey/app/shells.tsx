@@ -119,7 +119,7 @@ export function OwnerShell({
 
         <div className="px-3 pb-3">
           <span className="flex items-center gap-2.5 rounded-xl border border-stone-200/70 bg-stone-50 px-3 py-2.5">
-            <OrgMark name={STUDIO.name} src={STUDIO.logo} className="h-8 w-8 rounded-lg" />
+            <OrgMark name={STUDIO.name} className="h-8 w-8 rounded-lg" />
             <span className="min-w-0">
               <span className="block truncate text-sm font-semibold text-ink">{STUDIO.name}</span>
               <span className="mt-0.5 inline-flex rounded-full bg-purple-50 px-1.5 py-0.5 text-[10px] font-medium text-purple-700">
@@ -180,7 +180,7 @@ export function PortalShell({
     <div className="flex h-full bg-canvas">
       <aside className="flex w-64 flex-none flex-col border-r border-line bg-white">
         <div className="flex h-16 items-center gap-3 px-5">
-          <OrgMark name={STUDIO.name} src={STUDIO.logo} className="h-9 w-9 rounded-xl" />
+          <OrgMark name={STUDIO.name} className="h-9 w-9 rounded-xl" />
           <span className="min-w-0">
             <span className="block truncate text-sm font-bold text-ink">{STUDIO.name}</span>
             <span className="block text-xs text-ink-muted">Client portal</span>

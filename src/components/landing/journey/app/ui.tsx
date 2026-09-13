@@ -208,7 +208,7 @@ export function PageHead({
         </span>
       )}
       <div className="min-w-0">
-        <h1 className="text-xl font-semibold leading-tight tracking-tight text-ink">{title}</h1>
+        <p className="text-xl font-semibold leading-tight tracking-tight text-ink">{title}</p>
         {sub && <p className="truncate text-xs text-ink-muted">{sub}</p>}
       </div>
       {children}
