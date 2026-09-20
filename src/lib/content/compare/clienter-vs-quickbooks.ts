@@ -34,14 +34,14 @@ export const CLIENTER_VS_QUICKBOOKS: ComparePageConfig = {
     { feature: 'GST-ready invoicing', clienter: 'Yes', other: 'Yes (where available)' },
     { feature: 'Full bookkeeping / ledgers', clienter: 'No', other: 'Yes' },
     { feature: 'Tax reports / filing help', clienter: 'No', other: 'Yes' },
-    { feature: 'Client portal', clienter: 'Yes (Pro & Ultra)', other: 'No' },
+    { feature: 'Client portal', clienter: 'Yes (1 client on Free, all on Pro & Ultra)', other: 'No' },
     { feature: 'Available to new India users', clienter: 'Yes', other: 'Withdrawn for new users (2023)' },
     { feature: 'Pricing', clienter: 'Free, or Pro ₹199/mo (launch)', other: 'Paid accounting tiers' },
   ],
   clienterPros: [
     'Clients, projects, invoicing, and payments in one workspace',
     'GST-ready invoices and rupee pricing',
-    'A white-label client portal and verified reviews',
+    'A branded client portal and verified reviews',
     'Available to new Indian users, with a free plan',
     'Simple enough to run without an accountant',
   ],
@@ -66,7 +66,7 @@ export const CLIENTER_VS_QUICKBOOKS: ComparePageConfig = {
     heading: 'Pricing and the India question',
     body: [
       'Because QuickBooks stopped serving new Indian customers in 2023, price is almost beside the point for someone in India starting fresh — availability is the bigger issue. Verify the current status directly with Intuit before relying on it.',
-      'Clienter is available to new Indian users today, starting free (up to 5 clients and 10 projects, full pipeline, invoicing, and meetings), with Pro at a launch price of ₹199/month and Ultra at ₹799/month. For full accounting, pair Clienter with a GST accounting tool like Zoho Books or your CA — Clienter handles the client, project, and invoicing side.',
+      'Clienter is available to new Indian users today, starting free (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings), with Pro at a launch price of ₹199/month and Ultra at ₹799/month. For full accounting, pair Clienter with a GST accounting tool like Zoho Books or your CA — Clienter handles the client, project, and invoicing side.',
     ],
   },
   chooseClienter: {

@@ -36,7 +36,7 @@ export const SEO_AGENCIES: AudiencePageConfig = {
     body: [
       'A CRM for SEO agencies has a different job than a CRM for a business that closes and delivers in a week. Your results take three to six months to show up, your retainers have to survive that wait, and your clients need to see that work is happening long before the rankings move. Clienter is built for exactly that gap — the months between signing a client and the graph finally proving you were worth it.',
       'Clienter doesn’t run audits or track keyword positions — you keep your specialist SEO tools for the work itself. What it manages is the client relationship around it: the accounts, the monthly deliverables, the retainer billing, the review calls and the visible progress that keeps a client patient through month four when the rankings are still flat.',
-      'Most SEO agencies lose clients not because the work is bad but because the client couldn’t see it. When deliverables live in a spreadsheet the client never opens and updates happen over scattered emails, patience runs out early. Clienter puts every account, project and deliverable in one workspace — with a white-label portal the client can actually log into — so the work is visible the whole way through. It’s built for Indian agencies too: GST-ready invoices, UPI and bank-transfer tracking, and pricing that fits a growing shop.',
+      'Most SEO agencies lose clients not because the work is bad but because the client couldn’t see it. When deliverables live in a spreadsheet the client never opens and updates happen over scattered emails, patience runs out early. Clienter puts every account, project and deliverable in one workspace — with a branded portal the client can actually log into — so the work is visible the whole way through. It’s built for Indian agencies too: GST-ready invoices, UPI and bank-transfer tracking, and pricing that fits a growing shop.',
     ],
   },
   pains: {
@@ -83,7 +83,7 @@ export const SEO_AGENCIES: AudiencePageConfig = {
       },
       {
         title: '4. Make the work visible',
-        desc: 'Share progress through a white-label client portal and monthly review meetings with auto Google Meet links, so the client sees momentum long before the rankings do.',
+        desc: 'Share progress through a branded client portal and monthly review meetings with auto Google Meet links, so the client sees momentum long before the rankings do.',
       },
       {
         title: '5. Bill the retainer and keep it renewing',
@@ -98,7 +98,7 @@ export const SEO_AGENCIES: AudiencePageConfig = {
       { icon: Briefcase, title: 'Client account profiles', desc: 'One profile per client with site access, scope, contacts, files and the full history of what you’ve done.' },
       { icon: FolderKanban, title: 'SEO project boards', desc: 'Every deliverable — audit, content, links, technical fixes — as a card with an owner, deadline and status.' },
       { icon: Repeat, title: 'Retainer projects', desc: 'Set up recurring retainers so monthly scope, billing and renewal dates are tracked, not remembered.' },
-      { icon: Eye, title: 'White-label client portal', desc: 'A branded portal where clients see progress and deliverables — proof of work through the slow months.' },
+      { icon: Eye, title: 'Branded client portal', desc: 'A branded portal where clients see progress and deliverables — proof of work through the slow months.' },
       { icon: CalendarClock, title: 'Monthly review meetings', desc: 'Google Calendar sync and auto Meet links for the review calls that keep long retainers alive.' },
       { icon: ReceiptText, title: 'GST invoices & quotations', desc: 'Recurring, GST-ready invoices that reuse each client’s details and export to PDF in a click.' },
     ],
@@ -124,15 +124,15 @@ export const SEO_AGENCIES: AudiencePageConfig = {
   pricing: {
     heading: 'Priced for a growing SEO shop',
     body: [
-      'The Free plan lets you run your first clients properly — up to 5 clients and 10 projects with the full CRM pipeline, invoicing and meetings, free forever. It’s enough to get one long retainer off spreadsheets and onto a system the client can actually see.',
-      'As you take on more retainers, Pro is a launch-priced ₹199/month (was ₹499; up to 30 clients, 60 projects and 5 team members) and unlocks the white-label client portal — the single biggest lever for keeping SEO clients patient. Ultra at ₹799/month (was ₹1,999) removes the limits for a full agency. No per-seat pricing, no annual lock-in.',
+      'The Free plan lets you run your first clients properly — up to 3 clients and 5 projects with the full CRM pipeline, invoicing and meetings, free forever. It’s enough to get one long retainer off spreadsheets and onto a system the client can actually see.',
+      'As you take on more retainers, Pro is a launch-priced ₹199/month (was ₹499; up to 20 clients, 40 projects and 5 team members) and opens the branded client portal to every client — the single biggest lever for keeping SEO clients patient. Ultra at ₹799/month (was ₹1,999) removes the limits for a full agency. No per-seat pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'SEO agency FAQs',
   faqs: [
     {
       q: 'What is the best CRM for SEO agencies?',
-      a: 'The best CRM for SEO agencies is built around long retainers and slow-to-show results — it tracks deliverables and renewals, and makes the monthly work visible to clients who can’t yet see it in the rankings. Clienter does exactly this, with a white-label client portal, recurring GST invoicing and launch pricing from ₹199/month.',
+      a: 'The best CRM for SEO agencies is built around long retainers and slow-to-show results — it tracks deliverables and renewals, and makes the monthly work visible to clients who can’t yet see it in the rankings. Clienter does exactly this, with a branded client portal, recurring GST invoicing and launch pricing from ₹199/month.',
     },
     {
       q: 'Does Clienter do SEO audits or track keyword rankings?',
@@ -144,12 +144,12 @@ export const SEO_AGENCIES: AudiencePageConfig = {
     },
     {
       q: 'How do I keep SEO clients from churning before results show?',
-      a: 'Make the work visible. Clienter’s white-label portal lets clients see the deliverables you ship every month, and monthly review meetings keep the relationship warm through the slow ramp — so patience lasts long enough for the rankings to catch up. It’s client management, not keyword tracking, but it’s usually what saves the retainer.',
+      a: 'Make the work visible. Clienter’s branded portal lets clients see the deliverables you ship every month, and monthly review meetings keep the relationship warm through the slow ramp — so patience lasts long enough for the rankings to catch up. It’s client management, not keyword tracking, but it’s usually what saves the retainer.',
     },
   ],
   related: [
     { href: '/features/project-management', label: 'Project Management', desc: 'Kanban boards, deadlines and owners for every deliverable.' },
-    { href: '/features/client-portal', label: 'Client Portal', desc: 'The white-label portal that makes your work visible.' },
+    { href: '/features/client-portal', label: 'Client Portal', desc: 'The branded portal that makes your work visible.' },
     { href: '/for/digital-marketing-agencies', label: 'For Digital Marketing Agencies', desc: 'The same workspace for full-service marketing retainers.' },
     { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month with the portal.' },
   ],

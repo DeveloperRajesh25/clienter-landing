@@ -83,7 +83,7 @@ export const SOCIAL_MEDIA_MANAGERS: AudiencePageConfig = {
       },
       {
         title: '4. Keep the client in one place',
-        desc: 'Share a white-label portal where the client sees what’s coming and what’s approved — instead of ten follow-up messages a week across three chat apps.',
+        desc: 'Share a branded portal where the client sees what’s coming and what’s approved — instead of ten follow-up messages a week across three chat apps.',
       },
       {
         title: '5. Invoice on the first, get paid on time',
@@ -98,7 +98,7 @@ export const SOCIAL_MEDIA_MANAGERS: AudiencePageConfig = {
       { icon: Users, title: 'All your clients in one place', desc: 'A profile per brand with tone, assets, logins, contacts and history — so no client lives only in your head.' },
       { icon: FolderKanban, title: 'Content approval boards', desc: 'Move every post through draft, review and approved on a Kanban board, so nothing is posted before sign-off.' },
       { icon: UserPlus, title: 'Client onboarding forms', desc: 'Collect the logo, colours, logins and brand do’s-and-don’ts with one intake form instead of twenty messages.' },
-      { icon: Eye, title: 'White-label client portal', desc: 'A branded portal where clients see what’s planned and approved — under your name, not a group chat.' },
+      { icon: Eye, title: 'Branded client portal', desc: 'A branded portal where clients see what’s planned and approved — under your name, not a group chat.' },
       { icon: ReceiptText, title: 'GST invoices & quotations', desc: 'Recurring, GST-ready invoices that reuse each client’s details and export to PDF in a click.' },
       { icon: Wallet, title: 'Payments, dues & reminders', desc: 'Track who’s paid, who’s due, and your real monthly profit — with reminders that chase for you.' },
     ],
@@ -118,21 +118,21 @@ export const SOCIAL_MEDIA_MANAGERS: AudiencePageConfig = {
       'A profile per brand with assets, logins and tone',
       'One intake form that collects everything up front',
       'GST invoices on schedule with reminders that chase for you',
-      'A white-label portal that looks like a real business',
+      'A branded portal that looks like a real business',
     ],
   },
   pricing: {
     heading: 'Priced for social media rates, not enterprise ones',
     body: [
-      'Start free forever — up to 5 clients and 10 projects with the full CRM pipeline, invoicing and meetings. For a social media manager taking on the first handful of brands, it’s enough to get properly organised before you spend a rupee.',
-      'When the roster grows, Pro is a launch-priced ₹199/month (was ₹499; up to 30 clients, 60 projects and 5 team members) and unlocks the white-label client portal that makes you look like the studio you’re becoming. Ultra at ₹799/month (was ₹1,999) goes unlimited for when you’re running a full content pod. No per-seat pricing, no annual lock-in.',
+      'Start free forever — up to 3 clients and 5 projects with the full CRM pipeline, invoicing and meetings. For a social media manager taking on the first handful of brands, it’s enough to get properly organised before you spend a rupee.',
+      'When the roster grows, Pro is a launch-priced ₹199/month (was ₹499; up to 20 clients, 40 projects and 5 team members) and opens the branded client portal to every client that makes you look like the studio you’re becoming. Ultra at ₹799/month (was ₹1,999) goes unlimited for when you’re running a full content pod. No per-seat pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Social media manager FAQs',
   faqs: [
     {
       q: 'What’s the best client management for social media managers?',
-      a: 'The best client management for social media managers keeps many small clients, their content approvals and their monthly invoices in one place — instead of scattered across DMs. Clienter does exactly that, with content approval boards, onboarding forms, a white-label client portal and recurring GST invoicing, free to start and Pro from ₹199/month.',
+      a: 'The best client management for social media managers keeps many small clients, their content approvals and their monthly invoices in one place — instead of scattered across DMs. Clienter does exactly that, with content approval boards, onboarding forms, a branded client portal and recurring GST invoicing, free to start and Pro from ₹199/month.',
     },
     {
       q: 'Does Clienter schedule or publish my social posts?',

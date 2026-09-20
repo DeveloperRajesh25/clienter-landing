@@ -27,7 +27,7 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     heading: 'A work-OS and a client business are not the same job',
     body: [
       'monday.com is a genuinely flexible work-OS. Its colourful boards, timeline and workload views, dashboards, and powerful automations let teams model almost any process — marketing calendars, product sprints, hiring pipelines, operations. If you want one canvas that a whole team can bend to fit how they work, monday.com is very good at that, and it scales cleanly as the team grows.',
-      'Clienter is built for a narrower, more specific person: the freelancer or small agency who wins a handful of clients and then has to actually deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things a work-OS usually leaves to other tools — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a white-label client portal — all priced for one person, not a department.',
+      'Clienter is built for a narrower, more specific person: the freelancer or small agency who wins a handful of clients and then has to actually deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things a work-OS usually leaves to other tools — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — all priced for one person, not a department.',
       'So the honest framing is less “which is better” and more “which is built for you”. A monday.com board can model your project beautifully, but it still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. monday.com does offer a separate CRM product, but you’re still assembling pieces and paying per seat. Clienter ties projects to clients, invoices, and payments in one rupee-first tool.',
     ],
   },
@@ -38,7 +38,7 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Yes — powerful, many views' },
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via integrations' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Not a core feature' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Client → project → invoice link', clienter: 'Native', other: 'You wire it together yourself' },
     { feature: 'Views & customisation', clienter: 'Focused on client work', other: 'Extremely flexible' },
     { feature: 'Learning curve', clienter: 'Set up in an afternoon', other: 'Flexible, but takes setup' },
@@ -49,7 +49,7 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     'GST-ready invoicing and quotations with rupee-first pricing',
     'A live profit dashboard that ties income and expenses to each client',
     'Simple enough to use the day you sign up — no build-out required',
-    'White-label client portal and verified reviews to look established',
+    'Branded client portal and verified reviews to look established',
   ],
   clienterCons: [
     'Not a general-purpose work-OS — it won’t model every team’s workflow',
@@ -72,7 +72,7 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     heading: 'Pricing: per-seat work-OS vs one flat freelancer plan',
     body: [
       'monday.com offers a free tier for individuals and scales through paid plans priced per seat, often with minimum seat counts. That model is fair for a growing team, but a solo freelancer can end up paying for capacity they never use — and if you want monday’s CRM capabilities, that is typically another product and another line item on top.',
-      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 5 clients and 10 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (down from ₹499 — up to 30 clients, 60 projects, 5 team members, and the white-label portal), and Ultra at ₹799/month (down from ₹1,999) for unlimited everything. There is no per-seat sales model because Clienter is built for a client business, not a sales floor.',
+      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (down from ₹499 — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month (down from ₹1,999) for unlimited everything. There is no per-seat sales model because Clienter is built for a client business, not a sales floor.',
       'The honest summary: if all you need is flexible project boards for a team, monday.com’s free tier goes a long way — but you will still bolt on separate invoicing, a CRM, and a client-portal workaround. Clienter bundles that whole client-services stack into one low monthly price.',
     ],
   },
@@ -110,7 +110,7 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     },
     {
       q: 'monday.com has a CRM — why use Clienter instead?',
-      a: 'monday’s CRM is a separate, seat-priced product focused on sales workflows. Clienter ties its CRM directly to project delivery, GST-ready invoicing, payment tracking, and a white-label client portal, so the client, the work, the invoice, and the payment all live together. For client-services freelancers that connection is the whole point.',
+      a: 'monday’s CRM is a separate, seat-priced product focused on sales workflows. Clienter ties its CRM directly to project delivery, GST-ready invoicing, payment tracking, and a branded client portal, so the client, the work, the invoice, and the payment all live together. For client-services freelancers that connection is the whole point.',
     },
     {
       q: 'Does monday.com do GST invoicing and payments?',

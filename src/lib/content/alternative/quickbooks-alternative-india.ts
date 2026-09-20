@@ -52,7 +52,7 @@ export const QUICKBOOKS_ALTERNATIVE: AlternativePageConfig = {
       { icon: PieChart, title: 'Live profit dashboard', desc: 'Watch net profit across clients and projects update as you work, not at month-end.' },
       { icon: Users, title: 'Clients & CRM pipeline', desc: 'One profile per client plus a simple visual pipeline for new leads.' },
       { icon: FolderKanban, title: 'Projects with budgets', desc: 'Boards, tasks, and per-project budgets so delivery and money stay in the same place.' },
-      { icon: LayoutDashboard, title: 'White-label client portal', desc: 'Clients log in to view work and download their invoices (Pro and Ultra).' },
+      { icon: LayoutDashboard, title: 'Branded client portal', desc: 'Clients log in to view work and download their invoices (one client on Free, every client on Pro and Ultra).' },
     ],
   },
   otherOptions: {
@@ -62,7 +62,7 @@ export const QUICKBOOKS_ALTERNATIVE: AlternativePageConfig = {
       { name: 'Zoho Books', desc: 'A strong, India-first GST accounting product with proper double-entry books and tax filing. If you need full accounting, it’s a natural choice — and it pairs neatly with Clienter for the client and invoicing side.' },
       { name: 'TallyPrime', desc: 'Long-established Indian accounting and GST software, desktop-first and powerful for books — but it isn’t built for client management, proposals, or a portal.' },
       { name: 'Your CA plus clean records', desc: 'Many small businesses simply hand bookkeeping to a chartered accountant. Clienter keeps your invoicing and payment records tidy so there’s less to reconcile.' },
-      { name: 'Refrens and similar', desc: 'Popular Indian invoicing tools that cover billing well, but are lighter on project delivery and a white-label client portal.' },
+      { name: 'Refrens and similar', desc: 'Popular Indian invoicing tools that cover billing well, but are lighter on project delivery and a branded client portal.' },
     ],
   },
   compare: {
@@ -87,7 +87,7 @@ export const QUICKBOOKS_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Pricing, and one honest caveat',
     body: [
       'QuickBooks was a paid subscription — and for new customers in India, it isn’t available to buy at all. That alone is why most people land on this page. Clienter, by contrast, is available today and starts free.',
-      'The free plan is free forever: 5 clients, 10 projects, the full lead pipeline, GST invoicing, and meetings. Pro is launch-priced at ₹199/month (down from ₹499) with the client portal and higher limits, and Ultra is ₹799/month (down from ₹1,999) for unlimited use. One honest caveat: if you also need full accounting and tax filing, budget for a dedicated tool like Zoho Books or your CA alongside it — Clienter handles the client-and-invoicing side, not your ledgers.',
+      'The free plan is free forever: 3 clients, 5 projects, the full lead pipeline, GST invoicing, and meetings. Pro is launch-priced at ₹199/month (down from ₹499) with the client portal for every client and higher limits, and Ultra is ₹799/month (down from ₹1,999) for unlimited use. One honest caveat: if you also need full accounting and tax filing, budget for a dedicated tool like Zoho Books or your CA alongside it — Clienter handles the client-and-invoicing side, not your ledgers.',
     ],
   },
   faqHeading: 'QuickBooks alternative FAQs',

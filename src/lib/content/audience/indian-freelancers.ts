@@ -99,7 +99,7 @@ export const INDIAN_FREELANCERS: AudiencePageConfig = {
       { icon: Wallet, title: 'UPI, bank & TDS tracking', desc: 'Record UPI and bank payments, note the TDS a client deducted, and keep every due accurate.' },
       { icon: KanbanSquare, title: 'Lead & CRM pipeline', desc: 'One pipeline for referrals, platform enquiries, and direct clients — nothing slips.' },
       { icon: Users, title: 'Client profiles', desc: 'Every client, Indian or overseas, in one profile with full history, files, and notes.' },
-      { icon: Handshake, title: 'White-label client portal', desc: 'A branded portal that makes you look established to clients anywhere in the world.' },
+      { icon: Handshake, title: 'Branded client portal', desc: 'A branded portal that makes you look established to clients anywhere in the world.' },
       { icon: PieChart, title: 'Live profit dashboard', desc: 'Your real rupee profit after expenses, fees, and TDS — ready when tax season arrives.' },
     ],
   },
@@ -124,8 +124,8 @@ export const INDIAN_FREELANCERS: AudiencePageConfig = {
   pricing: {
     heading: 'Rupee pricing that fits a freelance income',
     body: [
-      'No dollar subscription that stings a little more at every renewal. Clienter’s Free plan is free forever, priced in rupees — up to 5 clients and 10 projects, the full CRM pipeline, GST invoicing, and meetings — enough to run your first clients properly without paying a paisa or entering a card.',
-      'When you outgrow it, Pro is a launch-priced ₹199/month (was ₹499) — up to 30 clients, 60 projects, and 5 team members — and it unlocks the white-label client portal that quietly impresses clients abroad. Ultra at ₹799/month (was ₹1,999) removes the limits for a busy freelancer or small studio. It’s priced for an Indian freelance income, not an enterprise budget.',
+      'No dollar subscription that stings a little more at every renewal. Clienter’s Free plan is free forever, priced in rupees — up to 3 clients and 5 projects, the full CRM pipeline, GST invoicing, and meetings — enough to run your first clients properly without paying a paisa or entering a card.',
+      'When you outgrow it, Pro is a launch-priced ₹199/month (was ₹499) — up to 20 clients, 40 projects, and 5 team members — and it unlocks the branded client portal that quietly impresses clients abroad. Ultra at ₹799/month (was ₹1,999) removes the limits for a busy freelancer or small studio. It’s priced for an Indian freelance income, not an enterprise budget.',
     ],
   },
   faqHeading: 'Indian freelancer FAQs',

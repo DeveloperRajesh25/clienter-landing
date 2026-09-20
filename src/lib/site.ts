@@ -41,6 +41,7 @@ export const CONTACT = {
   support: 'support@clienter.co.in',
   privacy: 'support@clienter.co.in',
   legal: 'support@clienter.co.in',
+  phone: '+91 96925 44587',
 }
 
 /**

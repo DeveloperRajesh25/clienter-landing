@@ -51,7 +51,7 @@ export const DUBSADO_ALTERNATIVE: AlternativePageConfig = {
       { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-ready invoices and quotations with your GSTIN, in rupees.' },
       { icon: FileSignature, title: 'Proposals & e-sign', desc: 'Send proposals and quotations clients accept and sign digitally.' },
       { icon: Wallet, title: 'Payments & profit', desc: 'Track dues, expenses, and net profit — matched to how you get paid in India.' },
-      { icon: LayoutDashboard, title: 'Client portal', desc: 'A white-label portal where clients view work and download invoices, on Pro and Ultra.' },
+      { icon: LayoutDashboard, title: 'Client portal', desc: 'A branded portal where clients view work and download invoices (one client on Free, every client on Pro and Ultra).' },
     ],
   },
   otherOptions: {
@@ -85,7 +85,7 @@ export const DUBSADO_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Rupee pricing, and no setup weekend',
     body: [
       'Two costs matter here, not one. Dubsado is a paid, USD-priced product, so the rupee bill is higher than the sticker — and there’s the time cost of setting it up before it starts saving you any.',
-      'Clienter starts free forever (up to 5 clients and 10 projects, with the full pipeline, proposals, GST invoicing, and meetings). Pro is launch-priced at ₹199/month and adds the white-label client portal and higher limits, while Ultra at ₹799/month removes limits entirely. It’s ready to use the moment you sign in, and your data exports anytime, so nothing about switching is a trap.',
+      'Clienter starts free forever (up to 3 clients and 5 projects, with the full pipeline, proposals, GST invoicing, and meetings). Pro is launch-priced at ₹199/month and adds the branded client portal for every client and higher limits, while Ultra at ₹799/month removes limits entirely. It’s ready to use the moment you sign in, and your data exports anytime, so nothing about switching is a trap.',
     ],
   },
   faqHeading: 'Dubsado alternative FAQs',
@@ -104,7 +104,7 @@ export const DUBSADO_ALTERNATIVE: AlternativePageConfig = {
     },
     {
       q: 'Does Clienter work for Indian creatives and GST?',
-      a: 'Yes — that’s the whole point of it. Clienter issues GST-ready invoices and quotations with your GSTIN in rupees, tracks payments the way you actually collect them in India, and gives clients a white-label portal to sign and download documents. It’s built for the Indian creative workflow that Dubsado, being US-focused, wasn’t designed around.',
+      a: 'Yes — that’s the whole point of it. Clienter issues GST-ready invoices and quotations with your GSTIN in rupees, tracks payments the way you actually collect them in India, and gives clients a branded portal to sign and download documents. It’s built for the Indian creative workflow that Dubsado, being US-focused, wasn’t designed around.',
     },
   ],
   related: [

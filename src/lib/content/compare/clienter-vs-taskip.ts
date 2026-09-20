@@ -28,7 +28,7 @@ export const CLIENTER_VS_TASKIP: ComparePageConfig = {
   },
   tableHeading: 'Clienter vs Taskip at a glance',
   rows: [
-    { feature: 'Client portal', clienter: 'Yes — white-label (Pro & Ultra)', other: 'Yes' },
+    { feature: 'Client portal', clienter: 'Yes — branded (1 client on Free, all on Pro & Ultra)', other: 'Yes' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Yes' },
     { feature: 'Lead pipeline / CRM', clienter: 'Yes — Kanban pipeline', other: 'Client-focused' },
     { feature: 'GST-ready invoicing', clienter: 'Yes, India-first', other: 'Invoicing available' },
@@ -40,7 +40,7 @@ export const CLIENTER_VS_TASKIP: ComparePageConfig = {
   clienterPros: [
     'Built India-first with GST invoicing and rupee pricing',
     'A lead pipeline and verified reviews across the client lifecycle',
-    'White-label client portal on paid plans',
+    'Branded client portal on every plan (one client on Free)',
     'A genuinely usable free plan to start',
     'Google Calendar and Meet built into meetings',
   ],
@@ -64,7 +64,7 @@ export const CLIENTER_VS_TASKIP: ComparePageConfig = {
   pricing: {
     heading: 'Pricing: check both, but start free with Clienter',
     body: [
-      'Because Taskip’s plans and pricing can change, check its current pricing directly before deciding. What Clienter offers is clear: a free plan forever (up to 5 clients and 10 projects, full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month, and Ultra at ₹799/month for unlimited use.',
+      'Because Taskip’s plans and pricing can change, check its current pricing directly before deciding. What Clienter offers is clear: a free plan forever (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month, and Ultra at ₹799/month for unlimited use.',
       'For Indian freelancers and agencies, the rupee-first pricing and GST-ready invoicing are the practical differentiators. The smartest move with two similar tools is to run a real project through each free trial and keep the one whose workflow you don’t have to fight.',
     ],
   },
@@ -110,12 +110,12 @@ export const CLIENTER_VS_TASKIP: ComparePageConfig = {
     },
     {
       q: 'Is there a free plan?',
-      a: 'Clienter has a free plan forever (up to 5 clients and 10 projects) with no credit card. Check Taskip’s current plans directly, as they can change.',
+      a: 'Clienter has a free plan forever (up to 3 clients and 5 projects) with no credit card. Check Taskip’s current plans directly, as they can change.',
     },
   ],
   related: [
     { href: '/compare/clienter-vs-bonsai', label: 'Clienter vs Bonsai', desc: 'Another all-in-one comparison.' },
-    { href: '/features/client-portal', label: 'Client Portal', desc: 'How Clienter’s white-label portal works.' },
+    { href: '/features/client-portal', label: 'Client Portal', desc: 'How Clienter’s branded portal works.' },
     { href: '/for/web-design-agencies', label: 'For Agencies', desc: 'How Clienter fits agency workflows.' },
     { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
   ],

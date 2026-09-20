@@ -33,7 +33,7 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Light projects' },
     { feature: 'GST-ready invoicing', clienter: 'Yes, India-first', other: 'Invoicing, less India/GST-specific' },
     { feature: 'Accounting reports', clienter: 'Profit view (not full books)', other: 'Stronger accounting reports' },
-    { feature: 'Client portal', clienter: 'Yes (Pro & Ultra)', other: 'Client-facing invoices' },
+    { feature: 'Client portal', clienter: 'Yes (1 client on Free, all on Pro & Ultra)', other: 'Client-facing invoices' },
     { feature: 'Verified reviews', clienter: 'Yes', other: 'No' },
     { feature: 'Pricing', clienter: 'Free, or Pro ₹199/mo (launch)', other: 'Paid, USD-priced tiers' },
   ],
@@ -65,7 +65,7 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
     heading: 'Pricing: USD accounting vs rupee all-in-one',
     body: [
       'FreshBooks is a paid, USD-priced product with tiers based on the number of billable clients. For an Indian freelancer, that converts to a meaningful monthly cost with no free tier to grow into.',
-      'Clienter starts free forever (up to 5 clients and 10 projects), with Pro at a launch price of ₹199/month and Ultra at ₹799/month. If you need heavier accounting, you can keep a dedicated accounting tool alongside Clienter — but for client management plus GST invoicing, Clienter covers it in one affordable plan.',
+      'Clienter starts free forever (up to 3 clients and 5 projects), with Pro at a launch price of ₹199/month and Ultra at ₹799/month. If you need heavier accounting, you can keep a dedicated accounting tool alongside Clienter — but for client management plus GST invoicing, Clienter covers it in one affordable plan.',
     ],
   },
   chooseClienter: {

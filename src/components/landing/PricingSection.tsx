@@ -21,6 +21,9 @@ type Plan = {
   originalPrice?: string
   period: string
   tagline: string
+  /** Heading above the list: "Includes" or "Everything in X, plus" — so the
+   *  stacking between tiers is explicit rather than implied by repetition. */
+  featuresHeading: string
   features: string[]
   cta: string
   popular: boolean
@@ -33,12 +36,13 @@ const PLANS: Plan[] = [
     price: '₹0',
     period: '/month',
     tagline: 'For getting started',
+    featuresHeading: 'Includes',
     features: [
-      'Up to 5 clients',
-      'Up to 10 projects',
-      'Leads & CRM pipeline',
-      'Invoice generation',
-      'Basic analytics',
+      '3 clients, 5 projects, 20 active leads',
+      '1 teammate',
+      'Client portal for 1 client',
+      'Google Calendar & Meet sync',
+      '3 AI quotes & contracts / month',
     ],
     cta: 'Get started free',
     popular: false,
@@ -50,12 +54,13 @@ const PLANS: Plan[] = [
     originalPrice: '₹499',
     period: '/month',
     tagline: 'For growing freelancers',
+    featuresHeading: 'Everything in Free, plus',
     features: [
-      'Up to 30 clients',
-      'Up to 60 projects',
+      '20 clients, 40 projects, 200 active leads',
       'Up to 5 team members',
-      'White-label client portal',
-      'Priority support',
+      'Client portal for every client, unbranded',
+      'Auto-invoicing & automatic lead reminders',
+      '25 AI quotes & contracts / month',
     ],
     cta: 'Start Pro',
     popular: true,
@@ -67,12 +72,13 @@ const PLANS: Plan[] = [
     originalPrice: '₹1,999',
     period: '/month',
     tagline: 'For agencies at scale',
+    featuresHeading: 'Everything in Pro, plus',
     features: [
-      'Unlimited clients',
-      'Unlimited projects',
-      'Unlimited team members',
-      'White-label invoices',
-      'Dedicated support',
+      'Unlimited clients, projects, leads & team',
+      'Team payroll & payslips',
+      'White label — your brand across the app',
+      'Lead integrations: Meta, Google Ads, IndiaMART',
+      '100 AI quotes / month & priority support',
     ],
     cta: 'Start Ultra',
     popular: false,
@@ -81,12 +87,16 @@ const PLANS: Plan[] = [
 ]
 
 // The floor every plan shares — stated once, along the base of the plate,
-// instead of repeating four identical bullets in all three columns.
+// instead of repeating identical bullets in all three columns. These are the
+// tools you get on Free too; the columns above only differ in limits and the
+// handful of paid extras.
 const INCLUDED = [
-  'No card required',
-  'GST-ready invoices',
-  'Cancel anytime',
-  'Export your data anytime',
+  'Clients, projects & tasks',
+  'GST invoices, payments & expenses',
+  'Leads pipeline & e-signed documents',
+  'Client portal with your logo',
+  'Meetings & Google Calendar',
+  'Android app — export anytime',
 ]
 
 /** A drafting-style tick — used to pin the corners of the plate. */
@@ -251,7 +261,11 @@ function PlanColumn({ plan, index }: { plan: Plan; index: number }) {
 
         <div aria-hidden className="mt-8 h-px bg-stone-200/80" />
 
-        <ul className="mt-7 flex-1 space-y-3.5">
+        <p className="mt-7 text-[11px] font-bold uppercase tracking-[0.16em] text-stone-400">
+          {plan.featuresHeading}
+        </p>
+
+        <ul className="mt-4 flex-1 space-y-3.5">
           {plan.features.map((feat) => (
             <li key={feat} className="flex items-start gap-3 text-[15px] leading-snug text-gray-600">
               <Check

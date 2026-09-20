@@ -38,7 +38,7 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'No (needs an add-on/other tool)' },
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via integrations' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Not a core feature' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Marketing automation', clienter: 'Not the focus', other: 'Extensive' },
     { feature: 'Integrations ecosystem', clienter: 'Focused, growing', other: 'Very large' },
     { feature: 'Learning curve', clienter: 'Set up in an afternoon', other: 'Can be steep on paid tiers' },
@@ -49,7 +49,7 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     'GST-ready invoicing and ₹ pricing built for India',
     'Genuinely simple — usable the day you sign up',
     'Freelancer-friendly pricing with no per-seat sales-team model',
-    'Verified reviews and a white-label portal to look established',
+    'Verified reviews and a branded portal to look established',
   ],
   clienterCons: [
     'Not a marketing-automation platform',
@@ -72,7 +72,7 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     heading: 'Pricing: freelancer budget vs team budget',
     body: [
       'HubSpot’s CRM has a well-known free tier, and for a solo user that free CRM can go a long way. The cost question shows up when you need the paid Sales, Marketing, or Service hubs — those are priced for teams and scale up as you add seats and contacts, which can become a serious monthly line item for a one-person business.',
-      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 5 clients and 10 projects, full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 30 clients, 60 projects, 5 team members, and the white-label portal), and Ultra at ₹799/month for unlimited everything. There is no per-seat sales-team pricing because Clienter is not built for a sales floor.',
+      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month for unlimited everything. There is no per-seat sales-team pricing because Clienter is not built for a sales floor.',
       'The honest summary: if you only ever use HubSpot’s free CRM, it costs nothing — but you will still need separate tools for projects, invoicing, and a client portal. Clienter bundles all of that into one low monthly price.',
     ],
   },

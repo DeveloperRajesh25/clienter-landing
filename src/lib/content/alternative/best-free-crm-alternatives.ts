@@ -52,7 +52,7 @@ export const BEST_FREE_CRM_ALTERNATIVES: AlternativePageConfig = {
       { icon: ReceiptText, title: 'Invoicing on free', desc: 'GST-ready invoices and quotations are included, not held back behind a paywall.' },
       { icon: CalendarClock, title: 'Meetings built in', desc: 'Schedule calls with Google Calendar and Meet without another subscription.' },
       { icon: PieChart, title: 'Basic analytics', desc: 'A simple dashboard of your clients, projects, and money — no spreadsheet required.' },
-      { icon: Sparkles, title: 'Free forever, not a trial', desc: '5 clients and 10 projects with no credit card and no countdown timer.' },
+      { icon: Sparkles, title: 'Free forever, not a trial', desc: '3 clients and 5 projects with no credit card and no countdown timer.' },
     ],
   },
   otherOptions: {
@@ -88,7 +88,7 @@ export const BEST_FREE_CRM_ALTERNATIVES: AlternativePageConfig = {
     heading: 'What “free” really costs',
     body: [
       'With most free CRMs, “free” covers a capped list of contacts and little else; the bill arrives the moment you need projects, invoicing, more contacts, or another seat. It’s worth reading the limits before you commit your data to one.',
-      'Clienter’s free plan is free forever — 5 clients, 10 projects, the full lead pipeline, GST invoicing, meetings, and basic analytics, with no card required. When you outgrow it, Pro is launch-priced at ₹199/month (down from ₹499) with the client portal, 30 clients, 60 projects, and 5 team members, and Ultra is ₹799/month (down from ₹1,999) for unlimited use. The pricing is in plain rupees, and you can export your data anytime.',
+      'Clienter’s free plan is free forever — 3 clients, 5 projects, the full lead pipeline, GST invoicing, meetings, and basic analytics, with no card required. When you outgrow it, Pro is launch-priced at ₹199/month (down from ₹499) with the client portal for every client, 20 clients, 40 projects, and 5 team members, and Ultra is ₹799/month (down from ₹1,999) for unlimited use. The pricing is in plain rupees, and you can export your data anytime.',
     ],
   },
   faqHeading: 'Free CRM alternative FAQs',
@@ -107,7 +107,7 @@ export const BEST_FREE_CRM_ALTERNATIVES: AlternativePageConfig = {
     },
     {
       q: 'When should I upgrade from a free plan?',
-      a: 'Upgrade when you hit the client or project limits, or when you need the white-label client portal and team seats. Clienter’s Pro plan adds those at a launch price of ₹199/month, and because you can export your data anytime, you’re never locked in.',
+      a: 'Upgrade when you hit the client or project limits, or when you need the branded client portal for every client and more team seats. Clienter’s Pro plan adds those at a launch price of ₹199/month, and because you can export your data anytime, you’re never locked in.',
     },
   ],
   related: [

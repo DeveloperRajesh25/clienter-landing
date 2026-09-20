@@ -83,7 +83,7 @@ export const PHOTOGRAPHERS: AudiencePageConfig = {
       },
       {
         title: '4. Deliver and collect the balance',
-        desc: 'Share progress and delivery status through the white-label client portal, then raise the GST-ready balance invoice and mark it paid the moment it lands over UPI or bank transfer.',
+        desc: 'Share progress and delivery status through the branded client portal, then raise the GST-ready balance invoice and mark it paid the moment it lands over UPI or bank transfer.',
       },
       {
         title: '5. Turn the album into your next booking',
@@ -124,8 +124,8 @@ export const PHOTOGRAPHERS: AudiencePageConfig = {
   pricing: {
     heading: 'Priced for a studio of one (or a small team)',
     body: [
-      'Clienter’s Free plan is genuinely usable for a photographer starting out — up to 5 clients and 10 projects, the full enquiry pipeline, invoicing, and meetings, free forever with no credit card. It’s enough to run your first season’s bookings properly instead of from a diary.',
-      'When the calendar fills up, Pro is a launch-priced ₹199/month (was ₹499) — up to 30 clients, 60 projects, and 5 team members for your second shooter, editor, and coordinator — and it unlocks the white-label client portal. Ultra at ₹799/month (was ₹1,999) removes the limits entirely for a busy studio. No per-seat enterprise pricing, no annual lock-in.',
+      'Clienter’s Free plan is genuinely usable for a photographer starting out — up to 3 clients and 5 projects, the full enquiry pipeline, invoicing, and meetings, free forever with no credit card. It’s enough to run your first season’s bookings properly instead of from a diary.',
+      'When the calendar fills up, Pro is a launch-priced ₹199/month (was ₹499) — up to 20 clients, 40 projects, and 5 team members for your second shooter, editor, and coordinator — and it unlocks the branded client portal. Ultra at ₹799/month (was ₹1,999) removes the limits entirely for a busy studio. No per-seat enterprise pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Photographer FAQs',
@@ -144,7 +144,7 @@ export const PHOTOGRAPHERS: AudiencePageConfig = {
     },
     {
       q: 'Can clients follow their booking and delivery status?',
-      a: 'Clienter’s white-label client portal gives each client a branded space to track their booking, sign proposals, and follow delivery status — so the “are they ready yet?” messages stop. You still deliver the final gallery however you like, while status and paperwork stay in one professional place.',
+      a: 'Clienter’s branded client portal gives each client a branded space to track their booking, sign proposals, and follow delivery status — so the “are they ready yet?” messages stop. You still deliver the final gallery however you like, while status and paperwork stay in one professional place.',
     },
   ],
   related: [

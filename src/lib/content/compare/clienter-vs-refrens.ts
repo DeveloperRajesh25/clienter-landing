@@ -27,7 +27,7 @@ export const CLIENTER_VS_REFRENS: ComparePageConfig = {
     heading: 'Two strong Indian tools, built around different days',
     body: [
       'Refrens is one of India’s better-known business tools, and it has earned that reputation. It does invoicing genuinely well — GST-ready invoices, professional quotations, expense records, and a stack of business documents that thousands of Indian freelancers and small businesses rely on to get paid. It even includes some CRM and lead tracking. If your day revolves around raising bills and keeping the money side tidy, Refrens is a solid, home-grown choice.',
-      'Clienter comes at the same customer from a different angle. Instead of leading with billing, it leads with the whole client-delivery lifecycle: a simple Kanban lead pipeline to win the work, projects with boards, tasks, and budgets to deliver it, GST-ready invoicing and quotations to bill for it, and a white-label client portal plus verified reviews to look established while you do it. Invoicing is one part of Clienter, not the whole story.',
+      'Clienter comes at the same customer from a different angle. Instead of leading with billing, it leads with the whole client-delivery lifecycle: a simple Kanban lead pipeline to win the work, projects with boards, tasks, and budgets to deliver it, GST-ready invoicing and quotations to bill for it, and a branded client portal plus verified reviews to look established while you do it. Invoicing is one part of Clienter, not the whole story.',
       'So the honest way to frame this is not “which is better” but “which is built around your day”. If you mostly need to invoice and manage the money side, Refrens is excellent at exactly that. If you’re a freelancer or agency who needs to win clients, deliver projects, and bill — all in one workspace — that end-to-end flow is what Clienter is designed for.',
     ],
   },
@@ -39,14 +39,14 @@ export const CLIENTER_VS_REFRENS: ComparePageConfig = {
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Built in — a core strength' },
     { feature: 'Quotations', clienter: 'Built in', other: 'Built in' },
     { feature: 'Payment & expense tracking', clienter: 'Built in + live profit dashboard', other: 'Built in (billing/accounting focus)' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Not a core feature' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Verified client reviews', clienter: 'Built in', other: 'Not a focus' },
     { feature: 'Meetings + Google Calendar/Meet', clienter: 'Built in', other: 'Not a focus' },
     { feature: 'Pricing', clienter: 'Free, or Pro ₹199/mo (launch)', other: 'Free tier; paid plans scale up' },
   ],
   clienterPros: [
     'Pipeline, projects, invoicing, payments, and a portal in one workspace',
-    'White-label client portal (Pro & Ultra) to share work, files, and invoices',
+    'Branded client portal (1 client on Free, all on Pro & Ultra) to share work, files, and invoices',
     'Project delivery built in — boards, tasks, budgets, and retainer projects',
     'GST-ready invoicing plus a live profit dashboard across payments and expenses',
     'Verified reviews and meetings with Google Calendar/Meet, all in ₹ pricing',
@@ -64,7 +64,7 @@ export const CLIENTER_VS_REFRENS: ComparePageConfig = {
   ],
   competitorCons: [
     'Billing-first — not built for end-to-end project delivery',
-    'No white-label client portal for sharing project work with clients',
+    'No branded client portal for sharing project work with clients',
     'Lead and CRM features are lighter than a dedicated client-and-project workspace',
     'Less focused on the freelancer/agency delivery workflow (tasks, budgets, retainers)',
   ],
@@ -72,7 +72,7 @@ export const CLIENTER_VS_REFRENS: ComparePageConfig = {
     heading: 'Pricing: billing tool vs all-in-one workspace',
     body: [
       'Refrens offers a free way to get started and paid plans that unlock more documents, features, and higher limits as you grow. We’re not going to quote specific Refrens numbers here because plans and limits change — check refrens.com for current pricing — but the shape is what you’d expect from a billing-first tool: you pay more as your invoicing and document needs expand.',
-      'Clienter is rupee-first and deliberately simple: a Free plan forever (up to 5 clients and 10 projects, with the pipeline, invoicing, and meetings included), Pro at a launch price of ₹199/month (up to 30 clients, 60 projects, 5 team members, and the white-label client portal), and Ultra at ₹799/month for unlimited everything. Those launch prices are down from ₹499 and ₹1,999 respectively.',
+      'Clienter is rupee-first and deliberately simple: a Free plan forever (up to 3 clients and 5 projects, with the pipeline, invoicing, and meetings included), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client), and Ultra at ₹799/month for unlimited everything. Those launch prices are down from ₹499 and ₹1,999 respectively.',
       'The key point isn’t who is cheaper on any single feature — it’s what the price includes. With Clienter, one low monthly plan covers your pipeline, projects, invoicing, payments, and client portal together, so you’re not bolting a delivery workflow on top of a billing tool.',
     ],
   },
@@ -81,7 +81,7 @@ export const CLIENTER_VS_REFRENS: ComparePageConfig = {
     points: [
       'Are a freelancer or agency who delivers projects, not just invoices',
       'Want a lead pipeline, project boards, and budgets alongside your billing',
-      'Need a white-label client portal to share work, files, and invoices',
+      'Need a branded client portal to share work, files, and invoices',
       'Want a live profit dashboard across payments and expenses in one view',
       'Like verified reviews and meetings built into the same tool as your clients',
     ],
@@ -106,7 +106,7 @@ export const CLIENTER_VS_REFRENS: ComparePageConfig = {
   faqs: [
     {
       q: 'Is Clienter a good Refrens alternative?',
-      a: 'For delivery-focused freelancers and agencies, yes. Both tools do GST-ready invoicing and quotations well, so you don’t give that up. What Clienter adds around it is a lead pipeline, project boards with tasks and budgets, a white-label client portal, and verified reviews — the parts of running client work that a billing-first tool leaves to other apps.',
+      a: 'For delivery-focused freelancers and agencies, yes. Both tools do GST-ready invoicing and quotations well, so you don’t give that up. What Clienter adds around it is a lead pipeline, project boards with tasks and budgets, a branded client portal, and verified reviews — the parts of running client work that a billing-first tool leaves to other apps.',
     },
     {
       q: 'Does Refrens do GST invoicing?',

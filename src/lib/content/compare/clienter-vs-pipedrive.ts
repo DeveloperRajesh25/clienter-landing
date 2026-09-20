@@ -27,7 +27,7 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
     heading: 'A visual sales pipeline vs an all-in-one client workspace',
     body: [
       'Pipedrive is a sales-first CRM famous for one thing done really well: a clean, visual deal pipeline that salespeople genuinely enjoy using. It helps you drag deals through stages, set activity reminders, and keep momentum on outbound sales, with automation and reporting layered on top. For a sales-driven business that lives and breathes its pipeline, Pipedrive is a focused, well-designed tool.',
-      'Clienter is built for a different person: the freelancer or small agency who wins a few clients and then has to deliver the work, invoice for it, and get paid. It pairs a simple Kanban lead pipeline with the things a sales-only CRM leaves out — project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, and a white-label client portal — all in one rupee-first workspace.',
+      'Clienter is built for a different person: the freelancer or small agency who wins a few clients and then has to deliver the work, invoice for it, and get paid. It pairs a simple Kanban lead pipeline with the things a sales-only CRM leaves out — project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, and a branded client portal — all in one rupee-first workspace.',
       'So this is less “which CRM wins” and more “which fits your work”. If your job is moving deals through a sales pipeline all day, Pipedrive is hard to beat at that one thing. If your job is delivering client work and you want the full lifecycle in one affordable tool, that is exactly what Clienter is for.',
     ],
   },
@@ -38,7 +38,7 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Limited (paid add-on)' },
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via integrations' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Not a core feature' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Live profit dashboard', clienter: 'Built in', other: 'Sales reporting, not profit/expenses' },
     { feature: 'Sales automation', clienter: 'Focused, growing', other: 'Strong, sales-focused' },
     { feature: 'Learning curve', clienter: 'Set up in an afternoon', other: 'Easy for sales, quick to learn' },
@@ -49,7 +49,7 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
     'GST-ready invoicing and quotations with rupee-first pricing',
     'Simple to set up and use the same day',
     'A Free plan forever and no per-seat sales-team pricing',
-    'White-label client portal and verified reviews to look established',
+    'Branded client portal and verified reviews to look established',
   ],
   clienterCons: [
     'Its sales pipeline is simpler than Pipedrive’s polished one',
@@ -72,7 +72,7 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
     heading: 'Pricing: sales seats vs an all-in-one',
     body: [
       'Pipedrive is a paid product priced per seat, with tiers that unlock more automation, reporting, and add-ons as you move up. It is reasonable value for a dedicated sales team, but the cost is per user and sales-focused — and it does not include the project delivery, invoicing, or client portal a services business needs, so those become extra tools and extra spend.',
-      'Clienter is rupee-first and all-in-one. There is a Free plan forever (up to 5 clients and 10 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 30 clients, 60 projects, 5 team members, and the white-label portal), and Ultra at ₹799/month for unlimited everything. No per-seat sales-team pricing, because Clienter is not built for a sales floor.',
+      'Clienter is rupee-first and all-in-one. There is a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month for unlimited everything. No per-seat sales-team pricing, because Clienter is not built for a sales floor.',
       'The honest summary: Pipedrive is a strong, well-priced tool if all you need is a sales pipeline. But once you add the tools to actually deliver and bill the work, an all-in-one like Clienter usually costs less and involves far fewer logins.',
     ],
   },

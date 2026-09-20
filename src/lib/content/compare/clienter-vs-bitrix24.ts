@@ -27,7 +27,7 @@ export const CLIENTER_VS_BITRIX24: ComparePageConfig = {
     heading: 'A sprawling business suite vs a focused client workspace',
     body: [
       'Bitrix24 is a genuinely broad business suite. In one platform it bundles a CRM, tasks and projects, team chat, telephony, documents, a website builder, and more — often with a very generous free plan that allows a large number of users. For a business that wants to run many functions from a single vendor and is willing to invest in setup, Bitrix24 packs an enormous amount into one place.',
-      'Clienter takes the opposite approach: rather than doing everything for everyone, it does the client-services lifecycle really well for freelancers and small agencies. It combines a simple Kanban lead pipeline with project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, meetings with Google Calendar sync, and a white-label client portal — all rupee-first and simple enough to use on day one.',
+      'Clienter takes the opposite approach: rather than doing everything for everyone, it does the client-services lifecycle really well for freelancers and small agencies. It combines a simple Kanban lead pipeline with project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, meetings with Google Calendar sync, and a branded client portal — all rupee-first and simple enough to use on day one.',
       'So the honest framing here is breadth versus focus. If you want one platform to run a whole company’s many departments and you have time to configure it, Bitrix24 is remarkably capable. If you want a purpose-built, India-ready tool for winning, delivering, and billing client work without the complexity, that is exactly what Clienter is for.',
     ],
   },
@@ -38,7 +38,7 @@ export const CLIENTER_VS_BITRIX24: ComparePageConfig = {
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Yes — tasks & projects' },
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Invoicing, not India/GST-specific' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Partial; via CRM/integrations' },
-    { feature: 'White-label client portal', clienter: 'Built in (Pro & Ultra)', other: 'Not a core client portal' },
+    { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core client portal' },
     { feature: 'Chat, telephony, extras', clienter: 'Not the focus', other: 'Yes — very broad' },
     { feature: 'Learning curve', clienter: 'Set up in an afternoon', other: 'Steep; a lot to configure' },
     { feature: 'Simplicity for solo users', clienter: 'Purpose-built and light', other: 'Can feel overwhelming' },
@@ -48,7 +48,7 @@ export const CLIENTER_VS_BITRIX24: ComparePageConfig = {
     'A focused, purpose-built tool for client-services work',
     'GST-ready invoicing and quotations with rupee-first pricing',
     'Simple and light — usable the same day, with little setup',
-    'White-label client portal made for showing work to clients',
+    'Branded client portal made for showing work to clients',
     'Freelancer-friendly pricing with no per-seat sales-team model',
   ],
   clienterCons: [
@@ -72,7 +72,7 @@ export const CLIENTER_VS_BITRIX24: ComparePageConfig = {
     heading: 'Pricing: broad suite vs focused all-in-one',
     body: [
       'Bitrix24 is known for a generous free plan — one of its biggest draws — with paid plans that unlock more storage, users, and advanced features. It can be great value for the sheer amount it includes. The trade-off is complexity and fit: it is a broad suite priced and built for whole companies, and it is not tailored to Indian GST invoicing or rupee-first billing, so an Indian freelancer may pay for breadth they never use.',
-      'Clienter is rupee-first and focused. There is a Free plan forever (up to 5 clients and 10 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 30 clients, 60 projects, 5 team members, and the white-label portal), and Ultra at ₹799/month for unlimited everything. Pricing is simple and built for one person or a small team, not a whole company’s departments.',
+      'Clienter is rupee-first and focused. There is a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month for unlimited everything. Pricing is simple and built for one person or a small team, not a whole company’s departments.',
       'The honest summary: Bitrix24 offers extraordinary breadth, and its free plan is hard to match on features alone. But if you only need the client-services lifecycle — done simply, in rupees, and GST-ready — Clienter gives you exactly that without the sprawl.',
     ],
   },
@@ -82,7 +82,7 @@ export const CLIENTER_VS_BITRIX24: ComparePageConfig = {
       'Are a freelancer or small agency doing client-services work',
       'Want a simple, focused tool rather than a sprawling suite',
       'Need GST-ready invoicing and rupee-first pricing',
-      'Want a white-label client portal built for showing work',
+      'Want a branded client portal built for showing work',
       'Want to start today without a heavy configuration project',
     ],
   },
@@ -106,11 +106,11 @@ export const CLIENTER_VS_BITRIX24: ComparePageConfig = {
   faqs: [
     {
       q: 'Is Clienter a good Bitrix24 alternative for freelancers?',
-      a: 'For freelancers and small agencies, yes. Bitrix24 is a powerful, wide-ranging suite, but much of it is aimed at whole companies. Clienter focuses on the client-services lifecycle — pipeline, projects, GST invoicing, payments, and a white-label portal — in one simple, rupee-first workspace, starting free. For solo users, that focus is often a better fit than a sprawling platform.',
+      a: 'For freelancers and small agencies, yes. Bitrix24 is a powerful, wide-ranging suite, but much of it is aimed at whole companies. Clienter focuses on the client-services lifecycle — pipeline, projects, GST invoicing, payments, and a branded portal — in one simple, rupee-first workspace, starting free. For solo users, that focus is often a better fit than a sprawling platform.',
     },
     {
       q: 'Bitrix24 already has CRM and projects — why switch to Clienter?',
-      a: 'Bitrix24 does include a CRM and projects, and that breadth is a real strength. The reasons freelancers switch are focus and fit: Clienter is simpler to run, is built around Indian GST-ready invoicing and rupee pricing, and includes a white-label client portal designed for showing work to clients. If Bitrix24 feels like more platform than you need, Clienter covers the client-services essentials without the complexity.',
+      a: 'Bitrix24 does include a CRM and projects, and that breadth is a real strength. The reasons freelancers switch are focus and fit: Clienter is simpler to run, is built around Indian GST-ready invoicing and rupee pricing, and includes a branded client portal designed for showing work to clients. If Bitrix24 feels like more platform than you need, Clienter covers the client-services essentials without the complexity.',
     },
     {
       q: 'Is Clienter simpler than Bitrix24?',

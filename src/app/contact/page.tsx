@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   Mail,
-  LifeBuoy,
+  Phone,
   Instagram,
   MessageSquare,
   Clock,
@@ -43,11 +43,11 @@ const CHANNELS = [
     href: `mailto:${CONTACT.general}`,
   },
   {
-    icon: LifeBuoy,
-    label: 'Account support',
-    desc: 'Stuck on something? We’ll sort it out.',
-    value: CONTACT.support,
-    href: `mailto:${CONTACT.support}`,
+    icon: Phone,
+    label: 'Call us',
+    desc: 'Prefer talking it through? Give us a ring.',
+    value: CONTACT.phone,
+    href: `tel:${CONTACT.phone.replace(/\s+/g, '')}`,
   },
   {
     icon: Instagram,

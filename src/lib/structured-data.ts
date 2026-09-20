@@ -83,7 +83,8 @@ export function softwareApplicationSchema() {
         name: 'Free',
         price: '0',
         priceCurrency: 'INR',
-        description: 'Up to 5 clients and 10 projects, full leads & CRM pipeline, free forever.',
+        description:
+          'Up to 3 clients, 5 projects, 1 teammate and 20 active leads, client portal for one client, Google Calendar sync, free forever.',
       },
       {
         '@type': 'Offer',
@@ -91,7 +92,7 @@ export function softwareApplicationSchema() {
         price: '199',
         priceCurrency: 'INR',
         description:
-          'Launch offer (was ₹499): up to 30 clients, 60 projects, and 5 team members per month.',
+          'Launch offer (was ₹499): up to 20 clients, 40 projects, 5 team members and 200 active leads, client portal for every client, auto-invoicing and lead reminders, per month.',
       },
       {
         '@type': 'Offer',
@@ -99,7 +100,7 @@ export function softwareApplicationSchema() {
         price: '799',
         priceCurrency: 'INR',
         description:
-          'Launch offer (was ₹1,999): unlimited clients, projects, and team members per month.',
+          'Launch offer (was ₹1,999): unlimited clients, projects, leads and team members, plus payroll, white label and lead integrations, per month.',
       },
     ],
     publisher: { '@id': `${SITE_URL}/#organization` },

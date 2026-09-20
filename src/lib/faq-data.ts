@@ -22,7 +22,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: 'How much does Clienter cost?',
-    a: 'Clienter has three plans: Free (₹0/month, up to 5 clients and 10 projects with the full leads & CRM pipeline), Pro (launch offer ₹199/month, was ₹499 — up to 30 clients, 60 projects, and 5 team members), and Ultra (launch offer ₹799/month, was ₹1,999 — unlimited clients, projects, and team members). You can start free and upgrade anytime, and launch pricing is available for a limited time.',
+    a: 'Clienter has three plans: Free (₹0/month — up to 3 clients, 5 projects, 1 teammate and 20 active leads, plus the client portal for one client and Google Calendar sync), Pro (launch offer ₹199/month, was ₹499 — up to 20 clients, 40 projects, 5 team members and 200 active leads, the portal for every client, auto-invoicing and lead reminders), and Ultra (launch offer ₹799/month, was ₹1,999 — unlimited clients, projects, leads and team members, plus payroll, white label and lead integrations). You can start free and upgrade anytime, and launch pricing is available for a limited time.',
   },
   {
     q: 'Can I invoice in Indian Rupees with GST?',
@@ -30,7 +30,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: 'Can I add my team?',
-    a: 'On Pro you can add up to 5 developers or designers, assign them to projects, and track their payments. Ultra removes the limit entirely so you can run a full agency.',
+    a: 'Yes — even the Free plan includes one teammate. On Pro you can add up to 5 developers or designers, assign them to projects, and track their payments. Ultra removes the limit entirely (and adds team payroll) so you can run a full agency.',
   },
   {
     q: 'How do verified client reviews work?',

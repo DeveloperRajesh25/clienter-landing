@@ -148,8 +148,8 @@ export const CONTENT_WRITERS: AudiencePageConfig = {
   pricing: {
     heading: 'Priced for a writer, not a content agency',
     body: [
-      'Clienter’s Free plan suits a writer just building a client base — up to 5 clients and 10 projects, the full leads and CRM pipeline, proposals, invoicing, and meetings, free forever with no credit card. A handy trick when you write many small pieces: group one client’s articles under a single project and give each piece its own task, so the free limits stretch further while you get organised.',
-      'When you are writing for more clients than that, Pro is a launch-priced ₹199/month (up to 30 clients, 60 projects, and 5 team members) and unlocks the white-label client portal, plus room for retainers with several regular publications. Ultra at ₹799/month removes the limits entirely for a full-time writing business or a small content team. No per-seat enterprise pricing, no annual lock-in.',
+      'Clienter’s Free plan suits a writer just building a client base — up to 3 clients and 5 projects, the full leads and CRM pipeline, proposals, invoicing, and meetings, free forever with no credit card. A handy trick when you write many small pieces: group one client’s articles under a single project and give each piece its own task, so the free limits stretch further while you get organised.',
+      'When you are writing for more clients than that, Pro is a launch-priced ₹199/month (up to 20 clients, 40 projects, and 5 team members) and opens the branded client portal to every client, plus room for retainers with several regular publications. Ultra at ₹799/month removes the limits entirely for a full-time writing business or a small content team. No per-seat enterprise pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Content writer FAQs',

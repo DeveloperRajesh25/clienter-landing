@@ -124,8 +124,8 @@ export const WEB_DEVELOPERS: AudiencePageConfig = {
   pricing: {
     heading: 'Priced for a solo dev, not a procurement team',
     body: [
-      'Clienter’s Free plan runs your first builds properly — up to 5 clients and 10 projects, the full lead pipeline, proposals, GST invoicing, and meetings, free forever with no card required. For a developer taking on their first few paying clients, it replaces the spreadsheet without costing a rupee.',
-      'When you’re juggling more work, Pro is a launch-priced ₹199/month (up to 30 clients, 60 projects, and 5 team members) and unlocks the white-label client portal — handy when you bring in a designer or a second dev. Ultra at ₹799/month removes the limits entirely for a growing studio. No per-seat pricing, no annual lock-in.',
+      'Clienter’s Free plan runs your first builds properly — up to 3 clients and 5 projects, the full lead pipeline, proposals, GST invoicing, and meetings, free forever with no card required. For a developer taking on their first few paying clients, it replaces the spreadsheet without costing a rupee.',
+      'When you’re juggling more work, Pro is a launch-priced ₹199/month (up to 20 clients, 40 projects, and 5 team members) and opens the branded client portal to every client — handy when you bring in a designer or a second dev. Ultra at ₹799/month removes the limits entirely for a growing studio. No per-seat pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Web developer FAQs',
