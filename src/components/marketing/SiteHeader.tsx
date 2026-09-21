@@ -38,6 +38,7 @@ const NAV_ICONS: Record<string, ComponentType<{ className?: string }>> = {
   '/features/invoicing': ReceiptText,
   '/features/client-portal': PanelsTopLeft,
   '/features/verified-reviews': BadgeCheck,
+  '/features': Grid3x3,
   '/time-converter': Clock,
   '/invoice': FileText,
   '/tools/gst-calculator': Percent,

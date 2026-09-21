@@ -241,10 +241,17 @@ export default function LandingPage() {
             {/* Main copy group — centered in the space above the trust strip */}
             <div className="flex flex-1 flex-col items-center justify-center">
               <Reveal>
-                <p className="mb-5 inline-flex items-center gap-2 font-display text-lg font-bold tracking-tight text-gray-900 sm:text-xl">
-                  <Image src="/logo.png" alt="" width={28} height={28} className="h-7 w-7 rounded-md" />
-                  Clienter
-                </p>
+                <Link
+                  href="/agencies"
+                  className="group mb-5 inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-orange-50/80 py-1.5 pl-3 pr-4 text-sm font-medium text-orange-700 shadow-sm backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:border-orange-300 hover:bg-orange-50 hover:shadow-[0_10px_28px_-12px_rgba(249,115,22,0.5)]"
+                >
+                  <span className="inline-flex items-center gap-1 rounded-full bg-orange-500 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white">
+                    <Sparkles className="h-3 w-3" />
+                    New
+                  </span>
+                  Introducing the Marketplace — find verified agencies
+                  <ArrowRight className="h-3.5 w-3.5 -translate-x-0.5 transition-transform duration-200 group-hover:translate-x-0" />
+                </Link>
               </Reveal>
               <Reveal>
                 <h1 className="text-balance font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">

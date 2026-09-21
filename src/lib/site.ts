@@ -154,7 +154,6 @@ export type NavLink = {
 
 /** Primary nav links (used in header + footer). In-page anchors resolve on home. */
 export const NAV_LINKS: NavLink[] = [
-  { href: '/features', label: 'Features' },
   {
     // Core-feature deep-dives. Kept in sync with FEATURE_PAGES in
     // lib/feature-pages.ts (hardcoded here so the huge config isn't pulled into
@@ -192,9 +191,15 @@ export const NAV_LINKS: NavLink[] = [
         label: 'Verified Reviews',
         description: 'Turn completed projects into credible public reviews',
       },
+      {
+        href: '/features',
+        label: 'All solutions',
+        description: 'Every Clienter feature in one place',
+      },
     ],
   },
   { href: '/pricing', label: 'Pricing' },
+  { href: '/agencies', label: 'Marketplace' },
   {
     href: '/tools',
     label: 'Free Tools',
