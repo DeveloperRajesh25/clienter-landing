@@ -13,12 +13,22 @@
 // hidden). These dev-only relaxations never ship to production.
 const isDev = process.env.NODE_ENV !== 'production'
 
+// Business pages + the /agencies marketplace are served on this domain but
+// rendered by the APP (see rewrites below). Those pages load their JS/CSS/fonts
+// from the app origin (the app sets assetPrefix) and the enquiry form may show
+// an hCaptcha — and this CSP header is attached to the proxied responses too,
+// so both have to be allowed here.
+const APP_ORIGIN = (process.env.CLIENTER_APP_ORIGIN || 'https://app.clienter.co.in').replace(/\/$/, '')
+const HCAPTCHA = 'https://hcaptcha.com https://*.hcaptcha.com'
+
 const CSP = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
-  "style-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline' ${APP_ORIGIN} ${HCAPTCHA}${isDev ? " 'unsafe-eval'" : ''}`,
+  `style-src 'self' 'unsafe-inline' ${APP_ORIGIN} ${HCAPTCHA}`,
+  `font-src 'self' ${APP_ORIGIN}`,
   "img-src 'self' data: https:",
-  `connect-src 'self' https://api.web3forms.com${isDev ? ' ws: http://localhost:*' : ''}`,
+  `connect-src 'self' https://api.web3forms.com ${APP_ORIGIN} ${HCAPTCHA}${isDev ? ' ws: http://localhost:*' : ''}`,
+  `frame-src ${HCAPTCHA}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "object-src 'none'",
@@ -72,6 +82,29 @@ const nextConfig = {
         permanent: true,
       },
     ]
+  },
+  // Public business pages live in the APP repo (they read its database) but are
+  // served here, on the indexed apex, for SEO:
+  //   clienter.co.in/agencies/**            → the marketplace directory
+  //   clienter.co.in/<slug>[/reviews|/work] → a business page
+  // `fallback` rewrites only run when NO page or file in this site matches, so
+  // every marketing route keeps winning; the app reserves all of them as slugs
+  // (RESERVED_SLUGS in the app's src/lib/review-links.ts — add new top-level
+  // routes there too). /api/public/* carries the pages' own form posts.
+  async rewrites() {
+    return {
+      beforeFiles: [],
+      afterFiles: [
+        { source: '/agencies', destination: `${APP_ORIGIN}/agencies` },
+        { source: '/agencies/:path*', destination: `${APP_ORIGIN}/agencies/:path*` },
+        { source: '/api/public/:path*', destination: `${APP_ORIGIN}/api/public/:path*` },
+        { source: '/profiles-sitemap.xml', destination: `${APP_ORIGIN}/profiles-sitemap.xml` },
+      ],
+      fallback: [
+        { source: '/:slug([a-z0-9-]{3,60})', destination: `${APP_ORIGIN}/:slug` },
+        { source: '/:slug([a-z0-9-]{3,60})/:path*', destination: `${APP_ORIGIN}/:slug/:path*` },
+      ],
+    }
   },
   async headers() {
     return [
