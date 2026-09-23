@@ -370,14 +370,14 @@ const CLIENT_PORTAL: FeaturePageConfig = {
   intro: {
     heading: 'What is the white-label client portal?',
     body: [
-      'The client portal is a branded space where your clients log in to see everything about their work with you. It carries your agency’s name and logo — not Clienter’s — so it feels like a premium tool you built. Clients access it with a passwordless magic link, so there’s no account to create or password to forget.',
+      'The client portal is a branded space where your clients log in to see everything about their work with you. It carries your agency’s name and logo — not Clienter’s — so it feels like a premium tool you built. You invite a client by email; they get their own password and set a new one the first time they sign in.',
       'Inside, clients can follow project progress, download their invoice PDFs, open files through secure links, and sign proposals and documents digitally. That self-serve experience cuts down the endless “can you send me that again?” emails and makes even a solo freelancer feel like an established agency.',
     ],
   },
   stepsHeading: 'How to use the client portal',
   steps: [
     { title: 'Brand it', desc: 'Add your agency name and logo so the portal looks like your own product, not Clienter’s.' },
-    { title: 'Invite your client', desc: 'Give the client access — they sign in with a secure, passwordless magic link.' },
+    { title: 'Invite your client', desc: 'Switch on their portal and we email them a sign-in link and a temporary password — they choose their own on first use.' },
     { title: 'Share the work', desc: 'Projects, invoices, and files appear in their portal automatically as you work.' },
     { title: 'Let them self-serve', desc: 'Clients download invoices, open files, and sign documents themselves — no back-and-forth.' },
   ],
@@ -386,7 +386,7 @@ const CLIENT_PORTAL: FeaturePageConfig = {
     { icon: Sparkles, title: 'Look bigger than you are', desc: 'A branded portal makes a one-person studio feel like an established agency.' },
     { icon: Handshake, title: 'Build trust', desc: 'A premium, transparent experience reassures clients and wins you bigger work.' },
     { icon: Zap, title: 'Fewer status emails', desc: 'Clients see progress and grab what they need themselves — your inbox thanks you.' },
-    { icon: Lock, title: 'Secure by design', desc: 'Passwordless magic-link access and signed file links keep client data protected.' },
+    { icon: Lock, title: 'Secure by design', desc: 'Each client has their own password, and files open through short-lived signed links.' },
   ],
   whereHeading: 'Where the client portal fits',
   where: [
@@ -398,7 +398,7 @@ const CLIENT_PORTAL: FeaturePageConfig = {
   capabilities: [
     'White-label branding (your name & logo)',
     'Your own domain on Ultra — portal.youragency.com',
-    'Passwordless magic-link sign-in',
+    'Private sign-in for each client, with password reset',
     'Project progress for clients',
     'Invoice PDF downloads',
     'Secure file access via signed links',
@@ -407,7 +407,7 @@ const CLIENT_PORTAL: FeaturePageConfig = {
   faqHeading: 'Client portal FAQs',
   faqs: [
     { q: 'Is the portal branded with my name or Clienter’s?', a: 'Yours. The portal shows your agency’s name and logo, so to your clients it looks like your own product. On Free a small “Powered by Clienter” link sits in the footer; on Pro and Ultra it’s gone, and Ultra can repaint the whole portal in your brand colour.' },
-    { q: 'How do clients log in?', a: 'Clients sign in with a passwordless magic link sent to their email — there’s no account to create or password to remember, which keeps access simple and secure.' },
+    { q: 'How do clients log in?', a: 'With their email address and a password. When you switch a client’s portal on, we email them a temporary password and they pick their own the first time they sign in. If they forget it, there’s a reset link on the sign-in page — and every reset email carries your agency’s branding, not ours.' },
     { q: 'Which plans include the client portal?', a: 'Every plan. On Free you can switch the portal on for one client to try it properly; Pro and Ultra open it to every client.' },
     { q: 'Can the portal run on my own domain?', a: 'Yes, on Ultra — at no extra cost. Your clients sign in at your address, say portal.youragency.com, and the same goes for the proposals, forms and invoice links you send them, so Clienter is nowhere in sight. Tell us the domain you want, add the one DNS record we send you, and we switch it on for you.' },
   ],
