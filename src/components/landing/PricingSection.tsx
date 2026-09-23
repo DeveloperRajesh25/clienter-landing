@@ -77,6 +77,7 @@ const PLANS: Plan[] = [
       'Unlimited clients, projects, leads & team',
       'Team payroll & payslips',
       'White label — your brand across the app',
+      'Client portal on your own domain',
       'Lead integrations: Meta, Google Ads, IndiaMART',
       '100 AI quotes / month & priority support',
     ],

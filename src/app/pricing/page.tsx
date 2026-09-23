@@ -132,6 +132,7 @@ const PLANS: Plan[] = [
     features: [
       'Team payroll — monthly salaries & payslips',
       'White label — your brand colour and logo across the app',
+      'Client portal on your own domain — we set it up for you',
       'Lead integrations: Meta, Google Ads, IndiaMART & webhooks',
       '100 AI-written quotes & contracts a month',
       'Priority support',
@@ -278,6 +279,13 @@ const COMPARE_GROUPS: { group: string; rows: CompareRow[] }[] = [
       {
         label: 'White label',
         hint: 'Your brand colour & logo across the whole app',
+        free: false,
+        pro: false,
+        ultra: true,
+      },
+      {
+        label: 'Your own domain',
+        hint: 'Client portal, documents and forms on portal.youragency.com — set up by us, no extra cost',
         free: false,
         pro: false,
         ultra: true,
