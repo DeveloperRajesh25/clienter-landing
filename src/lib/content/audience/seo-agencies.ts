@@ -100,7 +100,7 @@ export const SEO_AGENCIES: AudiencePageConfig = {
       { icon: Repeat, title: 'Retainer projects', desc: 'Set up recurring retainers so monthly scope, billing and renewal dates are tracked, not remembered.' },
       { icon: Eye, title: 'Branded client portal', desc: 'A branded portal where clients see progress and deliverables — proof of work through the slow months.' },
       { icon: CalendarClock, title: 'Monthly review meetings', desc: 'Google Calendar sync and auto Meet links for the review calls that keep long retainers alive.' },
-      { icon: ReceiptText, title: 'GST invoices & quotations', desc: 'Recurring, GST-compliant invoices that reuse each client’s details and export to PDF in a click.' },
+      { icon: ReceiptText, title: 'GST invoices & quotations', desc: 'Recurring retainer invoices that raise themselves on the billing day, reuse each client’s details and export to a branded PDF.' },
     ],
   },
   compare: {

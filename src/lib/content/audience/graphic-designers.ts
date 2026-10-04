@@ -178,5 +178,5 @@ export const GRAPHIC_DESIGNERS: AudiencePageConfig = {
     { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
   ],
   ctaTitle: 'Run your design business without the revision chaos',
-  ctaSubtitle: 'Create your free account and bring your clients, projects, and invoices into one place today.',
+  ctaSubtitle: 'Create your free account and give every client one branded place for concepts, approvals and invoices.',
 }

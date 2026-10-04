@@ -11,9 +11,9 @@ export const TEMPLATES: TemplateConfig[] = [
     path: '/templates/freelance-contract-template',
     title: 'Freelance Contract Template',
     tagline: 'A plain-language service agreement you can copy and adapt.',
-    metaTitle: 'Free Freelance Contract Template (India) — Copy & Use',
+    metaTitle: 'Free Freelance Contract Template — Copy & Use',
     metaDescription:
-      'A free, plain-language freelance contract template for India. Copy the service agreement, fill in your details, and protect your payment, scope, and IP.',
+      'A free, plain-language freelance contract template. Copy the service agreement, fill in your details, and protect your payment, your scope and your IP.',
     keywords: ['freelance contract template india', 'freelance contract template', 'freelance service agreement'],
     eyebrow: 'Contract template',
     h1: 'Freelance contract',
@@ -36,12 +36,12 @@ The Freelancer will provide the following services:
   [DESCRIBE THE WORK — be specific, e.g. "design and development of a 5-page responsive website"].
 
 2. FEES & PAYMENT
-Total fee: ₹[AMOUNT].
+Total fee: [CURRENCY][AMOUNT].
 Payment schedule: [e.g. 50% advance to begin, 50% on delivery].
 Invoices are due within [7/15/30] days. Late payments may pause ongoing work.
 
 3. REVISIONS
-This fee includes [NUMBER] rounds of revisions. Additional revisions or new scope are billed at ₹[RATE] or by a separate quote.
+This fee includes [NUMBER] rounds of revisions. Additional revisions or new scope are billed at [CURRENCY][RATE] or by a separate quote.
 
 4. TIMELINE
 Estimated delivery: [TIMEFRAME] from receipt of advance and required materials from the Client. Delays caused by late Client feedback extend the timeline accordingly.
@@ -56,7 +56,7 @@ Each party will keep the other's confidential information private and use it onl
 Either party may end this Agreement with [NUMBER] days' written notice. The Client pays for all work completed up to the termination date.
 
 8. GOVERNING LAW
-This Agreement is governed by the laws of India.
+This Agreement is governed by the laws of [COUNTRY / STATE], and the courts of [CITY] have jurisdiction.
 
 Signed:
 Freelancer: __________________________  Date: __________
@@ -75,7 +75,7 @@ Client:     __________________________  Date: __________`,
     ],
     faqHeading: 'Freelance contract FAQs',
     faqs: [
-      { q: 'Is a freelance contract legally binding in India?', a: 'A signed agreement between two competent parties for a lawful purpose can be binding. This template is a plain-language starting point, not legal advice — for significant work, have a professional adapt it to your situation and local law.' },
+      { q: 'Is a freelance contract legally binding?', a: 'In most jurisdictions a signed agreement between two competent parties for a lawful purpose can be binding, but the specifics differ by country and this template does not know where you are. Fill in the governing-law field with your own country or state. It is a plain-language starting point, not legal advice — for significant work, have a professional adapt it to your situation and local law.' },
       { q: 'Do I need a contract for small jobs?', a: 'Even a short written agreement or an email confirming scope, price, revisions, and payment terms is far safer than nothing. Most disputes come from things never being written down.' },
       { q: 'Can I use an e-signature?', a: 'Yes — for most freelance work an e-signature or even a typed confirmation in email is practical. Clienter lets clients accept and e-sign agreements in their portal.' },
     ],
@@ -131,7 +131,7 @@ Not included: [state what's out of scope to prevent creep].
 Final delivery — [date/week], from receipt of advance and materials.
 
 4. INVESTMENT
-Total: ₹[AMOUNT]
+Total: [CURRENCY][AMOUNT]
 Payment terms: [e.g. 50% advance, 50% on delivery].
 
 5. WHY ME
@@ -294,7 +294,7 @@ The following are NOT included and will be quoted separately if needed:
   • Give consolidated feedback within [X] working days
 
 6. REVISIONS
-Included: [NUMBER] rounds. Beyond this, changes are handled as a change order at ₹[RATE].
+Included: [NUMBER] rounds. Beyond this, changes are handled as a change order at [CURRENCY][RATE].
 
 7. CHANGES
 Any change to this scope will be agreed in writing, with any impact on price and timeline stated before work continues.`,
@@ -330,7 +330,7 @@ Any change to this scope will be agreed in writing, with any impact on price and
     path: '/templates/nda-template-freelancers',
     title: 'NDA Template for Freelancers',
     tagline: 'A simple mutual confidentiality agreement.',
-    metaTitle: 'Free NDA Template for Freelancers (India)',
+    metaTitle: 'Free NDA Template for Freelancers',
     metaDescription:
       'A free, plain-language NDA template for freelancers. Copy the mutual confidentiality agreement to protect sensitive information before a project. Not legal advice.',
     keywords: ['nda template freelancers', 'nda template india', 'confidentiality agreement freelance'],
@@ -373,7 +373,7 @@ These obligations apply during the project and for [NUMBER] years after it ends.
 Sharing information grants no ownership or licence beyond the Purpose.
 
 7. GOVERNING LAW
-This Agreement is governed by the laws of India.
+This Agreement is governed by the laws of [COUNTRY / STATE], and the courts of [CITY] have jurisdiction.
 
 Signed:
 Party A: __________________________  Date: __________
@@ -493,9 +493,9 @@ Notes: [Payment due within X days. Thank you for your business.]`,
     path: '/templates/quotation-template',
     title: 'Quotation Template',
     tagline: 'A clean quote layout to price work before it starts.',
-    metaTitle: 'Free Quotation Template (India) — Copy & Use',
+    metaTitle: 'Free Quotation Template — Copy & Use',
     metaDescription:
-      'A free quotation template for freelancers in India. Copy the quote layout, add your line items and terms, and send a professional quote in minutes.',
+      'A free quotation template for freelancers and agencies. Copy the quote layout, add your line items and terms, and send a professional quote in minutes.',
     keywords: ['quotation template', 'quotation format india', 'free quote template'],
     eyebrow: 'Quotation template',
     h1: 'Quotation',
@@ -524,12 +524,12 @@ Valid until: [DATE]
 ------------------------------------------------------------
 Description                              Amount
 ------------------------------------------------------------
-[Item / service 1]                       ₹[____]
-[Item / service 2]                       ₹[____]
-[Item / service 3]                       ₹[____]
+[Item / service 1]                       [CURRENCY][____]
+[Item / service 2]                       [CURRENCY][____]
+[Item / service 3]                       [CURRENCY][____]
 ------------------------------------------------------------
-                          Estimated total:   ₹[____]
-                      (GST extra, if applicable)
+                          Estimated total:   [CURRENCY][____]
+                      ([TAX] extra, if applicable)
 
 TERMS
   • [e.g. 50% advance to begin work]
@@ -548,14 +548,14 @@ Accepted by: __________________  Date: __________`,
     ],
     tips: [
       'Always set a “valid until” date — prices and availability change.',
-      'Note whether GST is extra so the total isn’t misread.',
+      'Note whether tax is extra so the total isn’t misread.',
       'Be specific in descriptions: “5-page website” not “website work”.',
       'A quote isn’t a tax invoice — raise an invoice once work is agreed or done.',
     ],
     faqHeading: 'Quotation FAQs',
     faqs: [
       { q: 'What’s the difference between a quotation and an invoice?', a: 'A quotation is your offer of price before the work; an invoice requests payment after (or as) the work is done and carries GST if you’re registered. A quote is not a tax document.' },
-      { q: 'Should a quotation show GST?', a: 'You can show estimated GST for clarity, but note it’s charged on the final invoice. If you’re not registered, quote without GST.' },
+      { q: 'Should a quotation show tax?', a: 'You can show the estimated tax for clarity, which helps a client comparing totals rather than net figures, but note on the document that it is charged on the final invoice. If you are not registered for sales tax — GST in India, VAT in the UK and EU — quote without it and say so.' },
       { q: 'How long should a quote stay valid?', a: 'Set a validity window — often 7–30 days — so a price you gave weeks ago doesn’t come back to bind you.' },
     ],
     related: [
@@ -599,7 +599,7 @@ Each month, the Freelancer will provide:
 Work outside this scope is quoted and billed separately.
 
 2. FEE
-Monthly retainer: ₹[AMOUNT], payable in advance by the [1st] of each month.
+Monthly retainer: [CURRENCY][AMOUNT], payable in advance by the [1st] of each month.
 
 3. TERM
 This Agreement runs for [NUMBER] months from [START DATE], then continues month-to-month unless cancelled.
@@ -614,10 +614,10 @@ The Freelancer will respond to requests within [X business days] and prioritise 
 Either party may cancel with [NUMBER] days' written notice. The final month is paid in full.
 
 7. REVISIONS & EXTRA WORK
-Anything beyond the monthly scope is agreed in writing and billed at ₹[RATE] before work begins.
+Anything beyond the monthly scope is agreed in writing and billed at [CURRENCY][RATE] before work begins.
 
 8. GOVERNING LAW
-This Agreement is governed by the laws of India.
+This Agreement is governed by the laws of [COUNTRY / STATE], and the courts of [CITY] have jurisdiction.
 
 Signed:
 Freelancer: __________________________  Date: __________

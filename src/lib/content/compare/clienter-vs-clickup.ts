@@ -72,7 +72,7 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
     heading: 'Pricing: per-seat toolbox vs one flat freelancer plan',
     body: [
       'ClickUp has a well-known free tier that is genuinely capable for an individual, and its paid plans are priced per seat. That is reasonable for a team that lives inside the tool all day, but a solo freelancer can pay for a lot of breadth they never touch — and none of those seats add up to GST invoicing, payment collection, or a client portal.',
-      'Clienter keeps it simple: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. One flat plan covers the whole client-services workflow.',
+      'Clienter is deliberately narrower and priced for it: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. One flat plan covers the whole client-services workflow.',
       'The honest summary: if you want one endlessly configurable app for all your work, ClickUp’s free tier is hard to beat on breadth — but you will still run separate tools for invoicing, payments, and a client portal. Clienter bundles that client-business stack into one low monthly price.',
     ],
   },
@@ -128,6 +128,6 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
     { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a tool built for how you actually work',
-  ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',
+  ctaSubtitle: 'Start Clienter free — the same client work, without a weekend of configuration first.',
   asOf: 'July 2026',
 }

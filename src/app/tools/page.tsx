@@ -68,7 +68,7 @@ export default function ToolsHubPage() {
         }
         title="Free tools for freelancers &"
         highlight="agencies"
-        subtitle="Calculators and generators that do the fiddly maths and paperwork of running a freelance business — free, no signup, and built for India."
+        subtitle="Calculators and generators that do the fiddly maths and paperwork of running a client business — free, no signup, and in the currency you bill in. The GST and TDS tools are India-specific; the rest work anywhere."
         crumbs={[
           { name: 'Home', href: '/' },
           { name: 'Free Tools', href: '/tools' },

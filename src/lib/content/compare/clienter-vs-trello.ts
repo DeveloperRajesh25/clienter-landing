@@ -72,7 +72,7 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
     heading: 'Pricing: a board plus add-ons vs one flat freelancer plan',
     body: [
       'Trello has a genuinely useful free tier, and its paid plans are priced per seat. The catch is that the moment you need more than boards — invoicing, payments, a client portal — you are adding Power-Ups and separate apps, each with its own cost and its own login, and none of them are built around Indian GST.',
-      'Clienter keeps it simple: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. One flat plan covers the whole client-services workflow.',
+      'Clienter includes what Trello sells as Power-Ups, in one price: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. One flat plan covers the whole client-services workflow.',
       'The honest summary: if all you will ever need is a simple board, Trello’s free tier is lovely and costs nothing — but the client-business side (invoices, payments, a portal) lives elsewhere. Clienter bundles all of that into one low monthly price.',
     ],
   },
@@ -128,6 +128,6 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
     { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a tool built for how you actually work',
-  ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',
+  ctaSubtitle: 'Start Clienter free — cards, plus the quotes, invoices and client portal no Power-Up adds.',
   asOf: 'July 2026',
 }

@@ -154,5 +154,5 @@ export const FREELANCERS: AudiencePageConfig = {
     { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
   ],
   ctaTitle: 'Run your freelance business without the chaos',
-  ctaSubtitle: 'Create your free account and bring your clients, projects, and invoices into one place today.',
+  ctaSubtitle: 'Create your free account and stop running your client work out of four different apps.',
 }

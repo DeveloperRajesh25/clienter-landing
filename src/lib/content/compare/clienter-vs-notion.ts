@@ -72,7 +72,7 @@ export const CLIENTER_VS_NOTION: ComparePageConfig = {
     heading: 'Pricing: a blank canvas vs one ready freelancer plan',
     body: [
       'Notion has a capable free tier and paid plans priced per seat. On paper it looks inexpensive, but the real cost of using it as a client system is the time you spend designing and maintaining databases — and it still won’t raise a GST invoice or collect a payment, so those live in separate tools anyway.',
-      'Clienter keeps it simple: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. One flat plan covers the whole client-services workflow, no assembly required.',
+      'Clienter costs money so your weekends do not: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. One flat plan covers the whole client-services workflow, no assembly required.',
       'The honest summary: if you love building your own workspace and mostly need docs and databases, Notion’s free tier is fantastic value — but the client-business side (real invoices, payments, a portal) is still on you to build or buy. Clienter bundles all of that into one low monthly price.',
     ],
   },
@@ -128,6 +128,6 @@ export const CLIENTER_VS_NOTION: ComparePageConfig = {
     { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a tool built for how you actually work',
-  ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',
+  ctaSubtitle: 'Start Clienter free — the client workspace you were about to spend three weekends building.',
   asOf: 'July 2026',
 }

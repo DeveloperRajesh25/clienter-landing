@@ -128,6 +128,6 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a CRM built for how you actually work',
-  ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',
+  ctaSubtitle: 'Start Clienter free — a pipeline that ends in a paid invoice rather than a closed deal.',
   asOf: 'July 2026',
 }

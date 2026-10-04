@@ -8,6 +8,7 @@ import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { ToolInteractive } from '@/components/tools/ToolInteractive'
+import { ToolQualifier } from '@/components/tools/ToolQualifier'
 import type { ToolConfig } from '@/lib/content/tools/_type'
 
 /** Renders one `/tools/<slug>` page: the tool (client island) + SEO content. */
@@ -98,6 +99,11 @@ export function ToolPage({ config }: { config: ToolConfig }) {
           </div>
         </section>
       )}
+
+      {/* One qualifying question, then an honest recommendation. Placed above the
+          FAQ so it is seen right after the tool has been used, which is the only
+          moment the visitor is thinking about their own situation. */}
+      <ToolQualifier campaign={path} />
 
       {/* FAQ */}
       <section className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 sm:pb-24 lg:px-8">

@@ -99,7 +99,7 @@ export const SOCIAL_MEDIA_MANAGERS: AudiencePageConfig = {
       { icon: FolderKanban, title: 'Content approval boards', desc: 'Move every post through draft, review and approved on a Kanban board, so nothing is posted before sign-off.' },
       { icon: UserPlus, title: 'Client onboarding forms', desc: 'Collect the logo, colours, logins and brand do’s-and-don’ts with one intake form instead of twenty messages.' },
       { icon: Eye, title: 'Branded client portal', desc: 'A branded portal where clients see what’s planned and approved — under your name, not a group chat.' },
-      { icon: ReceiptText, title: 'GST invoices & quotations', desc: 'Recurring, GST-compliant invoices that reuse each client’s details and export to PDF in a click.' },
+      { icon: ReceiptText, title: 'GST invoices & quotations', desc: 'Monthly invoices in the client’s own currency, reusing their details, exported to a branded PDF in a click.' },
       { icon: Wallet, title: 'Payments, dues & reminders', desc: 'Track who’s paid, who’s due, and your real monthly profit — with reminders that chase for you.' },
     ],
   },

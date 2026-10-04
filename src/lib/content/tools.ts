@@ -40,9 +40,9 @@ export const TOOLS: ToolConfig[] = [
     title: 'Freelance Rate Calculator',
     tagline: 'Work out the hourly and day rate you actually need to charge.',
     kind: 'calculator',
-    metaTitle: 'Freelance Rate Calculator (India) — Hourly & Day Rate',
+    metaTitle: 'Freelance Rate Calculator — Hourly & Day Rate',
     metaDescription:
-      'Free freelance hourly rate calculator for India. Enter your income goal, costs, and billable hours to get the hourly and day rate you should charge.',
+      'Free freelance hourly rate calculator in 9 currencies. Enter your income goal, costs and billable hours to get the hourly and day rate you should charge.',
     keywords: ['freelance hourly rate calculator india', 'freelance rate calculator', 'how much to charge freelance'],
     eyebrow: 'Rate calculator',
     h1: 'Freelance rate',
@@ -69,7 +69,7 @@ export const TOOLS: ToolConfig[] = [
     faqs: [
       { q: 'How many billable hours should I assume?', a: 'Be realistic — most solo freelancers bill 20–30 hours a week once admin, sales, and invoicing are removed from a full week. Overestimating billable hours is the top reason freelance rates come out too low.' },
       { q: 'Should I charge hourly or a fixed price?', a: 'Use the hourly rate to sanity-check fixed quotes: estimate the hours, multiply by your rate, then present a fixed price. Clients often prefer a fixed number, but your hourly rate keeps that number profitable.' },
-      { q: 'Does this include GST or tax?', a: 'The buffer gives you headroom for tax and quiet periods, but it is not a tax calculation. Set money aside for income tax and, if registered, add GST on top of your rate when you invoice.' },
+      { q: 'Does this include tax?', a: 'No — the buffer gives you headroom for tax and quiet periods, but it is not a tax calculation. Set money aside for income tax, and add whatever sales tax applies where you invoice (GST in India, VAT in the UK and EU, and so on) on top of your rate when you invoice.' },
     ],
     related: [
       { href: '/tools/project-cost-calculator', label: 'Project Cost Calculator', desc: 'Price a whole project, not just an hour.' },
@@ -89,7 +89,7 @@ export const TOOLS: ToolConfig[] = [
     kind: 'calculator',
     metaTitle: 'Project Cost Calculator — Estimate & Quote a Project',
     metaDescription:
-      'Free project cost estimator for freelancers. Enter hours, rate, materials, and margin to get your total cost and a profitable quote in ₹.',
+      'Free project cost estimator for freelancers and agencies. Enter hours, rate, materials and margin to get your total cost and a profitable quote, in 9 currencies.',
     keywords: ['project cost calculator', 'project cost estimator', 'how to quote a project'],
     eyebrow: 'Project cost',
     h1: 'Project cost',
@@ -228,7 +228,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'Profit Margin Calculator',
     tagline: 'Turn revenue and cost into profit, margin, and markup.',
     kind: 'calculator',
-    metaTitle: 'Profit Margin Calculator — Margin & Markup in ₹',
+    metaTitle: 'Profit Margin Calculator — Margin vs Markup',
     metaDescription:
       'Free profit margin calculator. Enter revenue and cost to get your profit, profit margin percentage, and markup — for any project or your whole business.',
     keywords: ['profit margin calculator', 'margin vs markup', 'profit calculator'],
@@ -242,7 +242,7 @@ export const TOOLS: ToolConfig[] = [
         heading: 'Margin vs markup — the difference that trips people up',
         body: [
           'Profit is simple: revenue minus cost. Where freelancers get confused is margin versus markup, because they use the same profit number against a different base. Margin expresses profit as a percentage of the price you charged; markup expresses it as a percentage of what it cost you.',
-          'That difference is bigger than it sounds. A 50% markup on a ₹10,000 cost gives a ₹15,000 price — but that is only a 33% margin, because the profit is a third of the price, not half. Mixing them up is how a business that thinks it runs on healthy margins quietly runs on thin ones.',
+          'That difference is bigger than it sounds. A 50% markup on a cost of 10,000 gives a price of 15,000 — but that is only a 33% margin, because the profit is a third of the price, not half. Mixing them up is how a business that thinks it runs on healthy margins quietly runs on thin ones.',
         ],
       },
       {
@@ -275,7 +275,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'Retainer Calculator',
     tagline: 'Price a monthly retainer and see its effective hourly rate.',
     kind: 'calculator',
-    metaTitle: 'Retainer Calculator — Price a Monthly Retainer in ₹',
+    metaTitle: 'Retainer Calculator — Price a Monthly Retainer',
     metaDescription:
       'Free retainer pricing calculator for freelancers. Enter reserved hours, your rate, and a discount to price a monthly retainer and its total contract value.',
     keywords: ['retainer calculator', 'retainer pricing calculator', 'how to price a retainer'],
@@ -369,9 +369,9 @@ export const TOOLS: ToolConfig[] = [
     title: 'Quotation Generator',
     tagline: 'Turn line items into a clean, shareable quotation.',
     kind: 'docgen',
-    metaTitle: 'Free Quotation Generator (India) — Make a Quote',
+    metaTitle: 'Free Quotation Generator — Make a Quote Online',
     metaDescription:
-      'Free quotation generator for freelancers. Add your line items and terms to build a clean, professional quote in ₹ you can copy or download in seconds.',
+      'Free quotation generator for freelancers and agencies. Add line items and terms to build a clean, professional quote you can copy or download in seconds.',
     keywords: ['quotation generator', 'quotation generator india', 'free quote maker'],
     eyebrow: 'Quotation',
     h1: 'Quotation',
@@ -397,7 +397,7 @@ export const TOOLS: ToolConfig[] = [
     faqHeading: 'Quotation FAQs',
     faqs: [
       { q: 'What is the difference between a quotation and an invoice?', a: 'A quotation is your offer of price before the work; an invoice requests payment after (or as) the work is done and, if you’re registered, carries GST. A quote is not a tax document.' },
-      { q: 'Should a quotation include GST?', a: 'You can show estimated GST on a quote for clarity, but the actual tax is charged on the invoice. If you are not GST-registered, quote without it.' },
+      { q: 'Should a quotation include tax?', a: 'You can show the estimated tax on a quote for clarity, and it helps a client who is comparing totals rather than net figures. The actual tax is charged on the invoice, not the quote. If you are not registered for sales tax — GST in India, VAT in the UK and EU — quote without it and say so on the document, so nobody is surprised later.' },
       { q: 'How long should a quote stay valid?', a: 'Set a validity period — often 7–30 days — so an old price doesn’t bind you. This generator includes a “valid until” field for exactly that.' },
     ],
     related: [
@@ -463,7 +463,7 @@ export const TOOLS: ToolConfig[] = [
     title: 'Contract Generator',
     tagline: 'Draft a plain-language freelance agreement in minutes.',
     kind: 'docgen',
-    metaTitle: 'Free Freelance Contract Template Generator (India)',
+    metaTitle: 'Free Freelance Contract Template Generator',
     metaDescription:
       'Free freelance contract generator. Fill in the parties, fee, and terms to draft a plain-language service agreement you can copy or download. Not legal advice.',
     keywords: ['freelance contract template india', 'contract generator', 'freelance agreement'],
@@ -523,7 +523,7 @@ export const TOOLS: ToolConfig[] = [
       {
         heading: 'How to chase a late payment (without the awkwardness)',
         body: [
-          'The best reminders are calm, specific, and easy to act on. Reference the exact invoice number and amount, state the due date, and make it simple to pay — offer to resend the invoice or share UPI/bank details. A friendly nudge is usually enough the first time; most late payments are oversight, not refusal.',
+          'The best reminders are calm, specific, and easy to act on. Reference the exact invoice number and amount, state the due date, and make it simple to pay — offer to resend the invoice or share bank or UPI details. A friendly nudge is usually enough the first time; most late payments are oversight, not refusal.',
           'If a friendly reminder goes unanswered, escalate the tone rather than the volume. This generator gives you a warm version and a firmer follow-up — type “firm” in the tone field for the stronger one — so you always have the right words ready without staring at a blank email.',
         ],
       },

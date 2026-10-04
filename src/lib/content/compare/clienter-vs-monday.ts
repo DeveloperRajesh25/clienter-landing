@@ -72,7 +72,7 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     heading: 'Pricing: per-seat work-OS vs one flat freelancer plan',
     body: [
       'monday.com offers a free tier for individuals and scales through paid plans priced per seat, often with minimum seat counts. That model is fair for a growing team, but a solo freelancer can end up paying for capacity they never use — and if you want monday’s CRM capabilities, that is typically another product and another line item on top.',
-      'Clienter keeps it simple: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. There is no per-seat sales model because Clienter is built for a client business, not a sales floor.',
+      'Clienter charges per workspace rather than per seat: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. There is no per-seat sales model because Clienter is built for a client business, not a sales floor.',
       'The honest summary: if all you need is flexible project boards for a team, monday.com’s free tier goes a long way — but you will still bolt on separate invoicing, a CRM, and a client-portal workaround. Clienter bundles that whole client-services stack into one low monthly price.',
     ],
   },
@@ -128,6 +128,6 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a tool built for how you actually work',
-  ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',
+  ctaSubtitle: 'Start Clienter free — boards plus the quotes, contracts and invoices that come after them.',
   asOf: 'July 2026',
 }

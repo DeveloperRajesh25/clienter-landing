@@ -79,7 +79,7 @@ export const CLIENTER_VS_DUBSADO: ComparePageConfig = {
     heading: 'Pricing: paying for depth vs paying for fit',
     body: [
       'Dubsado is priced in US dollars as a subscription, typically billed monthly or annually, with a limited free trial rather than a free-forever plan — so check its current pricing on its own site. What you are paying for is depth: a powerful automation and forms engine. If you will genuinely use that depth, it can be worth it; if you will not, you are paying for complexity you may not need.',
-      'Clienter is priced in both USD and INR. Free is ₹0 forever and covers up to 3 clients and 5 projects with the full pipeline, invoicing, quotations, and meetings. Pro is $19/month (₹199 in India) for up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client. Ultra is $39/month (₹799 in India) for unlimited everything.',
+      'Clienter is billed in USD through PayPal, or in INR through Razorpay if you are in India, and the price is flat for the workspace rather than per user. Free is $0 forever and covers up to 3 clients and 5 projects with the full pipeline, invoicing, quotations and meetings. Pro is $19/month (₹199 in India) for up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client. Ultra is $39/month (₹799 in India) for unlimited everything.',
       'The honest summary: if you want to build an intricate, automated client workflow and you bill in dollars, Dubsado earns its price. If you want GST invoicing, rupee pricing, and something you can run today, Clienter’s free plan and ₹199 price are the easier call.',
     ],
   },

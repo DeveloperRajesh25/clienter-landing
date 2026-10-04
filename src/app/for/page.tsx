@@ -42,7 +42,7 @@ export default function ForHubPage() {
         }
         title="Built for how you actually"
         highlight="work"
-        subtitle="Clienter adapts to your workflow, not the other way round. Find the guide written for your kind of work — from solo freelancers to full agencies."
+        subtitle="Clienter adapts to your workflow, not the other way round. Find the guide written for your kind of work — from an established freelancer to a fifteen-person agency, anywhere in the world."
         crumbs={[
           { name: 'Home', href: '/' },
           { name: 'For', href: '/for' },

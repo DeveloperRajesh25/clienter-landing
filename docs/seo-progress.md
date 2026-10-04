@@ -160,3 +160,54 @@ judgement from query shape and commercial intent. The document says so at the to
 
 **Not done:** `llms-full.txt` (logged in `docs/needs-owner-input.md`). The three India-specific
 published posts were expanded but not duplicated into worldwide siblings — that is in the writing order.
+
+## Phase 5 — Tools, templates & use-case pages ✅
+
+**Files added:** `src/components/tools/ToolQualifier.tsx`.
+**Files changed:** `CalculatorTool.tsx` (rewritten), `calculator-specs.ts`, `ToolPage.tsx`,
+`src/lib/content/tools.ts`, `src/lib/content/templates.ts`, `src/app/tools/page.tsx`,
+`src/app/templates/page.tsx`, `src/app/for/page.tsx`, 10 comparison configs, 4 audience configs.
+
+**The audit, measured rather than asserted** (script: `.seo-tmp/audit.cjs`, re-runnable):
+
+| Section | Pages | Config prose | Long strings reused across pages |
+|---|---|---|---|
+| `/for/*` | 13 | ~17,700 words (1,180–1,480 each) | **2 → 0** after this phase |
+| Tools | 15 | ~4,600 words | 0 |
+| Templates | 8 | ~3,500 words | 0 |
+| `/compare/*` | 24 | ~29,850 words | **6 → 3** (the 3 left are short factual bullets) |
+
+So the uniqueness worry was largely unfounded — the `/for` pages are genuinely written per audience
+at ~1,300 words each, and the tools and templates share nothing. The real duplication was on the
+comparison pages: one CTA subtitle appeared verbatim on 7, one pricing paragraph on 6 more, and one on
+3. Those are the pages a visitor is most likely to open two of, so the template showed. All ten now
+carry a line that is true of the specific comparison.
+
+**What changed functionally:**
+
+1. **Currency-aware calculators.** Four generic calculators (rate, project cost, profit margin,
+   retainer) were hardcoded in ₹, which made general tools look Indian and gave a visitor in London
+   no reason to trust the output. They now offer 9 currencies, remember the choice per browser
+   (wrapped in try/catch — `localStorage` throws in a private window), and say plainly that changing
+   currency relabels rather than converts. **Nothing applies an exchange rate**: a calculator silently
+   using yesterday's rate would be worse than one that did nothing.
+   The GST and TDS calculators are untouched — they compute an Indian tax, so ₹ is the subject rather
+   than the framing. The project cost calculator gained a tax field where the visitor types their own
+   rate, because Clienter supports a custom rate per line item and GST for India, and nothing else —
+   assuming a VAT rate would imply a capability the product does not have.
+2. **Generic tools de-Indianised.** "(India)" out of 4 titles, ₹ out of 3 more, and the `/tools` hub
+   subtitle no longer ends "built for India" — it now says which tools are India-specific and that the
+   rest work anywhere.
+3. **Templates made portable.** The contract, NDA, SOW, proposal, retainer and quotation templates
+   hardcoded "governed by the laws of India" and ₹ amounts. Both are now bracketed placeholders like
+   every other field, which is also better for Indian users: a governing-law clause should be a
+   decision, not a default. `invoice-template-india` stays India-specific — a GST invoice layout is
+   genuinely a local format.
+4. **One qualifying question** under every tool page: "How many active clients do you have right now?"
+   with four bands, each giving a different and honest recommendation — the 1–2 band says a
+   spreadsheet is probably fine and points at the free templates instead of the signup. The answer
+   never leaves the browser; it shapes the copy and appends the band to the UTM campaign so we can see
+   which segment each tool attracts.
+
+**Explicitly not done:** no data transfer from any tool into the app, as instructed — the tools remain
+entirely client-side. No country pages; the decision is argued in `docs/content-plan.md`.

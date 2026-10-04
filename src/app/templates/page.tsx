@@ -42,7 +42,7 @@ export default function TemplatesHubPage() {
         }
         title="Free templates for freelancers &"
         highlight="agencies"
-        subtitle="Copyable contracts, proposals, checklists, and invoices — the paperwork of running a freelance business, ready to use and adapt. Free, no signup."
+        subtitle="Copyable contracts, proposals, checklists and invoices — the paperwork of running a client business, ready to use and adapt. Amounts and governing law are placeholders you fill in, so they work wherever you invoice. Free, no signup."
         crumbs={[
           { name: 'Home', href: '/' },
           { name: 'Templates', href: '/templates' },

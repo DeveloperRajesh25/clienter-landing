@@ -72,7 +72,7 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
     heading: 'Pricing: per-seat project tool vs one flat freelancer plan',
     body: [
       'Asana offers a free tier that works well for individuals and small teams, and its paid plans are priced per seat. That is fair for a growing team, but a solo freelancer pays for team-oriented capacity — and none of those seats add up to GST invoicing, payment collection, or a client portal, so those stay as separate tools and separate costs.',
-      'Clienter keeps it simple: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. One flat plan covers the whole client-services workflow.',
+      'Clienter is priced for a client-services business rather than a software team: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. One flat plan covers the whole client-services workflow.',
       'The honest summary: if all you need is excellent task and project management for a team, Asana’s free tier is a great start — but you will still bolt on invoicing, payments, and a client portal. Clienter bundles that client-business stack into one low monthly price.',
     ],
   },
@@ -128,6 +128,6 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
     { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a tool built for how you actually work',
-  ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',
+  ctaSubtitle: 'Start Clienter free — the invoicing, quotes and client portal a task board was never going to give you.',
   asOf: 'July 2026',
 }

@@ -128,6 +128,6 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Run more than the clock',
-  ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',
+  ctaSubtitle: 'Start Clienter free — projects, quotes, invoices and payment tracking, flat-priced for your whole team.',
   asOf: 'July 2026',
 }
