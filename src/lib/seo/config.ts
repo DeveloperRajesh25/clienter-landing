@@ -39,9 +39,14 @@ export {
   LEGAL,
 }
 
-/** Locale we target — Indian English is the primary market. */
-export const SITE_LOCALE = 'en_IN'
-export const SITE_LANG = 'en-IN'
+/**
+ * Locale we target. Clienter sells worldwide, so the site is one English page
+ * set with no regional variants: `en` for <html lang> and hreflang, `en_US` for
+ * Open Graph (which requires a language_TERRITORY pair). India is the largest
+ * early market, not the audience the site is pointed at.
+ */
+export const SITE_LOCALE = 'en_US'
+export const SITE_LANG = 'en'
 
 /** Default social-sharing image (Next.js auto-serves /opengraph-image at 1200×630). */
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/opengraph-image`

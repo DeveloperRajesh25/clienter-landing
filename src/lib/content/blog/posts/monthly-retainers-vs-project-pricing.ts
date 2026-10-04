@@ -3,6 +3,7 @@ import type { BlogPost } from '../_type'
 export const POST: BlogPost = {
   slug: 'monthly-retainers-vs-project-pricing',
   title: 'Monthly Retainers vs Project Pricing: Which Is Better for Agencies?',
+  metaTitle: 'Retainers vs Project Pricing: Which Pays Better?',
   description:
     'Monthly retainers vs project pricing compared for agencies and freelancers — the pros, cons, cash-flow impact, and how to choose (or combine) the two models.',
   date: '2026-07-03',

@@ -26,7 +26,7 @@ import { pageMetadata, CONTACT, SITE_NAME, LEGAL, APP_URL } from '@/lib/site'
 export const metadata: Metadata = pageMetadata({
   title: 'Privacy Notice',
   description:
-    'In plain language: what personal data Clienter collects, why we collect it, how long we keep it, every third party it reaches, and how to exercise your rights under India’s DPDP Act — including access, correction, erasure, nomination, and withdrawing consent.',
+    'In plain language: what personal data Clienter collects, why, how long we keep it, which third parties it reaches, and how to exercise your rights over it.',
   path: '/privacy',
 })
 

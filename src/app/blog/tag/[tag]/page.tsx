@@ -24,6 +24,13 @@ export function generateMetadata({ params }: { params: { tag: string } }): Metad
     title: `${tag.name} — Clienter Blog`,
     description: `Articles tagged “${tag.name}” — practical guides for freelancers and agencies from Clienter.`,
     path: `/blog/tag/${tag.slug}`,
+    // noindex (follow). 11 tag archives and 3 category archives across 5 posts
+    // are thin by arithmetic: most list one or two articles and add no text of
+    // their own, and Google's helpful-content signal is site-wide, so a pile of
+    // near-empty archives drags on the pages that do deserve to rank. They stay
+    // crawlable and keep passing link equity to the posts; they are out of the
+    // sitemap (see lib/seo/routes.ts). Revisit once a category holds ~8 posts.
+    noindex: true,
   })
 }
 

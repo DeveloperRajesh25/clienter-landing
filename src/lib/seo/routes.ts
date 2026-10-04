@@ -25,8 +25,14 @@ export type RouteEntry = {
   lastModified?: string
 }
 
-/** Deterministic build date (avoids `new Date()` so the sitemap is stable). */
-export const DEFAULT_LAST_MODIFIED = '2026-07-18'
+/**
+ * Deterministic last-modified date for pages that do not carry their own (blog
+ * posts do). Avoids `new Date()`, which would stamp every page as changed on
+ * every deploy and teach crawlers to ignore the field. Bump this by hand when a
+ * content pass genuinely touches the site: 2026-10-04 is the global-positioning
+ * and metadata overhaul (see docs/seo-changelog.md).
+ */
+export const DEFAULT_LAST_MODIFIED = '2026-10-04'
 
 // ── Static, hand-tuned marketing routes ──────────────────────────────────────
 const STATIC_ROUTES: RouteEntry[] = [
@@ -75,7 +81,7 @@ const LEGACY_TOOL_ROUTES: RouteEntry[] = [
 import { AUDIENCE_PAGES } from '@/lib/content/audience-pages'
 import { COMPARE_PAGES } from '@/lib/content/compare-pages'
 import { ALTERNATIVE_PAGES } from '@/lib/content/alternative-pages'
-import { BLOG_POSTS, BLOG_CATEGORIES, BLOG_TAGS } from '@/lib/content/blog'
+import { BLOG_POSTS } from '@/lib/content/blog'
 import { TOOLS } from '@/lib/content/tools'
 import { TEMPLATES } from '@/lib/content/templates'
 import { GLOSSARY_TERMS } from '@/lib/content/glossary'
@@ -104,6 +110,11 @@ const ALTERNATIVE_ROUTES: RouteEntry[] = ALTERNATIVE_PAGES.map((p) => ({
   changeFrequency: 'monthly',
 }))
 
+// Category and tag archives are deliberately ABSENT. With 5 posts they list one
+// or two articles each and carry no copy of their own, so they were 14 of the
+// sitemap's 162 URLs and all of them thin. They are noindex,follow in their
+// route files and stay internally linked, so crawlers still reach the posts
+// through them. Add them back when a category holds ~8 posts.
 const BLOG_ROUTES: RouteEntry[] = [
   { path: '/blog', priority: 0.8, changeFrequency: 'weekly' },
   ...BLOG_POSTS.map((p) => ({
@@ -111,16 +122,6 @@ const BLOG_ROUTES: RouteEntry[] = [
     priority: 0.7,
     changeFrequency: 'monthly' as const,
     lastModified: p.updated ?? p.date,
-  })),
-  ...BLOG_CATEGORIES.map((c) => ({
-    path: `/blog/category/${c.slug}`,
-    priority: 0.5,
-    changeFrequency: 'weekly' as const,
-  })),
-  ...BLOG_TAGS.map((t) => ({
-    path: `/blog/tag/${t.slug}`,
-    priority: 0.4,
-    changeFrequency: 'weekly' as const,
   })),
 ]
 

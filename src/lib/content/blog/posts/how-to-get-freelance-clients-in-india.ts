@@ -4,7 +4,7 @@ export const POST: BlogPost = {
   slug: 'how-to-get-freelance-clients-in-india',
   title: 'How to Get Freelance Clients in India: 15 Proven Channels',
   description:
-    'A practical guide to how to get freelance clients in India — 15 proven channels, from referrals and cold outreach to marketplaces and content, with what actually works.',
+    'How to get freelance clients in India: 15 channels, from referrals and cold outreach to marketplaces and content, and what each one is actually good for.',
   date: '2026-07-08',
   author: 'Talagana Rajesh',
   category: 'Freelance business',

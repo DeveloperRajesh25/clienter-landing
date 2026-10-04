@@ -27,7 +27,7 @@ import { breadcrumbSchema } from '@/lib/structured-data'
 export const metadata: Metadata = pageMetadata({
   title: 'How It Works — From Signup to Paid in 4 Steps',
   description:
-    'See exactly how Clienter works: add your clients, run projects on a Kanban board, send GST-ready invoices, and track payments and revenue — all in one workspace built for Indian freelancers.',
+    'See exactly how Clienter works: capture a lead, send a quote, run the project on a board, invoice the client, and track what they owe — all in one workspace.',
   path: '/how-it-works',
   keywords: ['how Clienter works', 'freelance workflow software', 'invoice and project workflow'],
 })

@@ -21,7 +21,13 @@ export type BlogBlock =
 
 export type BlogPost = {
   slug: string
+  /** The post's H1 — may be longer and more conversational than the <title>. */
   title: string
+  /**
+   * Optional <title> override, for posts whose H1 is too long to fit a SERP
+   * (60 characters including the brand suffix). Defaults to `title`.
+   */
+  metaTitle?: string
   description: string
   /** ISO date (YYYY-MM-DD). */
   date: string

@@ -31,7 +31,7 @@ import { breadcrumbSchema } from '@/lib/structured-data'
 export const metadata: Metadata = pageMetadata({
   title: 'Security & Data Protection',
   description:
-    'How Clienter keeps your business and client data safe: encryption in transit, per-account data isolation with row-level security, secure payments via Razorpay, and full data export — no lock-in.',
+    'How Clienter keeps your business and client data safe: encryption in transit, per-account data isolation, secure payments, and full data export — no lock-in.',
   path: '/security',
   keywords: ['Clienter security', 'data protection', 'secure freelancer software'],
 })

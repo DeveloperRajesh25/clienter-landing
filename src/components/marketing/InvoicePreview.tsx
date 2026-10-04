@@ -120,9 +120,15 @@ function InvoiceDocument({
               <p className="mt-1.5 text-[11px] text-slate-400">Professional Project Management</p>
             </div>
           </div>
-          <h1 className="font-display text-4xl font-extrabold tracking-tight text-slate-900">
+          {/* Not an <h1>: this is the wordmark inside a document mock-up, and
+              the preview renders twice on /invoice. Headings here would give the
+              page three H1s and bury its real one. */}
+          <p
+            aria-hidden
+            className="font-display text-4xl font-extrabold tracking-tight text-slate-900"
+          >
             INVOICE
-          </h1>
+          </p>
         </div>
 
         <div className="mt-6 border-t border-slate-100" />

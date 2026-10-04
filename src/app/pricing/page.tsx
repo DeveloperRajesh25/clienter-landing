@@ -10,12 +10,7 @@ import { CountUp } from '@/components/landing/CountUp'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { DataSecurity } from '@/components/marketing/DataSecurity'
 import { pageMetadata, APP_URL } from '@/lib/site'
-import {
-  breadcrumbSchema,
-  softwareApplicationSchema,
-  pricingProductSchema,
-  faqSchema,
-} from '@/lib/structured-data'
+import { breadcrumbSchema, pricingProductSchema, faqSchema } from '@/lib/structured-data'
 
 export const metadata: Metadata = pageMetadata({
   title: 'Pricing — Free, Pro & Ultra Plans',
@@ -427,8 +422,10 @@ export default function PricingPage() {
   return (
     <PageShell>
       <JsonLd
+        // softwareApplicationSchema() is NOT repeated here: the root layout
+        // already emits it on every page, and two copies of the same node made
+        // Rich Results Test report the product twice.
         data={[
-          softwareApplicationSchema(),
           pricingProductSchema(),
           faqSchema(PRICING_FAQS),
           breadcrumbSchema([

@@ -68,7 +68,7 @@ const CLIENT_MANAGEMENT: SeoLandingConfig = {
   path: '/client-management-software',
   metaTitle: 'Client Management CRM Software for Freelancers & Agencies',
   metaDescription:
-    'Manage clients, projects, payments, and meetings in one powerful CRM. Clienter helps freelancers and agencies streamline operations and grow their business — start free.',
+    'Manage clients, projects, invoices and payments in one CRM. Clienter gives agencies and freelancers one place to run every client relationship — start free.',
   keywords: [
     'client management software',
     'CRM for freelancers',
@@ -191,7 +191,7 @@ const CLIENT_MANAGEMENT: SeoLandingConfig = {
 // ── /crm-for-freelancers ─────────────────────────────────────────────────────
 const CRM_FOR_FREELANCERS: SeoLandingConfig = {
   path: '/crm-for-freelancers',
-  metaTitle: 'CRM for Freelancers — Simple Client CRM Software (Free to Start)',
+  metaTitle: 'CRM for Freelancers — Simple Client CRM, Free to Start',
   metaDescription:
     'A CRM built for freelancers, not enterprises. Track leads, manage clients, send invoices, and get paid — all in one simple workspace. Free plan, no credit card.',
   keywords: [

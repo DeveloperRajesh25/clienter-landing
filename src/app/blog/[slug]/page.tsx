@@ -14,7 +14,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const post = BLOG_BY_SLUG[params.slug]
   if (!post) return {}
   return buildArticleMetadata({
-    title: post.title,
+    title: post.metaTitle ?? post.title,
     description: post.description,
     path: `/blog/${post.slug}`,
     keywords: [post.primaryKeyword, ...post.tags],

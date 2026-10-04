@@ -34,7 +34,7 @@ import { breadcrumbSchema } from '@/lib/structured-data'
 export const metadata: Metadata = pageMetadata({
   title: 'Features — Clients, Projects, Invoices & Team in One Place',
   description:
-    'Explore everything Clienter does: a CRM lead pipeline, client management, quotations, proposals with e-signatures, intake forms, project tracking, GST-ready invoicing, a white-label client portal, Google Calendar & Meet, verified client reviews, team management, and revenue analytics — built for Indian freelancers and agencies.',
+    'Everything Clienter does: leads, clients, quotes and e-signed contracts, projects, invoicing and payment tracking, and a branded client portal — in one login.',
   path: '/features',
   keywords: [
     'freelancer client management features',

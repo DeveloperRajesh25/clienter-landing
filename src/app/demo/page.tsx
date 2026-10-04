@@ -13,7 +13,7 @@ import { breadcrumbSchema } from '@/lib/structured-data'
 export const metadata: Metadata = pageMetadata({
   title: 'Demo — See Clienter in Action',
   description:
-    'Take a guided tour of Clienter. See the dashboard, client profiles, invoicing, and revenue analytics that help Indian freelancers and agencies run their business without the chaos.',
+    'Take a guided tour of Clienter: the dashboard, client profiles, quotes, invoicing and the client portal that agencies and freelancers run their work on.',
   path: '/demo',
   keywords: ['Clienter demo', 'freelancer software demo', 'invoice software walkthrough'],
 })

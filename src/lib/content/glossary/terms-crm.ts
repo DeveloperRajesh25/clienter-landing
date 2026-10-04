@@ -238,7 +238,7 @@ export const CRM_TERMS: GlossaryTermConfig[] = [
     category: 'CRM & Sales',
     metaTitle: 'What Is an Upsell? Meaning and Examples for Freelancers',
     metaDescription:
-      'Upsell meaning explained: offering an existing client a higher-value or extra service, why it is the easiest revenue to earn, and how freelancers do it without being pushy.',
+      'Upsell meaning explained: offering an existing client extra or higher-value work, why it is the easiest revenue to earn, and how to do it without being pushy.',
     keywords: ['upsell meaning', 'what is upselling', 'upselling for freelancers'],
     definition:
       'An upsell is when you offer an existing client a higher-value version of what they are buying, or an added service on top, increasing what the relationship is worth to both sides.',
@@ -270,7 +270,7 @@ export const CRM_TERMS: GlossaryTermConfig[] = [
     category: 'CRM & Sales',
     metaTitle: 'What Is a Referral? How Freelancers Win Word-of-Mouth',
     metaDescription:
-      'Referral meaning explained: new business from a happy client recommending you, why it is the highest-converting lead a freelancer can get, and how to earn more of it.',
+      'Referral meaning explained: new business from a happy client recommending you, why it converts better than any other lead, and how to earn more of them.',
     keywords: ['referral meaning', 'what is a referral', 'referrals for freelancers'],
     definition:
       'A referral is new business that comes to you because an existing client, colleague, or contact recommended you to someone who needs your work.',

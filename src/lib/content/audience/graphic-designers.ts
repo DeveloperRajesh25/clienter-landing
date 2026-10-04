@@ -12,7 +12,7 @@ export const GRAPHIC_DESIGNERS: AudiencePageConfig = {
   slug: 'graphic-designers',
   path: '/for/graphic-designers',
   audience: 'Graphic designers',
-  metaTitle: 'Client Management Software for Graphic Designers — Clienter',
+  metaTitle: 'Client Management Software for Graphic Designers',
   metaDescription:
     'Client management software for graphic designers — track projects, tame revisions, and send GST invoices in one place. Start free, no card needed.',
   keywords: [

@@ -4,7 +4,7 @@ export const POST: BlogPost = {
   slug: 'freelance-invoice-format-india',
   title: 'Freelance Invoice Format India: What to Include and Why',
   description:
-    'The complete freelance invoice format for India — every field to include, when GST applies, invoice numbering rules, and how to get paid faster. With a free template.',
+    'The complete freelance invoice format for India: every field to include, when GST applies, numbering rules, and how to get paid faster. Free template.',
   date: '2026-07-05',
   author: 'Talagana Rajesh',
   category: 'Freelance business',

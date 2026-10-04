@@ -75,7 +75,7 @@ const CLIENT_MANAGEMENT: FeaturePageConfig = {
   icon: Users,
   metaTitle: 'Client Management — Organize Every Client in One Profile',
   metaDescription:
-    'How Clienter’s client management works: keep every client’s contacts, projects, invoices, payments, and history in one profile. Learn how to use it and how it helps freelancers and agencies.',
+    'How client management works in Clienter: every client’s contacts, projects, quotes, invoices, payments and history in one profile you can open in a second.',
   keywords: [
     'client management',
     'client management feature',
@@ -144,7 +144,7 @@ const CRM_PIPELINE: FeaturePageConfig = {
   icon: KanbanSquare,
   metaTitle: 'CRM & Lead Pipeline — Turn Prospects into Clients',
   metaDescription:
-    'How Clienter’s CRM lead pipeline works: capture every lead on a visual Kanban pipeline, move deals through your stages, and convert winners to clients in one click. Learn how to use it and how it helps.',
+    'How the CRM lead pipeline works in Clienter: capture every enquiry on a visual pipeline, move it through your stages, and convert a win to a client in a click.',
   keywords: [
     'lead pipeline',
     'sales pipeline',
@@ -213,7 +213,7 @@ const PROJECT_MANAGEMENT: FeaturePageConfig = {
   icon: Briefcase,
   metaTitle: 'Project Management — Kanban Boards, Budgets & Tasks',
   metaDescription:
-    'How Clienter’s project management works: run every client project on a Kanban board with deadlines, budgets, tasks, and team assignments. Learn how to use it and how it helps freelancers and agencies.',
+    'How project management works in Clienter: run every client project on a Kanban board with deadlines, budgets, tasks and team assignments in one view.',
   keywords: [
     'project management',
     'project tracking',
@@ -282,7 +282,7 @@ const INVOICING: FeaturePageConfig = {
   icon: FileText,
   metaTitle: 'Invoicing & Payments — GST-Ready Invoices in a Minute',
   metaDescription:
-    'How Clienter’s invoicing works: create professional GST-ready invoices with line items and tax, export a branded PDF, and track paid, pending, and overdue payments. Learn how to use it and how it helps.',
+    'How invoicing works in Clienter: build an invoice with line items and tax in any of ~30 currencies, send a branded PDF, and track paid, pending and overdue.',
   keywords: [
     'invoicing',
     'GST invoice software',
@@ -351,7 +351,7 @@ const CLIENT_PORTAL: FeaturePageConfig = {
   icon: LayoutDashboard,
   metaTitle: 'White-Label Client Portal — A Branded Space for Clients',
   metaDescription:
-    'How Clienter’s white-label client portal works: give clients a branded login to view projects, download invoices, access files, and sign documents. Learn how to use it and how it helps you look professional.',
+    'How the client portal works in Clienter: give each client a branded login to follow the project, download invoices, open files and sign documents.',
   keywords: [
     'client portal',
     'white-label client portal',
@@ -424,7 +424,7 @@ const VERIFIED_REVIEWS: FeaturePageConfig = {
   icon: BadgeCheck,
   metaTitle: 'Verified Client Reviews — Build Trust Automatically',
   metaDescription:
-    'How Clienter’s verified client reviews work: completed projects automatically invite clients to review, you get a public review page and an embeddable badge, and reviews can’t be edited — so they’re credible.',
+    'How verified client reviews work in Clienter: a finished project invites the client to review it, and you get a public review page that cannot be edited.',
   keywords: [
     'verified reviews',
     'client reviews',

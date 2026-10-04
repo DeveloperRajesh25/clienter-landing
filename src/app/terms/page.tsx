@@ -6,7 +6,7 @@ import { pageMetadata, CONTACT, SITE_NAME, LEGAL } from '@/lib/site'
 export const metadata: Metadata = pageMetadata({
   title: 'Terms of Service',
   description:
-    'The terms and conditions that govern your use of Clienter — accounts, early access, subscriptions and billing, acceptable use, your data, warranties, liability, indemnity, and governing law.',
+    'The terms that govern your use of Clienter: accounts, subscriptions and billing, acceptable use, your data, warranties, liability and governing law.',
   path: '/terms',
 })
 

@@ -21,9 +21,9 @@ export const SITE_URL = 'https://clienter.co.in'
 export const APP_URL = 'https://app.clienter.co.in'
 
 export const SITE_NAME = 'Clienter'
-export const SITE_TAGLINE = 'Run your freelance business without the chaos'
+export const SITE_TAGLINE = 'The all-in-one workspace for agencies and freelancers'
 export const SITE_DESCRIPTION =
-  'Clienter is the all-in-one client management software for freelancers and agencies — manage clients, projects, invoices, payments, meetings, and your team in one beautiful place. Start free.'
+  'Clienter is the all-in-one client management software for agencies and freelancers worldwide — leads, quotes, e-signed contracts, projects, a client portal, invoices and payment tracking in one login. Start free.'
 
 /** Founder — shown on About / founder note and used in author structured data. */
 export const FOUNDER = {
@@ -313,6 +313,26 @@ export const FOOTER_NAV = [
  * - The root layout supplies metadataBase + the default OG image, so individual
  *   pages only need their path, title, and description.
  */
+/**
+ * Longest title Google will render before truncating (roughly — the real limit
+ * is ~580px, so this is a character proxy that errs short).
+ */
+const TITLE_MAX = 60
+
+/**
+ * Append " · Clienter" to a page title only when the result still fits in the
+ * SERP. Before this, the root layout's `%s · Clienter` template was applied
+ * unconditionally and pushed 127 of the site's 163 titles past 60 characters —
+ * the brand suffix was being truncated away anyway, taking real keywords with
+ * it. Pages whose own title is already long now ship without the suffix (the
+ * brand is still in the visible URL and the OG card), and no page title has to
+ * be mangled to make room for it.
+ */
+export function brandedTitle(title: string): string {
+  const withBrand = `${title} · ${SITE_NAME}`
+  return withBrand.length <= TITLE_MAX ? withBrand : title
+}
+
 export function pageMetadata(opts: {
   title: string
   description: string
@@ -354,22 +374,26 @@ export function pageMetadata(opts: {
       }
 
   return {
-    title: opts.title,
+    // `absolute` because brandedTitle() has already decided whether the brand
+    // suffix fits; letting the layout template append it again would undo that.
+    title: { absolute: brandedTitle(opts.title) },
     description: opts.description,
     keywords: opts.keywords,
     alternates: {
       canonical: url,
-      // We serve one language (Indian English). Declaring en-IN + x-default on
-      // the same URL tells Google this page is the canonical target for both
-      // Indian-English searchers and everyone else, with no duplicate variants.
-      languages: { 'en-IN': url, 'x-default': url },
+      // One English page set, no locale variants. Plain `en` plus x-default on
+      // the same URL tells Google this page is the canonical target for English
+      // searchers in every country. A region-locked en-IN annotation was a false
+      // signal for a product sold worldwide. If localised URLs are ever added,
+      // each must self-reference and link back reciprocally.
+      languages: { en: url, 'x-default': url },
     },
     robots,
     openGraph: {
       type: opts.ogType ?? 'website',
       url,
       siteName: SITE_NAME,
-      locale: 'en_IN',
+      locale: 'en_US',
       title: ogTitle,
       description: ogDescription,
       ...(opts.image ? { images: [{ url: opts.image }] } : {}),

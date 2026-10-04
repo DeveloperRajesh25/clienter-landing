@@ -11,7 +11,7 @@ import { breadcrumbSchema } from '@/lib/structured-data'
 export const metadata: Metadata = pageMetadata({
   title: 'Free Invoice Generator — No Sign-up Required',
   description:
-    'Create a professional invoice in seconds. Fill in your details, add line items, and download a polished PDF instantly — no account, no watermark, nothing saved to a server.',
+    'Create a professional invoice in seconds. Add your details and line items, then download a clean PDF — no account, no watermark, nothing saved to a server.',
   path: '/invoice',
   keywords: [
     'free invoice generator',

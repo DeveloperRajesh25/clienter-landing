@@ -11,7 +11,7 @@ import { breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 export const metadata: Metadata = pageMetadata({
   title: 'Time Zone Converter — Convert Time Across Any Timezone',
   description:
-    'A free online time zone converter. Convert time instantly between IST, UTC, EST, PST, GMT and 200+ timezones worldwide. Pick any two zones, set a time, and see it side by side.',
+    'A free time zone converter. Convert instantly between IST, UTC, EST, PST, GMT and 200+ zones. Pick two zones, set a time, see it side by side.',
   path: '/time-converter',
   keywords: [
     'time zone converter',

@@ -13,6 +13,10 @@ import {
   CONTACT,
   FOUNDER,
 } from '@/lib/site'
+import { PLAN_PRICES } from '@/lib/pricing'
+
+/** Top tier — drives the AggregateOffer highPrice. */
+const ULTRA = PLAN_PRICES[PLAN_PRICES.length - 1]
 
 const LOGO = `${SITE_URL}/logo.png`
 
@@ -29,12 +33,14 @@ export function organizationSchema() {
     email: CONTACT.general,
     founder: { '@type': 'Person', name: FOUNDER.name },
     sameAs: SOCIAL_URLS,
-    areaServed: 'IN',
+    // Sold worldwide. 'IN' here told Google the brand serves one country, which
+    // suppressed the entity for exactly the US/UK/AU/CA queries we want.
+    areaServed: 'Worldwide',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer support',
       email: CONTACT.support,
-      availableLanguage: ['English', 'Hindi'],
+      availableLanguage: ['English'],
     },
   }
 }
@@ -49,7 +55,7 @@ export function websiteSchema() {
     name: SITE_NAME,
     description: SITE_DESCRIPTION,
     publisher: { '@id': `${SITE_URL}/#organization` },
-    inLanguage: 'en-IN',
+    inLanguage: 'en',
     // Sitelinks search box → our blog search (which reads the `q` query param).
     potentialAction: {
       '@type': 'SearchAction',
@@ -77,32 +83,29 @@ export function softwareApplicationSchema() {
     url: SITE_URL,
     installUrl: `${SITE_URL}/download`,
     image: LOGO,
-    offers: [
+    // Both billing regions are declared: USD (PayPal, rest of world) and INR
+    // (Razorpay, India). Google picks the offer matching the searcher's region,
+    // so omitting USD meant international searchers saw a rupee price or none.
+    // Prices here must match PLAN_PRICES in lib/pricing.ts.
+    offers: PLAN_PRICES.flatMap((plan) => [
       {
         '@type': 'Offer',
-        name: 'Free',
-        price: '0',
-        priceCurrency: 'INR',
-        description:
-          'Up to 3 clients, 5 projects, 1 teammate and 20 active leads, client portal for one client, Google Calendar sync, free forever.',
+        name: plan.name,
+        price: String(plan.usd),
+        priceCurrency: 'USD',
+        description: plan.offerDescription,
+        availability: 'https://schema.org/InStock',
       },
       {
         '@type': 'Offer',
-        name: 'Pro',
-        price: '199',
+        name: plan.name,
+        price: String(plan.inr),
         priceCurrency: 'INR',
-        description:
-          'Launch offer (was ₹499): up to 20 clients, 40 projects, 5 team members and 200 active leads, client portal for every client, auto-invoicing and lead reminders, per month.',
+        eligibleRegion: { '@type': 'Country', name: 'India' },
+        description: plan.offerDescription,
+        availability: 'https://schema.org/InStock',
       },
-      {
-        '@type': 'Offer',
-        name: 'Ultra',
-        price: '799',
-        priceCurrency: 'INR',
-        description:
-          'Launch offer (was ₹1,999): unlimited clients, projects, leads and team members, plus payroll, white label and lead integrations, per month.',
-      },
-    ],
+    ]),
     publisher: { '@id': `${SITE_URL}/#organization` },
   }
 }
@@ -191,16 +194,30 @@ export function articleSchema(opts: {
       logo: { '@type': 'ImageObject', url: LOGO },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    inLanguage: 'en-IN',
+    inLanguage: 'en',
   }
 }
 
 /**
- * Product + AggregateOffer for the pricing page. Prices are the current launch
- * offer (Free ₹0 / Pro ₹199 / Ultra ₹799). aggregateRating is deliberately
- * omitted — we do not fabricate ratings without real, verifiable reviews.
+ * Product + AggregateOffer for the pricing page. Two AggregateOffers, one per
+ * billing region, because a single node can only carry one priceCurrency and
+ * the product is sold in USD (PayPal) and INR (Razorpay). aggregateRating is
+ * deliberately omitted — we do not fabricate ratings without real reviews.
  */
 export function pricingProductSchema() {
+  const aggregate = (currency: 'USD' | 'INR', high: string) => ({
+    '@type': 'AggregateOffer',
+    priceCurrency: currency,
+    lowPrice: '0',
+    highPrice: high,
+    offerCount: PLAN_PRICES.length,
+    offers: PLAN_PRICES.map((p) => ({
+      '@type': 'Offer',
+      name: p.name,
+      price: String(currency === 'USD' ? p.usd : p.inr),
+      priceCurrency: currency,
+    })),
+  })
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -208,18 +225,7 @@ export function pricingProductSchema() {
     description: SITE_DESCRIPTION,
     brand: { '@type': 'Brand', name: SITE_NAME },
     image: LOGO,
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'INR',
-      lowPrice: '0',
-      highPrice: '799',
-      offerCount: 3,
-      offers: [
-        { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'INR' },
-        { '@type': 'Offer', name: 'Pro', price: '199', priceCurrency: 'INR' },
-        { '@type': 'Offer', name: 'Ultra', price: '799', priceCurrency: 'INR' },
-      ],
-    },
+    offers: [aggregate('USD', String(ULTRA.usd)), aggregate('INR', String(ULTRA.inr))],
   }
 }
 

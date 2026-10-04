@@ -21,7 +21,7 @@ import { pageMetadata, CONTACT, SITE_NAME, LEGAL } from '@/lib/site'
 export const metadata: Metadata = pageMetadata({
   title: 'Cookie Policy',
   description:
-    'Every cookie and storage key Clienter uses, what it does, how long it lasts, and how to control it. Strictly necessary cookies only, unless you opt in to analytics — which is off by default and reversible at any time.',
+    'Every cookie and storage key Clienter uses, what it does, how long it lasts, and how to control it. Analytics is off until you opt in, and reversible.',
   path: '/cookies',
 })
 

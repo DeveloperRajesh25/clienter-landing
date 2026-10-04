@@ -3,8 +3,9 @@ import type { BlogPost } from '../_type'
 export const POST: BlogPost = {
   slug: 'how-to-manage-clients-as-a-freelancer-india',
   title: 'How to Manage Clients as a Freelancer in India (Complete Guide)',
+  metaTitle: 'How to Manage Clients as a Freelancer: Full Guide',
   description:
-    'A practical guide to managing clients as a freelancer in India — from organising details and communication to invoices, payments, and keeping every relationship on track.',
+    'A practical guide to managing clients as a freelancer: organising details, communication, invoices and payments, and keeping every relationship on track.',
   date: '2026-07-10',
   author: 'Talagana Rajesh',
   category: 'Freelance business',

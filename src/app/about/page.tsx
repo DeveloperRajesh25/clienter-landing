@@ -29,7 +29,7 @@ import { breadcrumbSchema } from '@/lib/structured-data'
 export const metadata: Metadata = pageMetadata({
   title: 'About Clienter — Built for Indian Freelancers',
   description:
-    'Clienter is built by Rajesh Talagana to help Indian freelancers and small agencies run their business without the chaos. Learn the story, the mission, and the values behind the product.',
+    'Clienter is built by Rajesh Talagana to help agencies and freelancers run client work in one place. The story, the mission and the values behind it.',
   path: '/about',
   keywords: ['about Clienter', 'Rajesh Talagana', 'freelancer software India founder'],
 })

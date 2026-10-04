@@ -12,7 +12,7 @@ export const CONTENT_WRITERS: AudiencePageConfig = {
   slug: 'content-writers',
   path: '/for/content-writers',
   audience: 'Content writers',
-  metaTitle: 'Freelance Writer Client Management Software — Clienter',
+  metaTitle: 'Client Management Software for Freelance Writers',
   metaDescription:
     'Freelance writer client management made simple — track pitches, pieces, deadlines, and invoices in one workspace built for India. Start free today.',
   keywords: [

@@ -46,12 +46,11 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   keywords: [
     'client management software',
-    'freelancer CRM India',
-    'invoice software for freelancers',
     'agency management software',
-    'project management for freelancers',
-    'GST invoice software',
-    'freelance business tools India',
+    'CRM for freelancers',
+    'client portal software',
+    'invoice and payment tracking software',
+    'project management CRM',
     'Clienter',
   ],
   authors: [{ name: 'Rajesh Talagana' }],
@@ -59,7 +58,9 @@ export const metadata: Metadata = {
   publisher: SITE_NAME,
   alternates: {
     canonical: '/',
-    languages: { 'en-IN': '/', 'x-default': '/' },
+    // One English page set for a worldwide audience — see the note in
+    // pageMetadata() in lib/site.ts.
+    languages: { en: '/', 'x-default': '/' },
   },
   category: 'business software',
   formatDetection: { telephone: false, email: false, address: false },
@@ -81,7 +82,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_IN',
+    locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
     title: `${SITE_NAME} — ${SITE_TAGLINE}`,
@@ -105,7 +106,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" className={`${inter.variable} ${display.variable} ${serifDisplay.variable}`}>
+    <html lang="en" className={`${inter.variable} ${display.variable} ${serifDisplay.variable}`}>
       <head>
         {/* NOTE: Google Analytics used to load here, unconditionally, on every
             page. It is non-essential and sets `_ga` cookies, so under India's
