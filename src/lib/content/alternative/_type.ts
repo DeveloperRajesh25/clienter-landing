@@ -1,4 +1,5 @@
 import type { Faq, IconItem, PlainItem, RelatedLink, CompareLedger } from '@/lib/content/types'
+import type { CompetitorSource } from '@/lib/content/sources'
 
 /**
  * One `/alternatives/<slug>` page — targets the "X alternative" query pattern.
@@ -50,4 +51,7 @@ export type AlternativePageConfig = {
   ctaTitle: string
   ctaSubtitle: string
   asOf: string
+
+  /** Primary sources for the competitor claims on this page. See compare/_type.ts. */
+  sources?: CompetitorSource[]
 }

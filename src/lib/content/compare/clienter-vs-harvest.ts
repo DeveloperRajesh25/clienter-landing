@@ -28,7 +28,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     body: [
       'Harvest has earned its reputation as one of the cleanest, most reliable time trackers around. Start a timer, log hours against a project or task, watch budgets burn down, and turn those billable hours into an invoice — Harvest does that loop beautifully, and its team timesheets and utilization reports are genuinely useful for agencies that bill by the hour.',
       'Clienter starts from a different place. It’s built for the freelancer or small agency who needs to win the client, deliver the project, raise a GST-ready invoice, and get paid — all in one workspace. It includes a simple lead pipeline, project boards with tasks and budgets, quotations and invoicing, payment and expense tracking with a live profit dashboard, and a branded client portal. Time tracking is one part of a much wider workflow, not the whole product.',
-      'So the honest framing is this: if hourly time tracking and utilization reporting are the beating heart of your business, Harvest is superb at exactly that and hard to beat. If you want your clients, projects, quotes, invoices, and payments to live together in one priced in both USD and INR tool built for India, that’s the job Clienter is designed for — and the two can even sit side by side while you decide.',
+      'So the honest framing is this: if hourly time tracking and utilization reporting are the beating heart of your business, Harvest is superb at exactly that and hard to beat. If you want your clients, projects, quotes, invoices, and payments to live together in one tool with GST-compliant invoicing for India, that’s the job Clienter is designed for — and the two can even sit side by side while you decide.',
     ],
   },
   tableHeading: 'Clienter vs Harvest at a glance',
@@ -37,7 +37,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     { feature: 'Time tracking', clienter: 'Yes — timers on tasks', other: 'Yes — best-in-class' },
     { feature: 'Lead & sales pipeline', clienter: 'Yes — simple Kanban pipeline', other: 'No' },
     { feature: 'Project delivery', clienter: 'Yes — boards, tasks, budgets', other: 'Time-budget projects, not delivery boards' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Invoices from tracked time, not GST-first' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Invoices from tracked time, not GST-first' },
     { feature: 'Quotations / estimates', clienter: 'Built in', other: 'Estimates available' },
     { feature: 'Payment & expense tracking', clienter: 'Built in + live profit dashboard', other: 'Expenses yes; payments via integrations' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, leads, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with priced in both USD and INR pricing for India',
+    'Invoices and quotations in about 30 currencies, with GST-compliant invoicing for India',
     'A live profit dashboard from payments and expenses, not just tracked hours',
     'Branded client portal so small teams look established',
     'Simple enough to set up and use the same day you sign up',
@@ -64,7 +64,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
   ],
   competitorCons: [
     'No lead pipeline or client-relationship management',
-    'Not built for Indian GST invoicing or priced in both USD and INR pricing',
+    'GST-compliant invoicing is not listed on their pricing page',
     'Project boards are time budgets, not full delivery workspaces',
     'No branded client portal to give clients a branded home',
   ],
@@ -80,7 +80,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     heading: 'Choose Clienter if you…',
     points: [
       'Want clients, projects, invoices, and a portal in one workspace',
-      'Need GST-ready invoices and quotations in rupees',
+      'Need GST-compliant invoices for India, or to invoice in another currency',
       'Want to see profit from real payments and expenses, not just hours',
       'Would like a branded client portal without extra tools',
       'Are a freelancer or small agency that bills on projects and retainers',
@@ -106,7 +106,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
   faqs: [
     {
       q: 'Is Clienter a good Harvest alternative for freelancers?',
-      a: 'For freelancers and agencies who want more than time tracking, yes. Harvest is excellent at tracking billable hours, but it doesn’t manage leads, deliver projects, or give clients a branded portal. Clienter brings the whole client-to-paid workflow — pipeline, projects, GST invoicing, payments, and a portal — into one priced in both USD and INR tool, starting free.',
+      a: 'For freelancers and agencies who want more than time tracking, yes. Harvest is excellent at tracking billable hours, but it doesn’t manage leads, deliver projects, or give clients a branded portal. Clienter brings the whole client-to-paid workflow — pipeline, projects, GST invoicing, payments, and a portal — into one single tool, starting free.',
     },
     {
       q: 'Does Clienter track time like Harvest?',
@@ -114,7 +114,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     },
     {
       q: 'Does Harvest handle GST invoicing?',
-      a: 'Harvest builds invoices from tracked time and expenses, but it isn’t designed around Indian GST or priced in both USD and INR billing. Clienter includes GST-ready invoices and quotations natively, which is a meaningful difference for freelancers and agencies invoicing clients in India.',
+      a: 'Harvest builds invoices from tracked time and expenses, but GST-compliant invoicing is not listed on its pricing page. Clienter includes GST-compliant invoices and quotations natively, which is a meaningful difference for freelancers and agencies invoicing clients in India.',
     },
     {
       q: 'Which is cheaper, Clienter or Harvest?',
@@ -125,7 +125,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     { href: '/compare/clienter-vs-freshbooks', label: 'Clienter vs FreshBooks', desc: 'Invoicing tool vs all-in-one client ops.' },
     { href: '/compare/clienter-vs-taskip', label: 'Clienter vs Taskip', desc: 'Two all-in-one client tools, compared.' },
     { href: '/features/invoicing', label: 'GST invoicing', desc: 'How Clienter’s built-in invoicing works.' },
-    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Run more than the clock',
   ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',

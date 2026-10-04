@@ -118,7 +118,7 @@ export const GRAPHIC_DESIGNERS: AudiencePageConfig = {
       {
         icon: ReceiptText,
         title: 'GST invoices & quotations',
-        desc: 'Branded, GST-ready invoices and quotes in rupees, exported to a clean PDF in under a minute.',
+        desc: 'Branded, GST-compliant invoices and quotes in rupees, exported to a clean PDF in under a minute.',
       },
       {
         icon: Wallet,
@@ -142,7 +142,7 @@ export const GRAPHIC_DESIGNERS: AudiencePageConfig = {
       'Every extra round logged against the project and billed',
       'Final files released only after the invoice is paid',
       'Every brief, round, and approval living in one project',
-      'GST-ready invoices generated straight from client details',
+      'GST-compliant invoices generated straight from client details',
     ],
   },
   pricing: {
@@ -173,7 +173,7 @@ export const GRAPHIC_DESIGNERS: AudiencePageConfig = {
   ],
   related: [
     { href: '/features/project-management', label: 'Project Management', desc: 'Kanban boards, deadlines, and budgets for design work.' },
-    { href: '/features/invoicing', label: 'Invoicing & Quotations', desc: 'GST-ready invoices and quotes in rupees.' },
+    { href: '/features/invoicing', label: 'Invoicing & Quotations', desc: 'GST-compliant invoices and quotes in rupees.' },
     { href: '/features/client-portal', label: 'Client Portal', desc: 'A branded space for reviews and approvals.' },
     { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
   ],

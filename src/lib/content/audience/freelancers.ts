@@ -97,7 +97,7 @@ export const FREELANCERS: AudiencePageConfig = {
     items: [
       { icon: Users, title: 'Client profiles', desc: 'One tidy profile per client with contacts, files, notes, and full history.' },
       { icon: KanbanSquare, title: 'Lead pipeline & projects', desc: 'A visual pipeline for leads and Kanban boards for the work you win.' },
-      { icon: FileText, title: 'GST-ready invoices', desc: 'Branded invoices and quotations with one-click PDF export.' },
+      { icon: FileText, title: 'GST-compliant invoices', desc: 'Branded invoices and quotations with one-click PDF export.' },
       { icon: Wallet, title: 'Payments & profit', desc: 'Track dues, expenses, and net profit without a spreadsheet.' },
       { icon: CalendarClock, title: 'Meetings & reminders', desc: 'Google Calendar sync, auto Meet links, and follow-up reminders.' },
       { icon: BadgeCheck, title: 'Verified reviews', desc: 'Turn finished projects into credible social proof automatically.' },
@@ -115,7 +115,7 @@ export const FREELANCERS: AudiencePageConfig = {
     ],
     calm: [
       'Every client in one profile with full history',
-      'GST-ready invoices generated in under a minute',
+      'GST-compliant invoices generated in under a minute',
       'Dues tracked automatically with reminders',
       'Live profit, paid, and outstanding on a dashboard',
       'A branded portal and reviews that look established',

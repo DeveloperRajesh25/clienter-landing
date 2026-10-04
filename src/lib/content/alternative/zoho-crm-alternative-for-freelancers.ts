@@ -48,7 +48,7 @@ export const ZOHO_CRM_ALTERNATIVE: AlternativePageConfig = {
     items: [
       { icon: Users, title: 'Clients & pipeline', desc: 'Clean client records and a simple Kanban lead pipeline — the CRM basics, without the sales-team weight.' },
       { icon: KanbanSquare, title: 'Projects', desc: 'Boards, tasks, deadlines, and budgets for the work itself — in the same tool as the pipeline.' },
-      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-ready invoices and quotations with your GSTIN, in rupees — no separate billing app.' },
+      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-compliant invoices and quotations with your GSTIN, in rupees — no separate billing app.' },
       { icon: FileSignature, title: 'Proposals & e-sign', desc: 'Send proposals and quotations clients accept and sign digitally.' },
       { icon: LayoutDashboard, title: 'Client portal', desc: 'A branded portal where clients track work and download invoices (one client on Free, every client on Pro and Ultra).' },
       { icon: PieChart, title: 'Profit dashboard', desc: 'Payments and expenses roll into a live view of what you’re actually earning.' },
@@ -75,7 +75,7 @@ export const ZOHO_CRM_ALTERNATIVE: AlternativePageConfig = {
   pricing: {
     heading: 'One bill, not a suite of them',
     body: [
-      'Zoho is fairly priced, and as an Indian company its rupee pricing is a genuine plus. The catch for a freelancer is that Zoho CRM alone doesn’t cover the whole job — running projects, sending GST invoices, and offering a client portal usually means adding more Zoho products, each with its own plan, so the real monthly cost and setup grow with every app you bolt on.',
+      'Zoho is fairly priced, and it bills in local currency in many countries, which is a genuine plus. The catch for a freelancer is that Zoho CRM alone does not cover the whole job — running projects, sending invoices and offering a client portal usually means adding more Zoho products, each with its own plan, so the real monthly cost and the setup both grow with every app you bolt on.',
       'Clienter keeps it to one plan. It’s free forever for up to 3 clients and 5 projects — full pipeline, invoicing, and meetings included. Pro is $19/month (₹199 in India) and adds the branded client portal for every client, five team members, and higher limits, while Ultra at $39/month (₹799 in India) removes limits entirely. Your data exports anytime, so there’s nothing to lose by trying it.',
     ],
   },
@@ -95,14 +95,14 @@ export const ZOHO_CRM_ALTERNATIVE: AlternativePageConfig = {
     },
     {
       q: 'Does Clienter replace Zoho’s invoicing too?',
-      a: 'Yes — GST-ready invoicing and quotations are built into Clienter, with your GSTIN and rupee amounts, so you don’t need a separate billing product alongside the CRM. Payments and expenses feed a live profit dashboard as well, which means the pipeline, the project, and the invoice all live in one tool instead of three.',
+      a: 'Yes — GST-compliant invoicing and quotations are built into Clienter, with your GSTIN and rupee amounts, so you don’t need a separate billing product alongside the CRM. Payments and expenses feed a live profit dashboard as well, which means the pipeline, the project, and the invoice all live in one tool instead of three.',
     },
   ],
   related: [
     { href: '/compare/clienter-vs-zoho-crm', label: 'Clienter vs Zoho CRM', desc: 'The full side-by-side comparison.' },
     { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'Why a freelancer needs more than a sales CRM.' },
     { href: '/alternatives/hubspot-alternative-for-freelancers', label: 'HubSpot alternative', desc: 'Another sales-CRM alternative for freelancers.' },
-    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get the whole workflow in one app',
   ctaSubtitle: 'Start Clienter free and run pipeline, projects, and GST invoices without a suite.',

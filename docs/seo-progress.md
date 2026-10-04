@@ -90,3 +90,38 @@ still said `<<PASTE …>>`, so there was no source of truth to reconcile against
 on a guess is worse than leaving it. Every discrepancy I could find is listed in
 `docs/needs-owner-input.md`. The USD figures used ($19/$39) are the ones stated in the brief and
 already published in the live pricing FAQ, so showing them is not a new claim.
+
+## Phase 3 — Comparisons & alternatives ✅
+
+**Files added:** `src/lib/content/sources.ts`, `src/components/marketing/SourceList.tsx`,
+`src/lib/content/alternative/honeybook-alternatives.ts`, `…/bonsai-alternatives.ts`,
+`…/dubsado-alternatives.ts`, `docs/needs-verification.md`.
+**Files changed:** `compare/_type.ts`, `alternative/_type.ts`, `CompareLanding.tsx`,
+`AlternativeLanding.tsx`, `alternative-pages.ts`, `clienter-vs-honeybook.ts` (full rewrite), plus a
+globalisation sweep over 23 comparison and alternative configs.
+
+1. **Sources are now a first-class field.** `CompetitorSource { label, url, checked }` on both config
+   types, rendered under the comparison table by `<SourceList>` with `rel="nofollow noopener"` (a
+   reference, not an endorsement — and no ranking signal to a competitor from a page that competes
+   with them). Pages with no sources render nothing and are tracked in `docs/needs-verification.md`.
+2. **Five competitor pricing pages read in full** (HoneyBook, Bonsai, Dubsado, Plutio, Moxie) and
+   verified prices quoted with their own plan names. Bonsai's and Plutio's own FAQ structured data
+   turned out to state their full price lists, which is as primary as a source gets.
+3. **"They don't have X" is gone.** Every unverified absence now reads "not listed on their pricing
+   page". Previously eight pages asserted "Not built for India/GST" as a fact about the product when
+   the evidence only supported a fact about the page.
+4. **`asOf` bumped only where a page was actually re-read.** Five pages moved to October 2026; the
+   other 23 keep their visibly stale July 2026 date. Bumping a date without re-reading would be worse
+   than the stale date.
+5. **India reframed as one argument, not the only one.** Eight comparison pages put India in the title
+   for a global competitor and argued the whole comparison on GST and rupees, discarding the US/UK/AU/CA
+   half of each query. The GST argument stays — it is real and specific — but the lead argument is now
+   per-user vs flat pricing, team features, setup cost and currency coverage. India-specific
+   competitors (Refrens, Vyapar, Zoho Books, QuickBooks-India) were left alone on purpose.
+6. **Three plural "best X alternatives" pages** for HoneyBook, Bonsai and Dubsado. Five real options
+   each, Clienter first, with the case for each competitor stated plainly — including, on the Bonsai
+   page, the arithmetic showing Bonsai Basic is cheaper than Clienter Pro for one person.
+
+**Not done:** no new singular comparison pages (the brief forbade them). The 23 unverified pages were
+not re-dated. `/alternatives/honeybook-alternative-india` keeps its slug: renaming it would need a 301
+and "honeybook alternative india" is a genuine query that deserves its own page.

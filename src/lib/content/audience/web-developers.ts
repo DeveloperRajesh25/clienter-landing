@@ -36,7 +36,7 @@ export const WEB_DEVELOPERS: AudiencePageConfig = {
     body: [
       'Freelance web development is never just the development. For every hour in your editor there’s another spent scoping the job, sending staging links, collecting feedback, quoting the ‘small extra’, raising an invoice, and reminding a client that the site is ready the moment they clear the balance. A CRM for freelance web developers exists to hold all of that — the client relationship and the money around the code — so it stops living in your inbox, your WhatsApp, and your head.',
       'Most developers cobble this together: a Trello board for one client, a Google Doc of scope for another, a Word invoice template, and a mental note about who still owes what. It works until you’re running four builds at once and a client asks ‘did we agree that change was included?’ — and you have no single place to check. Clienter replaces the scattered stack with one workspace where every client profile, project board, proposal, and invoice is connected.',
-      'It’s built for how Indian devs actually get paid, too — GST-ready invoices in rupees, payment tracking that matches UPI and bank transfers, and pricing that fits a freelance income instead of an enterprise procurement team. Whether you build in WordPress, Webflow, or a custom stack, the admin around the work is the same — and this is where it goes.',
+      'It’s built for how Indian devs actually get paid, too — GST-compliant invoices in rupees, payment tracking that matches UPI and bank transfers, and pricing that fits a freelance income instead of an enterprise procurement team. Whether you build in WordPress, Webflow, or a custom stack, the admin around the work is the same — and this is where it goes.',
     ],
   },
   pains: {

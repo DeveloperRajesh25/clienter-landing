@@ -49,7 +49,7 @@ export const BEST_FREE_CRM_ALTERNATIVES: AlternativePageConfig = {
     items: [
       { icon: Users, title: 'A real CRM pipeline', desc: 'A visual lead pipeline and one profile per client, on the free plan — not a locked teaser.' },
       { icon: FolderKanban, title: 'Projects, not just contacts', desc: 'Boards, tasks, and budgets, so the actual delivery lives next to the client.' },
-      { icon: ReceiptText, title: 'Invoicing on free', desc: 'GST-ready invoices and quotations are included, not held back behind a paywall.' },
+      { icon: ReceiptText, title: 'Invoicing on free', desc: 'GST-compliant invoices and quotations are included, not held back behind a paywall.' },
       { icon: CalendarClock, title: 'Meetings built in', desc: 'Schedule calls with Google Calendar and Meet without another subscription.' },
       { icon: PieChart, title: 'Basic analytics', desc: 'A simple dashboard of your clients, projects, and money — no spreadsheet required.' },
       { icon: Sparkles, title: 'Free forever, not a trial', desc: '3 clients and 5 projects with no credit card and no countdown timer.' },
@@ -81,14 +81,14 @@ export const BEST_FREE_CRM_ALTERNATIVES: AlternativePageConfig = {
       'Made for freelancers and agencies',
       'Clients and projects in one place',
       'GST invoicing included on the free plan',
-      'Clear rupee pricing when you outgrow it',
+      'One clear flat price in USD or INR when you outgrow it',
     ],
   },
   pricing: {
     heading: 'What “free” really costs',
     body: [
       'With most free CRMs, “free” covers a capped list of contacts and little else; the bill arrives the moment you need projects, invoicing, more contacts, or another seat. It’s worth reading the limits before you commit your data to one.',
-      'Clienter’s free plan is free forever — 3 clients, 5 projects, the full lead pipeline, GST invoicing, meetings, and basic analytics, with no card required. When you outgrow it, Pro is $19/month (₹199 in India) with the client portal for every client, 20 clients, 40 projects, and 5 team members, and Ultra is $39/month (₹799 in India) for unlimited use. The pricing is in plain rupees, and you can export your data anytime.',
+      'Clienter’s free plan is free forever — 3 clients, 5 projects, the full lead pipeline, GST invoicing, meetings, and basic analytics, with no card required. When you outgrow it, Pro is $19/month (₹199 in India) with the client portal for every client, 20 clients, 40 projects, and 5 team members, and Ultra is $39/month (₹799 in India) for unlimited use. Both prices are flat for the whole workspace, and you can export your data whenever you like.',
     ],
   },
   faqHeading: 'Free CRM alternative FAQs',
@@ -103,7 +103,7 @@ export const BEST_FREE_CRM_ALTERNATIVES: AlternativePageConfig = {
     },
     {
       q: 'Can a free CRM do invoicing?',
-      a: 'Most can’t. Traditional CRMs manage contacts and deals, and invoicing is usually a separate, paid tool. Clienter is unusual in including GST-ready invoicing and quotations on its free plan.',
+      a: 'Most can’t. Traditional CRMs manage contacts and deals, and invoicing is usually a separate, paid tool. Clienter is unusual in including GST-compliant invoicing and quotations on its free plan.',
     },
     {
       q: 'When should I upgrade from a free plan?',
@@ -114,9 +114,9 @@ export const BEST_FREE_CRM_ALTERNATIVES: AlternativePageConfig = {
     { href: '/crm-for-freelancers', label: 'CRM for freelancers', desc: 'A CRM shaped around freelance work.' },
     { href: '/compare/clienter-vs-spreadsheets', label: 'Clienter vs spreadsheets', desc: 'When to graduate from a free spreadsheet.' },
     { href: '/alternatives/notion-alternative-for-client-management', label: 'Notion alternative', desc: 'Another build-it-yourself tool, compared.' },
-    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Skip the crippled free tier',
   ctaSubtitle: 'Start Clienter free — clients, projects, and GST invoicing, with no card required.',
-  asOf: 'July 2026',
+  asOf: 'October 2026',
 }

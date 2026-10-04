@@ -27,7 +27,7 @@ export const CLIENTER_VS_ZOHO_BOOKS: ComparePageConfig = {
     heading: 'Accounting software vs a client-operations workspace',
     body: [
       'Zoho Books is the real thing when it comes to accounting. Built by Zoho, an Indian company, it handles proper bookkeeping — chart of accounts, ledgers, bank reconciliation, GST invoices and returns, e-invoicing and e-way bills, TDS, and financial statements like your P&L and balance sheet. If you need software your chartered accountant will be happy with, Zoho Books is a strong, genuinely GST-compliant choice.',
-      'Clienter isn’t trying to be your accountant. It’s the operations layer in front of the books: a simple lead pipeline, project boards with tasks and budgets, GST-ready invoices and quotations, payment and expense tracking with a live profit dashboard, meetings, and a branded client portal — the day-to-day of winning and delivering client work, in one priced in both USD and INR tool.',
+      'Clienter isn’t trying to be your accountant. It’s the operations layer in front of the books: a simple lead pipeline, project boards with tasks and budgets, GST-ready invoices and quotations, payment and expense tracking with a live profit dashboard, meetings, and a branded client portal — the day-to-day of winning and delivering client work, in one single tool.',
       'That’s the honest distinction. For formal accounting, bookkeeping, and GST filing, a dedicated tool like Zoho Books is often the better fit — Clienter is not a full accounting system. For running the client relationship, the project, and the invoice as one flow, Clienter is built for exactly that. Many freelancers and agencies happily use both: Clienter to operate, Zoho Books to keep the books.',
     ],
   },
@@ -118,7 +118,7 @@ export const CLIENTER_VS_ZOHO_BOOKS: ComparePageConfig = {
     },
     {
       q: 'Which is better for an Indian freelancer?',
-      a: 'It depends on what you need. For genuine accounting and GST returns, Zoho Books is excellent and Indian-built. For running the client relationship, projects, and invoicing in one simple, priced in both USD and INR tool, Clienter is the better fit — and it starts free. Neither fully replaces the other.',
+      a: 'It depends on what you need. For genuine accounting and GST returns, Zoho Books is excellent and Indian-built. For running the client relationship, projects, and invoicing in one simple, single tool, Clienter is the better fit — and it starts free. Neither fully replaces the other.',
     },
   ],
   related: [

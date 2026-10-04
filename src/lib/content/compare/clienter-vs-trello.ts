@@ -27,8 +27,8 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
     heading: 'A simple board vs the whole client lifecycle',
     body: [
       'Trello is a joy for what it does. Its Kanban boards are visual, fast, and almost self-explanatory — you can open it and be productive in minutes. The free tier is generous, Power-Ups extend it when you need more, and for tracking a straightforward list of tasks it is genuinely hard to beat on simplicity. Plenty of freelancers start exactly here.',
-      'Clienter is built for what comes after the board. It is for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things Trello leaves to other tools — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — in one workspace priced for one person.',
-      'So this is less “which board is nicer” and more “which is built for you”. Trello can show your tasks beautifully, but a card still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. Clienter keeps the simple Kanban feel and ties projects to clients, invoices, and payments in one priced in both USD and INR tool, so the whole client lifecycle lives together.',
+      'Clienter is built for what comes after the board. It is for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things Trello leaves to other tools — GST-compliant invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — in one workspace priced for one person.',
+      'So this is less “which board is nicer” and more “which is built for you”. Trello can show your tasks beautifully, but a card still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. Clienter keeps the simple Kanban feel and ties projects to clients, invoices, and payments in one single tool, so the whole client lifecycle lives together.',
     ],
   },
   tableHeading: 'Clienter vs Trello at a glance',
@@ -36,7 +36,7 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
     { feature: 'Built for', clienter: 'Freelancers & small agencies', other: 'Anyone wanting simple visual boards' },
     { feature: 'Lead & sales pipeline', clienter: 'Yes — simple Kanban pipeline', other: 'Kanban boards, but not a client CRM' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Boards only (Power-Ups add more)' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not available' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Not available' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via Power-Ups / other tools' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not available' },
     { feature: 'Client → project → invoice link', clienter: 'Native', other: 'Not available' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
+    'GST-compliant invoicing and quotations with pricing in both USD and INR',
     'A live profit dashboard that ties income and expenses to each client',
     'Keeps a simple Kanban feel while covering the whole client lifecycle',
     'Branded client portal and verified reviews to look established',
@@ -81,7 +81,7 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
     points: [
       'Are a freelancer or small agency doing client-services work',
       'Want clients, projects, invoices, and a portal in the same tool',
-      'Need GST-ready invoices and rupee pricing',
+      'Need GST-compliant invoices for India, or to invoice in another currency',
       'Have outgrown a simple board and are stitching apps together',
       'Are cost-conscious and don’t want per-seat pricing',
     ],
@@ -110,7 +110,7 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
     },
     {
       q: 'Can Trello do invoicing and payments?',
-      a: 'Not on its own. Trello is a board tool, so invoicing and payments depend on Power-Ups or separate apps, and none are built around Indian GST. Clienter includes GST-ready invoicing and quotations plus payment and expense tracking natively, with a live profit dashboard tying everything to each client.',
+      a: 'Not on its own. Trello is a board tool, so invoicing and payments depend on Power-Ups or separate apps, and GST-compliant invoicing is not listed for any of them. Clienter includes GST-compliant invoicing and quotations plus payment and expense tracking natively, with a live profit dashboard tying everything to each client.',
     },
     {
       q: 'I like how simple Trello is — is Clienter still easy?',
@@ -125,7 +125,7 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
     { href: '/alternatives/trello-alternative-for-freelancers', label: 'Trello alternatives', desc: 'The best Trello alternatives for freelancers.' },
     { href: '/compare/clienter-vs-asana', label: 'Clienter vs Asana', desc: 'Polished task management compared with Clienter.' },
     { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'Why a freelancer CRM beats a plain board.' },
-    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a tool built for how you actually work',
   ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',

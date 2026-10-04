@@ -22,7 +22,7 @@ export const CLIENTER_VS_TASKIP: ComparePageConfig = {
     heading: 'Two tools with the same goal',
     body: [
       'Taskip and Clienter are chasing the same idea: give freelancers and agencies a single place for client portals, project management, tasks, and invoicing, instead of stitching together separate apps. If you’ve found one, you’ve probably found the other.',
-      'Because they overlap so much, the honest comparison isn’t about who has a feature the other completely lacks — it’s about fit. Clienter is built India-first, with GST-ready invoicing, rupee pricing, and a free plan, and leans into a lead pipeline and verified reviews as part of the client lifecycle.',
+      'Because they overlap so much, the honest comparison isn’t about who has a feature the other completely lacks — it’s about fit. Clienter is built India-first, with GST-compliant invoicing, rupee pricing, and a free plan, and leans into a lead pipeline and verified reviews as part of the client lifecycle.',
       'The best way to choose between similar tools is to try both with a real client and see which workflow feels natural. This page lays out where each one leans so you know what to look for.',
     ],
   },
@@ -31,7 +31,7 @@ export const CLIENTER_VS_TASKIP: ComparePageConfig = {
     { feature: 'Client portal', clienter: 'Yes — branded (1 client on Free, all on Pro & Ultra)', other: 'Yes' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Yes' },
     { feature: 'Lead pipeline / CRM', clienter: 'Yes — Kanban pipeline', other: 'Client-focused' },
-    { feature: 'GST-ready invoicing', clienter: 'Yes, India-first', other: 'Invoicing available' },
+    { feature: 'GST-compliant invoicing', clienter: 'Yes, India-first', other: 'Invoicing available' },
     { feature: 'Verified reviews', clienter: 'Yes', other: 'Not a core feature' },
     { feature: 'Meetings & calendar', clienter: 'Google Calendar & Meet', other: 'Varies' },
     { feature: 'Free plan', clienter: 'Yes — free forever', other: 'Check current plans' },
@@ -65,7 +65,7 @@ export const CLIENTER_VS_TASKIP: ComparePageConfig = {
     heading: 'Pricing: check both, but start free with Clienter',
     body: [
       'Because Taskip’s plans and pricing can change, check its current pricing directly before deciding. What Clienter offers is clear: a free plan forever (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India), and Ultra at $39/month (₹799 in India) for unlimited use.',
-      'For Indian freelancers and agencies, the priced in both USD and INR pricing and GST-ready invoicing are the practical differentiators. The smartest move with two similar tools is to run a real project through each free trial and keep the one whose workflow you don’t have to fight.',
+      'For Indian freelancers and agencies, the pricing in both USD and INR, plus GST-compliant invoicing, are the practical differentiators. The smartest move with two similar tools is to run a real project through each free trial and keep the one whose workflow you don’t have to fight.',
     ],
   },
   chooseClienter: {
@@ -98,7 +98,7 @@ export const CLIENTER_VS_TASKIP: ComparePageConfig = {
   faqs: [
     {
       q: 'Is Clienter a good Taskip alternative?',
-      a: 'Yes — they’re in the same category, so Clienter is a natural alternative to Taskip. Clienter’s edge for Indian users is GST-ready invoicing, rupee pricing, a lead pipeline, and verified reviews, plus a free plan to start. The best choice depends on which workflow feels right for you.',
+      a: 'Yes — they’re in the same category, so Clienter is a natural alternative to Taskip. Clienter’s edge for Indian users is GST-compliant invoicing, rupee pricing, a lead pipeline, and verified reviews, plus a free plan to start. The best choice depends on which workflow feels right for you.',
     },
     {
       q: 'How do I choose between two similar tools?',
@@ -106,7 +106,7 @@ export const CLIENTER_VS_TASKIP: ComparePageConfig = {
     },
     {
       q: 'Which is better for Indian freelancers?',
-      a: 'Clienter is built India-first, so GST-ready invoicing and rupee pricing are native, which is a practical advantage for Indian freelancers and agencies. Confirm Taskip’s current India support if that matters to you.',
+      a: 'Clienter is built India-first, so GST-compliant invoicing and rupee pricing are native, which is a practical advantage for Indian freelancers and agencies. Confirm Taskip’s current India support if that matters to you.',
     },
     {
       q: 'Is there a free plan?',
@@ -117,7 +117,7 @@ export const CLIENTER_VS_TASKIP: ComparePageConfig = {
     { href: '/compare/clienter-vs-bonsai', label: 'Clienter vs Bonsai', desc: 'Another all-in-one comparison.' },
     { href: '/features/client-portal', label: 'Client Portal', desc: 'How Clienter’s branded portal works.' },
     { href: '/for/web-design-agencies', label: 'For Agencies', desc: 'How Clienter fits agency workflows.' },
-    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Try the India-first client workspace',
   ctaSubtitle: 'Start Clienter free and run one real client through it end to end.',

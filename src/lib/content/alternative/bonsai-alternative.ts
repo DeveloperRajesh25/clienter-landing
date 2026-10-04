@@ -29,7 +29,7 @@ export const BONSAI_ALTERNATIVE: AlternativePageConfig = {
     body: [
       'Bonsai earned its reputation for a reason: it bundles proposals, contracts, invoicing, a light CRM, and time tracking into one tidy product with genuinely nice templates. For a US freelancer it’s a strong all-in-one.',
       'The friction shows up outside the US. Bonsai is priced in dollars, its tax and invoicing features are built around US/Western norms rather than Indian GST, and for a freelancer earning in rupees the monthly cost can feel steep once converted. If that’s why you’re here, you don’t need to give up the all-in-one idea — you need one built for your market.',
-      'Clienter is that alternative: the same “run the whole business in one tool” philosophy, but with GST-ready invoicing, rupee pricing, UPI-friendly payment tracking, and a free plan that lets you start today.',
+      'Clienter is that alternative: the same “run the whole business in one tool” philosophy, but priced per workspace instead of per user, with invoicing in about 30 currencies (GST-compliant for India), team payouts in the same place you invoice clients, and a free plan that lets you start today.',
     ],
   },
   whySwitch: {
@@ -48,7 +48,7 @@ export const BONSAI_ALTERNATIVE: AlternativePageConfig = {
     items: [
       { icon: Users, title: 'Clients & CRM', desc: 'One profile per client plus a visual lead pipeline — the CRM side, done simply.' },
       { icon: KanbanSquare, title: 'Projects', desc: 'Kanban boards, deadlines, budgets, and tasks for the actual delivery.' },
-      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-ready invoices and quotations with your GSTIN, in rupees.' },
+      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-compliant invoices and quotations with your GSTIN, in rupees.' },
       { icon: Wallet, title: 'Payments & profit', desc: 'Track dues, expenses, and net profit — matched to how you get paid in India.' },
       { icon: LayoutDashboard, title: 'Client portal', desc: 'A branded portal where clients view work and download invoices.' },
       { icon: BadgeCheck, title: 'Verified reviews', desc: 'Turn finished projects into credible social proof for the next pitch.' },
@@ -75,7 +75,7 @@ export const BONSAI_ALTERNATIVE: AlternativePageConfig = {
     ],
     calm: [
       'Rupee pricing, from a free plan',
-      'GST-ready invoices with your GSTIN',
+      'GST-compliant invoices with your GSTIN',
       'Payment tracking that fits UPI & bank transfers',
       'Built for the Indian freelance workflow',
       'A genuinely usable free plan to start',
@@ -92,7 +92,7 @@ export const BONSAI_ALTERNATIVE: AlternativePageConfig = {
   faqs: [
     {
       q: 'What is the best Bonsai alternative in India?',
-      a: 'For Indian freelancers, the best Bonsai alternative is one that keeps the all-in-one convenience but adds GST invoicing and rupee pricing. Clienter does exactly that — clients, projects, invoices, payments, and a client portal in one tool, starting free and with Pro at $19/month (₹199 in India).',
+      a: 'The best Bonsai alternative depends on how many of you there are. Bonsai bills per user, so if you are one person its Basic tier at $15 a month is hard to beat on price. Once a second or third person needs access, a per-workspace price wins: Clienter includes five team members on Pro at $19 a month flat (₹199 in India), with clients, projects, invoices, payouts and a client portal in one tool and a free-forever plan under it. See our plural comparison for five other real options.',
     },
     {
       q: 'Is Clienter cheaper than Bonsai?',
@@ -107,7 +107,7 @@ export const BONSAI_ALTERNATIVE: AlternativePageConfig = {
     { href: '/compare/clienter-vs-bonsai', label: 'Clienter vs Bonsai', desc: 'The full side-by-side comparison.' },
     { href: '/alternatives/honeybook-alternative-india', label: 'HoneyBook alternative', desc: 'Another creative-suite alternative for India.' },
     { href: '/for/freelancers', label: 'For Freelancers', desc: 'How Clienter fits a freelance business.' },
-    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get an all-in-one built for India',
   ctaSubtitle: 'Start Clienter free and run your whole freelance business in rupees.',

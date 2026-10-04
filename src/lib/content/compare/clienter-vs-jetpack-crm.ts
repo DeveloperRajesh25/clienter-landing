@@ -27,7 +27,7 @@ export const CLIENTER_VS_JETPACK_CRM: ComparePageConfig = {
     heading: 'A WordPress CRM plugin vs a hosted all-in-one workspace',
     body: [
       'Jetpack CRM is a self-hosted CRM that runs as a plugin inside WordPress. Its big appeal is ownership and control: your customer data lives on your own WordPress site, the core plugin is free, and you can extend it with paid add-ons for invoicing, quotes, client portals, and more. For someone who already runs a WordPress site and wants a CRM they fully own, Jetpack CRM is a neat, self-contained option.',
-      'Clienter takes a different path: it is a hosted, all-in-one workspace built for freelancers and small agencies, with nothing to install or maintain. It combines a simple Kanban lead pipeline with project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, meetings with Google Calendar sync, and a branded client portal — all priced in both USD and INR and ready the moment you sign up.',
+      'Clienter takes a different path: it is a hosted, all-in-one workspace built for freelancers and small agencies, with nothing to install or maintain. It combines a simple Kanban lead pipeline with project management, GST-compliant invoicing and quotations, payment and expense tracking with a live profit dashboard, meetings with Google Calendar sync, and a branded client portal — all hosted and ready the moment you sign up.',
       'So the honest framing is self-hosted control versus hosted convenience. If you love WordPress and want to own and host your CRM yourself, Jetpack CRM is a genuinely good fit. If you would rather not run a WordPress site or manage plugins, updates, and security, and you want the whole client lifecycle handled for you, that is exactly what Clienter is for.',
     ],
   },
@@ -37,7 +37,7 @@ export const CLIENTER_VS_JETPACK_CRM: ComparePageConfig = {
     { feature: 'Setup', clienter: 'Hosted — nothing to install', other: 'Self-hosted on your WordPress site' },
     { feature: 'Lead & sales pipeline', clienter: 'Yes — simple Kanban pipeline', other: 'Yes — contact & lead management' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Not a core feature' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Via paid add-on; not GST-specific' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Via paid add-on; not GST-specific' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Via paid add-on' },
     { feature: 'Meetings & calendar sync', clienter: 'Built in (Google Calendar, Meet)', other: 'Not a core feature' },
     { feature: 'Maintenance & security', clienter: 'Handled for you', other: 'You manage hosting & updates' },
@@ -47,7 +47,7 @@ export const CLIENTER_VS_JETPACK_CRM: ComparePageConfig = {
   clienterPros: [
     'Hosted and all-in-one — nothing to install, update, or secure',
     'Works without a WordPress site of any kind',
-    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
+    'GST-compliant invoicing and quotations with pricing in both USD and INR',
     'Projects, payments, meetings, and a portal included, not add-ons',
     'Simple enough to use the same day you sign up',
   ],
@@ -66,7 +66,7 @@ export const CLIENTER_VS_JETPACK_CRM: ComparePageConfig = {
     'Requires a WordPress site, which not everyone has or wants',
     'You manage hosting, updates, backups, and security yourself',
     'Full functionality means buying and configuring several add-ons',
-    'Not tailored to Indian GST invoicing or priced in both USD and INR pricing',
+    'GST-compliant invoicing is not listed on their pricing page',
   ],
   pricing: {
     heading: 'Pricing: self-hosted plugin vs hosted all-in-one',
@@ -81,7 +81,7 @@ export const CLIENTER_VS_JETPACK_CRM: ComparePageConfig = {
     points: [
       'Want a hosted tool with nothing to install or maintain',
       'Do not run a WordPress site, or would rather not depend on one',
-      'Need GST-ready invoicing and priced in both USD and INR pricing',
+      'Need GST-compliant invoicing and pricing in both USD and INR',
       'Want projects, payments, meetings, and a portal included',
       'Want to start today without configuring plugins',
     ],
@@ -125,7 +125,7 @@ export const CLIENTER_VS_JETPACK_CRM: ComparePageConfig = {
     { href: '/compare/clienter-vs-hubspot', label: 'Clienter vs HubSpot', desc: 'Another honest CRM comparison.' },
     { href: '/compare/clienter-vs-zoho-crm', label: 'Clienter vs Zoho CRM', desc: 'Clienter compared with Zoho CRM.' },
     { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'A hosted CRM built for freelancers.' },
-    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get an all-in-one CRM with nothing to install',
   ctaSubtitle: 'Start Clienter free — no WordPress, no plugins, just clients, projects, and invoices in one place.',

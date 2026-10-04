@@ -28,7 +28,7 @@ export const HUBSPOT_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Why freelancers look for a HubSpot alternative',
     body: [
       'HubSpot is, by any measure, an excellent product. Its free CRM is genuinely generous, its marketing and sales tools are deep, and for a growing sales team that lives inside a pipeline of deals, few things compete. If your day is about nurturing leads, sequencing emails, and reporting on a funnel, HubSpot earns its place.',
-      'The trouble for a freelancer is that HubSpot is built around selling, not delivering. It has no built-in project management for the work you were actually hired to do, no GST-ready invoicing, and no branded client portal out of the box. The free CRM is great, but the features that would round out a freelance business sit in paid tiers priced for teams — so you end up either paying a team-sized bill or bolting a separate project tool, an invoicing tool, and a portal on top.',
+      'The trouble for a freelancer is that HubSpot is built around selling, not delivering. It has no built-in project management for the work you were actually hired to do, no GST-compliant invoicing, and no branded client portal out of the box. The free CRM is great, but the features that would round out a freelance business sit in paid tiers priced for teams — so you end up either paying a team-sized bill or bolting a separate project tool, an invoicing tool, and a portal on top.',
       'Clienter is the alternative for people who don’t run a sales floor. It keeps a simple lead pipeline and clean client records, then adds the delivery side HubSpot leaves out — projects, GST invoicing, payments, and a client portal — all rupee-priced, and all usable from a free plan.',
     ],
   },
@@ -38,7 +38,7 @@ export const HUBSPOT_ALTERNATIVE: AlternativePageConfig = {
     items: [
       { title: 'Built for sales teams', desc: 'The whole product orbits deals, sequences, and funnel reporting — more machinery than one freelancer needs to close and deliver work.' },
       { title: 'No project delivery', desc: 'There’s no built-in board for the actual work — tasks, deadlines, and budgets live in whatever separate tool you add.' },
-      { title: 'No GST invoicing', desc: 'HubSpot doesn’t issue GST-ready invoices or quotations with your GSTIN, so billing means yet another app.' },
+      { title: 'No GST invoicing', desc: 'HubSpot doesn’t issue GST-compliant invoices or quotations with your GSTIN, so billing means yet another app.' },
       { title: 'Priced for teams', desc: 'The free CRM is generous, but the tiers that unlock the fuller toolkit are scaled — and priced — for growing teams.' },
     ],
   },
@@ -48,7 +48,7 @@ export const HUBSPOT_ALTERNATIVE: AlternativePageConfig = {
     items: [
       { icon: Users, title: 'Clients & pipeline', desc: 'Clean client records and a simple Kanban lead pipeline — the CRM basics, without the sales-team overhead.' },
       { icon: KanbanSquare, title: 'Projects', desc: 'Boards, tasks, deadlines, and budgets for the work you were actually hired to do.' },
-      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-ready invoices and quotations with your GSTIN, in rupees — no separate billing app.' },
+      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-compliant invoices and quotations with your GSTIN, in rupees — no separate billing app.' },
       { icon: FileSignature, title: 'Proposals & e-sign', desc: 'Send proposals and quotations clients can accept and sign digitally.' },
       { icon: LayoutDashboard, title: 'Client portal', desc: 'A branded portal where clients track work and download invoices (one client on Free, every client on Pro and Ultra).' },
       { icon: PieChart, title: 'Profit dashboard', desc: 'Payments and expenses roll up into a live view of what you’re actually earning.' },
@@ -69,7 +69,7 @@ export const HUBSPOT_ALTERNATIVE: AlternativePageConfig = {
     old: [
       'Oriented around sales teams and deal pipelines',
       'No built-in project delivery or tasks',
-      'No GST-ready invoicing or quotations',
+      'No GST-compliant invoicing or quotations',
       'No branded client portal out of the box',
       'Fuller toolkit priced for growing teams',
     ],
@@ -111,7 +111,7 @@ export const HUBSPOT_ALTERNATIVE: AlternativePageConfig = {
     { href: '/compare/clienter-vs-hubspot', label: 'Clienter vs HubSpot', desc: 'The full side-by-side comparison.' },
     { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'Why a freelancer needs a different kind of CRM.' },
     { href: '/alternatives/zoho-crm-alternative-for-freelancers', label: 'Zoho CRM alternative', desc: 'Another sales-CRM alternative for freelancers.' },
-    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a CRM that also delivers the work',
   ctaSubtitle: 'Start Clienter free and run clients, projects, and invoices in one rupee-priced tool.',

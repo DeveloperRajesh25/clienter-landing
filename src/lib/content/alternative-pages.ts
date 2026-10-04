@@ -8,12 +8,21 @@ import { NOTION_ALTERNATIVE } from './alternative/notion-alternative-for-client-
 import { TRELLO_ALTERNATIVE } from './alternative/trello-alternative-for-freelancers'
 import { QUICKBOOKS_ALTERNATIVE } from './alternative/quickbooks-alternative-india'
 import { BEST_FREE_CRM_ALTERNATIVES } from './alternative/best-free-crm-alternatives'
+// Plural "best X alternatives" pages — research-stage intent, distinct from the
+// singular switcher pages above. Added October 2026 for the three
+// highest-interest competitors.
+import { HONEYBOOK_ALTERNATIVES } from './alternative/honeybook-alternatives'
+import { BONSAI_ALTERNATIVES } from './alternative/bonsai-alternatives'
+import { DUBSADO_ALTERNATIVES } from './alternative/dubsado-alternatives'
 
 export type { AlternativePageConfig }
 
 /** All /alternatives/<slug> pages. */
 export const ALTERNATIVE_PAGES: AlternativePageConfig[] = [
   BEST_FREE_CRM_ALTERNATIVES,
+  HONEYBOOK_ALTERNATIVES,
+  BONSAI_ALTERNATIVES,
+  DUBSADO_ALTERNATIVES,
   HUBSPOT_ALTERNATIVE,
   HONEYBOOK_ALTERNATIVE,
   DUBSADO_ALTERNATIVE,

@@ -28,7 +28,7 @@ export const CLIENTER_VS_SPREADSHEETS: ComparePageConfig = {
     body: [
       'There is nothing wrong with starting in a spreadsheet. Excel and Google Sheets are free, already on your computer, and flexible enough to track clients, log payments, and jot down project notes. Most successful freelancers began exactly here, and for your first few clients a well-organised sheet genuinely does the job. If that’s where you are, you’re not behind — you’re doing the sensible thing.',
       'The trouble is that spreadsheets are entirely manual. Every invoice is a template you fill in by hand, every follow-up is one you have to remember, and every total depends on a formula not getting overwritten. There’s no reminder when a payment is late, no client portal to share work, and no safety net when a stray edit breaks a column. It all works — right up until you have enough clients that the admin quietly eats your week.',
-      'Clienter is built for that moment. It keeps the simplicity you liked about a spreadsheet but adds the structure a growing client business needs: a Kanban lead pipeline, projects with tasks and budgets, GST-ready invoicing, payment and expense tracking with a live profit dashboard, and a branded client portal. This isn’t about spreadsheets being “bad” — it’s about outgrowing them.',
+      'Clienter is built for that moment. It keeps the simplicity you liked about a spreadsheet but adds the structure a growing client business needs: a Kanban lead pipeline, projects with tasks and budgets, GST-compliant invoicing, payment and expense tracking with a live profit dashboard, and a branded client portal. This isn’t about spreadsheets being “bad” — it’s about outgrowing them.',
     ],
   },
   tableHeading: 'Clienter vs spreadsheets at a glance',
@@ -37,7 +37,7 @@ export const CLIENTER_VS_SPREADSHEETS: ComparePageConfig = {
     { feature: 'Cost', clienter: 'Free plan, or Pro ₹199/mo (launch)', other: 'Free' },
     { feature: 'Lead & sales pipeline', clienter: 'Yes — visual Kanban pipeline', other: 'Manual tabs and colour-coding' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Manual; no real task tracking' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Manual templates, error-prone' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Manual templates, error-prone' },
     { feature: 'Payment & expense tracking', clienter: 'Built in + live profit dashboard', other: 'Manual formulas you maintain' },
     { feature: 'Automated reminders', clienter: 'Built in', other: 'None — you remember, or you don’t' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not possible' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_SPREADSHEETS: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, pipeline, projects, and invoices in one structured place',
-    'GST-ready invoicing and quotations instead of hand-built templates',
+    'GST-compliant invoicing and quotations instead of hand-built templates',
     'Automated reminders and a live profit dashboard, no formulas to maintain',
     'Branded client portal (1 client on Free, all on Pro & Ultra) to share work and invoices',
     'Cloud-based with backups and role-based access — much harder to lose data',
@@ -65,14 +65,14 @@ export const CLIENTER_VS_SPREADSHEETS: ComparePageConfig = {
   competitorCons: [
     'Entirely manual — no automation, reminders, or client portal',
     'Error-prone: one wrong formula or overwrite can break everything',
-    'No GST-ready invoicing or live profit view without heavy DIY setup',
+    'No GST-compliant invoicing or live profit view without heavy DIY setup',
     'Falls apart as your client and project count grows',
   ],
   pricing: {
     heading: 'Pricing: free vs the cost of your time',
     body: [
       'On price alone, spreadsheets win — they’re free, and they’ll stay free forever. If your budget is truly zero and you have only a handful of clients, a well-kept sheet is a perfectly honest starting point, and we’d rather you use one than nothing at all.',
-      'Clienter starts free too. The Free plan (up to 3 clients and 5 projects) includes the pipeline, GST-ready invoicing, and meetings — so you can replace your spreadsheet without spending a rupee. When you outgrow it, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client — and Ultra is $39/month (₹799 in India) for unlimited everything.',
+      'Clienter starts free too. The Free plan (up to 3 clients and 5 projects) includes the pipeline, GST-compliant invoicing, and meetings — so you can replace your spreadsheet without spending a rupee. When you outgrow it, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client — and Ultra is $39/month (₹799 in India) for unlimited everything.',
       'The real comparison isn’t rupees, it’s hours. A spreadsheet is free in cash but expensive in time — the manual invoicing, the chasing, the fixing of broken formulas. Clienter trades a small, predictable monthly cost for the hours you get back, and it starts free so you can feel the difference before you ever pay.',
     ],
   },
@@ -80,7 +80,7 @@ export const CLIENTER_VS_SPREADSHEETS: ComparePageConfig = {
     heading: 'Choose Clienter if you…',
     points: [
       'Have enough clients that spreadsheet admin is eating your time',
-      'Want GST-ready invoicing instead of hand-built templates',
+      'Want GST-compliant invoicing instead of hand-built templates',
       'Keep forgetting follow-ups and want automated reminders',
       'Need a professional client portal to share work and invoices',
       'Worry about a stray edit wiping out your numbers',
@@ -98,7 +98,7 @@ export const CLIENTER_VS_SPREADSHEETS: ComparePageConfig = {
   migration: {
     heading: 'Moving from spreadsheets to Clienter',
     body: [
-      'Switching from a spreadsheet is about as easy as it gets, because you already have your data laid out. Export your client sheet as a CSV, then recreate your active clients and open leads in Clienter — most people only have a manageable handful, so this is usually an afternoon. From there you start raising GST-ready invoices and tracking payments in the tool instead of in a formula.',
+      'Switching from a spreadsheet is about as easy as it gets, because you already have your data laid out. Export your client sheet as a CSV, then recreate your active clients and open leads in Clienter — most people only have a manageable handful, so this is usually an afternoon. From there you start raising GST-compliant invoices and tracking payments in the tool instead of in a formula.',
       'You don’t have to move everything at once. A common approach is to keep your old sheet as a read-only archive while you run all new clients, projects, and invoices through Clienter, then retire the spreadsheet once you trust the new setup. And because Clienter lets you export your data anytime, you can always get a spreadsheet back out if you ever want one.',
     ],
   },
@@ -114,18 +114,18 @@ export const CLIENTER_VS_SPREADSHEETS: ComparePageConfig = {
     },
     {
       q: 'What does Clienter do that a spreadsheet can’t?',
-      a: 'The big ones are automation and structure: GST-ready invoicing and quotations, automated reminders, a visual lead pipeline, project boards with tasks and budgets, a live profit dashboard, and a branded client portal. A spreadsheet can fake some of these with enough manual effort, but they’re built in with Clienter — and far harder to accidentally break.',
+      a: 'The big ones are automation and structure: GST-compliant invoicing and quotations, automated reminders, a visual lead pipeline, project boards with tasks and budgets, a live profit dashboard, and a branded client portal. A spreadsheet can fake some of these with enough manual effort, but they’re built in with Clienter — and far harder to accidentally break.',
     },
     {
       q: 'Is there a free way to move off spreadsheets?',
-      a: 'Yes. Clienter’s Free plan is free forever and covers up to 3 clients and 5 projects, with the pipeline, GST-ready invoicing, and meetings included. That’s enough to replace a starter spreadsheet at no cost, and you only move to a paid plan if and when you outgrow those limits.',
+      a: 'Yes. Clienter’s Free plan is free forever and covers up to 3 clients and 5 projects, with the pipeline, GST-compliant invoicing, and meetings included. That’s enough to replace a starter spreadsheet at no cost, and you only move to a paid plan if and when you outgrow those limits.',
     },
   ],
   related: [
     { href: '/tools/invoice-generator', label: 'Free invoice generator', desc: 'Ditch the invoice template — make one in minutes.' },
     { href: '/client-management-software', label: 'Client management software', desc: 'What replaces the spreadsheet as you grow.' },
     { href: '/for/indian-freelancers', label: 'Clienter for Indian freelancers', desc: 'Built for how Indian freelancers actually work.' },
-    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Outgrow the spreadsheet — for free',
   ctaSubtitle: 'Start Clienter free and move your clients, projects, and invoices into one place.',

@@ -22,7 +22,7 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
     heading: 'Invoicing-first vs client-first',
     body: [
       'FreshBooks built its reputation on making invoicing and small-business accounting genuinely pleasant — clean invoices, expense tracking, time tracking, and reports that a non-accountant can understand. For a freelancer whose main need is “bill clients and track the money,” it’s a polished, well-loved option.',
-      'Clienter starts from the client, not the invoice. You get a lead pipeline, one profile per client, project boards, and a client portal — with GST-ready invoicing and payment tracking built in. The invoice is one part of a bigger workflow rather than the whole product.',
+      'Clienter starts from the client, not the invoice. You get a lead pipeline, one profile per client, project boards, and a client portal — with GST-compliant invoicing and payment tracking built in. The invoice is one part of a bigger workflow rather than the whole product.',
       'For Indian users there’s also the practical matter of GST-native invoicing and rupee pricing, which Clienter is built around. This comparison is really about whether you want a finance-first tool or a client-operations tool that also invoices.',
     ],
   },
@@ -31,7 +31,7 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
     { feature: 'Primary job', clienter: 'Clients, projects & invoicing', other: 'Invoicing & light accounting' },
     { feature: 'Client management / CRM', clienter: 'Yes — profiles & lead pipeline', other: 'Basic client records' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Light projects' },
-    { feature: 'GST-ready invoicing', clienter: 'Yes, India-first', other: 'Invoicing, less India/GST-specific' },
+    { feature: 'GST-compliant invoicing', clienter: 'Yes, India-first', other: 'Invoicing, less India/GST-specific' },
     { feature: 'Accounting reports', clienter: 'Profit view (not full books)', other: 'Stronger accounting reports' },
     { feature: 'Client portal', clienter: 'Yes (1 client on Free, all on Pro & Ultra)', other: 'Client-facing invoices' },
     { feature: 'Verified reviews', clienter: 'Yes', other: 'No' },
@@ -39,7 +39,7 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoicing, and a portal in one place',
-    'GST-ready invoicing and rupee pricing',
+    'GST-compliant invoicing and rupee pricing',
     'A genuinely usable free plan',
     'Lead pipeline and verified reviews included',
     'Built for the Indian freelance workflow',
@@ -56,7 +56,7 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
     'Good for finance-first solo businesses',
   ],
   competitorCons: [
-    'Not built around Indian GST or priced in both USD and INR pricing',
+    'Not built around Indian GST or pricing in both USD and INR',
     'Priced in USD, no free plan',
     'Light on CRM, projects, and a client portal',
     'Finance-first, not client-operations-first',
@@ -72,7 +72,7 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
     heading: 'Choose Clienter if you…',
     points: [
       'Want clients, projects, and invoicing together, not just invoicing',
-      'Need GST-ready invoices and rupee pricing',
+      'Need GST-compliant invoices for India, or to invoice in another currency',
       'Want a client portal and lead pipeline included',
       'Prefer to start on a free plan',
       'Run client-services work in India',
@@ -90,7 +90,7 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
   migration: {
     heading: 'Moving from FreshBooks to Clienter',
     body: [
-      'Export your client list and invoice history from FreshBooks, then recreate your active clients in Clienter and start raising GST-ready invoices. Most freelancers have a manageable number of active clients, so this is usually quick.',
+      'Export your client list and invoice history from FreshBooks, then recreate your active clients in Clienter and start raising GST-compliant invoices. Most freelancers have a manageable number of active clients, so this is usually quick.',
       'The upside is consolidation: your CRM, projects, invoices, and client portal all move into one tool instead of an invoicing app plus separate project and client tracking. You can export your Clienter data anytime, so there’s no lock-in.',
     ],
   },
@@ -98,11 +98,11 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
   faqs: [
     {
       q: 'Is Clienter a good FreshBooks alternative?',
-      a: 'For Indian freelancers and agencies, yes — Clienter covers invoicing plus the client management, projects, and portal that FreshBooks leaves out, with GST-ready invoices and rupee pricing. If your only need is finance-first accounting, a dedicated accounting tool may suit you better.',
+      a: 'For Indian freelancers and agencies, yes — Clienter covers invoicing plus the client management, projects, and portal that FreshBooks leaves out, with GST-compliant invoices and rupee pricing. If your only need is finance-first accounting, a dedicated accounting tool may suit you better.',
     },
     {
       q: 'Does Clienter do GST invoices better than FreshBooks?',
-      a: 'Clienter is built India-first, so GST-ready invoicing (GSTIN, CGST/SGST/IGST) is native. FreshBooks handles invoicing well but isn’t designed specifically around Indian GST, which is a meaningful difference for Indian users.',
+      a: 'Clienter is built India-first, so GST-compliant invoicing (GSTIN, CGST/SGST/IGST) is native. FreshBooks handles invoicing well but isn’t designed specifically around Indian GST, which is a meaningful difference for Indian users.',
     },
     {
       q: 'Which is cheaper?',

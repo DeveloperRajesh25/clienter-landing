@@ -27,8 +27,8 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
     heading: 'Great task management vs a whole client business',
     body: [
       'Asana is one of the most refined project and task managers around. Its interface is clean and intuitive, teams adopt it quickly, and its timelines, workflows, and reporting make coordinating work across a group feel calm and organised. If your main problem is keeping a team’s tasks and projects on track, Asana does that job beautifully and reliably.',
-      'Clienter is built for a different problem. It is for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things Asana leaves to other tools — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — in one workspace priced for one person.',
-      'So this is less “which is the better project manager” and more “which is built for you”. Asana can organise your project immaculately, but a task board still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. Clienter ties projects to clients, invoices, and payments in one priced in both USD and INR tool, so the whole client lifecycle lives together.',
+      'Clienter is built for a different problem. It is for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things Asana leaves to other tools — GST-compliant invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — in one workspace priced for one person.',
+      'So this is less “which is the better project manager” and more “which is built for you”. Asana can organise your project immaculately, but a task board still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. Clienter ties projects to clients, invoices, and payments in one single tool, so the whole client lifecycle lives together.',
     ],
   },
   tableHeading: 'Clienter vs Asana at a glance',
@@ -36,7 +36,7 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
     { feature: 'Built for', clienter: 'Freelancers & small agencies', other: 'Teams coordinating tasks & projects' },
     { feature: 'Lead & sales pipeline', clienter: 'Yes — simple Kanban pipeline', other: 'Not a CRM (build it as a project)' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Yes — polished and reliable' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Not listed on their pricing page' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via integrations' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Client → project → invoice link', clienter: 'Native', other: 'Not available' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
+    'GST-compliant invoicing and quotations with pricing in both USD and INR',
     'A live profit dashboard that ties income and expenses to each client',
     'Simple enough to use the day you sign up',
     'Branded client portal and verified reviews to look established',
@@ -81,7 +81,7 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
     points: [
       'Are a freelancer or small agency doing client-services work',
       'Want clients, projects, invoices, and a portal in the same tool',
-      'Need GST-ready invoices and rupee pricing',
+      'Need GST-compliant invoices for India, or to invoice in another currency',
       'Want to be productive the same day, without extra billing tools',
       'Are cost-conscious and don’t want per-seat pricing',
     ],
@@ -110,7 +110,7 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
     },
     {
       q: 'Does Asana handle invoicing, payments, or a CRM?',
-      a: 'Asana is focused on tasks and projects; it isn’t a CRM and doesn’t do GST invoicing or collect payments, so those rely on separate tools and integrations. Clienter includes a lead pipeline, GST-ready invoicing and quotations, and payment tracking natively, with a live profit dashboard tying it all to each client.',
+      a: 'Asana is focused on tasks and projects; it isn’t a CRM and doesn’t do GST invoicing or collect payments, so those rely on separate tools and integrations. Clienter includes a lead pipeline, GST-compliant invoicing and quotations, and payment tracking natively, with a live profit dashboard tying it all to each client.',
     },
     {
       q: 'Is Asana overkill for a solo freelancer?',
@@ -125,7 +125,7 @@ export const CLIENTER_VS_ASANA: ComparePageConfig = {
     { href: '/compare/clienter-vs-monday', label: 'Clienter vs monday.com', desc: 'A flexible work-OS compared with Clienter.' },
     { href: '/compare/clienter-vs-trello', label: 'Clienter vs Trello', desc: 'Simple Kanban boards vs an all-in-one tool.' },
     { href: '/project-management-crm', label: 'Project management + CRM', desc: 'Why client work needs both in one tool.' },
-    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a tool built for how you actually work',
   ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',

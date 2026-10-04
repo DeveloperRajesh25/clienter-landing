@@ -27,7 +27,7 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     heading: 'Two very different tools for two very different jobs',
     body: [
       'HubSpot is one of the best-known CRMs in the world, and for good reason: it has a genuinely generous free CRM, deep marketing automation, and a huge ecosystem of integrations. It is built to help sales and marketing teams capture leads at scale, nurture them with email sequences, and report on a pipeline across many reps.',
-      'Clienter is built for a different person entirely: the freelancer or small agency who wins a handful of clients at a time and then has to actually deliver the work, raise the invoice, and get paid. It combines a simple CRM pipeline with the things HubSpot leaves to other tools — project management, GST-ready invoicing, a client portal, and payment tracking — in one workspace priced for one person, not a sales floor.',
+      'Clienter is built for a different person entirely: the freelancer or small agency who wins a handful of clients at a time and then has to actually deliver the work, raise the invoice, and get paid. It combines a simple CRM pipeline with the things HubSpot leaves to other tools — project management, GST-compliant invoicing, a client portal, and payment tracking — in one workspace priced for one person, not a sales floor.',
       'So this is less “which is better” and more “which is built for you”. If you run outbound sales at scale, HubSpot is hard to beat. If you run client-services work and want the whole lifecycle in one affordable tool, that is exactly what Clienter is for.',
     ],
   },
@@ -36,7 +36,7 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     { feature: 'Built for', clienter: 'Freelancers & small agencies', other: 'Sales & marketing teams' },
     { feature: 'Lead & sales pipeline', clienter: 'Yes — simple Kanban pipeline', other: 'Yes — powerful, deep' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'No (needs an add-on/other tool)' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Not listed on their pricing page' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via integrations' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Marketing automation', clienter: 'Not the focus', other: 'Extensive' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and ₹ pricing built for India',
+    'Invoices in about 30 currencies, with GST-compliant invoicing for India',
     'Genuinely simple — usable the day you sign up',
     'Freelancer-friendly pricing with no per-seat sales-team model',
     'Verified reviews and a branded portal to look established',
@@ -66,7 +66,7 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     'Paid tiers get expensive quickly for a solo freelancer',
     'No built-in project delivery, GST invoicing, or client portal',
     'Can be far more tool than a one-person business needs',
-    'Not tailored to Indian invoicing or priced in both USD and INR pricing',
+    'GST-compliant invoicing is not listed on their pricing page',
   ],
   pricing: {
     heading: 'Pricing: freelancer budget vs team budget',
@@ -81,7 +81,7 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     points: [
       'Are a freelancer or small agency doing client-services work',
       'Want projects, invoices, and a client portal in the same tool as your CRM',
-      'Need GST-ready invoices and rupee pricing',
+      'Need GST-compliant invoices for India, or to invoice in another currency',
       'Want something you can set up and use the same day',
       'Are cost-conscious and don’t need marketing automation',
     ],
@@ -114,7 +114,7 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     },
     {
       q: 'Does HubSpot do GST invoicing?',
-      a: 'HubSpot isn’t built around Indian GST invoicing; billing typically relies on integrations or separate accounting tools. Clienter includes GST-ready invoicing and quotations natively, with rupee pricing, which is a meaningful difference for Indian freelancers and agencies.',
+      a: 'HubSpot does not list GST-compliant invoicing on its pricing page; billing typically relies on integrations or separate accounting tools. Clienter includes GST-compliant invoicing and quotations natively, with rupee pricing, which is a meaningful difference for Indian freelancers and agencies.',
     },
     {
       q: 'Which is cheaper, Clienter or HubSpot?',
@@ -122,10 +122,10 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     },
   ],
   related: [
-    { href: '/compare/clienter-vs-zoho-crm', label: 'Clienter vs Zoho CRM', desc: 'Another CRM comparison for Indian users.' },
+    { href: '/compare/clienter-vs-zoho-crm', label: 'Clienter vs Zoho CRM', desc: 'Another CRM, compared on the same terms.' },
     { href: '/alternatives/hubspot-alternative-for-freelancers', label: 'HubSpot alternatives', desc: 'The best HubSpot alternatives for freelancers.' },
     { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'Why a freelancer CRM beats an enterprise one.' },
-    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a CRM built for how you actually work',
   ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',

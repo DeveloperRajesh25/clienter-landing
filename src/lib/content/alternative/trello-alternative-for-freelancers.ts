@@ -49,7 +49,7 @@ export const TRELLO_ALTERNATIVE: AlternativePageConfig = {
     items: [
       { icon: KanbanSquare, title: 'Kanban you already know', desc: 'Visual boards, lists, and drag-and-drop tasks — but tied to real projects with deadlines and budgets.' },
       { icon: Users, title: 'Clients & CRM pipeline', desc: 'One profile per client plus a simple visual pipeline for new leads — the CRM side Trello has no room for.' },
-      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-ready invoices and quotations with your GSTIN, raised in rupees without leaving the tool.' },
+      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-compliant invoices and quotations with your GSTIN, raised in rupees without leaving the tool.' },
       { icon: Wallet, title: 'Payments & profit', desc: 'Track dues, log expenses, and watch a live profit dashboard instead of guessing.' },
       { icon: LayoutDashboard, title: 'Branded client portal', desc: 'Clients see just their work and download their invoices — without ever touching your board (one client on Free, every client on Pro and Ultra).' },
       { icon: FileSignature, title: 'Proposals & e-sign', desc: 'Send proposals clients can accept and sign digitally, turning a “yes” into a project in a click.' },
@@ -112,7 +112,7 @@ export const TRELLO_ALTERNATIVE: AlternativePageConfig = {
     { href: '/compare/clienter-vs-trello', label: 'Clienter vs Trello', desc: 'The full side-by-side comparison.' },
     { href: '/alternatives/notion-alternative-for-client-management', label: 'Notion alternative', desc: 'Another flexible tool, compared for client work.' },
     { href: '/crm-for-freelancers', label: 'CRM for freelancers', desc: 'A CRM shaped around freelance work.' },
-    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Keep the boards. Add the business.',
   ctaSubtitle: 'Start Clienter free and run clients, projects, and invoicing in one place.',

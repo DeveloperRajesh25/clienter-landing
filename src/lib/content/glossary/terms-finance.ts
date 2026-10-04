@@ -26,9 +26,9 @@ export const FINANCE_TERMS: GlossaryTermConfig[] = [
       'Keeping every invoice in one place — instead of scattered across email drafts and word-processor files — also means you can see at a glance who has paid, who is overdue, and how much you have genuinely earned this quarter. That single view is what separates a freelancer who runs a business from one who just does the work and hopes the money follows.',
     ],
     clienterNote:
-      'Clienter raises GST-ready invoices in a few clicks: add your GSTIN, pick the client, and it applies CGST/SGST or IGST correctly, numbers the invoice for you, and tracks whether it is paid, pending, or overdue — with the earnings flowing straight into your live profit view.',
+      'Clienter raises GST-compliant invoices in a few clicks: add your GSTIN, pick the client, and it applies CGST/SGST or IGST correctly, numbers the invoice for you, and tracks whether it is paid, pending, or overdue — with the earnings flowing straight into your live profit view.',
     related: [
-      { href: '/features/invoicing', label: 'Invoicing', desc: 'Raise GST-ready invoices fast.' },
+      { href: '/features/invoicing', label: 'Invoicing', desc: 'Raise GST-compliant invoices fast.' },
       { href: '/invoice', label: 'Free Invoice Tool', desc: 'Create an invoice online.' },
       { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'Clients and billing together.' },
       { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
@@ -124,7 +124,7 @@ export const FINANCE_TERMS: GlossaryTermConfig[] = [
     clienterNote:
       'Clienter is built GST-ready: add your GSTIN and it applies CGST/SGST or IGST correctly based on the client, so your invoices come out compliant. It is not a GST-filing or accounting tool, though — you or your CA still file the returns; Clienter just makes sure the invoices going into them are clean.',
     related: [
-      { href: '/features/invoicing', label: 'Invoicing', desc: 'GST-ready invoices by default.' },
+      { href: '/features/invoicing', label: 'Invoicing', desc: 'GST-compliant invoices by default.' },
       { href: '/invoice', label: 'Free Invoice Tool', desc: 'Add GST to an invoice.' },
       { href: '/for/indian-freelancers', label: 'For Indian Freelancers', desc: 'Built for India’s freelancers.' },
       { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },

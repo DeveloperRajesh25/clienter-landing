@@ -477,7 +477,7 @@ Notes: [Payment due within X days. Thank you for your business.]`,
     faqs: [
       { q: 'What must an Indian invoice include?', a: 'Your details (and GSTIN if registered), the client’s details, a unique consecutive invoice number, date, itemised work, the amount, and GST if applicable. This template includes all of them.' },
       { q: 'Do I need GST on my invoice?', a: 'Only if you’re registered for GST. If you are, show CGST/SGST for same-state supply or IGST for inter-state. If you’re not registered, omit the GST lines.' },
-      { q: 'How do I get a PDF invoice?', a: 'Use the free invoice generator to produce a branded PDF in seconds, or use Clienter to raise GST-ready invoices automatically from your projects.' },
+      { q: 'How do I get a PDF invoice?', a: 'Use the free invoice generator to produce a branded PDF in seconds, or use Clienter to raise GST-compliant invoices automatically from your projects.' },
     ],
     related: [
       { href: '/invoice', label: 'Invoice Generator', desc: 'Make a branded invoice PDF.' },
@@ -485,7 +485,7 @@ Notes: [Payment due within X days. Thank you for your business.]`,
       { href: '/tools/invoice-number-generator', label: 'Invoice Number Generator', desc: 'Set up a numbering scheme.' },
     ],
     ctaTitle: 'Automate your invoicing',
-    ctaSubtitle: 'Clienter raises GST-ready invoices and tracks payments. Start free.',
+    ctaSubtitle: 'Clienter raises GST-compliant invoices and tracks payments. Start free.',
   },
 
   {

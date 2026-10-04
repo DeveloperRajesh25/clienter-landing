@@ -36,7 +36,7 @@ export const SEO_AGENCIES: AudiencePageConfig = {
     body: [
       'A CRM for SEO agencies has a different job than a CRM for a business that closes and delivers in a week. Your results take three to six months to show up, your retainers have to survive that wait, and your clients need to see that work is happening long before the rankings move. Clienter is built for exactly that gap — the months between signing a client and the graph finally proving you were worth it.',
       'Clienter doesn’t run audits or track keyword positions — you keep your specialist SEO tools for the work itself. What it manages is the client relationship around it: the accounts, the monthly deliverables, the retainer billing, the review calls and the visible progress that keeps a client patient through month four when the rankings are still flat.',
-      'Most SEO agencies lose clients not because the work is bad but because the client couldn’t see it. When deliverables live in a spreadsheet the client never opens and updates happen over scattered emails, patience runs out early. Clienter puts every account, project and deliverable in one workspace — with a branded portal the client can actually log into — so the work is visible the whole way through. It’s built for Indian agencies too: GST-ready invoices, UPI and bank-transfer tracking, and pricing that fits a growing shop.',
+      'Most SEO agencies lose clients not because the work is bad but because the client couldn’t see it. When deliverables live in a spreadsheet the client never opens and updates happen over scattered emails, patience runs out early. Clienter puts every account, project and deliverable in one workspace — with a branded portal the client can actually log into — so the work is visible the whole way through. It’s built for Indian agencies too: GST-compliant invoices, UPI and bank-transfer tracking, and pricing that fits a growing shop.',
     ],
   },
   pains: {
@@ -100,7 +100,7 @@ export const SEO_AGENCIES: AudiencePageConfig = {
       { icon: Repeat, title: 'Retainer projects', desc: 'Set up recurring retainers so monthly scope, billing and renewal dates are tracked, not remembered.' },
       { icon: Eye, title: 'Branded client portal', desc: 'A branded portal where clients see progress and deliverables — proof of work through the slow months.' },
       { icon: CalendarClock, title: 'Monthly review meetings', desc: 'Google Calendar sync and auto Meet links for the review calls that keep long retainers alive.' },
-      { icon: ReceiptText, title: 'GST invoices & quotations', desc: 'Recurring, GST-ready invoices that reuse each client’s details and export to PDF in a click.' },
+      { icon: ReceiptText, title: 'GST invoices & quotations', desc: 'Recurring, GST-compliant invoices that reuse each client’s details and export to PDF in a click.' },
     ],
   },
   compare: {

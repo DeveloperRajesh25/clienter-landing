@@ -38,7 +38,7 @@ export const QUICKBOOKS_ALTERNATIVE: AlternativePageConfig = {
     sub: 'A capable global product with a very India-specific problem.',
     items: [
       { title: 'Closed to new Indian customers', desc: 'Since 2023, Intuit has not sold QuickBooks to new users in India (verify the current status), so it isn’t a realistic pick for a fresh signup.' },
-      { title: 'Built for other markets', desc: 'It’s a global accounting product first; Indian GST workflows and priced in both USD and INR billing were never its home turf.' },
+      { title: 'Built for other markets', desc: 'It’s a global accounting product first; Indian GST workflows and INR billing were never its home turf.' },
       { title: 'Overkill for invoice-led work', desc: 'If you mostly raise invoices and track payments, a full accounting suite is far more tool than the job needs.' },
       { title: 'Separate from your client work', desc: 'Accounting sits in its own silo, away from your projects, proposals, and the day-to-day client relationship.' },
     ],

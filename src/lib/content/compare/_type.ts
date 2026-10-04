@@ -1,4 +1,5 @@
 import type { Faq, RelatedLink, CompareRow } from '@/lib/content/types'
+import type { CompetitorSource } from '@/lib/content/sources'
 
 /**
  * One `/compare/clienter-vs-<competitor>` page. High commercial intent — people
@@ -65,4 +66,11 @@ export type ComparePageConfig = {
 
   /** Month + year the competitor facts were last checked, e.g. "July 2026". */
   asOf: string
+
+  /**
+   * Primary sources for the competitor claims on this page. Rendered under the
+   * comparison table so a reader can check anything. Pages without sources are
+   * listed in docs/needs-verification.md — the absence is tracked, not hidden.
+   */
+  sources?: CompetitorSource[]
 }

@@ -36,7 +36,7 @@ export const DIGITAL_MARKETING_AGENCIES: AudiencePageConfig = {
     body: [
       'Agency management software for digital marketing isn’t about scheduling posts or bidding on keywords — you already have specialist tools for the campaigns themselves. It’s about everything wrapped around them: the ten client accounts you’re accountable for, the retainers that have to keep renewing, the reports that prove you earned this month’s fee, and the invoices that need to go out on the first. Clienter is the layer that holds all of that together.',
       'Most growing agencies run this on a patchwork — a spreadsheet of clients, a folder of invoice templates, a project tool the clients can’t see, and a founder who’s the only one who knows the full picture. It works right up until you hit eight or ten accounts, and then the cracks show: a retainer lapses un-renewed, a report goes out late, a junior doesn’t realise a client is on thin ice.',
-      'Clienter replaces that patchwork with one workspace where every account, campaign, retainer, invoice and payment lives together — and your whole team can see the parts they’re meant to. It’s built for the Indian agency reality too: GST-ready invoices, UPI and bank-transfer payment tracking, and flat pricing that doesn’t charge per seat.',
+      'Clienter replaces that patchwork with one workspace where every account, campaign, retainer, invoice and payment lives together — and your whole team can see the parts they’re meant to. It’s built for the Indian agency reality too: GST-compliant invoices, UPI and bank-transfer payment tracking, and flat pricing that doesn’t charge per seat.',
     ],
   },
   pains: {
@@ -98,7 +98,7 @@ export const DIGITAL_MARKETING_AGENCIES: AudiencePageConfig = {
       { icon: Briefcase, title: 'Client accounts, organised', desc: 'One profile per brand you manage, with scope, contacts, files, logins and full history in a single place.' },
       { icon: FolderKanban, title: 'Campaigns on Kanban boards', desc: 'Every deliverable as a card with a deadline, owner and status — so nothing on any account quietly slips.' },
       { icon: Repeat, title: 'Retainer projects', desc: 'Set recurring retainers so monthly scope, billing and renewals are tracked instead of forgotten.' },
-      { icon: ReceiptText, title: 'GST invoices & quotations', desc: 'Branded, GST-ready invoices and quotes that reuse each account’s details — export to PDF in a click.' },
+      { icon: ReceiptText, title: 'GST invoices & quotations', desc: 'Branded, GST-compliant invoices and quotes that reuse each account’s details — export to PDF in a click.' },
       { icon: ShieldCheck, title: 'Team roles & access', desc: 'Owner, admin and team roles so each account manager sees the clients they own — and only those.' },
       { icon: Eye, title: 'Branded client portal', desc: 'A branded portal that shows clients their progress, approvals and invoices — your client reporting, half done for you.' },
     ],

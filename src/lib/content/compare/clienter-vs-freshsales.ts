@@ -27,7 +27,7 @@ export const CLIENTER_VS_FRESHSALES: ComparePageConfig = {
     heading: 'A sales CRM by Freshworks vs an all-in-one client workspace',
     body: [
       'Freshsales is the sales CRM from Freshworks, an Indian-founded company with a strong suite of business software. It gives sales teams a solid contact and deal pipeline, built-in phone and email, workflow automation, and Freddy AI for scoring and suggestions. For a growing sales team that wants an approachable, well-supported CRM from a major vendor, Freshsales is a capable choice.',
-      'Clienter is built for a different job: the freelancer or small agency who wins a few clients and then has to deliver the work, invoice for it, and get paid. It pairs a simple Kanban lead pipeline with the things a sales CRM leaves out — project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, and a branded client portal — in one priced in both USD and INR workspace.',
+      'Clienter is built for a different job: the freelancer or small agency who wins a few clients and then has to deliver the work, invoice for it, and get paid. It pairs a simple Kanban lead pipeline with the things a sales CRM leaves out — project management, GST-compliant invoicing and quotations, payment and expense tracking with a live profit dashboard, and a branded client portal — in one single workspace.',
       'So the honest framing is less “which CRM is better” and more “which is built for your work”. If your day is team-based selling and you want AI-assisted sales tooling from a big vendor, Freshsales is a strong pick. If your day is delivering client work and you want the whole lifecycle in one affordable tool, that is exactly what Clienter is for.',
     ],
   },
@@ -36,7 +36,7 @@ export const CLIENTER_VS_FRESHSALES: ComparePageConfig = {
     { feature: 'Built for', clienter: 'Freelancers & small agencies', other: 'Sales teams & growing SMBs' },
     { feature: 'Lead & sales pipeline', clienter: 'Yes — simple Kanban pipeline', other: 'Yes — with AI scoring' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Not a core feature' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Not listed on their pricing page' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via integrations' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Live profit dashboard', clienter: 'Built in', other: 'Sales reporting, not profit/expenses' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_FRESHSALES: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
+    'GST-compliant invoicing and quotations with pricing in both USD and INR',
     'Simple enough to set up and use the same day',
     'Free plan forever, with no per-seat sales-team pricing',
     'Branded client portal and verified reviews to look established',
@@ -81,7 +81,7 @@ export const CLIENTER_VS_FRESHSALES: ComparePageConfig = {
     points: [
       'Are a freelancer or small agency doing client-services work',
       'Want projects, invoices, and a client portal alongside your pipeline',
-      'Need GST-ready invoicing and priced in both USD and INR pricing',
+      'Need GST-compliant invoicing and pricing in both USD and INR',
       'Want one login for the whole client lifecycle',
       'Want to be productive the same day you sign up',
     ],
@@ -106,7 +106,7 @@ export const CLIENTER_VS_FRESHSALES: ComparePageConfig = {
   faqs: [
     {
       q: 'Is Clienter a good Freshsales alternative for freelancers?',
-      a: 'For freelancers and small agencies, yes. Freshsales is a capable sales CRM, but a client-services business also needs projects, invoicing, payments, and a client portal — which Freshsales does not focus on. Clienter combines a simple pipeline with all of that in one priced in both USD and INR workspace, starting free, so you manage the whole client lifecycle in one place.',
+      a: 'For freelancers and small agencies, yes. Freshsales is a capable sales CRM, but a client-services business also needs projects, invoicing, payments, and a client portal — which Freshsales does not focus on. Clienter combines a simple pipeline with all of that in one single workspace, starting free, so you manage the whole client lifecycle in one place.',
     },
     {
       q: 'Can Clienter replace a sales CRM like Freshsales?',
@@ -114,7 +114,7 @@ export const CLIENTER_VS_FRESHSALES: ComparePageConfig = {
     },
     {
       q: 'Does Clienter include GST invoicing?',
-      a: 'Yes. Clienter includes GST-ready invoicing and quotations natively, with rupee pricing, plus payment and expense tracking and a live profit dashboard. Freshsales is a sales CRM, so billing typically relies on integrations or separate tools. For Indian freelancers, Clienter’s built-in, priced in both USD and INR billing is a meaningful difference.',
+      a: 'Yes. Clienter includes GST-compliant invoicing and quotations natively, with rupee pricing, plus payment and expense tracking and a live profit dashboard. Freshsales is a sales CRM, so billing typically relies on integrations or separate tools. For Indian freelancers, Clienter’s built-in, the choice of USD or INR billing is a meaningful difference.',
     },
     {
       q: 'Which is cheaper, Clienter or Freshsales?',
@@ -125,9 +125,9 @@ export const CLIENTER_VS_FRESHSALES: ComparePageConfig = {
     { href: '/compare/clienter-vs-zoho-crm', label: 'Clienter vs Zoho CRM', desc: 'Another Indian-built CRM compared.' },
     { href: '/compare/clienter-vs-hubspot', label: 'Clienter vs HubSpot', desc: 'Another honest CRM comparison.' },
     { href: '/client-management-software', label: 'Client management software', desc: 'The all-in-one way to manage clients.' },
-    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'One workspace for clients, projects, and invoices',
-  ctaSubtitle: 'Start Clienter free and run the whole client lifecycle in one priced in both USD and INR tool.',
+  ctaSubtitle: 'Start Clienter free and run the whole client lifecycle in one single tool.',
   asOf: 'July 2026',
 }

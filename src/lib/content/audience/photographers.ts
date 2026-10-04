@@ -36,7 +36,7 @@ export const PHOTOGRAPHERS: AudiencePageConfig = {
     body: [
       'Every working photographer runs two businesses at once: the craft you were hired for, and the operation around it. That operation is relentless — enquiries pouring in over Instagram and WhatsApp, dates to hold and confirm, a booking advance here and a balance due on delivery there, shoot-day logistics, an editing backlog, revisions, and clients asking “where are my photos?” Most photographers hold this together with a paper diary, a chat folder, and their own memory — and in a business where a clashed date is a disaster, memory is not a system.',
       'Photography client management software replaces that with one place where the whole booking lifecycle lives and stays connected — every enquiry, shoot, quotation, advance, and delivery tied to the client it belongs to. Instead of a diary for dates, DMs for enquiries, and a spreadsheet for who has paid what, you get a single workspace that runs the business side so you can concentrate on the pictures. Clienter is built for exactly this.',
-      'It fits the Indian photography reality too: booking advances collected over UPI, GST-ready invoices on your packages, the feast-and-famine cashflow of wedding season versus the quiet months, and pricing in rupees that makes sense for a studio of one rather than an enterprise.',
+      'It fits the Indian photography reality too: booking advances collected over UPI, GST-compliant invoices on your packages, the feast-and-famine cashflow of wedding season versus the quiet months, and pricing in rupees that makes sense for a studio of one rather than an enterprise.',
     ],
   },
   pains: {

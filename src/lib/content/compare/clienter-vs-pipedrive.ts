@@ -27,7 +27,7 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
     heading: 'A visual sales pipeline vs an all-in-one client workspace',
     body: [
       'Pipedrive is a sales-first CRM famous for one thing done really well: a clean, visual deal pipeline that salespeople genuinely enjoy using. It helps you drag deals through stages, set activity reminders, and keep momentum on outbound sales, with automation and reporting layered on top. For a sales-driven business that lives and breathes its pipeline, Pipedrive is a focused, well-designed tool.',
-      'Clienter is built for a different person: the freelancer or small agency who wins a few clients and then has to deliver the work, invoice for it, and get paid. It pairs a simple Kanban lead pipeline with the things a sales-only CRM leaves out — project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, and a branded client portal — all in one priced in both USD and INR workspace.',
+      'Clienter is built for a different person: the freelancer or small agency who wins a few clients and then has to deliver the work, invoice for it, and get paid. It pairs a simple Kanban lead pipeline with the things a sales-only CRM leaves out — project management, GST-compliant invoicing and quotations, payment and expense tracking with a live profit dashboard, and a branded client portal — all in one single workspace.',
       'So this is less “which CRM wins” and more “which fits your work”. If your job is moving deals through a sales pipeline all day, Pipedrive is hard to beat at that one thing. If your job is delivering client work and you want the full lifecycle in one affordable tool, that is exactly what Clienter is for.',
     ],
   },
@@ -36,7 +36,7 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
     { feature: 'Built for', clienter: 'Freelancers & small agencies', other: 'Sales teams & reps' },
     { feature: 'Lead & sales pipeline', clienter: 'Yes — simple Kanban pipeline', other: 'Yes — polished visual pipeline' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Limited (paid add-on)' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Not listed on their pricing page' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via integrations' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Live profit dashboard', clienter: 'Built in', other: 'Sales reporting, not profit/expenses' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
+    'GST-compliant invoicing and quotations with pricing in both USD and INR',
     'Simple to set up and use the same day',
     'A Free plan forever and no per-seat sales-team pricing',
     'Branded client portal and verified reviews to look established',
@@ -65,7 +65,7 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
   competitorCons: [
     'No built-in project delivery, GST invoicing, or client portal',
     'Priced per seat, which adds up as your team grows',
-    'Not tailored to Indian invoicing or priced in both USD and INR pricing',
+    'GST-compliant invoicing is not listed on their pricing page',
     'A pure sales tool — you still need others to deliver client work',
   ],
   pricing: {
@@ -81,7 +81,7 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
     points: [
       'Are a freelancer or small agency doing client-services work',
       'Want projects, invoices, and a client portal alongside your pipeline',
-      'Need GST-ready invoicing and priced in both USD and INR pricing',
+      'Need GST-compliant invoicing and pricing in both USD and INR',
       'Want a Free plan and no per-seat charges',
       'Want one tool for the whole client lifecycle, not just sales',
     ],
@@ -106,7 +106,7 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
   faqs: [
     {
       q: 'Is Clienter a good Pipedrive alternative for freelancers?',
-      a: 'For freelancers and small agencies, yes. Pipedrive is an excellent sales pipeline, but a client-services business also needs to deliver projects, send GST invoices, track payments, and give clients a portal. Clienter combines a simple pipeline with all of that in one priced in both USD and INR workspace, starting free, so you run the whole client lifecycle in one place.',
+      a: 'For freelancers and small agencies, yes. Pipedrive is an excellent sales pipeline, but a client-services business also needs to deliver projects, send GST invoices, track payments, and give clients a portal. Clienter combines a simple pipeline with all of that in one single workspace, starting free, so you run the whole client lifecycle in one place.',
     },
     {
       q: 'Does Clienter have a visual sales pipeline like Pipedrive?',
@@ -114,7 +114,7 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
     },
     {
       q: 'Can Clienter invoice clients, or is that a separate tool?',
-      a: 'Clienter includes GST-ready invoicing and quotations natively, alongside payment and expense tracking and a live profit dashboard. Pipedrive is a sales CRM, so billing usually relies on integrations or separate accounting tools. For Indian freelancers who want invoicing next to their clients and projects, Clienter’s built-in approach is simpler and priced in both USD and INR.',
+      a: 'Clienter includes GST-compliant invoicing and quotations natively, alongside payment and expense tracking and a live profit dashboard. Pipedrive is a sales CRM, so billing usually relies on integrations or separate accounting tools. For Indian freelancers who want invoicing next to their clients and projects, Clienter’s built-in approach is simpler and priced in both USD and INR.',
     },
     {
       q: 'Which is cheaper, Clienter or Pipedrive?',
@@ -125,9 +125,9 @@ export const CLIENTER_VS_PIPEDRIVE: ComparePageConfig = {
     { href: '/compare/clienter-vs-hubspot', label: 'Clienter vs HubSpot', desc: 'Another honest CRM comparison.' },
     { href: '/compare/clienter-vs-zoho-crm', label: 'Clienter vs Zoho CRM', desc: 'Clienter compared with Zoho CRM.' },
     { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'Why a freelancer CRM beats a sales-only tool.' },
-    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get more than a sales pipeline',
-  ctaSubtitle: 'Start Clienter free and manage clients, projects, and invoices in one priced in both USD and INR workspace.',
+  ctaSubtitle: 'Start Clienter free and manage clients, projects, and invoices in one single workspace.',
   asOf: 'July 2026',
 }

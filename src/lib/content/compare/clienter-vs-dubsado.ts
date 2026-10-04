@@ -1,13 +1,14 @@
 import type { ComparePageConfig } from './_type'
+import { SOURCES } from '@/lib/content/sources'
 
 export const CLIENTER_VS_DUBSADO: ComparePageConfig = {
   slug: 'clienter-vs-dubsado',
   path: '/compare/clienter-vs-dubsado',
   competitor: 'Dubsado',
   competitorCategory: 'client-management & CRM for creatives with deep workflows and forms (US-focused)',
-  metaTitle: 'Clienter vs Dubsado: Best for Indian Freelancers 2026',
+  metaTitle: 'Clienter vs Dubsado: The Honest Comparison',
   metaDescription:
-    'Clienter vs Dubsado compared for Indian freelancers — GST-ready invoicing, rupee pricing, a free plan, and how their workflows really differ.',
+    'Clienter vs Dubsado on automation depth, forms, projects, teams, price and tax. Who each one really suits, with sources you can check.',
   keywords: [
     'clienter vs dubsado',
     'dubsado alternative india',
@@ -16,40 +17,46 @@ export const CLIENTER_VS_DUBSADO: ComparePageConfig = {
   ],
   ogTitle: 'Clienter vs Dubsado — the honest comparison',
   ogDescription:
-    'Dubsado is powerful on automation; Clienter is built for India. See how they compare on GST, rupee pricing, and everyday client work.',
+    'Dubsado goes deepest on automation and forms. Clienter covers projects, teams and payouts. Where each one wins.',
   breadcrumbLabel: 'Clienter vs Dubsado',
   eyebrow: 'Clienter vs Dubsado',
   h1: 'Clienter vs Dubsado: the honest',
   h1Highlight: 'breakdown',
   subheading:
-    'Dubsado is a powerful client-management tool famous for deep automation. Clienter is built for Indian freelancers and agencies who want GST invoicing, rupee pricing, and a same-day setup. Here’s how they really compare.',
+    'Dubsado is a powerful client-management tool famous for its form builder and deep automation — and for taking a while to set up. Clienter is a flat-priced workspace for agencies and established freelancers that is usable the same day. Here is how they really compare.',
   intro: {
-    heading: 'Deep automation vs India-fit simplicity',
+    heading: 'Deep automation vs same-day simplicity',
     body: [
       'Dubsado is a client-management and CRM platform built for creatives and service pros, and it is especially known for one thing: deep, powerful workflow automation. Its form builder — lead-capture forms, questionnaires, and proposals — is genuinely strong, and you can wire up automations that send contracts, invoices, and emails at each step of a project. Add scheduling, invoicing, and a client portal, and it is a serious, mature tool.',
-      'Clienter is an all-in-one for Indian freelancers and agencies: a simple lead pipeline, projects with boards and budgets, GST-ready invoicing and quotations, proposals with e-signature, payment and expense tracking with a live profit dashboard, meetings, team management, and a branded client portal — all priced in rupees, with GST built in.',
-      'The honest difference is depth versus fit. Dubsado’s automation and forms go deeper than Clienter’s, and if you want to engineer an intricate, hands-off client workflow, that is its strength — with a learning curve to match. But Dubsado is US-focused and dollar-priced with no GST invoicing. If you are an Indian freelancer who wants GST invoices, rupee pricing, and a tool you can run the same day, Clienter fits better.',
+      'Clienter is an all-in-one for agencies and established freelancers: a simple lead pipeline, projects with boards and budgets, invoicing and quotations in about 30 currencies, proposals with e-signature, payment and expense tracking with a live profit dashboard, meetings, team management, and a branded client portal — with invoices in about 30 currencies and GST-compliant invoicing for India.',
+      'The honest difference is depth versus fit. Dubsado’s automation and forms go deeper than Clienter’s, and if you want to engineer an intricate, hands-off client workflow, that is its strength — with a learning curve to match. Dubsado is also setup-heavy by design, and GST-compliant invoicing is not listed on its pricing page. If you want something you can run the same day, Clienter fits better.',
     ],
   },
   tableHeading: 'Clienter vs Dubsado at a glance',
   rows: [
-    { feature: 'Built for', clienter: 'Indian freelancers & agencies', other: 'US creatives & service pros' },
+    { feature: 'Built for', clienter: 'Agencies & established freelancers', other: 'Creatives & service pros' },
+    { feature: 'Time to first invoice', clienter: 'Same day', other: 'Setup-heavy by design' },
     { feature: 'Lead pipeline & CRM', clienter: 'Yes — simple Kanban pipeline', other: 'Yes — client CRM' },
     { feature: 'Forms & questionnaires', clienter: 'Simpler', other: 'Yes — powerful form builder' },
     { feature: 'Workflow automation', clienter: 'Lighter, simpler', other: 'Deep and powerful' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Not listed on their pricing page' },
     { feature: 'Projects & budgets', clienter: 'Yes — boards, tasks, budgets', other: 'Lighter project view' },
-    { feature: 'Payments', clienter: 'UPI-friendly, priced in both USD and INR', other: 'USD-oriented' },
+    { feature: 'Payments', clienter: 'Invoices in ~30 currencies; UPI details on Indian invoices', other: 'USD-oriented' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Yes — client portal' },
     { feature: 'Learning curve', clienter: 'Set up in an afternoon', other: 'Steeper — powerful but complex' },
-    { feature: 'Pricing', clienter: 'Free, or Pro ₹199/mo (launch)', other: 'Paid, priced in USD' },
+    { feature: 'Free plan', clienter: 'Yes — free forever, no card', other: 'No free plan; free trial offered' },
+    {
+      feature: 'Pricing',
+      clienter: '$19 or $39/mo flat (₹199 / ₹799 in India)',
+      other: 'Two plans, Starter and Premier — prices not rendered in their page HTML; check their site',
+    },
   ],
   clienterPros: [
-    'GST-ready invoicing and quotations, priced in rupees for India',
+    'Invoices and quotations in about 30 currencies, with GST-compliant invoicing for India',
     'All-in-one: leads, projects with budgets, invoicing, payments, and a portal',
     'Free-forever plan to start (3 clients, 5 projects), no credit card needed',
     'Genuinely simple — set up and usable the same day, no automation-building required',
-    'UPI-friendly, priced in both USD and INR billing with a live profit dashboard',
+    'Billing in about 30 currencies with a live profit dashboard',
   ],
   clienterCons: [
     'Workflow automation and forms are lighter than Dubsado’s',
@@ -64,9 +71,9 @@ export const CLIENTER_VS_DUBSADO: ComparePageConfig = {
   ],
   competitorCons: [
     'Steeper learning curve — the automation is powerful but takes effort to set up',
-    'No GST-ready invoicing for Indian tax compliance',
+    'GST-compliant invoicing is not listed on their pricing page',
     'Priced in US dollars, with no free-forever plan (a limited trial) — verify current pricing',
-    'Built for the US creative market, not priced in both USD and INR Indian billing',
+    'Built around the US creative market, so its payment and tax assumptions are US-shaped',
   ],
   pricing: {
     heading: 'Pricing: paying for depth vs paying for fit',
@@ -79,8 +86,8 @@ export const CLIENTER_VS_DUBSADO: ComparePageConfig = {
   chooseClienter: {
     heading: 'Choose Clienter if you…',
     points: [
-      'Bill Indian clients and need GST-ready invoices and quotations',
-      'Want rupee pricing and UPI-friendly payments, not a dollar subscription',
+      'Invoice in more than one currency, or need GST-compliant invoices for India',
+      'Want one flat price for the workspace rather than a per-seat bill',
       'Want an all-in-one you can set up and use the same day',
       'Want projects with budgets and a profit dashboard alongside your CRM',
       'Want to start free and upgrade only as you grow',
@@ -92,42 +99,43 @@ export const CLIENTER_VS_DUBSADO: ComparePageConfig = {
       'Are a US-based creative who wants to automate an intricate client workflow',
       'Want the deepest form and questionnaire builder for lead capture',
       'Are happy to invest time learning a more complex tool',
-      'Bill in dollars and do not need GST invoicing',
+      'Do not need GST-compliant invoicing or a second billing currency',
     ],
   },
   migration: {
     heading: 'Moving from Dubsado to Clienter',
     body: [
       'Moving from Dubsado to Clienter is usually simpler than the move into Dubsado was. Export your clients, projects, and invoices, then recreate your active clients and open work in Clienter, and save your go-to proposal and invoice as templates once. You will not need to rebuild elaborate automations — Clienter is designed to be useful without them, so most freelancers are set up in an afternoon.',
-      'What you gain is the India-fit Dubsado does not offer: GST-ready invoicing, rupee pricing, and UPI-friendly payments, plus a free plan to start on. And you can export your Clienter data whenever you want, so you are never locked in.',
+      'What you gain is a tool you can run the same day, a flat price, invoicing in about 30 currencies and a free plan to start on. What you give up is Dubsado’s automation depth, which is real — weigh it honestly. And you can export your Clienter data whenever you want, so you are never locked in.',
     ],
   },
   faqHeading: 'Clienter vs Dubsado FAQs',
   faqs: [
     {
-      q: 'Is Clienter a good Dubsado alternative for Indian freelancers?',
-      a: 'For Indian freelancers and agencies, yes. Dubsado is a powerful, US-focused suite known for deep automation, while Clienter is built around Indian invoicing — GST-ready quotations and invoices, rupee pricing, and UPI-friendly payments — and is far simpler to set up. You trade some workflow depth for India-fit, a free plan, and a same-day setup.',
+      q: 'Is Clienter a good Dubsado alternative?',
+      a: 'Dubsado is a powerful, US-focused suite known for deep automation, while Clienter is built around a small team and invoices in about 30 currencies, with GST-compliant invoicing for India — and is far simpler to set up. You trade some workflow depth for a same-day setup, a free plan and a flat price.',
     },
     {
       q: 'Is Dubsado’s automation better than Clienter’s?',
       a: 'Honestly, yes — Dubsado’s workflow automation and form builder go deeper than Clienter’s, and that depth is its main selling point. The trade-off is a steeper learning curve. Clienter deliberately keeps things simpler so you can run your client work without building automations, which most freelancers prefer.',
     },
     {
-      q: 'Does Dubsado support GST invoicing?',
-      a: 'Dubsado is not built around Indian GST; its invoicing follows US norms. Clienter includes GST-ready invoicing and quotations natively, in rupees, which is why Indian freelancers and agencies that need compliant invoices tend to prefer it.',
+      q: 'Does Dubsado support GST invoicing for India?',
+      a: 'Dubsado does not list GST-compliant invoicing on its pricing page, and its invoicing follows US conventions. Clienter includes GST-compliant invoicing with your GSTIN and the CGST⁄SGST split, which is why agencies billing Indian clients tend to prefer it.',
     },
     {
       q: 'Which is easier to use, Clienter or Dubsado?',
-      a: 'Clienter is the easier tool to get running — most people set it up and use it the same day. Dubsado is more powerful but more complex, and its automations take real time to configure. If you want simplicity and India-fit, choose Clienter; if you want deep automation and bill in dollars, choose Dubsado.',
+      a: 'Clienter is the easier tool to get running — most people set it up and use it the same day. Dubsado is more powerful but more complex, and its automations take real time to configure. If you want simplicity and a flat price, choose Clienter; if you want deep automation and bill in dollars, choose Dubsado.',
     },
   ],
   related: [
-    { href: '/alternatives/dubsado-alternative', label: 'Dubsado alternatives', desc: 'The best Dubsado alternatives for Indian users.' },
-    { href: '/compare/clienter-vs-honeybook', label: 'Clienter vs HoneyBook', desc: 'Another creative client suite compared for India.' },
+    { href: '/alternatives/dubsado-alternative', label: 'Dubsado alternatives', desc: 'Six real options compared, not just ours.' },
+    { href: '/compare/clienter-vs-honeybook', label: 'Clienter vs HoneyBook', desc: 'Another creative client suite, compared.' },
     { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'Why a freelancer-first CRM beats a generic one.' },
-    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
-  ctaTitle: 'Powerful enough, simple enough, built for India',
-  ctaSubtitle: 'Start Clienter free — GST invoicing, projects, and a client portal without the setup marathon.',
-  asOf: 'July 2026',
+  ctaTitle: 'Powerful enough, and usable the same day',
+  ctaSubtitle: 'Start Clienter free — leads, quotes, projects and a client portal, without the setup marathon.',
+  asOf: 'October 2026',
+  sources: SOURCES.dubsado,
 }

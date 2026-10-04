@@ -25,7 +25,7 @@ export const POST: BlogPost = {
       'All-in-one, not just contacts — clients, projects, invoices, and payments in one system',
       'Simple enough to use daily — if it needs training, you won’t keep it up',
       'Priced for one person — no per-seat sales-team pricing',
-      'Local fit — for India, GST-ready invoicing and rupee pricing matter',
+      'Local fit — for India, GST-compliant invoicing and rupee pricing matter',
       'A client portal — a professional, self-serve experience makes a solo freelancer look established',
       'Data you can export — never get locked in',
     ] },
@@ -51,11 +51,11 @@ export const POST: BlogPost = {
 
     { type: 'h2', text: 'How to choose the right one for you', id: 'how-to-choose' },
     { type: 'p', text: 'Match the tool to your actual workflow. If you mostly need to organise tasks, a project tool may be enough for now. If you run outbound sales at volume, an enterprise CRM makes sense. But if you’re a typical freelancer or small agency — winning a handful of clients and then delivering, invoicing, and getting paid — an all-in-one built for that lifecycle will save you the most time and the most tabs.' },
-    { type: 'p', text: 'For Indian freelancers specifically, weigh GST-ready invoicing, rupee pricing, and a free plan heavily. A tool that’s brilliant but dollar-priced and built around US tax will cost you more and fit less well than one designed for the Indian market.' },
+    { type: 'p', text: 'For Indian freelancers specifically, weigh GST-compliant invoicing, rupee pricing, and a free plan heavily. A tool that’s brilliant but dollar-priced and built around US tax will cost you more and fit less well than one designed for the Indian market.' },
     { type: 'callout', text: 'The honest test: try one real client end to end in any tool you’re considering — pipeline, project, invoice, portal. The one you don’t have to fight is the right one.' },
 
     { type: 'h2', text: 'Where Clienter fits', id: 'where-clienter-fits' },
-    { type: 'p', text: 'Clienter is an all-in-one client management tool built specifically for Indian freelancers and agencies. It combines a simple lead pipeline, one profile per client, project boards, GST-ready invoicing, payment tracking, a branded client portal, and verified reviews — the whole lifecycle in one workspace, priced in rupees, with a free plan to start. If the trade-offs above point you toward an all-in-one with strong India fit, it’s built for exactly that.' },
+    { type: 'p', text: 'Clienter is an all-in-one client management tool built specifically for Indian freelancers and agencies. It combines a simple lead pipeline, one profile per client, project boards, GST-compliant invoicing, payment tracking, a branded client portal, and verified reviews — the whole lifecycle in one workspace, priced in rupees, with a free plan to start. If the trade-offs above point you toward an all-in-one with strong India fit, it’s built for exactly that.' },
   ],
   faqs: [
     { q: 'What is the best client management software for freelancers in India?', a: 'The best fit for most Indian freelancers is an all-in-one that connects clients, projects, and GST invoicing at rupee pricing, rather than an enterprise CRM plus separate tools. Clienter is built for this, starting free with paid plans from $19/month (₹199 in India).' },

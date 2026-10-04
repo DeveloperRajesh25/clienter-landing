@@ -29,7 +29,7 @@ export const DUBSADO_ALTERNATIVE: AlternativePageConfig = {
     body: [
       'Dubsado has a devoted following for good reason. It bundles proposals, contracts, invoicing, forms, and a light CRM, and it’s known for automation and workflows that can run a fair bit of your admin on autopilot. For a US creative willing to invest in setting it up, it’s a serious all-in-one, and the people who love it really love it.',
       'Two things send people looking for an alternative. The first is geography: Dubsado is priced in US dollars, its invoicing follows US tax norms rather than Indian GST, and its payment flow assumes US processors instead of UPI and bank transfers. The second is the setup — Dubsado’s power comes with a learning curve, and configuring workflows, forms, and templates is a project in itself. If you’d rather not spend a weekend building your system, that friction adds up.',
-      'Clienter is the alternative for freelancers who want the all-in-one convenience without the dollar pricing or the long setup: GST-ready invoicing, rupee prices, UPI-friendly payment tracking, and a free plan that’s usable the moment you sign in. You trade a weekend of configuration for a tool that’s ready before your first coffee.',
+      'Clienter is the alternative for freelancers who want the all-in-one convenience without the dollar pricing or the long setup: GST-compliant invoicing, rupee prices, UPI-friendly payment tracking, and a free plan that’s usable the moment you sign in. You trade a weekend of configuration for a tool that’s ready before your first coffee.',
     ],
   },
   whySwitch: {
@@ -48,7 +48,7 @@ export const DUBSADO_ALTERNATIVE: AlternativePageConfig = {
     items: [
       { icon: Users, title: 'Clients & pipeline', desc: 'One profile per client plus a simple visual lead pipeline for enquiries.' },
       { icon: KanbanSquare, title: 'Projects', desc: 'Kanban boards, deadlines, budgets, and tasks for the actual delivery.' },
-      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-ready invoices and quotations with your GSTIN, in rupees.' },
+      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-compliant invoices and quotations with your GSTIN, in rupees.' },
       { icon: FileSignature, title: 'Proposals & e-sign', desc: 'Send proposals and quotations clients accept and sign digitally.' },
       { icon: Wallet, title: 'Payments & profit', desc: 'Track dues, expenses, and net profit — matched to how you get paid in India.' },
       { icon: LayoutDashboard, title: 'Client portal', desc: 'A branded portal where clients view work and download invoices (one client on Free, every client on Pro and Ultra).' },
@@ -75,7 +75,7 @@ export const DUBSADO_ALTERNATIVE: AlternativePageConfig = {
     ],
     calm: [
       'Rupee pricing, from a free plan',
-      'GST-ready invoices with your GSTIN',
+      'GST-compliant invoices with your GSTIN',
       'Payment tracking that fits UPI & bank transfers',
       'Simple and usable on day one',
       'A free forever plan to begin',
@@ -92,7 +92,7 @@ export const DUBSADO_ALTERNATIVE: AlternativePageConfig = {
   faqs: [
     {
       q: 'What is the best Dubsado alternative?',
-      a: 'For Indian freelancers, the best Dubsado alternative is one that keeps the all-in-one convenience but adds GST invoicing, rupee pricing, and a gentler setup. Clienter does that — proposals with e-signature, GST invoices, projects, payments, and a client portal in one tool, starting free and with Pro at $19/month (₹199 in India).',
+      a: 'The best Dubsado alternative is usually whichever tool you can actually finish setting up. Dubsado’s depth is real but so is its setup time, and a half-configured workflow helps nobody. Clienter trades some of that depth for being usable the same day — proposals with e-signature, projects, invoices in about 30 currencies, payment tracking and a client portal in one tool, free to start and $19 a month on Pro (₹199 in India).',
     },
     {
       q: 'Is Clienter cheaper than Dubsado?',
@@ -104,14 +104,14 @@ export const DUBSADO_ALTERNATIVE: AlternativePageConfig = {
     },
     {
       q: 'Does Clienter work for Indian creatives and GST?',
-      a: 'Yes — that’s the whole point of it. Clienter issues GST-ready invoices and quotations with your GSTIN in rupees, tracks payments the way you actually collect them in India, and gives clients a branded portal to sign and download documents. It’s built for the Indian creative workflow that Dubsado, being US-focused, wasn’t designed around.',
+      a: 'Yes — that’s the whole point of it. Clienter issues GST-compliant invoices and quotations with your GSTIN in rupees, tracks payments the way you actually collect them in India, and gives clients a branded portal to sign and download documents. It’s built for the Indian creative workflow that Dubsado, being US-focused, wasn’t designed around.',
     },
   ],
   related: [
     { href: '/alternatives/honeybook-alternative-india', label: 'HoneyBook alternative', desc: 'Another creative-suite alternative for India.' },
     { href: '/alternatives/bonsai-alternative', label: 'Bonsai alternative', desc: 'A rupee-priced take on the all-in-one freelancer tool.' },
     { href: '/for/freelancers', label: 'For Freelancers', desc: 'How Clienter fits a creative freelance business.' },
-    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get an all-in-one without the setup weekend',
   ctaSubtitle: 'Start Clienter free and run proposals, GST invoices, and payments in rupees.',

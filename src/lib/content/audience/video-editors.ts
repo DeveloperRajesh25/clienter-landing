@@ -118,7 +118,7 @@ export const VIDEO_EDITORS: AudiencePageConfig = {
       {
         icon: ReceiptText,
         title: 'GST invoices & quotations',
-        desc: 'Branded, GST-ready invoices and quotes in rupees, raised at each milestone and exported to PDF.',
+        desc: 'Branded, GST-compliant invoices and quotes in rupees, raised at each milestone and exported to PDF.',
       },
       {
         icon: CalendarClock,
@@ -173,7 +173,7 @@ export const VIDEO_EDITORS: AudiencePageConfig = {
   ],
   related: [
     { href: '/features/project-management', label: 'Project Management', desc: 'Project boards with milestones and deadlines.' },
-    { href: '/features/invoicing', label: 'Invoicing & Quotations', desc: 'Milestone and GST-ready invoicing in rupees.' },
+    { href: '/features/invoicing', label: 'Invoicing & Quotations', desc: 'Milestone and GST-compliant invoicing in rupees.' },
     { href: '/features/client-portal', label: 'Client Portal', desc: 'A branded space for status and approvals.' },
     { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
   ],

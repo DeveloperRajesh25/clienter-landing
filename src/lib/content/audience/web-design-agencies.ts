@@ -144,7 +144,7 @@ export const WEB_DESIGN_AGENCIES: AudiencePageConfig = {
     },
     {
       q: 'Can we handle proposals and GST invoicing in one place?',
-      a: 'Yes. Send on-brand proposals with e-signature to close the deal, then raise GST-ready invoices against project milestones — all tied to the same client account. You can track outstanding balances and payments without exporting anything to a separate accounting tool.',
+      a: 'Yes. Send on-brand proposals with e-signature to close the deal, then raise GST-compliant invoices against project milestones — all tied to the same client account. You can track outstanding balances and payments without exporting anything to a separate accounting tool.',
     },
   ],
   related: [

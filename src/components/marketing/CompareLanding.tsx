@@ -8,6 +8,7 @@ import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { signupUrl, PRIMARY_CTA } from '@/lib/cta'
+import { SourceList } from '@/components/marketing/SourceList'
 import type { ComparePageConfig } from '@/lib/content/compare/_type'
 
 /** A pros/cons card. */
@@ -73,6 +74,7 @@ export function CompareLanding({ config }: { config: ComparePageConfig }) {
     ctaTitle,
     ctaSubtitle,
     asOf,
+    sources,
   } = config
 
   return (
@@ -173,9 +175,11 @@ export function CompareLanding({ config }: { config: ComparePageConfig }) {
               <Info className="mt-0.5 h-3.5 w-3.5 flex-none" />
               <span>
                 Competitor details are our fair reading as of {asOf} and can change. Always check{' '}
-                {competitor}’s own site for their current plans and pricing.
+                {competitor}’s own site for their current plans and pricing. Where something is not
+                stated on their own pages we say so rather than claiming they do not have it.
               </span>
             </p>
+            <SourceList sources={sources} />
           </Reveal>
         </div>
       </section>

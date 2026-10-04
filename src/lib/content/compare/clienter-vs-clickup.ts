@@ -27,8 +27,8 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
     heading: 'One app for everything vs one app for client work',
     body: [
       'ClickUp is famously ambitious: docs, whiteboards, goals, dozens of views, custom fields, time tracking, automations, and a genuinely generous free tier, all in one app that markets itself as replacing your whole stack. If you love configuring a tool exactly to your taste and want breadth above all, ClickUp gives you an enormous toolbox to build with.',
-      'Clienter is deliberately narrower. It is built for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things ClickUp leaves to other tools — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — in one workspace priced for one person.',
-      'So this is less “which has more features” and more “which is built for you”. ClickUp can model your project in a hundred ways, but a task list still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. Clienter ties projects to clients, invoices, and payments in one priced in both USD and INR tool, so the whole client lifecycle lives together.',
+      'Clienter is deliberately narrower. It is built for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things ClickUp leaves to other tools — GST-compliant invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — in one workspace priced for one person.',
+      'So this is less “which has more features” and more “which is built for you”. ClickUp can model your project in a hundred ways, but a task list still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. Clienter ties projects to clients, invoices, and payments in one single tool, so the whole client lifecycle lives together.',
     ],
   },
   tableHeading: 'Clienter vs ClickUp at a glance',
@@ -36,7 +36,7 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
     { feature: 'Built for', clienter: 'Freelancers & small agencies', other: 'Teams wanting one app for everything' },
     { feature: 'Lead & sales pipeline', clienter: 'Yes — simple Kanban pipeline', other: 'Via custom lists / a CRM template' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Yes — very deep, many views' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Not listed on their pricing page' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via integrations' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Client → project → invoice link', clienter: 'Native', other: 'Build it with custom fields' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
+    'GST-compliant invoicing and quotations with pricing in both USD and INR',
     'A live profit dashboard that ties income and expenses to each client',
     'Simple enough to use the day you sign up — no configuration marathon',
     'Branded client portal and verified reviews to look established',
@@ -81,7 +81,7 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
     points: [
       'Are a freelancer or small agency doing client-services work',
       'Want clients, projects, invoices, and a portal in the same tool',
-      'Need GST-ready invoices and rupee pricing',
+      'Need GST-compliant invoices for India, or to invoice in another currency',
       'Want to be productive the same day, without configuring a system first',
       'Are cost-conscious and don’t want per-seat pricing',
     ],
@@ -110,7 +110,7 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
     },
     {
       q: 'Can ClickUp handle invoicing and payments?',
-      a: 'ClickUp can track time and tasks and connect to billing tools through integrations, but it isn’t built around Indian GST invoicing or collecting payments. Clienter includes GST-ready invoicing and quotations natively, plus payment and expense tracking with a live profit dashboard, so you don’t have to bolt billing on from separate apps.',
+      a: 'ClickUp can track time and tasks and connect to billing tools through integrations, but it does not list GST-compliant invoicing on its pricing page or collecting payments. Clienter includes GST-compliant invoicing and quotations natively, plus payment and expense tracking with a live profit dashboard, so you don’t have to bolt billing on from separate apps.',
     },
     {
       q: 'Is ClickUp too complex for a solo freelancer?',
@@ -125,7 +125,7 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
     { href: '/compare/clienter-vs-monday', label: 'Clienter vs monday.com', desc: 'A flexible work-OS compared with Clienter.' },
     { href: '/compare/clienter-vs-notion', label: 'Clienter vs Notion', desc: 'Build-your-own-system vs purpose-built.' },
     { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'Why a freelancer CRM beats a general tool.' },
-    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a tool built for how you actually work',
   ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',

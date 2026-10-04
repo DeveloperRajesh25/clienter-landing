@@ -36,7 +36,7 @@ export const CONSULTANTS: AudiencePageConfig = {
     body: [
       'As a consultant you sell judgement, but you run a business — and it’s a surprisingly operational one. There’s a pipeline of prospects with long, patient sales cycles; proposals and statements of work to write and win; retainers and project fees to bill on time; and three or four engagements running in parallel, each at a different phase. Most independent consultants track all of this across a CRM they half-use, their inbox, and a folder of Word documents — and things fall between the cracks exactly where money and credibility live.',
       'Consultant client management software brings the whole engagement lifecycle into one place — from the first conversation to the signed proposal to the monthly retainer invoice — so nothing about a client survives only in your email. Instead of rebuilding a proposal from an old file and billing retainers from memory, you get a single workspace where prospects, scope, engagements, and invoices stay connected. Clienter is built for exactly that.',
-      'For independent consultants and boutique firms in India it fits the local reality too: GST-ready invoices for retainers and phases, payment tracking that matches how UPI and bank transfers actually arrive, and pricing that suits a practice rather than an enterprise procurement budget.',
+      'For independent consultants and boutique firms in India it fits the local reality too: GST-compliant invoices for retainers and phases, payment tracking that matches how UPI and bank transfers actually arrive, and pricing that suits a practice rather than an enterprise procurement budget.',
     ],
   },
   pains: {
@@ -83,7 +83,7 @@ export const CONSULTANTS: AudiencePageConfig = {
       },
       {
         title: '4. Bill by phase or on retainer',
-        desc: 'Raise GST-ready invoices per milestone, or run a recurring monthly retainer. Log payments and expenses so profit per engagement is always current, not a year-end estimate.',
+        desc: 'Raise GST-compliant invoices per milestone, or run a recurring monthly retainer. Log payments and expenses so profit per engagement is always current, not a year-end estimate.',
       },
       {
         title: '5. Prove the value, keep the client',
@@ -99,7 +99,7 @@ export const CONSULTANTS: AudiencePageConfig = {
       { icon: FileSignature, title: 'Proposals & SOWs', desc: 'Send scope-defining proposals with e-signature that anchor the engagement.' },
       { icon: Repeat, title: 'Retainer engagements', desc: 'Set up recurring retainer projects and bill them on schedule, every month.' },
       { icon: FolderKanban, title: 'Engagements & phases', desc: 'A board per engagement with phases, milestones, deadlines, and tasks.' },
-      { icon: ReceiptText, title: 'Phase & retainer invoices', desc: 'GST-ready invoices by milestone or by month, reusing the client’s details.' },
+      { icon: ReceiptText, title: 'Phase & retainer invoices', desc: 'GST-compliant invoices by milestone or by month, reusing the client’s details.' },
       { icon: Handshake, title: 'Branded client portal', desc: 'A branded portal that makes a solo practice look like an established firm.' },
     ],
   },

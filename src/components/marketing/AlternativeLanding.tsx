@@ -8,6 +8,7 @@ import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { signupUrl, PRIMARY_CTA } from '@/lib/cta'
+import { SourceList } from '@/components/marketing/SourceList'
 import type { AlternativePageConfig } from '@/lib/content/alternative/_type'
 
 /** Renders one `/alternatives/<slug>` page from its config. */
@@ -32,6 +33,7 @@ export function AlternativeLanding({ config }: { config: AlternativePageConfig }
     ctaTitle,
     ctaSubtitle,
     asOf,
+    sources,
   } = config
 
   return (
@@ -171,9 +173,11 @@ export function AlternativeLanding({ config }: { config: AlternativePageConfig }
               <Info className="mt-0.5 h-3.5 w-3.5 flex-none" />
               <span>
                 Details on other tools are our fair reading as of {asOf} and can change — check each
-                tool’s own site for current features and pricing.
+                tool’s own site for current features and pricing. Where something is not stated on a
+                tool’s own pages we say so rather than claiming it does not have it.
               </span>
             </p>
+            <SourceList sources={sources} />
           </div>
         </section>
       )}
@@ -234,6 +238,9 @@ export function AlternativeLanding({ config }: { config: AlternativePageConfig }
                 </p>
               ))}
             </div>
+            {/* Sources also sit here, because the `otherOptions` block above is
+                optional and most of these pages do not render it. */}
+            {!otherOptions && <SourceList sources={sources} />}
           </Reveal>
         </div>
       </section>

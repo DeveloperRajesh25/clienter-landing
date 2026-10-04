@@ -118,7 +118,7 @@ export const CONTENT_WRITERS: AudiencePageConfig = {
       {
         icon: ReceiptText,
         title: 'GST invoices & quotations',
-        desc: 'Branded, GST-ready invoices in rupees, per piece or per month, exported to PDF in a minute.',
+        desc: 'Branded, GST-compliant invoices in rupees, per piece or per month, exported to PDF in a minute.',
       },
       {
         icon: Wallet,

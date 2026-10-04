@@ -49,7 +49,7 @@ export const NOTION_ALTERNATIVE: AlternativePageConfig = {
     items: [
       { icon: KanbanSquare, title: 'Lead pipeline', desc: 'A simple Kanban pipeline that moves enquiries to won — not a static database you update yourself.' },
       { icon: FolderKanban, title: 'Projects & tasks', desc: 'Boards, deadlines, budgets, and tasks for real delivery, built in rather than assembled.' },
-      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-ready invoices and quotations with your GSTIN, in rupees — issued, not just recorded.' },
+      { icon: ReceiptText, title: 'GST invoicing', desc: 'GST-compliant invoices and quotations with your GSTIN, in rupees — issued, not just recorded.' },
       { icon: CreditCard, title: 'Payments & expenses', desc: 'Track dues, payments, and expenses that feed a live profit view, no manual tables.' },
       { icon: LayoutDashboard, title: 'Client portal', desc: 'A branded portal where clients view work and download invoices (one client on Free, every client on Pro and Ultra).' },
       { icon: FileSignature, title: 'Proposals & e-sign', desc: 'Send proposals and quotations clients accept and sign digitally.' },
@@ -105,14 +105,14 @@ export const NOTION_ALTERNATIVE: AlternativePageConfig = {
     },
     {
       q: 'Does Clienter work for Indian freelancers and GST?',
-      a: 'Yes — it’s built for it. Clienter issues GST-ready invoices and quotations with your GSTIN in rupees, tracks payments the way you collect them in India, and gives clients a branded portal. Pricing is priced in both USD and INR too: free forever to start, Pro at $19/month (₹199 in India), and Ultra at $39/month (₹799 in India) for unlimited use.',
+      a: 'Yes — it’s built for it. Clienter issues GST-compliant invoices and quotations with your GSTIN in rupees, tracks payments the way you collect them in India, and gives clients a branded portal. Pricing is priced plainly too: free forever to start, Pro at $19/month (₹199 in India), and Ultra at $39/month (₹799 in India) for unlimited use.',
     },
   ],
   related: [
     { href: '/compare/clienter-vs-notion', label: 'Clienter vs Notion', desc: 'The full side-by-side comparison.' },
     { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'A client system that doesn’t need building.' },
     { href: '/alternatives/hubspot-alternative-for-freelancers', label: 'HubSpot alternative', desc: 'A CRM alternative sized for a freelancer.' },
-    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a client system that’s already built',
   ctaSubtitle: 'Start Clienter free and stop maintaining a DIY Notion setup.',

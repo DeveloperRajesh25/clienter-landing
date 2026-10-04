@@ -27,8 +27,8 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     heading: 'A work-OS and a client business are not the same job',
     body: [
       'monday.com is a genuinely flexible work-OS. Its colourful boards, timeline and workload views, dashboards, and powerful automations let teams model almost any process — marketing calendars, product sprints, hiring pipelines, operations. If you want one canvas that a whole team can bend to fit how they work, monday.com is very good at that, and it scales cleanly as the team grows.',
-      'Clienter is built for a narrower, more specific person: the freelancer or small agency who wins a handful of clients and then has to actually deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things a work-OS usually leaves to other tools — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — all priced for one person, not a department.',
-      'So the honest framing is less “which is better” and more “which is built for you”. A monday.com board can model your project beautifully, but it still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. monday.com does offer a separate CRM product, but you’re still assembling pieces and paying per seat. Clienter ties projects to clients, invoices, and payments in one priced in both USD and INR tool.',
+      'Clienter is built for a narrower, more specific person: the freelancer or small agency who wins a handful of clients and then has to actually deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things a work-OS usually leaves to other tools — GST-compliant invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — all priced for one person, not a department.',
+      'So the honest framing is less “which is better” and more “which is built for you”. A monday.com board can model your project beautifully, but it still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. monday.com does offer a separate CRM product, but you’re still assembling pieces and paying per seat. Clienter ties projects to clients, invoices, and payments in one single tool.',
     ],
   },
   tableHeading: 'Clienter vs monday.com at a glance',
@@ -36,7 +36,7 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     { feature: 'Built for', clienter: 'Freelancers & small agencies', other: 'Teams building custom workflows' },
     { feature: 'Lead & sales pipeline', clienter: 'Yes — simple Kanban pipeline', other: 'Via monday’s separate CRM product' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Yes — powerful, many views' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Not listed on their pricing page' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via integrations' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core feature' },
     { feature: 'Client → project → invoice link', clienter: 'Native', other: 'You wire it together yourself' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
+    'GST-compliant invoicing and quotations with pricing in both USD and INR',
     'A live profit dashboard that ties income and expenses to each client',
     'Simple enough to use the day you sign up — no build-out required',
     'Branded client portal and verified reviews to look established',
@@ -81,7 +81,7 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     points: [
       'Are a freelancer or small agency doing client-services work',
       'Want clients, projects, invoices, and a portal in the same tool',
-      'Need GST-ready invoices and rupee pricing',
+      'Need GST-compliant invoices for India, or to invoice in another currency',
       'Want to be productive the same day, without building a system first',
       'Are cost-conscious and don’t want per-seat pricing',
     ],
@@ -110,11 +110,11 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     },
     {
       q: 'monday.com has a CRM — why use Clienter instead?',
-      a: 'monday’s CRM is a separate, seat-priced product focused on sales workflows. Clienter ties its CRM directly to project delivery, GST-ready invoicing, payment tracking, and a branded client portal, so the client, the work, the invoice, and the payment all live together. For client-services freelancers that connection is the whole point.',
+      a: 'monday’s CRM is a separate, seat-priced product focused on sales workflows. Clienter ties its CRM directly to project delivery, GST-compliant invoicing, payment tracking, and a branded client portal, so the client, the work, the invoice, and the payment all live together. For client-services freelancers that connection is the whole point.',
     },
     {
       q: 'Does monday.com do GST invoicing and payments?',
-      a: 'monday.com isn’t built around Indian GST invoicing or collecting payments; billing usually relies on integrations or separate accounting tools. Clienter includes GST-ready invoicing and quotations natively, plus payment and expense tracking with a live profit dashboard, which is a meaningful difference for Indian freelancers and agencies.',
+      a: 'monday.com does not list GST-compliant invoicing on its pricing page or collecting payments; billing usually relies on integrations or separate accounting tools. Clienter includes GST-compliant invoicing and quotations natively, plus payment and expense tracking with a live profit dashboard, which is a meaningful difference for Indian freelancers and agencies.',
     },
     {
       q: 'Which is cheaper, Clienter or monday.com?',
@@ -125,7 +125,7 @@ export const CLIENTER_VS_MONDAY: ComparePageConfig = {
     { href: '/compare/clienter-vs-clickup', label: 'Clienter vs ClickUp', desc: 'Another all-in-one productivity tool compared.' },
     { href: '/compare/clienter-vs-asana', label: 'Clienter vs Asana', desc: 'How Clienter stacks up against Asana.' },
     { href: '/project-management-crm', label: 'Project management + CRM', desc: 'Why client work needs both in one tool.' },
-    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
+    { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from $19/month.' },
   ],
   ctaTitle: 'Get a tool built for how you actually work',
   ctaSubtitle: 'Start Clienter free and keep your clients, projects, and invoices in one place.',

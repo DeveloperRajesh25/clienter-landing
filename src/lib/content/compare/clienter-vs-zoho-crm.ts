@@ -27,7 +27,7 @@ export const CLIENTER_VS_ZOHO_CRM: ComparePageConfig = {
     heading: 'A feature-rich sales suite vs an all-in-one client workspace',
     body: [
       'Zoho CRM is one of the most established sales CRMs in the world, built by Zoho Corp — an Indian-founded company with a genuinely deep product line. It gives sales teams powerful lead and deal management, workflow automation, analytics, and AI assistance, and it plugs into the wider Zoho ecosystem of 40-plus business apps. For a growing sales team that wants room to scale, it is a serious, well-priced platform.',
-      'Clienter is built for a different job: the freelancer or small agency who wins a handful of clients and then has to deliver the work, invoice for it, and get paid. Instead of a sales-first CRM, it combines a simple Kanban lead pipeline with the things a client-services business runs on every day — project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, and a branded client portal — in one priced in both USD and INR workspace.',
+      'Clienter is built for a different job: the freelancer or small agency who wins a handful of clients and then has to deliver the work, invoice for it, and get paid. Instead of a sales-first CRM, it combines a simple Kanban lead pipeline with the things a client-services business runs on every day — project management, GST-compliant invoicing and quotations, payment and expense tracking with a live profit dashboard, and a branded client portal — in one single workspace.',
       'So the honest framing is less “which CRM is better” and more “which is built for how you work”. If your day is outbound sales across a team and you want to grow into a large suite, Zoho CRM is an excellent choice. If your day is delivering client work and you want the whole lifecycle in one affordable tool, that is exactly what Clienter is for.',
     ],
   },
@@ -36,7 +36,7 @@ export const CLIENTER_VS_ZOHO_CRM: ComparePageConfig = {
     { feature: 'Built for', clienter: 'Freelancers & small agencies', other: 'Sales teams & growing SMBs' },
     { feature: 'Lead & sales pipeline', clienter: 'Yes — simple Kanban pipeline', other: 'Yes — deep sales automation' },
     { feature: 'Project management', clienter: 'Yes — boards, tasks, budgets', other: 'Separate app (Zoho Projects)' },
-    { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Separate app (Zoho Invoice/Books)' },
+    { feature: 'GST-compliant invoicing', clienter: 'Built in', other: 'Separate app (Zoho Invoice/Books)' },
     { feature: 'Payment & expense tracking', clienter: 'Built in', other: 'Via other Zoho apps/integrations' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Not a core CRM feature' },
     { feature: 'Live profit dashboard', clienter: 'Built in', other: 'Via Zoho Analytics/Books' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_ZOHO_CRM: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
+    'GST-compliant invoicing and quotations with pricing in both USD and INR',
     'Simple enough to set up and use the same day',
     'Freelancer-friendly pricing with no per-seat sales-team model',
     'White-label portal and verified reviews to look established to clients',
@@ -81,7 +81,7 @@ export const CLIENTER_VS_ZOHO_CRM: ComparePageConfig = {
     points: [
       'Are a freelancer or small agency doing client-services work',
       'Want projects, invoices, and a client portal alongside your pipeline',
-      'Need GST-ready invoicing and priced in both USD and INR pricing',
+      'Need GST-compliant invoicing and pricing in both USD and INR',
       'Want one login instead of stitching several apps together',
       'Want to be productive the same day, without heavy setup',
     ],
@@ -106,7 +106,7 @@ export const CLIENTER_VS_ZOHO_CRM: ComparePageConfig = {
   faqs: [
     {
       q: 'Is Clienter a good Zoho CRM alternative for freelancers?',
-      a: 'For freelancers and small agencies, yes. Zoho CRM is a powerful sales CRM, but a client-services business also needs projects, invoicing, payments, and a client portal — which Zoho handles through separate apps. Clienter brings the pipeline and all of that into one priced in both USD and INR workspace, starting free, so you manage the whole client lifecycle in one place.',
+      a: 'For freelancers and small agencies, yes. Zoho CRM is a powerful sales CRM, but a client-services business also needs projects, invoicing, payments, and a client portal — which Zoho handles through separate apps. Clienter brings the pipeline and all of that into one single workspace, starting free, so you manage the whole client lifecycle in one place.',
     },
     {
       q: 'Can Clienter do everything Zoho CRM does?',
@@ -114,7 +114,7 @@ export const CLIENTER_VS_ZOHO_CRM: ComparePageConfig = {
     },
     {
       q: 'Does Clienter handle GST invoicing like Zoho?',
-      a: 'Clienter includes GST-ready invoicing and quotations natively, with rupee pricing. Zoho can do GST invoicing too, but through its Invoice or Books products rather than inside the CRM — so you run and pay for another app. For Indian freelancers who want billing next to their clients and projects, Clienter’s built-in approach is simpler.',
+      a: 'Clienter includes GST-compliant invoicing and quotations natively, with rupee pricing. Zoho can do GST invoicing too, but through its Invoice or Books products rather than inside the CRM — so you run and pay for another app. For Indian freelancers who want billing next to their clients and projects, Clienter’s built-in approach is simpler.',
     },
     {
       q: 'Which is cheaper, Clienter or Zoho CRM?',

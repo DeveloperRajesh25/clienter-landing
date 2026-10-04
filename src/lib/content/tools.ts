@@ -172,7 +172,7 @@ export const TOOLS: ToolConfig[] = [
       { href: '/for/indian-freelancers', label: 'For Indian Freelancers', desc: 'GST, UPI, and the India market.' },
     ],
     ctaTitle: 'Invoice with GST, without the headache',
-    ctaSubtitle: 'Clienter raises GST-ready invoices automatically. Start free.',
+    ctaSubtitle: 'Clienter raises GST-compliant invoices automatically. Start free.',
   },
 
   {
@@ -360,7 +360,7 @@ export const TOOLS: ToolConfig[] = [
       { href: '/features/invoicing', label: 'Invoicing', desc: 'Automatic GST invoices in Clienter.' },
     ],
     ctaTitle: 'Automate your GST invoices',
-    ctaSubtitle: 'Clienter raises GST-ready invoices from your projects. Start free.',
+    ctaSubtitle: 'Clienter raises GST-compliant invoices from your projects. Start free.',
   },
 
   {
