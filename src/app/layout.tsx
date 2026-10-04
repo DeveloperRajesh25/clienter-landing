@@ -38,7 +38,11 @@ export const metadata: Metadata = {
   // Absolute base for every canonical/OG URL across the site.
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    // Not `${SITE_NAME} — ${SITE_TAGLINE}`: that renders at 64 characters, which is
+    // over the SERP budget brandedTitle() enforces everywhere else. This default
+    // only applies to pages that set no title of their own (in practice the 404),
+    // but it is also the OG and Twitter card fallback, so it should fit.
+    default: `${SITE_NAME} — Client Software for Agencies & Freelancers`,
     // Sub-pages set just their title; this appends the brand.
     template: `%s · ${SITE_NAME}`,
   },

@@ -247,3 +247,15 @@ entirely client-side. No country pages; the decision is argued in `docs/content-
 **Nothing was submitted anywhere, and no account was created**, as instructed. The sitemap is **152
 URLs** after this branch, down from 162 — the 14 thin archives left and 3 plural alternatives pages
 and a handful of other additions arrived.
+
+## Final deliverables ✅
+
+`docs/seo-changelog.md` — every change, the files it touched, how to verify it, and the metrics to
+watch, with the three H1 variants and the reasoning on the record.
+`docs/needs-owner-input.md` — the four blockers, the fourteen decisions I made on your behalf (each
+with how to reverse it), what could not be verified, and the five items that belong to the app repo.
+
+**Verified at the end of the pass:** 173 built titles, **0 over 60 characters** (the 404's fallback
+title was 64 and was shortened). 0 bare signup links outside the helper. 0 surviving reference-price
+claims outside explanatory comments. Sitemap 152 URLs with no tag or category archives. Drafts
+noindex and absent from sitemap, RSS and the blog index. Build, lint and type-check green.
