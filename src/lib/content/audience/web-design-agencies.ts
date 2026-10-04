@@ -125,7 +125,7 @@ export const WEB_DESIGN_AGENCIES: AudiencePageConfig = {
     heading: 'Pricing that scales with the studio, not per seat',
     body: [
       'Start on the Free plan while you’re small — up to 3 clients and 5 projects with the full pipeline, proposals, invoicing, and meetings, free forever. It’s enough to prove the system before you commit.',
-      'As the studio grows, Pro at a launch price of ₹199/month covers up to 20 clients, 40 projects, and 5 team members, and opens the branded client portal to every client your agency’s clients will actually see. Ultra at ₹799/month lifts every limit — unlimited clients, projects, and team members — for a busy agency running many accounts at once. There’s no per-seat enterprise pricing and no annual lock-in, so adding a designer never triggers a painful upgrade.',
+      'As the studio grows, Pro at $19/month (₹199 in India) covers up to 20 clients, 40 projects, and 5 team members, and opens the branded client portal to every client your agency’s clients will actually see. Ultra at $39/month (₹799 in India) lifts every limit — unlimited clients, projects, and team members — for a busy agency running many accounts at once. There’s no per-seat enterprise pricing and no annual lock-in, so adding a designer never triggers a painful upgrade.',
     ],
   },
   faqHeading: 'Web design agency FAQs',

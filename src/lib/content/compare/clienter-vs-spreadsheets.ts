@@ -72,7 +72,7 @@ export const CLIENTER_VS_SPREADSHEETS: ComparePageConfig = {
     heading: 'Pricing: free vs the cost of your time',
     body: [
       'On price alone, spreadsheets win — they’re free, and they’ll stay free forever. If your budget is truly zero and you have only a handful of clients, a well-kept sheet is a perfectly honest starting point, and we’d rather you use one than nothing at all.',
-      'Clienter starts free too. The Free plan (up to 3 clients and 5 projects) includes the pipeline, GST-ready invoicing, and meetings — so you can replace your spreadsheet without spending a rupee. When you outgrow it, Pro is a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded portal for every client) and Ultra is ₹799/month for unlimited everything, down from ₹499 and ₹1,999.',
+      'Clienter starts free too. The Free plan (up to 3 clients and 5 projects) includes the pipeline, GST-ready invoicing, and meetings — so you can replace your spreadsheet without spending a rupee. When you outgrow it, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client — and Ultra is $39/month (₹799 in India) for unlimited everything.',
       'The real comparison isn’t rupees, it’s hours. A spreadsheet is free in cash but expensive in time — the manual invoicing, the chasing, the fixing of broken formulas. Clienter trades a small, predictable monthly cost for the hours you get back, and it starts free so you can feel the difference before you ever pay.',
     ],
   },

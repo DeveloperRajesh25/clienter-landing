@@ -10,11 +10,11 @@ export type Faq = { q: string; a: string }
 export const FAQS: Faq[] = [
   {
     q: 'What is Clienter?',
-    a: 'Clienter is an all-in-one client management platform for freelancers and small agencies. It brings clients, projects, invoices, payments, meetings, and your team together in one place, so you can stop juggling spreadsheets, WhatsApp threads, and half a dozen separate tools.',
+    a: 'Clienter is an all-in-one client management platform for agencies and freelancers. It brings leads, quotations, e-signed contracts, projects, a branded client portal, invoices and payment tracking into one login, so you can stop juggling spreadsheets, chat threads and half a dozen separate tools.',
   },
   {
     q: 'Who is Clienter built for?',
-    a: 'Independent freelancers, solo consultants, and small agencies — especially in India — who juggle multiple clients, projects, and invoices and want one calm place to run it all. It works for developers, designers, writers, marketers, and any service business.',
+    a: 'Agencies of roughly 2 to 15 people and established freelancers with five or more clients, anywhere in the world. India is the largest early user base, and GST-compliant invoicing is one of Clienter’s strengths, but it is not an India-only product. It works for developers, designers, writers, marketers and any service business. If you have one or two clients and a notes app is coping, you probably do not need it yet.',
   },
   {
     q: 'Do I need a credit card to start?',
@@ -22,11 +22,11 @@ export const FAQS: Faq[] = [
   },
   {
     q: 'How much does Clienter cost?',
-    a: 'Clienter has three plans: Free (₹0/month — up to 3 clients, 5 projects, 1 teammate and 20 active leads, plus the client portal for one client and Google Calendar sync), Pro (launch offer ₹199/month, was ₹499 — up to 20 clients, 40 projects, 5 team members and 200 active leads, the portal for every client, auto-invoicing and lead reminders), and Ultra (launch offer ₹799/month, was ₹1,999 — unlimited clients, projects, leads and team members, plus payroll, white label and lead integrations). You can start free and upgrade anytime, and launch pricing is available for a limited time.',
+    a: 'Three plans. Free is $0 forever: up to 3 clients, 5 projects, 1 teammate and 20 active leads, plus the client portal for one client and Google Calendar sync. Pro is $19 a month, or ₹199 a month if you bill in India: up to 20 clients, 40 projects, 5 team members and 200 active leads, the portal for every client, auto-invoiced retainers and lead reminders. Ultra is $39 a month, or ₹799 in India: unlimited clients, projects, leads and team members, plus payroll, white-label branding, a custom portal domain and lead integrations. Outside India you pay in USD through PayPal; in India you pay in INR through Razorpay. Start free and upgrade whenever you outgrow it.',
   },
   {
-    q: 'Can I invoice in Indian Rupees with GST?',
-    a: 'Yes. Invoices support line items, tax, and one-click PDF export, with amounts in ₹ by default. You can add your GST details and download professional, branded invoices to send to clients.',
+    q: 'Which currencies can I invoice my clients in?',
+    a: 'About 30, and you can set a different currency for each client. Every line item can carry its own custom tax rate, and invoices for India are GST-compliant with your GSTIN and the CGST/SGST split. There are no country-specific VAT or sales-tax invoice formats beyond that, so check a sample invoice against your local requirements before you rely on it. Every invoice exports as a branded PDF in one click.',
   },
   {
     q: 'Can I add my team?',
@@ -35,6 +35,10 @@ export const FAQS: Faq[] = [
   {
     q: 'How do verified client reviews work?',
     a: 'When you mark a project as completed, your client is automatically invited to leave a 1–5 star review inside the portal they already use. Because every review is tied to a real client on a real completed project — and you cannot edit or delete them — they are genuinely verified. You get a public review page at your own agency slug and a copy-paste embeddable badge for your website, free on every plan.',
+  },
+  {
+    q: 'Does Clienter collect payments from my clients?',
+    a: 'No. Your clients pay you directly — bank transfer, UPI, card, however you already work. Clienter issues the invoice, sends the reminders, lets you record the payment and review proof of payment, and keeps the running total of what each client owes. The money never passes through Clienter, so there is no payment fee and no settlement wait.',
   },
   {
     q: 'Is my data secure?',
@@ -50,7 +54,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: 'Do you offer refunds?',
-    a: 'Plans are billed monthly and you can cancel anytime to stop future charges. We do not offer refunds for charges already made, but cancelling keeps your access until the end of the paid period. See our Refund & Cancellation Policy for details.',
+    a: 'Plans are billed monthly rather than annually, so the most you are ever exposed to is one month. Cancelling stops future charges and you keep access to the end of the period you have paid for. We do not refund a charge already taken — the Free plan is there so you can try the whole product first. See our Refund & Cancellation Policy for details.',
   },
 ]
 

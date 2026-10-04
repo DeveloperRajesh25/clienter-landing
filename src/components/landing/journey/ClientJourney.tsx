@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useTransform } from 'framer-motion'
 import { ArrowRight, MoveRight } from 'lucide-react'
 import { useRef } from 'react'
-import { APP_URL } from '@/lib/site'
+import { signupUrl, PRIMARY_CTA } from '@/lib/cta'
 import { Reveal } from '@/components/landing/Reveal'
 import { SectionLabel } from '@/components/landing/SectionLabel'
 import { ACTS, CLIENT, SCENES, SLOTS, TOTAL_WEIGHT, VH_PER_WEIGHT, slotRange } from './data'
@@ -234,10 +234,10 @@ export function ClientJourney() {
             <Reveal delay={120} className="sm:col-span-5 sm:justify-self-end">
               <div className="flex flex-wrap items-center gap-4">
                 <Link
-                  href={`${APP_URL}/signup`}
+                  href={signupUrl('home', 'home-journey')}
                   className="focus-ember group inline-flex items-center gap-2 rounded-full bg-orange-600 px-6 py-3.5 text-sm font-bold text-white shadow-ember transition-all duration-300 hover:bg-orange-700 hover:shadow-ember-lg"
                 >
-                  Start free
+                  {PRIMARY_CTA}
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
                 <Link

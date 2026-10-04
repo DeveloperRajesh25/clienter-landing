@@ -86,14 +86,14 @@ export const NOTION_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Pay for a system, not for your own time',
     body: [
       'Notion’s own plans are affordable, and it even has a free tier, so on the sticker it looks cheap. The real cost is hidden elsewhere: the hours you spend designing and maintaining your client system, and the extra tools you bolt on for invoicing, e-signature, and payments because Notion doesn’t do them.',
-      'Clienter charges for the system so you don’t pay in time. It’s free forever for up to 3 clients and 5 projects — pipeline, GST invoicing, and meetings included. Pro is launch-priced at ₹199/month and adds the branded client portal for every client and higher limits, while Ultra at ₹799/month removes limits entirely. Everything exports, so nothing about trying it locks you in.',
+      'Clienter charges for the system so you don’t pay in time. It’s free forever for up to 3 clients and 5 projects — pipeline, GST invoicing, and meetings included. Pro is $19/month (₹199 in India) and adds the branded client portal for every client and higher limits, while Ultra at $39/month (₹799 in India) removes limits entirely. Everything exports, so nothing about trying it locks you in.',
     ],
   },
   faqHeading: 'Notion alternative FAQs',
   faqs: [
     {
       q: 'What is the best Notion alternative for client management?',
-      a: 'The best Notion alternative for client management is a purpose-built tool that gives you the structure Notion makes you assemble — a lead pipeline, projects, GST invoicing, payments, and a client portal — without the DIY upkeep. Clienter does exactly that in one rupee-priced tool, starting free and with Pro at a launch price of ₹199/month.',
+      a: 'The best Notion alternative for client management is a purpose-built tool that gives you the structure Notion makes you assemble — a lead pipeline, projects, GST invoicing, payments, and a client portal — without the DIY upkeep. Clienter does exactly that in one rupee-priced tool, starting free and with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'Can’t I just build client management in Notion?',
@@ -105,7 +105,7 @@ export const NOTION_ALTERNATIVE: AlternativePageConfig = {
     },
     {
       q: 'Does Clienter work for Indian freelancers and GST?',
-      a: 'Yes — it’s built for it. Clienter issues GST-ready invoices and quotations with your GSTIN in rupees, tracks payments the way you collect them in India, and gives clients a branded portal. Pricing is rupee-first too: free forever to start, Pro at a launch price of ₹199/month, and Ultra at ₹799/month for unlimited use.',
+      a: 'Yes — it’s built for it. Clienter issues GST-ready invoices and quotations with your GSTIN in rupees, tracks payments the way you collect them in India, and gives clients a branded portal. Pricing is priced in both USD and INR too: free forever to start, Pro at $19/month (₹199 in India), and Ultra at $39/month (₹799 in India) for unlimited use.',
     },
   ],
   related: [

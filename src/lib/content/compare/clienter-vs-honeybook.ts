@@ -22,7 +22,7 @@ export const CLIENTER_VS_HONEYBOOK: ComparePageConfig = {
   h1: 'Clienter vs HoneyBook: an honest',
   h1Highlight: 'comparison',
   subheading:
-    'HoneyBook is a polished client-management suite loved by US creatives. Clienter is built for Indian freelancers and agencies who need GST invoicing, rupee-first payments, and a client portal in one place. Here’s how they really compare.',
+    'HoneyBook is a polished client-management suite loved by US creatives. Clienter is built for Indian freelancers and agencies who need GST invoicing, priced in both USD and INR payments, and a client portal in one place. Here’s how they really compare.',
   intro: {
     heading: 'A US creative suite vs an India-built client workspace',
     body: [
@@ -38,7 +38,7 @@ export const CLIENTER_VS_HONEYBOOK: ComparePageConfig = {
     { feature: 'Proposals & e-signature', clienter: 'Built in', other: 'Yes — polished, branded' },
     { feature: 'Contracts', clienter: 'Via proposals & e-sign', other: 'Yes — templates & e-sign' },
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
-    { feature: 'Online payments', clienter: 'UPI-friendly, rupee-first', other: 'Designed for US/Canada' },
+    { feature: 'Online payments', clienter: 'UPI-friendly, priced in both USD and INR', other: 'Designed for US/Canada' },
     { feature: 'Automation workflows', clienter: 'Lighter, simpler', other: 'Strong, mature' },
     { feature: 'Meetings & scheduling', clienter: 'Google Calendar/Meet', other: 'Yes — built-in scheduler' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Branded client experience' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_HONEYBOOK: ComparePageConfig = {
   ],
   clienterPros: [
     'GST-ready invoicing and quotations, priced in rupees for India',
-    'UPI-friendly, rupee-first payments — collect from Indian clients natively',
+    'UPI-friendly, priced in both USD and INR payments — collect from Indian clients natively',
     'Leads, proposals, invoicing, meetings, and a branded portal in one tool',
     'Free-forever plan to start (3 clients, 5 projects), no credit card needed',
     'Set up and usable the same day, with a portal that looks professional',
@@ -69,10 +69,10 @@ export const CLIENTER_VS_HONEYBOOK: ComparePageConfig = {
     'Focused on the US creative market rather than Indian freelancers',
   ],
   pricing: {
-    heading: 'Pricing: US-market suite vs rupee-first plans',
+    heading: 'Pricing: US-market suite vs priced in both USD and INR plans',
     body: [
       'HoneyBook is a paid subscription priced in US dollars, with tiers that unlock more features as you scale, and no free-forever plan (a trial to try it) — so check current pricing on its own site. For Indian users the bigger question than price is fit: its built-in payments are made for US and Canadian businesses, so a core part of what you would be paying for may not work here at all.',
-      'Clienter is rupee-first. Free is ₹0 forever and covers up to 3 clients and 5 projects with the full pipeline, invoicing, quotations, and meetings. Pro is a launch price of ₹199/month (down from ₹499) for up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client. Ultra is ₹799/month (down from ₹1,999) for unlimited everything.',
+      'Clienter is priced in both USD and INR. Free is ₹0 forever and covers up to 3 clients and 5 projects with the full pipeline, invoicing, quotations, and meetings. Pro is $19/month (₹199 in India) for up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client. Ultra is $39/month (₹799 in India) for unlimited everything.',
       'The honest summary: for a US creative business, HoneyBook’s price buys a polished, proven booking experience. For an Indian freelancer or agency, Clienter’s GST invoicing, UPI-friendly payments, rupee pricing, and free plan make it the practical choice.',
     ],
   },
@@ -110,7 +110,7 @@ export const CLIENTER_VS_HONEYBOOK: ComparePageConfig = {
     },
     {
       q: 'Can I use HoneyBook payments in India?',
-      a: 'HoneyBook’s built-in online payments are designed for businesses in the US and Canada, so they are generally not a fit for collecting payments from Indian clients — check HoneyBook’s current availability for your country. Clienter is rupee-first and UPI-friendly, so getting paid by Indian clients works out of the box.',
+      a: 'HoneyBook’s built-in online payments are designed for businesses in the US and Canada, so they are generally not a fit for collecting payments from Indian clients — check HoneyBook’s current availability for your country. Clienter is priced in both USD and INR and UPI-friendly, so getting paid by Indian clients works out of the box.',
     },
     {
       q: 'Does HoneyBook do GST invoicing?',
@@ -128,6 +128,6 @@ export const CLIENTER_VS_HONEYBOOK: ComparePageConfig = {
     { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
   ],
   ctaTitle: 'A client-management suite built for India',
-  ctaSubtitle: 'Start Clienter free — GST invoicing, proposals, and rupee-first payments in one place.',
+  ctaSubtitle: 'Start Clienter free — GST invoicing, proposals, and priced in both USD and INR payments in one place.',
   asOf: 'July 2026',
 }

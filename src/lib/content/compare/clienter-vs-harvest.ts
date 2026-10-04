@@ -28,7 +28,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     body: [
       'Harvest has earned its reputation as one of the cleanest, most reliable time trackers around. Start a timer, log hours against a project or task, watch budgets burn down, and turn those billable hours into an invoice — Harvest does that loop beautifully, and its team timesheets and utilization reports are genuinely useful for agencies that bill by the hour.',
       'Clienter starts from a different place. It’s built for the freelancer or small agency who needs to win the client, deliver the project, raise a GST-ready invoice, and get paid — all in one workspace. It includes a simple lead pipeline, project boards with tasks and budgets, quotations and invoicing, payment and expense tracking with a live profit dashboard, and a branded client portal. Time tracking is one part of a much wider workflow, not the whole product.',
-      'So the honest framing is this: if hourly time tracking and utilization reporting are the beating heart of your business, Harvest is superb at exactly that and hard to beat. If you want your clients, projects, quotes, invoices, and payments to live together in one rupee-first tool built for India, that’s the job Clienter is designed for — and the two can even sit side by side while you decide.',
+      'So the honest framing is this: if hourly time tracking and utilization reporting are the beating heart of your business, Harvest is superb at exactly that and hard to beat. If you want your clients, projects, quotes, invoices, and payments to live together in one priced in both USD and INR tool built for India, that’s the job Clienter is designed for — and the two can even sit side by side while you decide.',
     ],
   },
   tableHeading: 'Clienter vs Harvest at a glance',
@@ -46,7 +46,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, leads, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with rupee-first pricing for India',
+    'GST-ready invoicing and quotations with priced in both USD and INR pricing for India',
     'A live profit dashboard from payments and expenses, not just tracked hours',
     'Branded client portal so small teams look established',
     'Simple enough to set up and use the same day you sign up',
@@ -64,7 +64,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
   ],
   competitorCons: [
     'No lead pipeline or client-relationship management',
-    'Not built for Indian GST invoicing or rupee-first pricing',
+    'Not built for Indian GST invoicing or priced in both USD and INR pricing',
     'Project boards are time budgets, not full delivery workspaces',
     'No branded client portal to give clients a branded home',
   ],
@@ -72,7 +72,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     heading: 'Pricing: pay-per-seat time tracking vs one flat plan',
     body: [
       'Harvest is priced per user and billed in US dollars, with a limited free option for a single seat and paid plans as your team grows. For a solo freelancer that can be very reasonable; for a small agency the per-seat model adds up as you add people, and you’re paying in dollars for a tool focused on one job — time.',
-      'Clienter is rupee-first and flat: a Free plan forever (up to 3 clients and 5 projects, with the pipeline, invoicing, and meetings included), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month for unlimited everything. Five team members share the Pro plan at one price — there’s no per-seat maths.',
+      'Clienter is flat: a Free plan forever (up to 3 clients and 5 projects, with the pipeline, invoicing, and meetings included), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. Five team members share the Pro plan at one price — there’s no per-seat maths.',
       'The honest summary: Harvest can be cheaper if all you need is time tracking for one person. But once you factor in the separate CRM, invoicing, and client-portal tools you’d run alongside it, Clienter’s single flat plan usually wins on total cost for a client-services business.',
     ],
   },
@@ -106,7 +106,7 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
   faqs: [
     {
       q: 'Is Clienter a good Harvest alternative for freelancers?',
-      a: 'For freelancers and agencies who want more than time tracking, yes. Harvest is excellent at tracking billable hours, but it doesn’t manage leads, deliver projects, or give clients a branded portal. Clienter brings the whole client-to-paid workflow — pipeline, projects, GST invoicing, payments, and a portal — into one rupee-first tool, starting free.',
+      a: 'For freelancers and agencies who want more than time tracking, yes. Harvest is excellent at tracking billable hours, but it doesn’t manage leads, deliver projects, or give clients a branded portal. Clienter brings the whole client-to-paid workflow — pipeline, projects, GST invoicing, payments, and a portal — into one priced in both USD and INR tool, starting free.',
     },
     {
       q: 'Does Clienter track time like Harvest?',
@@ -114,11 +114,11 @@ export const CLIENTER_VS_HARVEST: ComparePageConfig = {
     },
     {
       q: 'Does Harvest handle GST invoicing?',
-      a: 'Harvest builds invoices from tracked time and expenses, but it isn’t designed around Indian GST or rupee-first billing. Clienter includes GST-ready invoices and quotations natively, which is a meaningful difference for freelancers and agencies invoicing clients in India.',
+      a: 'Harvest builds invoices from tracked time and expenses, but it isn’t designed around Indian GST or priced in both USD and INR billing. Clienter includes GST-ready invoices and quotations natively, which is a meaningful difference for freelancers and agencies invoicing clients in India.',
     },
     {
       q: 'Which is cheaper, Clienter or Harvest?',
-      a: 'It depends on your team. Harvest is priced per seat in US dollars, so a solo user can keep costs low. Clienter’s plans are flat and rupee-first — Pro at a launch price of ₹199/month covers up to five team members and includes projects, invoicing, and a client portal — so for a small team wanting an all-in-one setup, Clienter is usually more affordable overall.',
+      a: 'It depends on your team. Harvest is priced per seat in US dollars, so a solo user can keep costs low. Clienter’s plans are flat and priced in both USD and INR — Pro at $19/month (₹199 in India) covers up to five team members and includes projects, invoicing, and a client portal — so for a small team wanting an all-in-one setup, Clienter is usually more affordable overall.',
     },
   ],
   related: [

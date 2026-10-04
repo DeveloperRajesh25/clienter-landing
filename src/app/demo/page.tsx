@@ -7,7 +7,8 @@ import { CtaSection } from '@/components/marketing/CtaSection'
 import { HeroPreview } from '@/components/landing/HeroPreview'
 import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
-import { pageMetadata, APP_URL } from '@/lib/site'
+import { pageMetadata } from '@/lib/site'
+import { signupUrl, PRIMARY_CTA } from '@/lib/cta'
 import { breadcrumbSchema } from '@/lib/structured-data'
 
 export const metadata: Metadata = pageMetadata({
@@ -86,10 +87,10 @@ export default function DemoPage() {
 
         <div className="mt-14 text-center">
           <Link
-            href={`${APP_URL}/signup`}
+            href={signupUrl('demo', '/demo')}
             className="press group inline-flex items-center justify-center gap-2 rounded-full bg-gray-900 px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:bg-gray-800"
           >
-            Try it yourself — create a free account
+            Try it yourself — start free
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <p className="mt-3 text-sm text-gray-500">
@@ -102,7 +103,7 @@ export default function DemoPage() {
         </div>
       </div>
 
-      <CtaSection />
+      <CtaSection medium="demo" campaign="/demo" />
     </PageShell>
   )
 }

@@ -173,7 +173,7 @@ export function TemplatePage({ config }: { config: TemplateConfig }) {
         </div>
       </section>
 
-      <CtaSection title={ctaTitle} subtitle={ctaSubtitle} />
+      <CtaSection title={ctaTitle} subtitle={ctaSubtitle} medium="template" campaign={path} />
     </PageShell>
   )
 }

@@ -36,7 +36,7 @@ export const DIGITAL_MARKETING_AGENCIES: AudiencePageConfig = {
     body: [
       'Agency management software for digital marketing isn’t about scheduling posts or bidding on keywords — you already have specialist tools for the campaigns themselves. It’s about everything wrapped around them: the ten client accounts you’re accountable for, the retainers that have to keep renewing, the reports that prove you earned this month’s fee, and the invoices that need to go out on the first. Clienter is the layer that holds all of that together.',
       'Most growing agencies run this on a patchwork — a spreadsheet of clients, a folder of invoice templates, a project tool the clients can’t see, and a founder who’s the only one who knows the full picture. It works right up until you hit eight or ten accounts, and then the cracks show: a retainer lapses un-renewed, a report goes out late, a junior doesn’t realise a client is on thin ice.',
-      'Clienter replaces that patchwork with one workspace where every account, campaign, retainer, invoice and payment lives together — and your whole team can see the parts they’re meant to. It’s built for the Indian agency reality too: GST-ready invoices, UPI and bank-transfer payment tracking, and launch pricing that doesn’t punish you per seat.',
+      'Clienter replaces that patchwork with one workspace where every account, campaign, retainer, invoice and payment lives together — and your whole team can see the parts they’re meant to. It’s built for the Indian agency reality too: GST-ready invoices, UPI and bank-transfer payment tracking, and flat pricing that doesn’t charge per seat.',
     ],
   },
   pains: {
@@ -125,14 +125,14 @@ export const DIGITAL_MARKETING_AGENCIES: AudiencePageConfig = {
     heading: 'Priced for a growing agency, not per seat',
     body: [
       'Start on the Free plan to run your first few accounts properly — up to 3 clients and 5 projects with the full CRM pipeline, invoicing and meetings, free forever. It’s enough to move one or two clients off spreadsheets and feel the difference before you pay anything.',
-      'As the roster grows, Pro is a launch-priced ₹199/month (was ₹499; up to 20 clients, 40 projects and 5 team members) and opens the branded client portal to every client your clients will actually see. Ultra at ₹799/month (was ₹1,999) removes the limits for a full agency with unlimited accounts and team. No per-seat enterprise pricing, no annual lock-in — you add accounts and people as you win them.',
+      'As the roster grows, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects and 5 team members) and opens the branded client portal to every client your clients will actually see. Ultra at $39/month (₹799 in India) removes the limits for a full agency with unlimited accounts and team. No per-seat enterprise pricing, no annual lock-in — you add accounts and people as you win them.',
     ],
   },
   faqHeading: 'Digital marketing agency FAQs',
   faqs: [
     {
       q: 'What is the best agency management software for digital marketing?',
-      a: 'The best agency management software for digital marketing handles the business around the campaigns — client accounts, retainers, deliverables, reporting and GST invoicing — rather than the ad platforms you already use. Clienter brings all of that into one workspace, with a branded client portal and launch pricing from ₹199/month.',
+      a: 'The best agency management software for digital marketing handles the business around the campaigns — client accounts, retainers, deliverables, reporting and GST invoicing — rather than the ad platforms you already use. Clienter brings all of that into one workspace, with a branded client portal and pricing from $19/month (₹199 in India).',
     },
     {
       q: 'Does Clienter run our ad campaigns or schedule posts?',

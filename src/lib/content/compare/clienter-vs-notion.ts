@@ -28,7 +28,7 @@ export const CLIENTER_VS_NOTION: ComparePageConfig = {
     body: [
       'Notion is a beautiful, flexible canvas. Docs, wikis, and databases combine into almost anything you can imagine, and its template community means you can start from someone else’s clever setup. For notes, knowledge bases, and lightweight trackers it is a genuine pleasure, and many freelancers happily run their second brain inside it.',
       'Clienter is built for a specific job rather than any job. It is for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things you’d otherwise hand-build in Notion — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — already wired together in one workspace.',
-      'So this is less “which is more flexible” and more “which is built for you”. In Notion you can design a CRM from databases, but a database still doesn’t know how to raise a GST invoice, hasn’t collected the payment, and isn’t a client portal — you have to build and maintain all of that yourself. Clienter ties projects to clients, invoices, and payments out of the box, in one rupee-first tool.',
+      'So this is less “which is more flexible” and more “which is built for you”. In Notion you can design a CRM from databases, but a database still doesn’t know how to raise a GST invoice, hasn’t collected the payment, and isn’t a client portal — you have to build and maintain all of that yourself. Clienter ties projects to clients, invoices, and payments out of the box, in one priced in both USD and INR tool.',
     ],
   },
   tableHeading: 'Clienter vs Notion at a glance',
@@ -46,7 +46,7 @@ export const CLIENTER_VS_NOTION: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with rupee-first pricing',
+    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
     'A live profit dashboard that ties income and expenses to each client',
     'Ready out of the box — no system to design or maintain',
     'Branded client portal and verified reviews to look established',
@@ -72,7 +72,7 @@ export const CLIENTER_VS_NOTION: ComparePageConfig = {
     heading: 'Pricing: a blank canvas vs one ready freelancer plan',
     body: [
       'Notion has a capable free tier and paid plans priced per seat. On paper it looks inexpensive, but the real cost of using it as a client system is the time you spend designing and maintaining databases — and it still won’t raise a GST invoice or collect a payment, so those live in separate tools anyway.',
-      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (down from ₹499 — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month (down from ₹1,999) for unlimited everything. One flat plan covers the whole client-services workflow, no assembly required.',
+      'Clienter keeps it simple: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. One flat plan covers the whole client-services workflow, no assembly required.',
       'The honest summary: if you love building your own workspace and mostly need docs and databases, Notion’s free tier is fantastic value — but the client-business side (real invoices, payments, a portal) is still on you to build or buy. Clienter bundles all of that into one low monthly price.',
     ],
   },
@@ -118,7 +118,7 @@ export const CLIENTER_VS_NOTION: ComparePageConfig = {
     },
     {
       q: 'Which is cheaper, Clienter or Notion?',
-      a: 'Both have a free option and Notion’s paid plans scale per seat. Notion can look cheaper until you count the tools it doesn’t replace — real invoicing, payments, and a portal — plus the time to build and maintain your setup. Clienter’s paid plans start at a launch price of ₹199/month and already include all of that, so for an all-in-one client setup it’s usually the more affordable path.',
+      a: 'Both have a free option and Notion’s paid plans scale per seat. Notion can look cheaper until you count the tools it doesn’t replace — real invoicing, payments, and a portal — plus the time to build and maintain your setup. Clienter’s paid plans start at $19/month (₹199 in India) and already include all of that, so for an all-in-one client setup it’s usually the more affordable path.',
     },
   ],
   related: [

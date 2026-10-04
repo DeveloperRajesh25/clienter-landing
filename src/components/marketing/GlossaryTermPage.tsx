@@ -119,7 +119,9 @@ export function GlossaryTermPage({ config }: { config: GlossaryTermConfig }) {
 
       <CtaSection
         title="Run the whole thing in one place"
-        subtitle="Clienter turns these concepts into a workflow — clients, projects, invoices, and payments together. Start free."
+        subtitle="Clienter turns these concepts into a workflow — leads, quotes, projects, invoices and payment tracking together. Start free."
+        medium="glossary"
+        campaign={path}
       />
     </PageShell>
   )

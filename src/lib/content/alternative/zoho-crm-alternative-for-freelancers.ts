@@ -76,14 +76,14 @@ export const ZOHO_CRM_ALTERNATIVE: AlternativePageConfig = {
     heading: 'One bill, not a suite of them',
     body: [
       'Zoho is fairly priced, and as an Indian company its rupee pricing is a genuine plus. The catch for a freelancer is that Zoho CRM alone doesn’t cover the whole job — running projects, sending GST invoices, and offering a client portal usually means adding more Zoho products, each with its own plan, so the real monthly cost and setup grow with every app you bolt on.',
-      'Clienter keeps it to one plan. It’s free forever for up to 3 clients and 5 projects — full pipeline, invoicing, and meetings included. Pro is launch-priced at ₹199/month and adds the branded client portal for every client, five team members, and higher limits, while Ultra at ₹799/month removes limits entirely. Your data exports anytime, so there’s nothing to lose by trying it.',
+      'Clienter keeps it to one plan. It’s free forever for up to 3 clients and 5 projects — full pipeline, invoicing, and meetings included. Pro is $19/month (₹199 in India) and adds the branded client portal for every client, five team members, and higher limits, while Ultra at $39/month (₹799 in India) removes limits entirely. Your data exports anytime, so there’s nothing to lose by trying it.',
     ],
   },
   faqHeading: 'Zoho CRM alternative FAQs',
   faqs: [
     {
       q: 'What is the best Zoho CRM alternative for freelancers?',
-      a: 'The best Zoho CRM alternative for a freelancer is one that keeps a simple pipeline but folds in the delivery and billing a sales CRM leaves out. Clienter puts pipeline, projects, GST invoicing, payments, and a client portal in one rupee-priced tool, starting free and with Pro at a launch price of ₹199/month — no suite of separate apps to stitch together.',
+      a: 'The best Zoho CRM alternative for a freelancer is one that keeps a simple pipeline but folds in the delivery and billing a sales CRM leaves out. Clienter puts pipeline, projects, GST invoicing, payments, and a client portal in one rupee-priced tool, starting free and with Pro at $19/month (₹199 in India) — no suite of separate apps to stitch together.',
     },
     {
       q: 'Is Zoho CRM good for freelancers?',

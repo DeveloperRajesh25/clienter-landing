@@ -1,19 +1,28 @@
 import Link from 'next/link'
 import { ArrowRight, ShieldCheck } from 'lucide-react'
-import { APP_URL } from '@/lib/site'
+import { signupUrl, PRIMARY_CTA, type CtaMedium } from '@/lib/cta'
 
 /**
  * Reusable closing call-to-action block (dark, gradient blobs) used at the
  * bottom of marketing sub-pages. Points to the app signup.
+ *
+ * `medium` and `campaign` set the UTMs on the signup link. They default to the
+ * generic page-bottom case so no caller breaks, but every page that knows its
+ * own type and slug should pass them — otherwise its signups are
+ * indistinguishable from every other page's in the report.
  */
 export function CtaSection({
-  title = 'Start running your business the calm way',
+  title = 'One workspace for every client, from first enquiry to final payment',
   subtitle = 'Create your free account and set up your first client in minutes. No credit card required.',
-  badge = 'Free plan — no credit card',
+  badge = 'Free forever plan — no credit card',
+  medium = 'footer',
+  campaign = 'page-bottom',
 }: {
   title?: string
   subtitle?: string
   badge?: string
+  medium?: CtaMedium
+  campaign?: string
 }) {
   return (
     <section className="px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
@@ -32,10 +41,10 @@ export function CtaSection({
           <p className="mx-auto mt-4 max-w-xl text-lg text-gray-300">{subtitle}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href={`${APP_URL}/signup`}
+              href={signupUrl(medium, campaign)}
               className="press group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-gray-900 shadow-lg transition-all hover:bg-gray-100 sm:w-auto"
             >
-              Create free account
+              {PRIMARY_CTA}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <Link

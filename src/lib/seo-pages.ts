@@ -167,7 +167,7 @@ const CLIENT_MANAGEMENT: SeoLandingConfig = {
     },
     {
       q: 'What is the best client management software for freelancers in India?',
-      a: 'The best fit for most Indian freelancers is software built for their workflow — invoices in ₹ with GST, UPI-friendly payments, and pricing that makes sense in rupees. Clienter is built exactly for this: it combines client management, projects, GST-ready invoicing, and a CRM pipeline in one app, starting free and with Pro at a launch price of ₹199/month.',
+      a: 'The best fit for most Indian freelancers is software built for their workflow — invoices in ₹ with GST, UPI-friendly payments, and pricing that makes sense in rupees. Clienter is built exactly for this: it combines client management, projects, GST-ready invoicing, and a CRM pipeline in one app, starting free and with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'What is a client management system?',
@@ -238,7 +238,7 @@ const CRM_FOR_FREELANCERS: SeoLandingConfig = {
       {
         icon: CreditCard,
         title: 'Priced for one person',
-        desc: 'Free to start, Pro at a launch price of ₹199/month — not enterprise seat pricing that assumes a sales team.',
+        desc: 'Free to start, Pro at $19/month (₹199 in India) — not enterprise seat pricing that assumes a sales team.',
       },
       {
         icon: BadgeCheck,
@@ -281,7 +281,7 @@ const CRM_FOR_FREELANCERS: SeoLandingConfig = {
   faqs: [
     {
       q: 'What is the best CRM software for freelancers in India?',
-      a: 'The best CRM for an Indian freelancer is one that speaks your workflow: leads and clients in one place, invoices in ₹ with GST, UPI-friendly billing, and pricing in rupees. Clienter is built for exactly that — a simple CRM plus invoicing and projects, free to start and Pro at a launch price of ₹199/month.',
+      a: 'The best CRM for an Indian freelancer is one that speaks your workflow: leads and clients in one place, invoices in ₹ with GST, UPI-friendly billing, and pricing in rupees. Clienter is built for exactly that — a simple CRM plus invoicing and projects, free to start and Pro at $19/month (₹199 in India).',
     },
     {
       q: 'Do I really need a CRM as a solo freelancer?',
@@ -403,7 +403,7 @@ const PROJECT_MANAGEMENT_CRM: SeoLandingConfig = {
     },
     {
       q: 'What is the best project management software for freelancers?',
-      a: 'For client-services freelancers, the best project management software is one that also handles clients and invoices. Clienter does exactly this as a project management CRM — free to start, with Pro (up to 40 projects and 5 team members) at a launch price of ₹199/month.',
+      a: 'For client-services freelancers, the best project management software is one that also handles clients and invoices. Clienter does exactly this as a project management CRM — free to start, with Pro (up to 40 projects and 5 team members) at $19/month (₹199 in India).',
     },
     {
       q: 'How do I manage freelance projects and clients together?',
@@ -517,7 +517,7 @@ const BUSINESS_MANAGEMENT: SeoLandingConfig = {
   faqs: [
     {
       q: 'Is there free business management software?',
-      a: 'Yes. Clienter offers free business management software on its Free plan — free forever, no credit card. It covers clients, projects, the CRM pipeline, invoicing, meetings, and basic analytics, enough to run a solo freelance business. Paid plans (Pro from a launch price of ₹199/month) lift the limits and add the client portal and team management.',
+      a: 'Yes. Clienter offers free business management software on its Free plan — free forever, no credit card. It covers clients, projects, the CRM pipeline, invoicing, meetings, and basic analytics, enough to run a solo freelance business. Paid plans (Pro from $19/month (₹199 in India)) lift the limits and add the client portal and team management.',
     },
     {
       q: 'How can freelancers track payments and expenses?',

@@ -125,7 +125,7 @@ export const SOFTWARE_AGENCIES: AudiencePageConfig = {
     heading: 'Operations software priced without per-seat pain',
     body: [
       'Try it free while you validate the fit — the Free plan covers up to 3 clients and 5 projects with the full CRM pipeline, proposals, invoicing, and meetings, free forever and no card required.',
-      'For a working agency, Pro at a launch price of ₹199/month covers up to 20 clients, 40 projects, and 5 team members with the branded client portal for every client, while Ultra at ₹799/month removes every limit — unlimited clients, projects, and team members — for agencies running many builds at once. Because there’s no per-seat enterprise pricing and no annual lock-in, growing the dev team never means a jump in software cost or a renegotiated contract.',
+      'For a working agency, Pro at $19/month (₹199 in India) covers up to 20 clients, 40 projects, and 5 team members with the branded client portal for every client, while Ultra at $39/month (₹799 in India) removes every limit — unlimited clients, projects, and team members — for agencies running many builds at once. Because there’s no per-seat enterprise pricing and no annual lock-in, growing the dev team never means a jump in software cost or a renegotiated contract.',
     ],
   },
   faqHeading: 'Software agency FAQs',

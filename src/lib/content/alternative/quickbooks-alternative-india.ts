@@ -38,7 +38,7 @@ export const QUICKBOOKS_ALTERNATIVE: AlternativePageConfig = {
     sub: 'A capable global product with a very India-specific problem.',
     items: [
       { title: 'Closed to new Indian customers', desc: 'Since 2023, Intuit has not sold QuickBooks to new users in India (verify the current status), so it isn’t a realistic pick for a fresh signup.' },
-      { title: 'Built for other markets', desc: 'It’s a global accounting product first; Indian GST workflows and rupee-first billing were never its home turf.' },
+      { title: 'Built for other markets', desc: 'It’s a global accounting product first; Indian GST workflows and priced in both USD and INR billing were never its home turf.' },
       { title: 'Overkill for invoice-led work', desc: 'If you mostly raise invoices and track payments, a full accounting suite is far more tool than the job needs.' },
       { title: 'Separate from your client work', desc: 'Accounting sits in its own silo, away from your projects, proposals, and the day-to-day client relationship.' },
     ],
@@ -87,7 +87,7 @@ export const QUICKBOOKS_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Pricing, and one honest caveat',
     body: [
       'QuickBooks was a paid subscription — and for new customers in India, it isn’t available to buy at all. That alone is why most people land on this page. Clienter, by contrast, is available today and starts free.',
-      'The free plan is free forever: 3 clients, 5 projects, the full lead pipeline, GST invoicing, and meetings. Pro is launch-priced at ₹199/month (down from ₹499) with the client portal for every client and higher limits, and Ultra is ₹799/month (down from ₹1,999) for unlimited use. One honest caveat: if you also need full accounting and tax filing, budget for a dedicated tool like Zoho Books or your CA alongside it — Clienter handles the client-and-invoicing side, not your ledgers.',
+      'The free plan is free forever: 3 clients, 5 projects, the full lead pipeline, GST invoicing, and meetings. Pro is $19/month (₹199 in India) with the client portal for every client and higher limits, and Ultra is $39/month (₹799 in India) for unlimited use. One honest caveat: if you also need full accounting and tax filing, budget for a dedicated tool like Zoho Books or your CA alongside it — Clienter handles the client-and-invoicing side, not your ledgers.',
     ],
   },
   faqHeading: 'QuickBooks alternative FAQs',
@@ -102,7 +102,7 @@ export const QUICKBOOKS_ALTERNATIVE: AlternativePageConfig = {
     },
     {
       q: 'What’s the best QuickBooks alternative in India?',
-      a: 'It depends on the job. For full accounting, look at Zoho Books or TallyPrime. For the client management and GST invoicing that many freelancers actually used QuickBooks for, Clienter covers it in one place, starting free with Pro at a launch price of ₹199/month.',
+      a: 'It depends on the job. For full accounting, look at Zoho Books or TallyPrime. For the client management and GST invoicing that many freelancers actually used QuickBooks for, Clienter covers it in one place, starting free with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'Does Clienter handle GST invoices?',

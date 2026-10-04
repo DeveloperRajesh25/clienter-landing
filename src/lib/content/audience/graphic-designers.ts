@@ -149,14 +149,14 @@ export const GRAPHIC_DESIGNERS: AudiencePageConfig = {
     heading: 'Priced for a designer, not a design department',
     body: [
       'Clienter’s Free plan is genuinely usable for a designer just going solo — up to 3 clients and 5 projects, the full leads and CRM pipeline, proposals, invoicing, and meetings, free forever with no credit card. It is enough to run your first branding and design clients properly instead of from a notes app.',
-      'When your roster grows, Pro is a launch-priced ₹199/month (up to 20 clients, 40 projects, and 5 team members) and opens the branded client portal to every client — a branded space where concepts and approvals live instead of your personal WhatsApp, so a solo designer looks every bit as established as a studio. Ultra at ₹799/month removes the limits entirely for when you scale into a small design team. No per-seat enterprise pricing, no annual lock-in.',
+      'When your roster grows, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects, and 5 team members) and opens the branded client portal to every client — a branded space where concepts and approvals live instead of your personal WhatsApp, so a solo designer looks every bit as established as a studio. Ultra at $39/month (₹799 in India) removes the limits entirely for when you scale into a small design team. No per-seat enterprise pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Graphic designer FAQs',
   faqs: [
     {
       q: 'What is the best client management software for graphic designers?',
-      a: 'The best client management software for graphic designers handles everything around the design — clients, project boards, revision rounds, proposals, and GST invoices — without trying to replace your design apps. Clienter does exactly that in one workspace, starting free, with Pro at a launch price of ₹199/month that opens a branded client portal to every client for reviews and approvals.',
+      a: 'The best client management software for graphic designers handles everything around the design — clients, project boards, revision rounds, proposals, and GST invoices — without trying to replace your design apps. Clienter does exactly that in one workspace, starting free, with Pro at $19/month (₹199 in India) that opens a branded client portal to every client for reviews and approvals.',
     },
     {
       q: 'How do I stop clients asking for endless design revisions?',

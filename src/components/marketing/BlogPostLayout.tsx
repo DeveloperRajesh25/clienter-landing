@@ -189,8 +189,10 @@ export function BlogPostLayout({
       )}
 
       <CtaSection
-        title="Ready to run your business without the chaos?"
-        subtitle="Create your free Clienter account and bring clients, projects, and invoices together."
+        title="Put this into practice in one workspace"
+        subtitle="Create your free Clienter account and bring leads, quotes, projects and invoices together."
+        medium="blog"
+        campaign={`blog-${post.slug}`}
       />
     </PageShell>
   )

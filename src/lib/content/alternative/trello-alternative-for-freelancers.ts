@@ -86,14 +86,14 @@ export const TRELLO_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Pricing: one tool instead of a stack',
     body: [
       'Trello has a free tier and paid plans, and that’s fair — but paid Trello buys you more boards, automation, and views, not a way to invoice a client or open a portal. The business features still come from other subscriptions stacked on top.',
-      'Clienter starts free forever — up to 3 clients and 5 projects, with the full lead pipeline, invoicing, and meetings included. Pro is launch-priced at ₹199/month (down from ₹499) and adds the branded client portal for every client, 20 clients, 40 projects, and 5 team members; Ultra at ₹799/month (down from ₹1,999) removes the limits. You can export your data whenever you like, so nothing about switching is a trap.',
+      'Clienter starts free forever — up to 3 clients and 5 projects, with the full lead pipeline, invoicing, and meetings included. Pro is $19/month (₹199 in India) and adds the branded client portal for every client, 20 clients, 40 projects, and 5 team members; Ultra at $39/month (₹799 in India) removes the limits. You can export your data whenever you like, so nothing about switching is a trap.',
     ],
   },
   faqHeading: 'Trello alternative FAQs',
   faqs: [
     {
       q: 'What is the best Trello alternative for freelancers?',
-      a: 'For freelancers, the best Trello alternative keeps the visual Kanban but adds the rest of the business. Clienter does exactly that — boards and tasks alongside clients, GST invoicing, payments, and a client portal, in one tool. It starts free forever, with Pro at a launch price of ₹199/month.',
+      a: 'For freelancers, the best Trello alternative keeps the visual Kanban but adds the rest of the business. Clienter does exactly that — boards and tasks alongside clients, GST invoicing, payments, and a client portal, in one tool. It starts free forever, with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'Can I move my Trello boards into Clienter?',

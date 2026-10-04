@@ -85,14 +85,14 @@ export const DUBSADO_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Rupee pricing, and no setup weekend',
     body: [
       'Two costs matter here, not one. Dubsado is a paid, USD-priced product, so the rupee bill is higher than the sticker — and there’s the time cost of setting it up before it starts saving you any.',
-      'Clienter starts free forever (up to 3 clients and 5 projects, with the full pipeline, proposals, GST invoicing, and meetings). Pro is launch-priced at ₹199/month and adds the branded client portal for every client and higher limits, while Ultra at ₹799/month removes limits entirely. It’s ready to use the moment you sign in, and your data exports anytime, so nothing about switching is a trap.',
+      'Clienter starts free forever (up to 3 clients and 5 projects, with the full pipeline, proposals, GST invoicing, and meetings). Pro is $19/month (₹199 in India) and adds the branded client portal for every client and higher limits, while Ultra at $39/month (₹799 in India) removes limits entirely. It’s ready to use the moment you sign in, and your data exports anytime, so nothing about switching is a trap.',
     ],
   },
   faqHeading: 'Dubsado alternative FAQs',
   faqs: [
     {
       q: 'What is the best Dubsado alternative?',
-      a: 'For Indian freelancers, the best Dubsado alternative is one that keeps the all-in-one convenience but adds GST invoicing, rupee pricing, and a gentler setup. Clienter does that — proposals with e-signature, GST invoices, projects, payments, and a client portal in one tool, starting free and with Pro at a launch price of ₹199/month.',
+      a: 'For Indian freelancers, the best Dubsado alternative is one that keeps the all-in-one convenience but adds GST invoicing, rupee pricing, and a gentler setup. Clienter does that — proposals with e-signature, GST invoices, projects, payments, and a client portal in one tool, starting free and with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'Is Clienter cheaper than Dubsado?',

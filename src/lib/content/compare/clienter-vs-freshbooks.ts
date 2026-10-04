@@ -56,7 +56,7 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
     'Good for finance-first solo businesses',
   ],
   competitorCons: [
-    'Not built around Indian GST or rupee-first pricing',
+    'Not built around Indian GST or priced in both USD and INR pricing',
     'Priced in USD, no free plan',
     'Light on CRM, projects, and a client portal',
     'Finance-first, not client-operations-first',
@@ -65,7 +65,7 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
     heading: 'Pricing: USD accounting vs rupee all-in-one',
     body: [
       'FreshBooks is a paid, USD-priced product with tiers based on the number of billable clients. For an Indian freelancer, that converts to a meaningful monthly cost with no free tier to grow into.',
-      'Clienter starts free forever (up to 3 clients and 5 projects), with Pro at a launch price of ₹199/month and Ultra at ₹799/month. If you need heavier accounting, you can keep a dedicated accounting tool alongside Clienter — but for client management plus GST invoicing, Clienter covers it in one affordable plan.',
+      'Clienter starts free forever (up to 3 clients and 5 projects), with Pro at $19/month (₹199 in India) and Ultra at $39/month (₹799 in India). If you need heavier accounting, you can keep a dedicated accounting tool alongside Clienter — but for client management plus GST invoicing, Clienter covers it in one affordable plan.',
     ],
   },
   chooseClienter: {
@@ -106,7 +106,7 @@ export const CLIENTER_VS_FRESHBOOKS: ComparePageConfig = {
     },
     {
       q: 'Which is cheaper?',
-      a: 'Clienter has a free plan and paid plans from a launch price of ₹199/month; FreshBooks is paid and USD-priced with no free tier. For an all-in-one client-and-invoicing setup, Clienter is usually the more affordable path for Indian freelancers.',
+      a: 'Clienter has a free plan and paid plans from $19/month (₹199 in India); FreshBooks is paid and USD-priced with no free tier. For an all-in-one client-and-invoicing setup, Clienter is usually the more affordable path for Indian freelancers.',
     },
     {
       q: 'Can Clienter track expenses like FreshBooks?',

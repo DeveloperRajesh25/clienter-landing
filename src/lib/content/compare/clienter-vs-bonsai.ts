@@ -50,7 +50,7 @@ export const CLIENTER_VS_BONSAI: ComparePageConfig = {
     'Leads, projects, invoicing, payments, and a client portal in one workspace',
     'Free-forever plan (3 clients, 5 projects) — start without a credit card',
     'Branded client portal (every client on Pro & Ultra) to look established to clients',
-    'UPI-friendly, rupee-first billing with a live profit dashboard — no conversion math',
+    'UPI-friendly, priced in both USD and INR billing with a live profit dashboard — no conversion math',
   ],
   clienterCons: [
     'Younger and smaller than Bonsai, with fewer templates and integrations',
@@ -70,11 +70,11 @@ export const CLIENTER_VS_BONSAI: ComparePageConfig = {
     'No free-forever plan the way Clienter has — typically a trial, so verify current pricing',
   ],
   pricing: {
-    heading: 'Pricing: dollar subscription vs rupee-first plans',
+    heading: 'Pricing: dollar subscription vs priced in both USD and INR plans',
     body: [
       'Bonsai is a paid, subscription product priced in US dollars, with tiers that unlock more features and clients as you move up. For an Indian freelancer, dollar pricing has a hidden cost: what you actually pay each month moves with the exchange rate, and a chunk of what you are paying for — US-style bookkeeping and tax tools — may not apply to you at all.',
-      'Clienter keeps it rupee-first. The Free plan is ₹0 forever and covers up to 3 clients and 5 projects with the full pipeline, invoicing, quotations, and meetings. Pro is a launch price of ₹199/month (down from ₹499) for up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client. Ultra is ₹799/month (down from ₹1,999) for unlimited clients, projects, and team members.',
-      'The honest summary: if you bill international clients in dollars and lean on Bonsai’s templates and tax features, its pricing can be worth it. If you invoice in rupees and need GST compliance, Clienter’s free plan and ₹199 launch price make it the easier tool to justify. Always check Bonsai’s current pricing on its own site, as plans change.',
+      'Clienter keeps it priced in both USD and INR. The Free plan is ₹0 forever and covers up to 3 clients and 5 projects with the full pipeline, invoicing, quotations, and meetings. Pro is $19/month (₹199 in India) for up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client. Ultra is $39/month (₹799 in India) for unlimited clients, projects, and team members.',
+      'The honest summary: if you bill international clients in dollars and lean on Bonsai’s templates and tax features, its pricing can be worth it. If you invoice in rupees and need GST compliance, Clienter’s free plan and ₹199 price make it the easier tool to justify. Always check Bonsai’s current pricing on its own site, as plans change.',
     ],
   },
   chooseClienter: {
@@ -119,7 +119,7 @@ export const CLIENTER_VS_BONSAI: ComparePageConfig = {
     },
     {
       q: 'Which is cheaper, Clienter or Bonsai?',
-      a: 'Bonsai is priced in US dollars and does not offer a free-forever plan, so verify its current pricing on its own site. Clienter starts free and its Pro plan is a launch price of ₹199/month with projects, invoicing, and a client portal included, so for freelancers billing in rupees Clienter is usually the more affordable all-in-one.',
+      a: 'Bonsai is priced in US dollars and does not offer a free-forever plan, so verify its current pricing on its own site. Clienter starts free and its Pro plan is $19/month (₹199 in India) with projects, invoicing, and a client portal included, so for freelancers billing in rupees Clienter is usually the more affordable all-in-one.',
     },
   ],
   related: [
@@ -128,7 +128,7 @@ export const CLIENTER_VS_BONSAI: ComparePageConfig = {
     { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'Why a freelancer-first CRM beats a generic one.' },
     { href: '/pricing', label: 'Clienter pricing', desc: 'Free forever, or Pro from ₹199/month.' },
   ],
-  ctaTitle: 'An all-in-one built for rupee-first freelancing',
+  ctaTitle: 'An all-in-one built for priced in both USD and INR freelancing',
   ctaSubtitle: 'Start Clienter free — GST invoicing, projects, proposals, and a client portal in one place.',
   asOf: 'July 2026',
 }

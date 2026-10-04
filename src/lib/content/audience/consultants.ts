@@ -125,14 +125,14 @@ export const CONSULTANTS: AudiencePageConfig = {
     heading: 'Priced for a practice, not a partnership',
     body: [
       'Clienter’s Free plan is genuinely usable for an independent consultant — up to 3 clients and 5 projects, the full prospect pipeline, proposals, invoicing, and meetings, free forever with no credit card. It’s enough to run your first few engagements properly instead of from a folder of documents.',
-      'When the practice grows, Pro is a launch-priced ₹199/month (was ₹499) — up to 20 clients, 40 projects, and 5 team members — and it unlocks the branded client portal that gives a solo consultant a firm’s polish. Ultra at ₹799/month (was ₹1,999) removes the limits for a growing boutique. No per-seat enterprise pricing, no annual lock-in.',
+      'When the practice grows, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects, and 5 team members — and it unlocks the branded client portal that gives a solo consultant a firm’s polish. Ultra at $39/month (₹799 in India) removes the limits for a growing boutique. No per-seat enterprise pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Consultant FAQs',
   faqs: [
     {
       q: 'What is the best client management software for consultants?',
-      a: 'The best consultant client management software fits how consulting actually works — a prospect pipeline, proposals with e-signature, retainer and milestone billing, and several engagements in one view. Clienter combines all of that in one workspace, starting free and with Pro at a launch price of ₹199/month.',
+      a: 'The best consultant client management software fits how consulting actually works — a prospect pipeline, proposals with e-signature, retainer and milestone billing, and several engagements in one view. Clienter combines all of that in one workspace, starting free and with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'Can I manage retainer clients and recurring billing?',

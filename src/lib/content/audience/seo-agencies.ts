@@ -125,14 +125,14 @@ export const SEO_AGENCIES: AudiencePageConfig = {
     heading: 'Priced for a growing SEO shop',
     body: [
       'The Free plan lets you run your first clients properly — up to 3 clients and 5 projects with the full CRM pipeline, invoicing and meetings, free forever. It’s enough to get one long retainer off spreadsheets and onto a system the client can actually see.',
-      'As you take on more retainers, Pro is a launch-priced ₹199/month (was ₹499; up to 20 clients, 40 projects and 5 team members) and opens the branded client portal to every client — the single biggest lever for keeping SEO clients patient. Ultra at ₹799/month (was ₹1,999) removes the limits for a full agency. No per-seat pricing, no annual lock-in.',
+      'As you take on more retainers, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects and 5 team members) and opens the branded client portal to every client — the single biggest lever for keeping SEO clients patient. Ultra at $39/month (₹799 in India) removes the limits for a full agency. No per-seat pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'SEO agency FAQs',
   faqs: [
     {
       q: 'What is the best CRM for SEO agencies?',
-      a: 'The best CRM for SEO agencies is built around long retainers and slow-to-show results — it tracks deliverables and renewals, and makes the monthly work visible to clients who can’t yet see it in the rankings. Clienter does exactly this, with a branded client portal, recurring GST invoicing and launch pricing from ₹199/month.',
+      a: 'The best CRM for SEO agencies is built around long retainers and slow-to-show results — it tracks deliverables and renewals, and makes the monthly work visible to clients who can’t yet see it in the rankings. Clienter does exactly this, with a branded client portal, recurring GST invoicing and pricing from $19/month (₹199 in India).',
     },
     {
       q: 'Does Clienter do SEO audits or track keyword rankings?',

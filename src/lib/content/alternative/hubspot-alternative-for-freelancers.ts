@@ -85,14 +85,14 @@ export const HUBSPOT_ALTERNATIVE: AlternativePageConfig = {
     heading: 'One rupee-priced tool, not a team-sized bill',
     body: [
       'HubSpot’s free CRM is a real gift, and if all you ever needed was contact management it would be hard to beat. The catch for a freelancer is everything around it: the project, billing, and portal pieces either sit in paid tiers built for teams or come from separate products you stitch together and pay for on the side.',
-      'Clienter keeps it to one tool and one bill. It’s free forever for up to 3 clients and 5 projects — full pipeline, invoicing, and meetings included. Pro is launch-priced at ₹199/month and adds the branded client portal for every client, five team members, and higher limits, while Ultra at ₹799/month removes limits entirely. You can export your data anytime, so trying it costs you nothing but a signup.',
+      'Clienter keeps it to one tool and one bill. It’s free forever for up to 3 clients and 5 projects — full pipeline, invoicing, and meetings included. Pro is $19/month (₹199 in India) and adds the branded client portal for every client, five team members, and higher limits, while Ultra at $39/month (₹799 in India) removes limits entirely. You can export your data anytime, so trying it costs you nothing but a signup.',
     ],
   },
   faqHeading: 'HubSpot alternative FAQs',
   faqs: [
     {
       q: 'What is the best HubSpot alternative for freelancers?',
-      a: 'The best HubSpot alternative for a freelancer is one that keeps a simple CRM but adds the delivery work HubSpot leaves out — projects, GST invoicing, payments, and a client portal. Clienter does exactly that in one rupee-priced tool, starting free and with Pro at a launch price of ₹199/month, so you’re not paying a team-sized bill to run a solo business.',
+      a: 'The best HubSpot alternative for a freelancer is one that keeps a simple CRM but adds the delivery work HubSpot leaves out — projects, GST invoicing, payments, and a client portal. Clienter does exactly that in one rupee-priced tool, starting free and with Pro at $19/month (₹199 in India), so you’re not paying a team-sized bill to run a solo business.',
     },
     {
       q: 'Is Clienter cheaper than HubSpot?',

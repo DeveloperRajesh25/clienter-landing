@@ -8,7 +8,7 @@ import { Faq } from '@/components/landing/Faq'
 import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { breadcrumbSchema, faqSchema } from '@/lib/structured-data'
-import { APP_URL } from '@/lib/site'
+import { signupUrl, PRIMARY_CTA } from '@/lib/cta'
 import type { SeoLandingConfig } from '@/lib/seo-pages'
 
 /** Honest reassurance chips shared across every SEO landing page. */
@@ -71,10 +71,10 @@ export function SeoLanding({ config }: { config: SeoLandingConfig }) {
       >
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href={`${APP_URL}/signup`}
+            href={signupUrl('seo-landing', path)}
             className="press group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gray-900 px-7 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:bg-gray-800 sm:w-auto"
           >
-            Start for free
+            {PRIMARY_CTA}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
           <Link
@@ -251,7 +251,7 @@ export function SeoLanding({ config }: { config: SeoLandingConfig }) {
         </div>
       </section>
 
-      <CtaSection title={ctaTitle} subtitle={ctaSubtitle} />
+      <CtaSection title={ctaTitle} subtitle={ctaSubtitle} medium="seo-landing" campaign={path} />
     </PageShell>
   )
 }

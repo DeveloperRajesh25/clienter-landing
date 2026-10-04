@@ -9,29 +9,27 @@ import { GlowCard } from '@/components/landing/GlowCard'
 import { CountUp } from '@/components/landing/CountUp'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { DataSecurity } from '@/components/marketing/DataSecurity'
-import { pageMetadata, APP_URL } from '@/lib/site'
+import { pageMetadata } from '@/lib/site'
+import { signupUrl } from '@/lib/cta'
+import { PLAN_PRICE_BY_NAME, formatInr, formatUsd } from '@/lib/pricing'
 import { breadcrumbSchema, pricingProductSchema, faqSchema } from '@/lib/structured-data'
 
 export const metadata: Metadata = pageMetadata({
-  title: 'Pricing — Free, Pro & Ultra Plans',
+  title: 'Pricing — Free Forever, Pro from $19/mo',
   description:
-    'Simple, honest pricing for Clienter. Every plan includes the whole product — clients, projects, GST invoicing, leads, documents and the client portal. Start free forever, or grab the launch offer: Pro at ₹199/month (was ₹499) and Ultra at ₹799/month (was ₹1,999).',
+    'Clienter pricing: a free forever plan, Pro from $19/month and Ultra from $39/month (₹199 and ₹799 in India). Every plan includes the whole product.',
   path: '/pricing',
   keywords: [
     'Clienter pricing',
-    'freelancer software pricing India',
-    'invoice software price',
-    'client management software cost',
+    'client management software pricing',
+    'agency management software cost',
+    'client portal software price',
   ],
 })
 
 type Plan = {
-  name: string
-  /** Current (launch) price. */
-  price: string
-  /** Struck-through pre-launch price, shown only during the launch offer. */
-  originalPrice?: string
-  period: string
+  /** Must match a name in PLAN_PRICES — that is the only place prices live. */
+  name: 'Free' | 'Pro' | 'Ultra'
   tagline: string
   /** Who the plan is for, in one plain line. */
   bestFor: string
@@ -42,8 +40,6 @@ type Plan = {
   features: string[]
   cta: string
   popular: boolean
-  /** Whether to show the "Launch Offer" badge + strikethrough. */
-  launch?: boolean
 }
 
 /**
@@ -52,12 +48,16 @@ type Plan = {
  * product: EVERY plan has the whole toolset; paid plans lift the numbers and
  * add automation, payroll and white label. Anything not listed as a paid
  * feature is on Free too — see EVERY_PLAN below.
+ *
+ * PRICES ARE NOT HERE. They come from lib/pricing.ts, which carries both
+ * billing currencies (USD via PayPal, INR via Razorpay). The page used to hold
+ * rupee prices plus a struck-through "was ₹499 / was ₹1,999" reference price;
+ * both are gone — the reference prices were unsubstantiated, and rupees alone
+ * gave an international visitor no price they could act on.
  */
 const PLANS: Plan[] = [
   {
     name: 'Free',
-    price: '₹0',
-    period: '/month',
     tagline: 'For getting started',
     bestFor: 'Best for your first few clients — the whole app, smaller numbers.',
     limits: [
@@ -72,20 +72,17 @@ const PLANS: Plan[] = [
     features: [
       'Client portal for 1 client — your name and logo',
       'Google Calendar & Meet sync',
-      'GST-ready invoices, payments & quotations',
+      'Invoices, payments & quotations in ~30 currencies',
       'Leads pipeline, documents & e-signatures',
       'Meetings, reminders & task boards',
       'Community support',
     ],
-    cta: 'Get started free',
+    cta: 'Start free',
     popular: false,
   },
   {
     name: 'Pro',
-    price: '₹199',
-    originalPrice: '₹499',
-    period: '/month',
-    tagline: 'For growing freelancers',
+    tagline: 'For a busy freelancer or a small team',
     bestFor: 'Best when client work is your income and admin starts eating the week.',
     limits: [
       { value: '20', label: 'clients' },
@@ -106,14 +103,10 @@ const PLANS: Plan[] = [
     ],
     cta: 'Start Pro →',
     popular: true,
-    launch: true,
   },
   {
     name: 'Ultra',
-    price: '₹799',
-    originalPrice: '₹1,999',
-    period: '/month',
-    tagline: 'For agencies at scale',
+    tagline: 'For an agency with a team and its own brand',
     bestFor: 'Best for a studio running many accounts, a real team, and its own brand.',
     limits: [
       { value: 'Unlimited', label: 'clients' },
@@ -128,13 +121,12 @@ const PLANS: Plan[] = [
       'Team payroll — monthly salaries & payslips',
       'White label — your brand colour and logo across the app',
       'Client portal on your own domain — we set it up for you',
-      'Lead integrations: Meta, Google Ads, IndiaMART & webhooks',
+      'Lead integrations: Meta, Google Ads, IndiaMART & webhooks (region-dependent)',
       '100 AI-written quotes & contracts a month',
       'Priority support',
     ],
     cta: 'Start Ultra →',
     popular: false,
-    launch: true,
   },
 ]
 
@@ -146,7 +138,7 @@ const PLANS: Plan[] = [
 const EVERY_PLAN: string[] = [
   'Clients, projects & task boards',
   'Leads pipeline with CSV import & export',
-  'GST-ready invoices, quotations & PDF export',
+  'Invoices, quotations & PDF export — GST-ready for India',
   'Payments, part-payments & receipts',
   'Expenses, payouts & profit analytics',
   'Documents & e-signatures',
@@ -163,7 +155,7 @@ const GUARANTEES: { icon: LucideIcon; label: string }[] = [
   { icon: CreditCard, label: 'No credit card to start' },
   { icon: CalendarX, label: 'Cancel anytime' },
   { icon: Download, label: 'Export your data anytime' },
-  { icon: FileText, label: 'GST-ready invoices' },
+  { icon: FileText, label: 'Invoices in ~30 currencies' },
 ]
 
 // Product-fact stats — no usage/traction claims, only truths about the app.
@@ -323,21 +315,34 @@ const PRICING_FAQS = [
     a: 'On every plan the portal carries your agency name and logo. On Free it covers one client and shows a small “Powered by Clienter” link in the footer; Pro and Ultra remove that mark and open the portal to every client; Ultra also repaints the app and portal in your own brand colour.',
   },
   {
-    q: 'Can I change or cancel my plan anytime?',
-    a: 'Absolutely. You can upgrade, downgrade, or cancel from your billing settings at any time. Cancelling stops future charges and you keep access until the end of your paid period.',
+    q: 'Which currency am I billed in?',
+    a: 'Two billing regions, and you are in one of them. In India you are billed in Indian Rupees through Razorpay, which supports UPI, cards, net banking and wallets: ₹199 a month for Pro and ₹799 for Ultra. Everywhere else you are billed in US Dollars through PayPal: $19 a month for Pro and $39 for Ultra. These are two separate price lists, not one converted into the other, so the figure you see is the figure you pay.',
   },
   {
-    q: 'How do I pay?',
-    a: 'Paid plans are billed monthly in Indian Rupees through Razorpay, which supports UPI, cards, net banking, and wallets. Outside India you can pay in USD through PayPal — $19/month for Pro and $39/month for Ultra.',
+    q: 'How is my billing region decided, and can I change it?',
+    a: 'It is set the first time you check out — whichever of the two checkouts you complete, Razorpay in INR or PayPal in USD, becomes your billing region for future renewals. Nothing about your account is locked to a country otherwise: your clients, invoices and currencies are independent of how you pay us. If you need to move between regions, email support@clienter.co.in and we will sort it out before your next renewal.',
+  },
+  {
+    q: 'Which currencies can I invoice my own clients in?',
+    a: 'About 30, and you can set a different one per client, independently of the currency you pay Clienter in. Every invoice line item can carry its own custom tax rate, and invoices for India are GST-compliant. There are no country-specific VAT or sales-tax invoice formats beyond that — if your country requires a particular layout, check it against a sample invoice before you rely on it.',
+  },
+  {
+    q: 'Does Clienter collect payments from my clients?',
+    a: 'No, and this is worth being clear about. Your clients pay you directly, by bank transfer, UPI, card or however you already work. Clienter issues the invoice, sends the reminders, lets you record the payment and review proof of payment, and keeps the running total of what each client owes. The money never passes through us, so there is no payment fee and no settlement delay.',
+  },
+  {
+    q: 'Can I change or cancel my plan anytime?',
+    a: 'Yes — upgrade, downgrade or cancel from your billing settings whenever you like. Cancelling stops future charges and you keep access until the end of the period you have already paid for.',
   },
   {
     q: 'Do you offer refunds?',
-    a: 'Plans are billed monthly and you can cancel anytime to avoid future charges. We do not refund charges already made — see our Refund & Cancellation Policy for full details.',
+    a: 'Plans are billed monthly rather than annually, so the most you are ever exposed to is one month. Cancelling stops all future charges, and we do not refund a charge that has already been taken. The Free plan exists so you can try the whole product before you pay anything. Full terms are in the Refund & Cancellation Policy.',
   },
 ]
 
 /** One plan's inner content — shared by the conic-border (popular) and GlowCard shells. */
 function PlanCard({ plan }: { plan: Plan }) {
+  const price = PLAN_PRICE_BY_NAME[plan.name]
   return (
     <div className="flex h-full flex-col p-7 sm:p-8">
       <div className="flex items-center justify-between">
@@ -349,22 +354,25 @@ function PlanCard({ plan }: { plan: Plan }) {
         )}
       </div>
       <p className="mt-1 text-sm text-gray-500">{plan.tagline}</p>
-      {plan.launch && (
-        <span className="mt-4 inline-flex w-fit items-center gap-1 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-sm">
-          🚀 Launch Offer
-        </span>
-      )}
-      <div className={`flex items-baseline gap-2 ${plan.launch ? 'mt-3' : 'mt-6'}`}>
-        {plan.originalPrice && (
-          <span className="font-display text-2xl font-bold text-gray-400 line-through">
-            {plan.originalPrice}
-          </span>
-        )}
+      {/* USD leads because most of the audience is outside India, and the real
+          INR price sits directly beneath it. Both are in the HTML, so both are
+          indexable and neither needs JavaScript to appear. */}
+      <div className="mt-6 flex items-baseline gap-2">
         <span className="font-display text-5xl font-extrabold tracking-tight text-gray-900">
-          {plan.price}
+          {formatUsd(price)}
         </span>
-        <span className="text-gray-500">{plan.period}</span>
+        <span className="text-gray-500">/month</span>
       </div>
+      <p className="mt-2 text-[13px] font-medium text-gray-500">
+        {price.usd === 0 ? (
+          'Free forever — no credit card'
+        ) : (
+          <>
+            {formatInr(price)}/month if you bill in India{' '}
+            <span className="text-gray-400">· not a conversion, the actual INR price</span>
+          </>
+        )}
+      </p>
 
       <p className="mt-4 text-[13px] leading-relaxed text-gray-500">{plan.bestFor}</p>
 
@@ -394,7 +402,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         ))}
       </ul>
       <Link
-        href={`${APP_URL}/signup`}
+        href={signupUrl('pricing', `pricing-${plan.name.toLowerCase()}`)}
         className={`press mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-sm font-semibold transition-all ${
           plan.popular
             ? 'bg-gradient-to-b from-orange-500 to-orange-600 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_10px_28px_-10px_rgba(249,115,22,0.8)] hover:brightness-105'
@@ -439,7 +447,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title="Simple, honest"
         highlight="pricing"
-        subtitle="Every plan includes the whole product — clients, projects, GST invoicing, leads, documents and the client portal. Paid plans lift the limits and add automation. No hidden fees, no credit card to start."
+        subtitle="Every plan includes the whole product — leads, clients, quotes, e-signed contracts, projects, invoicing and the client portal. Paid plans lift the limits and add automation. Billed in USD worldwide or INR in India, monthly, with no card to start."
       />
 
       {/* Plan cards */}
@@ -468,11 +476,18 @@ export default function PricingPage() {
             </Reveal>
           ))}
         </div>
-        <p className="mt-8 text-center text-base font-semibold text-orange-600">
-          🚀 Launch pricing is limited time. Lock in your rate today.
+        {/* The "🚀 Launch pricing is limited time. Lock in your rate today."
+            line that used to sit here is gone along with the struck reference
+            prices: a permanently-displayed limited-time offer is a false
+            urgency claim, and nothing substantiates a former ₹499/₹1,999. */}
+        <p className="mt-8 text-center text-sm text-gray-600">
+          Billed monthly, cancel anytime. <strong className="font-semibold text-gray-800">Outside
+          India</strong> you pay in USD through PayPal; <strong className="font-semibold text-gray-800">in
+          India</strong> you pay in INR through Razorpay (UPI, cards, net banking, wallets). Your
+          billing region is set the first time you check out.
         </p>
         <p className="mt-2 text-center text-sm text-gray-500">
-          All prices in INR, billed monthly. Start on the Free plan — upgrade anytime, no card required.
+          Start on the Free plan — upgrade whenever you outgrow it, no card required.
         </p>
         <p className="mt-2 text-center text-xs text-gray-400">
           By signing up you agree to our{' '}
@@ -636,10 +651,10 @@ export default function PricingPage() {
       <section className="px-4 pb-20 text-center sm:px-6 sm:pb-28">
         <Reveal>
           <Link
-            href={`${APP_URL}/signup`}
+            href={signupUrl('pricing', 'pricing-footer')}
             className="press inline-flex items-center justify-center rounded-full bg-gray-900 px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:bg-gray-800"
           >
-            Create your free account
+            Start free
           </Link>
         </Reveal>
       </section>

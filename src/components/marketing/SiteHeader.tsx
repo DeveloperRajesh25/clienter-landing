@@ -24,6 +24,7 @@ import {
   Grid3x3,
 } from 'lucide-react'
 import { NAV_LINKS, APP_URL } from '@/lib/site'
+import { signupUrl, PRIMARY_CTA } from '@/lib/cta'
 import { SpotlightButton } from '@/components/landing/SpotlightButton'
 
 /**
@@ -209,11 +210,11 @@ export function SiteHeader() {
             Sign in
           </a>
           <SpotlightButton
-            href={`${APP_URL}/signup`}
+            href={signupUrl('nav', 'header')}
             className="px-4 py-2 text-sm font-semibold"
             dropClassName="h-8 w-8"
           >
-            Get started
+            {PRIMARY_CTA}
             <ArrowRight className="h-3.5 w-3.5" />
           </SpotlightButton>
         </div>
@@ -287,11 +288,11 @@ export function SiteHeader() {
                 Sign in
               </a>
               <a
-                href={`${APP_URL}/signup`}
+                href={signupUrl('nav', 'header-mobile')}
                 onClick={() => setMenuOpen(false)}
                 className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-b from-orange-500 to-orange-600 px-4 py-3 text-base font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_6px_20px_-6px_rgba(249,115,22,0.7)]"
               >
-                Get started
+                {PRIMARY_CTA}
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>

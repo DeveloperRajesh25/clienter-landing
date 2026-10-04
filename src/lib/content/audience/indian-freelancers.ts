@@ -125,7 +125,7 @@ export const INDIAN_FREELANCERS: AudiencePageConfig = {
     heading: 'Rupee pricing that fits a freelance income',
     body: [
       'No dollar subscription that stings a little more at every renewal. Clienter’s Free plan is free forever, priced in rupees — up to 3 clients and 5 projects, the full CRM pipeline, GST invoicing, and meetings — enough to run your first clients properly without paying a paisa or entering a card.',
-      'When you outgrow it, Pro is a launch-priced ₹199/month (was ₹499) — up to 20 clients, 40 projects, and 5 team members — and it unlocks the branded client portal that quietly impresses clients abroad. Ultra at ₹799/month (was ₹1,999) removes the limits for a busy freelancer or small studio. It’s priced for an Indian freelance income, not an enterprise budget.',
+      'When you outgrow it, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects, and 5 team members — and it unlocks the branded client portal that quietly impresses clients abroad. Ultra at $39/month (₹799 in India) removes the limits for a busy freelancer or small studio. It’s priced for an Indian freelance income, not an enterprise budget.',
     ],
   },
   faqHeading: 'Indian freelancer FAQs',
@@ -140,7 +140,7 @@ export const INDIAN_FREELANCERS: AudiencePageConfig = {
     },
     {
       q: 'What is the best software for freelancers in India?',
-      a: 'The best Indian freelance software handles the whole business in rupees — clients, projects, GST invoices, UPI and bank payments, and the TDS clients deduct — at a price that fits a freelance income. Clienter combines all of that in one workspace, starting free with Pro at a launch price of ₹199/month.',
+      a: 'The best Indian freelance software handles the whole business in rupees — clients, projects, GST invoices, UPI and bank payments, and the TDS clients deduct — at a price that fits a freelance income. Clienter combines all of that in one workspace, starting free with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'Does Clienter handle the TDS that clients deduct?',

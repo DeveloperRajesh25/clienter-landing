@@ -149,14 +149,14 @@ export const CONTENT_WRITERS: AudiencePageConfig = {
     heading: 'Priced for a writer, not a content agency',
     body: [
       'Clienter’s Free plan suits a writer just building a client base — up to 3 clients and 5 projects, the full leads and CRM pipeline, proposals, invoicing, and meetings, free forever with no credit card. A handy trick when you write many small pieces: group one client’s articles under a single project and give each piece its own task, so the free limits stretch further while you get organised.',
-      'When you are writing for more clients than that, Pro is a launch-priced ₹199/month (up to 20 clients, 40 projects, and 5 team members) and opens the branded client portal to every client, plus room for retainers with several regular publications. Ultra at ₹799/month removes the limits entirely for a full-time writing business or a small content team. No per-seat enterprise pricing, no annual lock-in.',
+      'When you are writing for more clients than that, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects, and 5 team members) and opens the branded client portal to every client, plus room for retainers with several regular publications. Ultra at $39/month (₹799 in India) removes the limits entirely for a full-time writing business or a small content team. No per-seat enterprise pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Content writer FAQs',
   faqs: [
     {
       q: 'What is the best tool for freelance writer client management?',
-      a: 'The best tool for freelance writer client management keeps your many small pieces, clients, deadlines, and invoices in one place rather than scattered across docs and chats. Clienter does that with piece-tracking boards, retainers, proposals, and GST invoices in one workspace — starting free, with Pro at a launch price of ₹199/month.',
+      a: 'The best tool for freelance writer client management keeps your many small pieces, clients, deadlines, and invoices in one place rather than scattered across docs and chats. Clienter does that with piece-tracking boards, retainers, proposals, and GST invoices in one workspace — starting free, with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'How do I manage multiple writing clients at once?',

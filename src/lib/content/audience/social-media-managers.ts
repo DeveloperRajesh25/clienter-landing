@@ -125,7 +125,7 @@ export const SOCIAL_MEDIA_MANAGERS: AudiencePageConfig = {
     heading: 'Priced for social media rates, not enterprise ones',
     body: [
       'Start free forever — up to 3 clients and 5 projects with the full CRM pipeline, invoicing and meetings. For a social media manager taking on the first handful of brands, it’s enough to get properly organised before you spend a rupee.',
-      'When the roster grows, Pro is a launch-priced ₹199/month (was ₹499; up to 20 clients, 40 projects and 5 team members) and opens the branded client portal to every client that makes you look like the studio you’re becoming. Ultra at ₹799/month (was ₹1,999) goes unlimited for when you’re running a full content pod. No per-seat pricing, no annual lock-in.',
+      'When the roster grows, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects and 5 team members) and opens the branded client portal to every client that makes you look like the studio you’re becoming. Ultra at $39/month (₹799 in India) goes unlimited for when you’re running a full content pod. No per-seat pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Social media manager FAQs',

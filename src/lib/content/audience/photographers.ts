@@ -125,14 +125,14 @@ export const PHOTOGRAPHERS: AudiencePageConfig = {
     heading: 'Priced for a studio of one (or a small team)',
     body: [
       'Clienter’s Free plan is genuinely usable for a photographer starting out — up to 3 clients and 5 projects, the full enquiry pipeline, invoicing, and meetings, free forever with no credit card. It’s enough to run your first season’s bookings properly instead of from a diary.',
-      'When the calendar fills up, Pro is a launch-priced ₹199/month (was ₹499) — up to 20 clients, 40 projects, and 5 team members for your second shooter, editor, and coordinator — and it unlocks the branded client portal. Ultra at ₹799/month (was ₹1,999) removes the limits entirely for a busy studio. No per-seat enterprise pricing, no annual lock-in.',
+      'When the calendar fills up, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects, and 5 team members for your second shooter, editor, and coordinator — and it unlocks the branded client portal. Ultra at $39/month (₹799 in India) removes the limits entirely for a busy studio. No per-seat enterprise pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Photographer FAQs',
   faqs: [
     {
       q: 'What is the best client management software for photographers?',
-      a: 'The best photography client management software handles the whole booking lifecycle — enquiries, dates, booking advances, deliverables, and balance payments — in one place, at a price a studio can afford. Clienter does all of that, starting free and with Pro at a launch price of ₹199/month.',
+      a: 'The best photography client management software handles the whole booking lifecycle — enquiries, dates, booking advances, deliverables, and balance payments — in one place, at a price a studio can afford. Clienter does all of that, starting free and with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'Can I take booking advances and balance payments separately?',

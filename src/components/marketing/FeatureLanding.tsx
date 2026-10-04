@@ -6,7 +6,7 @@ import { CtaSection } from '@/components/marketing/CtaSection'
 import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { breadcrumbSchema, faqSchema } from '@/lib/structured-data'
-import { APP_URL } from '@/lib/site'
+import { signupUrl, PRIMARY_CTA } from '@/lib/cta'
 import { FEATURE_PAGES, type FeaturePageConfig } from '@/lib/feature-pages'
 import { Faq } from '@/components/landing/Faq'
 
@@ -77,10 +77,10 @@ export function FeatureLanding({ config }: { config: FeaturePageConfig }) {
       >
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href={`${APP_URL}/signup`}
+            href={signupUrl('feature', path)}
             className="press group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gray-900 px-7 py-3.5 text-base font-semibold text-white shadow-lg transition-all hover:bg-gray-800 sm:w-auto"
           >
-            Start for free
+            {PRIMARY_CTA}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </a>
           <Link
@@ -260,7 +260,7 @@ export function FeatureLanding({ config }: { config: FeaturePageConfig }) {
         </div>
       </section>
 
-      <CtaSection title={ctaTitle} subtitle={ctaSubtitle} />
+      <CtaSection title={ctaTitle} subtitle={ctaSubtitle} medium="feature" campaign={path} />
     </PageShell>
   )
 }

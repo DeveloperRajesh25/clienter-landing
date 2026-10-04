@@ -66,7 +66,7 @@ export const CLIENTER_VS_QUICKBOOKS: ComparePageConfig = {
     heading: 'Pricing and the India question',
     body: [
       'Because QuickBooks stopped serving new Indian customers in 2023, price is almost beside the point for someone in India starting fresh — availability is the bigger issue. Verify the current status directly with Intuit before relying on it.',
-      'Clienter is available to new Indian users today, starting free (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings), with Pro at a launch price of ₹199/month and Ultra at ₹799/month. For full accounting, pair Clienter with a GST accounting tool like Zoho Books or your CA — Clienter handles the client, project, and invoicing side.',
+      'Clienter is available to new Indian users today, starting free (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings), with Pro at $19/month (₹199 in India) and Ultra at $39/month (₹799 in India). For full accounting, pair Clienter with a GST accounting tool like Zoho Books or your CA — Clienter handles the client, project, and invoicing side.',
     ],
   },
   chooseClienter: {
@@ -111,7 +111,7 @@ export const CLIENTER_VS_QUICKBOOKS: ComparePageConfig = {
     },
     {
       q: 'Which is cheaper?',
-      a: 'Clienter has a free plan and paid plans from a launch price of ₹199/month. QuickBooks is paid accounting software (and not available to new India users). For the client-and-invoicing job most freelancers need, Clienter is the more affordable, available choice.',
+      a: 'Clienter has a free plan and paid plans from $19/month (₹199 in India). QuickBooks is paid accounting software (and not available to new India users). For the client-and-invoicing job most freelancers need, Clienter is the more affordable, available choice.',
     },
   ],
   related: [

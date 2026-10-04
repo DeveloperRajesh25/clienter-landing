@@ -28,7 +28,7 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
     body: [
       'Trello is a joy for what it does. Its Kanban boards are visual, fast, and almost self-explanatory — you can open it and be productive in minutes. The free tier is generous, Power-Ups extend it when you need more, and for tracking a straightforward list of tasks it is genuinely hard to beat on simplicity. Plenty of freelancers start exactly here.',
       'Clienter is built for what comes after the board. It is for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things Trello leaves to other tools — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — in one workspace priced for one person.',
-      'So this is less “which board is nicer” and more “which is built for you”. Trello can show your tasks beautifully, but a card still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. Clienter keeps the simple Kanban feel and ties projects to clients, invoices, and payments in one rupee-first tool, so the whole client lifecycle lives together.',
+      'So this is less “which board is nicer” and more “which is built for you”. Trello can show your tasks beautifully, but a card still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. Clienter keeps the simple Kanban feel and ties projects to clients, invoices, and payments in one priced in both USD and INR tool, so the whole client lifecycle lives together.',
     ],
   },
   tableHeading: 'Clienter vs Trello at a glance',
@@ -46,7 +46,7 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with rupee-first pricing',
+    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
     'A live profit dashboard that ties income and expenses to each client',
     'Keeps a simple Kanban feel while covering the whole client lifecycle',
     'Branded client portal and verified reviews to look established',
@@ -72,7 +72,7 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
     heading: 'Pricing: a board plus add-ons vs one flat freelancer plan',
     body: [
       'Trello has a genuinely useful free tier, and its paid plans are priced per seat. The catch is that the moment you need more than boards — invoicing, payments, a client portal — you are adding Power-Ups and separate apps, each with its own cost and its own login, and none of them are built around Indian GST.',
-      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (down from ₹499 — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month (down from ₹1,999) for unlimited everything. One flat plan covers the whole client-services workflow.',
+      'Clienter keeps it simple: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. One flat plan covers the whole client-services workflow.',
       'The honest summary: if all you will ever need is a simple board, Trello’s free tier is lovely and costs nothing — but the client-business side (invoices, payments, a portal) lives elsewhere. Clienter bundles all of that into one low monthly price.',
     ],
   },
@@ -118,7 +118,7 @@ export const CLIENTER_VS_TRELLO: ComparePageConfig = {
     },
     {
       q: 'Which is cheaper, Clienter or Trello?',
-      a: 'Both have a free option. The difference is what you get: Trello’s free board is lovely but you add Power-Ups and separate apps (and cost) for invoicing and clients. Clienter’s paid plans start at a launch price of ₹199/month and already include projects, GST invoicing, payments, and a portal, so for an all-in-one client setup Clienter is usually the more affordable path.',
+      a: 'Both have a free option. The difference is what you get: Trello’s free board is lovely but you add Power-Ups and separate apps (and cost) for invoicing and clients. Clienter’s paid plans start at $19/month (₹199 in India) and already include projects, GST invoicing, payments, and a portal, so for an all-in-one client setup Clienter is usually the more affordable path.',
     },
   ],
   related: [

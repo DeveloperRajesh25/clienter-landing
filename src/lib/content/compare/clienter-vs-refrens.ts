@@ -72,7 +72,7 @@ export const CLIENTER_VS_REFRENS: ComparePageConfig = {
     heading: 'Pricing: billing tool vs all-in-one workspace',
     body: [
       'Refrens offers a free way to get started and paid plans that unlock more documents, features, and higher limits as you grow. We’re not going to quote specific Refrens numbers here because plans and limits change — check refrens.com for current pricing — but the shape is what you’d expect from a billing-first tool: you pay more as your invoicing and document needs expand.',
-      'Clienter is rupee-first and deliberately simple: a Free plan forever (up to 3 clients and 5 projects, with the pipeline, invoicing, and meetings included), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client), and Ultra at ₹799/month for unlimited everything. Those launch prices are down from ₹499 and ₹1,999 respectively.',
+      'Clienter is deliberately simple: a Free plan forever (up to 3 clients and 5 projects, with the pipeline, invoicing, and meetings included), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything.',
       'The key point isn’t who is cheaper on any single feature — it’s what the price includes. With Clienter, one low monthly plan covers your pipeline, projects, invoicing, payments, and client portal together, so you’re not bolting a delivery workflow on top of a billing tool.',
     ],
   },

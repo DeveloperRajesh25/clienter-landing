@@ -27,7 +27,7 @@ export const CLIENTER_VS_JETPACK_CRM: ComparePageConfig = {
     heading: 'A WordPress CRM plugin vs a hosted all-in-one workspace',
     body: [
       'Jetpack CRM is a self-hosted CRM that runs as a plugin inside WordPress. Its big appeal is ownership and control: your customer data lives on your own WordPress site, the core plugin is free, and you can extend it with paid add-ons for invoicing, quotes, client portals, and more. For someone who already runs a WordPress site and wants a CRM they fully own, Jetpack CRM is a neat, self-contained option.',
-      'Clienter takes a different path: it is a hosted, all-in-one workspace built for freelancers and small agencies, with nothing to install or maintain. It combines a simple Kanban lead pipeline with project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, meetings with Google Calendar sync, and a branded client portal — all rupee-first and ready the moment you sign up.',
+      'Clienter takes a different path: it is a hosted, all-in-one workspace built for freelancers and small agencies, with nothing to install or maintain. It combines a simple Kanban lead pipeline with project management, GST-ready invoicing and quotations, payment and expense tracking with a live profit dashboard, meetings with Google Calendar sync, and a branded client portal — all priced in both USD and INR and ready the moment you sign up.',
       'So the honest framing is self-hosted control versus hosted convenience. If you love WordPress and want to own and host your CRM yourself, Jetpack CRM is a genuinely good fit. If you would rather not run a WordPress site or manage plugins, updates, and security, and you want the whole client lifecycle handled for you, that is exactly what Clienter is for.',
     ],
   },
@@ -47,7 +47,7 @@ export const CLIENTER_VS_JETPACK_CRM: ComparePageConfig = {
   clienterPros: [
     'Hosted and all-in-one — nothing to install, update, or secure',
     'Works without a WordPress site of any kind',
-    'GST-ready invoicing and quotations with rupee-first pricing',
+    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
     'Projects, payments, meetings, and a portal included, not add-ons',
     'Simple enough to use the same day you sign up',
   ],
@@ -66,13 +66,13 @@ export const CLIENTER_VS_JETPACK_CRM: ComparePageConfig = {
     'Requires a WordPress site, which not everyone has or wants',
     'You manage hosting, updates, backups, and security yourself',
     'Full functionality means buying and configuring several add-ons',
-    'Not tailored to Indian GST invoicing or rupee-first pricing',
+    'Not tailored to Indian GST invoicing or priced in both USD and INR pricing',
   ],
   pricing: {
     heading: 'Pricing: self-hosted plugin vs hosted all-in-one',
     body: [
       'Jetpack CRM’s core plugin is free, which is a real strength — but the parts that make it a full client tool, such as invoicing, quotes, and a client portal, come as paid extensions or bundles, and you also need to pay for and maintain the WordPress hosting it runs on. The “free” headline is genuine, yet a complete setup means stacking add-ons and running your own site.',
-      'Clienter is hosted and rupee-first, with no hosting to buy or plugins to stitch together. There is a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month for unlimited everything. What you see is what you get — no extensions required.',
+      'Clienter is hosted, with no hosting to buy or plugins to stitch together. There is a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. What you see is what you get — no extensions required.',
       'The honest summary: if you already run WordPress and want to self-host, Jetpack CRM can be very economical. If you would rather not manage a site and want invoicing, projects, and a portal included from day one, Clienter’s all-in-one plans are simpler and predictable.',
     ],
   },
@@ -81,7 +81,7 @@ export const CLIENTER_VS_JETPACK_CRM: ComparePageConfig = {
     points: [
       'Want a hosted tool with nothing to install or maintain',
       'Do not run a WordPress site, or would rather not depend on one',
-      'Need GST-ready invoicing and rupee-first pricing',
+      'Need GST-ready invoicing and priced in both USD and INR pricing',
       'Want projects, payments, meetings, and a portal included',
       'Want to start today without configuring plugins',
     ],
@@ -118,7 +118,7 @@ export const CLIENTER_VS_JETPACK_CRM: ComparePageConfig = {
     },
     {
       q: 'Which is cheaper, Clienter or Jetpack CRM?',
-      a: 'Jetpack CRM’s core plugin is free, but a full setup adds paid extensions plus the cost of your own WordPress hosting. Clienter has a Free plan forever, with paid plans from a launch price of ₹199/month that already include invoicing, projects, payments, meetings, and a client portal — no add-ons or hosting to buy. For an all-in-one, hands-off setup, Clienter is usually simpler and more predictable.',
+      a: 'Jetpack CRM’s core plugin is free, but a full setup adds paid extensions plus the cost of your own WordPress hosting. Clienter has a Free plan forever, with paid plans from $19/month (₹199 in India) that already include invoicing, projects, payments, meetings, and a client portal — no add-ons or hosting to buy. For an all-in-one, hands-off setup, Clienter is usually simpler and more predictable.',
     },
   ],
   related: [

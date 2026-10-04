@@ -72,7 +72,7 @@ export const CLIENTER_VS_VYAPAR: ComparePageConfig = {
     heading: 'Pricing: two tools for two different jobs',
     body: [
       'Vyapar has a free option and paid plans built around billing, accounting, and inventory for product businesses. We’re not quoting specific Vyapar numbers here because plans change — check vyapar.in for current pricing — but the value it charges for is billing-and-inventory depth, which is exactly what a shop or SMB is paying to get.',
-      'Clienter is priced for a services business: a Free plan forever (up to 3 clients and 5 projects, with the pipeline, invoicing, and meetings included), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client), and Ultra at ₹799/month for unlimited everything. Those launch prices are down from ₹499 and ₹1,999.',
+      'Clienter is priced for a services business: a Free plan forever (up to 3 clients and 5 projects, with the pipeline, invoicing, and meetings included), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything.',
       'The honest takeaway is that price isn’t really the deciding factor here — fit is. Paying for Vyapar’s inventory features you’ll never use, or paying for Clienter’s project and portal features when you just need counter billing, is the wrong trade either way. Pick the tool that matches the business you actually run.',
     ],
   },

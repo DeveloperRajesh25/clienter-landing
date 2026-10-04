@@ -64,8 +64,8 @@ export const CLIENTER_VS_TASKIP: ComparePageConfig = {
   pricing: {
     heading: 'Pricing: check both, but start free with Clienter',
     body: [
-      'Because Taskip’s plans and pricing can change, check its current pricing directly before deciding. What Clienter offers is clear: a free plan forever (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month, and Ultra at ₹799/month for unlimited use.',
-      'For Indian freelancers and agencies, the rupee-first pricing and GST-ready invoicing are the practical differentiators. The smartest move with two similar tools is to run a real project through each free trial and keep the one whose workflow you don’t have to fight.',
+      'Because Taskip’s plans and pricing can change, check its current pricing directly before deciding. What Clienter offers is clear: a free plan forever (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India), and Ultra at $39/month (₹799 in India) for unlimited use.',
+      'For Indian freelancers and agencies, the priced in both USD and INR pricing and GST-ready invoicing are the practical differentiators. The smartest move with two similar tools is to run a real project through each free trial and keep the one whose workflow you don’t have to fight.',
     ],
   },
   chooseClienter: {

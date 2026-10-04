@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Check } from 'lucide-react'
-import { APP_URL } from '@/lib/site'
+import { signupUrl } from '@/lib/cta'
+import { PLAN_PRICE_BY_NAME, formatInr, formatUsd } from '@/lib/pricing'
 import { Reveal } from './Reveal'
 import { SectionLabel } from './SectionLabel'
 
@@ -13,13 +14,14 @@ import { SectionLabel } from './SectionLabel'
  * accent rule, never by scale or shadow contests. All the ornament lives in
  * `PricingArt` behind the plate, so the plate itself stays quiet.
  *
- * Plan limits + launch pricing mirror the /pricing page so the two never drift.
+ * Plan limits mirror the /pricing page so the two never drift. PRICES come from
+ * lib/pricing.ts and are shown in BOTH billing currencies — USD (PayPal, rest of
+ * world) leading, with the real rupee price (Razorpay, India) beneath. They are
+ * two separate price lists, not a conversion.
  */
 type Plan = {
-  name: string
-  price: string
-  originalPrice?: string
-  period: string
+  /** Must match a name in PLAN_PRICES — that is where the price comes from. */
+  name: 'Free' | 'Pro' | 'Ultra'
   tagline: string
   /** Heading above the list: "Includes" or "Everything in X, plus" — so the
    *  stacking between tiers is explicit rather than implied by repetition. */
@@ -27,14 +29,11 @@ type Plan = {
   features: string[]
   cta: string
   popular: boolean
-  launch: boolean
 }
 
 const PLANS: Plan[] = [
   {
     name: 'Free',
-    price: '₹0',
-    period: '/month',
     tagline: 'For getting started',
     featuresHeading: 'Includes',
     features: [
@@ -44,16 +43,12 @@ const PLANS: Plan[] = [
       'Google Calendar & Meet sync',
       '3 AI quotes & contracts / month',
     ],
-    cta: 'Get started free',
+    cta: 'Start free',
     popular: false,
-    launch: false,
   },
   {
     name: 'Pro',
-    price: '₹199',
-    originalPrice: '₹499',
-    period: '/month',
-    tagline: 'For growing freelancers',
+    tagline: 'For a busy freelancer or a small team',
     featuresHeading: 'Everything in Free, plus',
     features: [
       '20 clients, 40 projects, 200 active leads',
@@ -64,26 +59,21 @@ const PLANS: Plan[] = [
     ],
     cta: 'Start Pro',
     popular: true,
-    launch: true,
   },
   {
     name: 'Ultra',
-    price: '₹799',
-    originalPrice: '₹1,999',
-    period: '/month',
-    tagline: 'For agencies at scale',
+    tagline: 'For an agency with a team and its own brand',
     featuresHeading: 'Everything in Pro, plus',
     features: [
       'Unlimited clients, projects, leads & team',
       'Team payroll & payslips',
       'White label — your brand across the app',
       'Client portal on your own domain',
-      'Lead integrations: Meta, Google Ads, IndiaMART',
+      'Lead integrations: Meta, Google Ads & webhooks',
       '100 AI quotes / month & priority support',
     ],
     cta: 'Start Ultra',
     popular: false,
-    launch: true,
   },
 ]
 
@@ -93,7 +83,7 @@ const PLANS: Plan[] = [
 // handful of paid extras.
 const INCLUDED = [
   'Clients, projects & tasks',
-  'GST invoices, payments & expenses',
+  'Invoices in ~30 currencies, payments & expenses',
   'Leads pipeline & e-signed documents',
   'Client portal with your logo',
   'Meetings & Google Calendar',
@@ -191,6 +181,7 @@ function PricingArt() {
 }
 
 function PlanColumn({ plan, index }: { plan: Plan; index: number }) {
+  const price = PLAN_PRICE_BY_NAME[plan.name]
   return (
     <Reveal delay={index * 110} className="relative">
       <div
@@ -230,31 +221,23 @@ function PlanColumn({ plan, index }: { plan: Plan; index: number }) {
         <div className="mt-8 flex min-h-[5.25rem] flex-col justify-end">
           <div className="flex items-baseline gap-2">
             <span className="font-display text-[3.25rem] font-bold leading-none tracking-[-0.04em] text-gray-900 tabular-nums">
-              {plan.price}
+              {formatUsd(price)}
             </span>
-            <span className="text-sm font-medium text-gray-400">{plan.period}</span>
+            <span className="text-sm font-medium text-gray-400">/month</span>
           </div>
 
-          {/* The offer stated typographically — a struck old price and a
-              tracked micro-cap — instead of another coloured chip. */}
+          {/* The second billing region, stated rather than converted: this is
+              the real Razorpay price, not an exchange-rate calculation. The
+              struck "was ₹499" reference price that used to sit here was
+              removed — nothing substantiates it. */}
           <div className="mt-4 flex h-4 items-center gap-2.5 text-[12px] leading-none">
-            {plan.originalPrice ? (
-              <>
-                <span className="relative font-medium text-stone-400 tabular-nums">
-                  {plan.originalPrice}
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-[-2px] top-1/2 h-px -rotate-[7deg] bg-stone-400/90"
-                  />
-                </span>
-                <span aria-hidden className="h-3 w-px bg-stone-300/80" />
-                <span className="font-bold uppercase tracking-[0.16em] text-orange-600">
-                  Launch offer
-                </span>
-              </>
-            ) : (
+            {price.usd === 0 ? (
               <span className="font-medium uppercase tracking-[0.16em] text-stone-400">
                 Free forever
+              </span>
+            ) : (
+              <span className="font-medium text-stone-500 tabular-nums">
+                {formatInr(price)}/month billing in India
               </span>
             )}
           </div>
@@ -281,7 +264,7 @@ function PlanColumn({ plan, index }: { plan: Plan; index: number }) {
         </ul>
 
         <a
-          href={`${APP_URL}/signup`}
+          href={signupUrl('home', `home-pricing-${plan.name.toLowerCase()}`)}
           className={`press focus-ember group/cta mt-9 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-semibold transition-all duration-300 ${
             plan.popular
               ? 'bg-gradient-to-b from-orange-500 to-orange-600 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_12px_30px_-12px_rgba(234,88,12,0.85)] hover:brightness-105'

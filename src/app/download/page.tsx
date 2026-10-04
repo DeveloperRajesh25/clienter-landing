@@ -19,6 +19,7 @@ import { CtaSection } from '@/components/marketing/CtaSection'
 import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { pageMetadata, APP_URL } from '@/lib/site'
+import { signupUrl, PRIMARY_CTA } from '@/lib/cta'
 import { breadcrumbSchema, mobileApplicationSchema } from '@/lib/structured-data'
 
 /**
@@ -359,7 +360,7 @@ export default function DownloadPage() {
               <p className="mt-4 text-sm text-gray-500">
                 Don&apos;t have an account yet?{' '}
                 <Link
-                  href={`${APP_URL}/signup`}
+                  href={signupUrl('download', '/download')}
                   className="font-medium text-orange-600 hover:underline"
                 >
                   Create one free
@@ -370,7 +371,7 @@ export default function DownloadPage() {
         </div>
       </section>
 
-      <CtaSection />
+      <CtaSection medium="download" campaign="/download" />
     </PageShell>
   )
 }

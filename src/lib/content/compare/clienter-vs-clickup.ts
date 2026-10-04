@@ -28,7 +28,7 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
     body: [
       'ClickUp is famously ambitious: docs, whiteboards, goals, dozens of views, custom fields, time tracking, automations, and a genuinely generous free tier, all in one app that markets itself as replacing your whole stack. If you love configuring a tool exactly to your taste and want breadth above all, ClickUp gives you an enormous toolbox to build with.',
       'Clienter is deliberately narrower. It is built for the freelancer or small agency who wins a handful of clients and then has to deliver the work, raise the invoice, and get paid. It pairs a simple Kanban lead pipeline and project management with the things ClickUp leaves to other tools — GST-ready invoicing and quotations, payment and expense tracking, a live profit dashboard, and a branded client portal — in one workspace priced for one person.',
-      'So this is less “which has more features” and more “which is built for you”. ClickUp can model your project in a hundred ways, but a task list still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. Clienter ties projects to clients, invoices, and payments in one rupee-first tool, so the whole client lifecycle lives together.',
+      'So this is less “which has more features” and more “which is built for you”. ClickUp can model your project in a hundred ways, but a task list still doesn’t know who the client is, hasn’t raised the invoice, and can’t collect the payment. Clienter ties projects to clients, invoices, and payments in one priced in both USD and INR tool, so the whole client lifecycle lives together.',
     ],
   },
   tableHeading: 'Clienter vs ClickUp at a glance',
@@ -46,7 +46,7 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
   ],
   clienterPros: [
     'Clients, projects, invoices, payments, and a portal in one tool',
-    'GST-ready invoicing and quotations with rupee-first pricing',
+    'GST-ready invoicing and quotations with priced in both USD and INR pricing',
     'A live profit dashboard that ties income and expenses to each client',
     'Simple enough to use the day you sign up — no configuration marathon',
     'Branded client portal and verified reviews to look established',
@@ -72,7 +72,7 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
     heading: 'Pricing: per-seat toolbox vs one flat freelancer plan',
     body: [
       'ClickUp has a well-known free tier that is genuinely capable for an individual, and its paid plans are priced per seat. That is reasonable for a team that lives inside the tool all day, but a solo freelancer can pay for a lot of breadth they never touch — and none of those seats add up to GST invoicing, payment collection, or a client portal.',
-      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (down from ₹499 — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month (down from ₹1,999) for unlimited everything. One flat plan covers the whole client-services workflow.',
+      'Clienter keeps it simple: a Free plan forever (up to 3 clients and 5 projects, with the full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. One flat plan covers the whole client-services workflow.',
       'The honest summary: if you want one endlessly configurable app for all your work, ClickUp’s free tier is hard to beat on breadth — but you will still run separate tools for invoicing, payments, and a client portal. Clienter bundles that client-business stack into one low monthly price.',
     ],
   },
@@ -118,7 +118,7 @@ export const CLIENTER_VS_CLICKUP: ComparePageConfig = {
     },
     {
       q: 'Which is cheaper, Clienter or ClickUp?',
-      a: 'Both have a free option. The difference is what you get: ClickUp’s paid plans scale per seat and still don’t cover invoicing, payments, or a client portal. Clienter’s paid plans start at a launch price of ₹199/month and already include projects, GST invoicing, payments, and a portal, so for an all-in-one client setup Clienter is usually the more affordable path.',
+      a: 'Both have a free option. The difference is what you get: ClickUp’s paid plans scale per seat and still don’t cover invoicing, payments, or a client portal. Clienter’s paid plans start at $19/month (₹199 in India) and already include projects, GST invoicing, payments, and a portal, so for an all-in-one client setup Clienter is usually the more affordable path.',
     },
   ],
   related: [

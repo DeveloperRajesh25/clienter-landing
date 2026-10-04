@@ -38,7 +38,7 @@ export const CLIENTER_VS_PLUTIO: ComparePageConfig = {
     { feature: 'Projects & tasks', clienter: 'Yes — boards, tasks, budgets', other: 'Yes — projects & tasks' },
     { feature: 'Proposals & e-signature', clienter: 'Built in', other: 'Yes — proposals' },
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Invoicing, not India-GST specific' },
-    { feature: 'Payments', clienter: 'UPI-friendly, rupee-first', other: 'Multi-currency, USD-oriented' },
+    { feature: 'Payments', clienter: 'UPI-friendly, priced in both USD and INR', other: 'Multi-currency, USD-oriented' },
     { feature: 'Customization / white-label', clienter: 'Branded portal; full white label on Ultra', other: 'Extensive white-label & custom' },
     { feature: 'Team & collaboration', clienter: 'Role-based team access', other: 'Yes — messaging & collaboration' },
     { feature: 'Free plan', clienter: 'Yes — free forever', other: 'No free-forever plan (check)' },
@@ -46,7 +46,7 @@ export const CLIENTER_VS_PLUTIO: ComparePageConfig = {
   ],
   clienterPros: [
     'GST-ready invoicing and quotations, priced in rupees for India',
-    'UPI-friendly, rupee-first payments for Indian clients',
+    'UPI-friendly, priced in both USD and INR payments for Indian clients',
     'Free-forever plan to start (3 clients, 5 projects), no credit card needed',
     'An all-in-one that is simple to set up — usable the same day',
     'Branded client portal for every client plus role-based team access on paid plans',
@@ -69,10 +69,10 @@ export const CLIENTER_VS_PLUTIO: ComparePageConfig = {
     'Breadth and customization can mean a heavier setup than a solo freelancer needs',
   ],
   pricing: {
-    heading: 'Pricing: global toolkit vs rupee-first plans',
+    heading: 'Pricing: global toolkit vs priced in both USD and INR plans',
     body: [
       'Plutio is a paid subscription priced in US dollars, with tiers that add team members and features as you scale, and no free-forever plan (a trial to try it) — so check current pricing on its own site. It supports multiple currencies for invoicing, which helps global freelancers, but it is not built specifically around Indian GST.',
-      'Clienter is rupee-first. Free is ₹0 forever and covers up to 3 clients and 5 projects with the full pipeline, invoicing, quotations, and meetings. Pro is a launch price of ₹199/month (down from ₹499) for up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client. Ultra is ₹799/month (down from ₹1,999) for unlimited everything.',
+      'Clienter is priced in both USD and INR. Free is ₹0 forever and covers up to 3 clients and 5 projects with the full pipeline, invoicing, quotations, and meetings. Pro is $19/month (₹199 in India) for up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client. Ultra is $39/month (₹799 in India) for unlimited everything.',
       'The honest summary: if you want maximum customization across many modules and you bill globally, Plutio’s toolkit is worth a look. If you bill Indian clients and want GST invoicing, rupee pricing, and a free plan, Clienter is the more direct fit.',
     ],
   },
@@ -118,7 +118,7 @@ export const CLIENTER_VS_PLUTIO: ComparePageConfig = {
     },
     {
       q: 'Which is cheaper, Clienter or Plutio?',
-      a: 'Plutio is priced in US dollars with no free-forever plan, so verify its current pricing on its own site. Clienter starts free and its Pro plan is a launch price of ₹199/month with projects, invoicing, and a client portal included, so for freelancers billing in rupees Clienter is usually the more affordable option.',
+      a: 'Plutio is priced in US dollars with no free-forever plan, so verify its current pricing on its own site. Clienter starts free and its Pro plan is $19/month (₹199 in India) with projects, invoicing, and a client portal included, so for freelancers billing in rupees Clienter is usually the more affordable option.',
     },
   ],
   related: [

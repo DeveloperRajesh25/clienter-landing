@@ -125,14 +125,14 @@ export const FREELANCERS: AudiencePageConfig = {
     heading: 'Priced for one person, not a sales team',
     body: [
       'Clienter’s Free plan is genuinely usable for a solo freelancer just starting out — up to 3 clients and 5 projects, the full leads and CRM pipeline, invoicing, and meetings, free forever with no credit card. It’s enough to run your first clients properly instead of from a spreadsheet.',
-      'When you outgrow it, Pro is a launch-priced ₹199/month (up to 20 clients, 40 projects, and 5 team members) and opens the branded client portal to every client. Ultra at ₹799/month removes the limits entirely for when you’re busy enough to think about scaling into a small studio. No per-seat enterprise pricing, no annual lock-in.',
+      'When you outgrow it, Pro is $19/month (₹199 in India) — up to 20 clients, 40 projects, and 5 team members) and opens the branded client portal to every client. Ultra at $39/month (₹799 in India) removes the limits entirely for when you’re busy enough to think about scaling into a small studio. No per-seat enterprise pricing, no annual lock-in.',
     ],
   },
   faqHeading: 'Freelancer FAQs',
   faqs: [
     {
       q: 'What is the best software for freelancers in India?',
-      a: 'The best software for an Indian freelancer handles the whole business, not just one slice — clients, projects, GST invoices, and payments in rupees, at a price that fits a freelance income. Clienter combines all of that in one workspace, starting free and with Pro at a launch price of ₹199/month.',
+      a: 'The best software for an Indian freelancer handles the whole business, not just one slice — clients, projects, GST invoices, and payments in rupees, at a price that fits a freelance income. Clienter combines all of that in one workspace, starting free and with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'How do I manage clients as a freelancer?',

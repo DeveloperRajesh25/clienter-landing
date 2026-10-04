@@ -25,7 +25,7 @@ import {
   Clock,
   type LucideIcon,
 } from 'lucide-react'
-import { APP_URL } from '@/lib/site'
+import { signupUrl, PRIMARY_CTA } from '@/lib/cta'
 import { SiteHeader } from '@/components/marketing/SiteHeader'
 import { SiteFooter } from '@/components/marketing/SiteFooter'
 import { HeroGrid } from '@/components/landing/HeroGrid'
@@ -42,7 +42,7 @@ import { PricingSection } from '@/components/landing/PricingSection'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { DataSecurity } from '@/components/marketing/DataSecurity'
 import { VerifiedReviews } from '@/components/marketing/VerifiedReviews'
-import { pageMetadata, FOUNDER, SOCIALS } from '@/lib/site'
+import { pageMetadata, APP_URL, FOUNDER, SOCIALS } from '@/lib/site'
 import { faqSchema } from '@/lib/structured-data'
 import { HOME_FAQS } from '@/lib/faq-data'
 
@@ -59,21 +59,21 @@ const ClientJourney = dynamic(
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: 'Clienter — Client Management Software for Freelancers & Agencies',
+    // 58 characters. Agencies first, because they are the primary ICP and the
+    // page previously read as freelancer-only.
+    title: 'Client Management Software for Agencies & Freelancers',
     description:
-      'Clienter brings clients, projects, invoices, payments, meetings, and your team into one beautiful workspace. Built for freelancers and agencies everywhere. Start free — no credit card required.',
+      'One workspace for leads, quotes, e-signed contracts, projects, a client portal, invoices and payment tracking. For agencies and freelancers. Start free.',
     path: '/',
     keywords: [
       'client management software',
-      'freelancer CRM',
-      'invoice software for freelancers',
       'agency management software',
-      'GST invoice generator',
-      'freelance business management',
+      'CRM for freelancers',
+      'client portal software',
+      'invoice and payment tracking',
+      'all-in-one agency software',
     ],
   }),
-  // Home uses an absolute title so the brand template suffix isn't appended.
-  title: { absolute: 'Clienter — Client Management Software for Freelancers & Agencies' },
 }
 
 // The scattered stack Clienter replaces — generic categories, no brand names.
@@ -254,21 +254,29 @@ export default function LandingPage() {
                 </Link>
               </Reveal>
               <Reveal>
+                {/* Three H1 variants were written and compared; the reasoning
+                    is in docs/seo-changelog.md. This one leads because it names
+                    the job (the whole client lifecycle) instead of a feeling,
+                    and excludes nobody: an agency of nine and a freelancer with
+                    eight clients both run "every client from first enquiry to
+                    final payment". The old H1 said "your freelance business",
+                    which wrote off the primary ICP in its third word. */}
                 <h1 className="text-balance font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
                   <span className="sr-only">Clienter: </span>
-                  Run your freelance business{' '}
+                  Run every client from first enquiry{' '}
                   <br className="hidden lg:block" />
-                  without the{' '}
+                  to{' '}
                   <span className="text-gradient-brand animate-gradient-pan font-serif-display text-[1.14em] font-normal italic drop-shadow-[0_2px_20px_rgba(249,115,22,0.25)]">
-                    chaos
+                    final payment
                   </span>
                 </h1>
               </Reveal>
 
               <Reveal delay={160}>
                 <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-gray-600 sm:text-base">
-                  Clienter brings your clients, projects, invoices, and team together in one
-                  beautiful place, built for freelancers and agencies.
+                  One login for leads, quotes, e-signed contracts, projects, your client portal,
+                  invoices and payment tracking. Built for agencies and established freelancers,
+                  in about 30 currencies — with GST-compliant invoicing in India.
                 </p>
               </Reveal>
 
@@ -276,10 +284,10 @@ export default function LandingPage() {
                 <div className="mt-10 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
                   {/* Primary — black pill, orange spotlight tracks the cursor on hover */}
                   <SpotlightButton
-                    href={`${APP_URL}/signup`}
+                    href={signupUrl('home', 'home-hero')}
                     className="w-full px-8 py-[15px] text-base font-semibold sm:w-auto"
                   >
-                    Start for free
+                    {PRIMARY_CTA}
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </SpotlightButton>
 
@@ -661,10 +669,10 @@ export default function LandingPage() {
                   <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
                     <Magnetic strength={7} className="w-full sm:w-auto">
                       <a
-                        href={`${APP_URL}/signup`}
+                        href={signupUrl('home', 'home-closing')}
                         className="press focus-ember-dark group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-b from-orange-500 to-orange-600 px-8 py-4 text-base font-semibold text-white shadow-ember transition-all hover:brightness-110 sm:w-auto"
                       >
-                        Create free account
+                        {PRIMARY_CTA}
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                       </a>
                     </Magnetic>

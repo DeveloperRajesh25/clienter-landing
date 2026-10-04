@@ -85,14 +85,14 @@ export const HONEYBOOK_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Priced in rupees, ready for GST',
     body: [
       'This is the honest heart of the comparison. HoneyBook is a paid, USD-priced product; for an Indian creative that converts to a meaningful monthly cost, with no free tier to grow into and no GST invoicing when you need to bill a client properly.',
-      'Clienter starts free forever — up to 3 clients and 5 projects, with the full pipeline, proposals, GST invoicing, and meetings included. Pro is launch-priced at ₹199/month and adds the branded client portal for every client and higher limits, while Ultra at ₹799/month removes limits entirely. Your data exports anytime, so moving in — or back out — is never a trap.',
+      'Clienter starts free forever — up to 3 clients and 5 projects, with the full pipeline, proposals, GST invoicing, and meetings included. Pro is $19/month (₹199 in India) and adds the branded client portal for every client and higher limits, while Ultra at $39/month (₹799 in India) removes limits entirely. Your data exports anytime, so moving in — or back out — is never a trap.',
     ],
   },
   faqHeading: 'HoneyBook alternative FAQs',
   faqs: [
     {
       q: 'What is the best HoneyBook alternative in India?',
-      a: 'For Indian creatives, the best HoneyBook alternative is one that keeps the smooth proposal-to-payment flow but adds GST invoicing and rupee pricing. Clienter does exactly that — proposals with e-signature, GST invoices, projects, payments, and a client portal in one tool, starting free and with Pro at a launch price of ₹199/month.',
+      a: 'For Indian creatives, the best HoneyBook alternative is one that keeps the smooth proposal-to-payment flow but adds GST invoicing and rupee pricing. Clienter does exactly that — proposals with e-signature, GST invoices, projects, payments, and a client portal in one tool, starting free and with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'Is Clienter cheaper than HoneyBook?',

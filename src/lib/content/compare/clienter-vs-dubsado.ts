@@ -39,7 +39,7 @@ export const CLIENTER_VS_DUBSADO: ComparePageConfig = {
     { feature: 'Workflow automation', clienter: 'Lighter, simpler', other: 'Deep and powerful' },
     { feature: 'GST-ready invoicing', clienter: 'Built in', other: 'Not built for India/GST' },
     { feature: 'Projects & budgets', clienter: 'Yes — boards, tasks, budgets', other: 'Lighter project view' },
-    { feature: 'Payments', clienter: 'UPI-friendly, rupee-first', other: 'USD-oriented' },
+    { feature: 'Payments', clienter: 'UPI-friendly, priced in both USD and INR', other: 'USD-oriented' },
     { feature: 'Branded client portal', clienter: 'Built in (1 client on Free, all on Pro & Ultra)', other: 'Yes — client portal' },
     { feature: 'Learning curve', clienter: 'Set up in an afternoon', other: 'Steeper — powerful but complex' },
     { feature: 'Pricing', clienter: 'Free, or Pro ₹199/mo (launch)', other: 'Paid, priced in USD' },
@@ -49,7 +49,7 @@ export const CLIENTER_VS_DUBSADO: ComparePageConfig = {
     'All-in-one: leads, projects with budgets, invoicing, payments, and a portal',
     'Free-forever plan to start (3 clients, 5 projects), no credit card needed',
     'Genuinely simple — set up and usable the same day, no automation-building required',
-    'UPI-friendly, rupee-first billing with a live profit dashboard',
+    'UPI-friendly, priced in both USD and INR billing with a live profit dashboard',
   ],
   clienterCons: [
     'Workflow automation and forms are lighter than Dubsado’s',
@@ -66,14 +66,14 @@ export const CLIENTER_VS_DUBSADO: ComparePageConfig = {
     'Steeper learning curve — the automation is powerful but takes effort to set up',
     'No GST-ready invoicing for Indian tax compliance',
     'Priced in US dollars, with no free-forever plan (a limited trial) — verify current pricing',
-    'Built for the US creative market, not rupee-first Indian billing',
+    'Built for the US creative market, not priced in both USD and INR Indian billing',
   ],
   pricing: {
     heading: 'Pricing: paying for depth vs paying for fit',
     body: [
       'Dubsado is priced in US dollars as a subscription, typically billed monthly or annually, with a limited free trial rather than a free-forever plan — so check its current pricing on its own site. What you are paying for is depth: a powerful automation and forms engine. If you will genuinely use that depth, it can be worth it; if you will not, you are paying for complexity you may not need.',
-      'Clienter is rupee-first. Free is ₹0 forever and covers up to 3 clients and 5 projects with the full pipeline, invoicing, quotations, and meetings. Pro is a launch price of ₹199/month (down from ₹499) for up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client. Ultra is ₹799/month (down from ₹1,999) for unlimited everything.',
-      'The honest summary: if you want to build an intricate, automated client workflow and you bill in dollars, Dubsado earns its price. If you want GST invoicing, rupee pricing, and something you can run today, Clienter’s free plan and ₹199 launch price are the easier call.',
+      'Clienter is priced in both USD and INR. Free is ₹0 forever and covers up to 3 clients and 5 projects with the full pipeline, invoicing, quotations, and meetings. Pro is $19/month (₹199 in India) for up to 20 clients, 40 projects, 5 team members, and the branded client portal for every client. Ultra is $39/month (₹799 in India) for unlimited everything.',
+      'The honest summary: if you want to build an intricate, automated client workflow and you bill in dollars, Dubsado earns its price. If you want GST invoicing, rupee pricing, and something you can run today, Clienter’s free plan and ₹199 price are the easier call.',
     ],
   },
   chooseClienter: {

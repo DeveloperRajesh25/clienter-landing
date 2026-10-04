@@ -111,7 +111,7 @@ export function ToolPage({ config }: { config: ToolConfig }) {
         </div>
       </section>
 
-      <CtaSection title={ctaTitle} subtitle={ctaSubtitle} />
+      <CtaSection title={ctaTitle} subtitle={ctaSubtitle} medium="tool" campaign={path} />
     </PageShell>
   )
 }

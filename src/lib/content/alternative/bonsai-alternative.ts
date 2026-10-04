@@ -85,14 +85,14 @@ export const BONSAI_ALTERNATIVE: AlternativePageConfig = {
     heading: 'Pricing in rupees, not dollars',
     body: [
       'This is the heart of it. Bonsai is a paid, USD-priced product; for an Indian freelancer that converts to a meaningful monthly cost with no free tier to grow into.',
-      'Clienter starts free forever (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings). Pro is a launch-priced ₹199/month and adds the branded client portal for every client and higher limits, while Ultra at ₹799/month removes limits entirely. You can export your data anytime, so switching in — or back out — is never a trap.',
+      'Clienter starts free forever (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings). Pro is $19/month (₹199 in India) and adds the branded client portal for every client and higher limits, while Ultra at $39/month (₹799 in India) removes limits entirely. You can export your data anytime, so switching in — or back out — is never a trap.',
     ],
   },
   faqHeading: 'Bonsai alternative FAQs',
   faqs: [
     {
       q: 'What is the best Bonsai alternative in India?',
-      a: 'For Indian freelancers, the best Bonsai alternative is one that keeps the all-in-one convenience but adds GST invoicing and rupee pricing. Clienter does exactly that — clients, projects, invoices, payments, and a client portal in one tool, starting free and with Pro at a launch price of ₹199/month.',
+      a: 'For Indian freelancers, the best Bonsai alternative is one that keeps the all-in-one convenience but adds GST invoicing and rupee pricing. Clienter does exactly that — clients, projects, invoices, payments, and a client portal in one tool, starting free and with Pro at $19/month (₹199 in India).',
     },
     {
       q: 'Is Clienter cheaper than Bonsai?',

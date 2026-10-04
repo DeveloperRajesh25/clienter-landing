@@ -66,13 +66,13 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     'Paid tiers get expensive quickly for a solo freelancer',
     'No built-in project delivery, GST invoicing, or client portal',
     'Can be far more tool than a one-person business needs',
-    'Not tailored to Indian invoicing or rupee-first pricing',
+    'Not tailored to Indian invoicing or priced in both USD and INR pricing',
   ],
   pricing: {
     heading: 'Pricing: freelancer budget vs team budget',
     body: [
       'HubSpot’s CRM has a well-known free tier, and for a solo user that free CRM can go a long way. The cost question shows up when you need the paid Sales, Marketing, or Service hubs — those are priced for teams and scale up as you add seats and contacts, which can become a serious monthly line item for a one-person business.',
-      'Clienter keeps it simple and rupee-first: a Free plan forever (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings), Pro at a launch price of ₹199/month (up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at ₹799/month for unlimited everything. There is no per-seat sales-team pricing because Clienter is not built for a sales floor.',
+      'Clienter keeps it simple: a Free plan forever (up to 3 clients and 5 projects, full pipeline, invoicing, and meetings), Pro at $19/month (₹199 in India) — up to 20 clients, 40 projects, 5 team members, and the branded portal for every client), and Ultra at $39/month (₹799 in India) for unlimited everything. There is no per-seat sales-team pricing because Clienter is not built for a sales floor.',
       'The honest summary: if you only ever use HubSpot’s free CRM, it costs nothing — but you will still need separate tools for projects, invoicing, and a client portal. Clienter bundles all of that into one low monthly price.',
     ],
   },
@@ -118,7 +118,7 @@ export const CLIENTER_VS_HUBSPOT: ComparePageConfig = {
     },
     {
       q: 'Which is cheaper, Clienter or HubSpot?',
-      a: 'Both have a free option. The difference is what you get: HubSpot’s free tier is a CRM only, so you add tools (and cost) for projects and invoicing. Clienter’s paid plans start at a launch price of ₹199/month and already include projects, invoicing, and a client portal, so for an all-in-one setup Clienter is usually the more affordable path.',
+      a: 'Both have a free option. The difference is what you get: HubSpot’s free tier is a CRM only, so you add tools (and cost) for projects and invoicing. Clienter’s paid plans start at $19/month (₹199 in India) and already include projects, invoicing, and a client portal, so for an all-in-one setup Clienter is usually the more affordable path.',
     },
   ],
   related: [
