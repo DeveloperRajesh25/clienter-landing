@@ -211,3 +211,39 @@ carry a line that is true of the specific comparison.
 
 **Explicitly not done:** no data transfer from any tool into the app, as instructed — the tools remain
 entirely client-side. No country pages; the decision is argued in `docs/content-plan.md`.
+
+## Phase 6 — Measurement & launch prep ✅
+
+**Files added:** `src/lib/analytics.ts`, `docs/analytics-plan.md`,
+`docs/search-console-checklist.md`, `docs/directory-kit.md`.
+
+1. **A consent-safe event layer.** `track()` checks *both* that `readConsent()?.analytics ===
+   'granted'` and that `window.gtag` exists before sending. Nothing is queued, retried or stored for
+   later, so a visitor who refuses leaves no trace. The double check matters because withdrawing
+   consent leaves the already-loaded script in the page until navigation.
+   Six events in a closed vocabulary: `signup_click`, `cta_click`, `tool_use`, `qualifier_answer`,
+   `source_link_click`, `template_copy`. Every parameter is a constrained identifier — nothing a
+   visitor typed is ever a parameter value, because an analytics payload is where personal data leaks
+   by accident.
+2. **Deliberately not wired up.** `analytics.ts` is not called from any component yet. Renaming an
+   event after collection starts splits the history, so the vocabulary should be reviewed before it is
+   scattered across twenty files. `docs/analytics-plan.md` §3 lists the five call sites and the one
+   rule: fire and forget, never in the path of the user's action.
+3. **UTM handoff documented**, including the four things that must be true in the **app** repo for it
+   to work — chiefly that `/signup` must not strip the query string on its first redirect, which is
+   the most common way attribution silently fails. All four are in `docs/needs-owner-input.md`.
+4. **`docs/search-console-checklist.md`**: one-time setup (domain property, both sitemaps, Bing
+   import, the verification-token slot that already exists in `layout.tsx`), validation steps, a
+   five-minute weekly routine, the baseline readings to capture **before** deploying, and a table of
+   what to watch per change with the expected direction. It states plainly that de-Indianising eight
+   comparison titles may cost India impressions before it gains anything elsewhere, so a week-two dip
+   is not mistaken for a broken deploy.
+5. **`docs/directory-kit.md`**: a 12-point readiness check that found **four blockers** (no product
+   screenshots, no logo variants, no published postal address, and social URLs that `site.ts` itself
+   flags as best guesses), four tiers of directory ordered by return per hour, ready-to-paste copy at
+   three lengths, positioning variants per directory type, the required-facts list, and a UTM
+   convention.
+
+**Nothing was submitted anywhere, and no account was created**, as instructed. The sitemap is **152
+URLs** after this branch, down from 162 — the 14 thin archives left and 3 plural alternatives pages
+and a handful of other additions arrived.
