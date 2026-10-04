@@ -30,6 +30,13 @@ export function BlogPostLayout({
 
   return (
     <PageShell>
+      {post.draft && (
+        <div className="border-b border-amber-300/70 bg-amber-50 px-4 py-3 text-center text-sm text-amber-900">
+          <strong className="font-semibold">Draft — not published.</strong> This post is here to be
+          reviewed. It is marked noindex, is not in the sitemap, and is not linked from the blog or
+          anywhere else on the site.
+        </div>
+      )}
       <JsonLd
         data={[
           articleSchema({

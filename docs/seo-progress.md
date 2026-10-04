@@ -125,3 +125,38 @@ globalisation sweep over 23 comparison and alternative configs.
 **Not done:** no new singular comparison pages (the brief forbade them). The 23 unverified pages were
 not re-dated. `/alternatives/honeybook-alternative-india` keeps its slug: renaming it would need a 301
 and "honeybook alternative india" is a genuine query that deserves its own page.
+
+## Phase 4 — Content & AI search ✅
+
+**Files added:** `docs/content-plan.md`, six draft posts under
+`src/lib/content/blog/posts/`.
+**Files changed:** `blog/_type.ts`, `blog.ts`, `blog/[slug]/page.tsx`, `seo/metadata.ts`,
+`seo/routes.ts`, `BlogPostLayout.tsx`, all five published posts.
+
+1. **Draft infrastructure.** A `draft` flag on `BlogPost`. A draft renders at its URL so it can be
+   read and reviewed, and is invisible everywhere else: `noindex`, absent from the sitemap, the blog
+   index, category and tag archives, RSS and related-posts, with a visible draft banner. Verified in
+   the build output: the sitemap lists 5 blog URLs, `rss.xml` and `blog.html` contain no draft slug,
+   and a draft page ships `robots: noindex, follow`.
+   The design point: keeping finished writing in a branch is how drafts die, so they ship to production
+   invisible instead.
+2. **Six drafts written** (~2,000–2,600 words each): client onboarding process, preventing scope creep,
+   writing a proposal that wins, handling late-paying clients, what is a client portal, agency pricing
+   models. Answer-first intros, question-shaped H2s, comparison tables, visible FAQs that are also in
+   `FAQPage` schema, a named author, no invented statistics, and each one states plainly what Clienter
+   does not do (no time tracking, no payment processing).
+3. **All five published posts expanded in place**, each with `updated: '2026-10-04'` so `dateModified`
+   and the sitemap `lastmod` are real. The biggest change is the "15 channels" post: each channel had
+   one line inside an `<ol>` — a list of names rather than a guide — and now has a paragraph on what it
+   is for, how long it takes, and what makes it work, plus a table answering the actual question
+   ("which two should I pick") and a section on measuring which channel converts.
+4. **`docs/content-plan.md`**: nine clusters mapped to funnel stage and a commercial destination, with
+   status and priority per query, a writing order, the AI-citation house style, and the country-page
+   decision argued in full.
+
+**Explicitly stated, not hidden:** search volumes are unverified. No keyword tool is available in this
+environment and inventing numbers would be worse than having none, so every priority in the plan is a
+judgement from query shape and commercial intent. The document says so at the top.
+
+**Not done:** `llms-full.txt` (logged in `docs/needs-owner-input.md`). The three India-specific
+published posts were expanded but not duplicated into worldwide siblings — that is in the writing order.

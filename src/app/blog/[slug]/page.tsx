@@ -2,10 +2,12 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { BlogPostLayout } from '@/components/marketing/BlogPostLayout'
 import { buildArticleMetadata } from '@/lib/seo/metadata'
-import { BLOG_POSTS, BLOG_BY_SLUG, readingMinutes, relatedPosts } from '@/lib/content/blog'
+import { ALL_BLOG_POSTS, BLOG_BY_SLUG, readingMinutes, relatedPosts } from '@/lib/content/blog'
 
+// ALL_BLOG_POSTS, not BLOG_POSTS: a draft's page has to be buildable so it can be
+// reviewed at its URL. It is noindex and linked from nowhere (see generateMetadata).
 export function generateStaticParams() {
-  return BLOG_POSTS.map((p) => ({ slug: p.slug }))
+  return ALL_BLOG_POSTS.map((p) => ({ slug: p.slug }))
 }
 
 export const dynamicParams = false
@@ -21,6 +23,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     publishedTime: post.date,
     modifiedTime: post.updated ?? post.date,
     authors: [post.author],
+    // A draft is readable at its URL and invisible to search. It is also absent
+    // from the sitemap (lib/seo/routes.ts) and from every index and feed.
+    noindex: post.draft,
   })
 }
 

@@ -33,6 +33,8 @@ export function buildArticleMetadata(opts: {
   modifiedTime?: string
   authors?: string[]
   image?: string
+  /** Draft posts: readable at their URL, invisible to search. */
+  noindex?: boolean
 }): Metadata {
   const base = pageMetadata({
     title: opts.title,
@@ -41,6 +43,7 @@ export function buildArticleMetadata(opts: {
     keywords: opts.keywords,
     image: opts.image,
     ogType: 'article',
+    noindex: opts.noindex,
   })
   return {
     ...base,

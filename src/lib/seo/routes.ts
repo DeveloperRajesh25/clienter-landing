@@ -115,6 +115,8 @@ const ALTERNATIVE_ROUTES: RouteEntry[] = ALTERNATIVE_PAGES.map((p) => ({
 // sitemap's 162 URLs and all of them thin. They are noindex,follow in their
 // route files and stay internally linked, so crawlers still reach the posts
 // through them. Add them back when a category holds ~8 posts.
+// BLOG_POSTS excludes drafts by construction (see lib/content/blog.ts), so draft
+// posts never reach the sitemap. Do not swap this for ALL_BLOG_POSTS.
 const BLOG_ROUTES: RouteEntry[] = [
   { path: '/blog', priority: 0.8, changeFrequency: 'weekly' },
   ...BLOG_POSTS.map((p) => ({

@@ -4,6 +4,13 @@ import { POST as BEST_SOFTWARE } from './blog/posts/best-client-management-softw
 import { POST as GET_CLIENTS } from './blog/posts/how-to-get-freelance-clients-in-india'
 import { POST as INVOICE_FORMAT } from './blog/posts/freelance-invoice-format-india'
 import { POST as RETAINERS } from './blog/posts/monthly-retainers-vs-project-pricing'
+// Drafts — written, unlinked, noindex, out of the sitemap. See `draft` in _type.ts.
+import { POST as CLIENT_ONBOARDING } from './blog/posts/client-onboarding-process'
+import { POST as SCOPE_CREEP } from './blog/posts/how-to-prevent-scope-creep'
+import { POST as PROPOSAL_THAT_WINS } from './blog/posts/how-to-write-a-proposal-that-wins'
+import { POST as LATE_PAYING_CLIENTS } from './blog/posts/how-to-handle-late-paying-clients'
+import { POST as CLIENT_PORTAL_GUIDE } from './blog/posts/what-is-a-client-portal'
+import { POST as AGENCY_PRICING_MODELS } from './blog/posts/agency-pricing-models'
 
 export type { BlogPost }
 
@@ -11,16 +18,31 @@ export type { BlogPost }
  * All blog posts, newest first. Each post lives in its own file under
  * ./blog/posts/ and is registered here. Adding an article = one file + one line.
  */
-export const BLOG_POSTS: BlogPost[] = [
+/**
+ * Every post, drafts included. Only the `[slug]` route and `generateStaticParams`
+ * should use this — everything that LISTS posts must use `BLOG_POSTS`, which
+ * excludes drafts.
+ */
+export const ALL_BLOG_POSTS: BlogPost[] = [
   MANAGE_CLIENTS,
   BEST_SOFTWARE,
   GET_CLIENTS,
   INVOICE_FORMAT,
   RETAINERS,
+  CLIENT_ONBOARDING,
+  SCOPE_CREEP,
+  PROPOSAL_THAT_WINS,
+  LATE_PAYING_CLIENTS,
+  CLIENT_PORTAL_GUIDE,
+  AGENCY_PRICING_MODELS,
 ].sort((a, b) => (a.date < b.date ? 1 : -1))
 
+/** Published posts — the list every index, archive, feed and related block uses. */
+export const BLOG_POSTS: BlogPost[] = ALL_BLOG_POSTS.filter((p) => !p.draft)
+
+/** Drafts are resolvable by slug so their page renders for review. */
 export const BLOG_BY_SLUG: Record<string, BlogPost> = Object.fromEntries(
-  BLOG_POSTS.map((p) => [p.slug, p]),
+  ALL_BLOG_POSTS.map((p) => [p.slug, p]),
 )
 
 /** Categories, with descriptions for the archive pages. */

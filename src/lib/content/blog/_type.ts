@@ -40,6 +40,19 @@ export type BlogPost = {
   /** Featured on the blog index (first featured post is the hero). */
   featured?: boolean
 
+  /**
+   * A DRAFT. The post renders at its URL so it can be read and reviewed, and is
+   * invisible everywhere else: noindex, absent from the sitemap, absent from the
+   * blog index, from category and tag archives, from RSS, and from the "related
+   * posts" block. A draft banner appears at the top of the page.
+   *
+   * Nothing is lost by shipping a draft to production this way, and the
+   * alternative — keeping finished writing in a branch — is how drafts die. To
+   * publish one: delete this flag, set `date` to the publication date, and add a
+   * link to it from somewhere relevant.
+   */
+  draft?: boolean
+
   /** Opening paragraph — primary keyword must appear in the first 100 words. */
   intro: string
   body: BlogBlock[]
