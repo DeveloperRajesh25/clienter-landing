@@ -162,7 +162,7 @@ const SECURITY_FAQS = [
   },
   {
     q: 'How are payments handled?',
-    a: 'Payments are processed by Razorpay, a PCI-DSS compliant provider. We never see or store your full card details on our servers — sensitive payment information stays with the payment processor.',
+    a: 'Payments are processed by Razorpay in India and PayPal elsewhere, both PCI-DSS compliant providers. We never see or store your full card details on our servers — sensitive payment information stays with the payment processor.',
   },
 ]
 
@@ -382,11 +382,11 @@ export default function SecurityPage() {
                   Card details never touch our servers
                 </h2>
                 <p className="mt-3 text-[15px] leading-relaxed text-gray-600">
-                  Payments are processed by Razorpay, a PCI-DSS compliant provider. We never see or
+                  Payments are processed by Razorpay in India and PayPal elsewhere. We never see or
                   store your full card details — sensitive information stays with the processor.
                 </p>
                 <ul className="mt-6 space-y-3">
-                  {['PCI-DSS compliant processing', 'Full card numbers never stored by us', 'Handled entirely by Razorpay'].map(
+                  {['PCI-DSS compliant processing', 'Full card numbers never stored by us', 'Handled entirely by Razorpay or PayPal'].map(
                     (p) => (
                       <li key={p} className="flex items-center gap-3 text-[15px] text-gray-700">
                         <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-orange-100 text-orange-600">
@@ -431,7 +431,7 @@ export default function SecurityPage() {
                           <span className="text-gray-600">4242</span>
                         </div>
                         <div className="mt-4 flex items-center justify-between border-t border-dashed border-stone-300 pt-3 text-[11px] text-gray-400">
-                          <span>Processed by Razorpay</span>
+                          <span>Processed by Razorpay / PayPal</span>
                           <span className="inline-flex items-center gap-1 font-semibold text-gray-500">
                             <EyeOff className="h-3 w-3" /> Never stored by Clienter
                           </span>

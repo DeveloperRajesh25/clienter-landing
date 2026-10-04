@@ -59,10 +59,10 @@ export default function TermsPage() {
 
       <h2>5. Plans, billing, and cancellation</h2>
       <ul>
-        <li>{SITE_NAME} offers a free plan and paid plans (Pro and Ultra) billed monthly in Indian Rupees.</li>
-        <li>Paid subscriptions are processed by Razorpay and renew automatically each month until cancelled.</li>
+        <li>{SITE_NAME} offers a free plan and paid plans (Pro and Ultra) billed monthly — in Indian Rupees for customers in India, and in US Dollars for customers elsewhere.</li>
+        <li>Paid subscriptions are processed by Razorpay (INR) or PayPal (USD), according to the billing region you choose at your first checkout, and renew automatically each month until cancelled.</li>
         <li>You can upgrade, downgrade, or cancel at any time from your billing settings. Cancellation stops future charges; you retain access until the end of the current billing period.</li>
-        <li>Applicable taxes (such as GST) may be added to the listed prices.</li>
+        <li>Applicable taxes (such as GST in India) may be added to the listed prices.</li>
         <li>
           Charges already made are non-refundable. Please review our{' '}
           <Link href="/refund">Refund &amp; Cancellation Policy</Link> for full details.

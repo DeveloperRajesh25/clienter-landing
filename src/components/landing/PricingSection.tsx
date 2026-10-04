@@ -341,7 +341,7 @@ export function PricingSection() {
         </div>
 
         <Reveal className="mt-9 flex flex-col items-center gap-4 text-center">
-          <p className="text-[13px] text-gray-500">All prices in INR, billed monthly.</p>
+          <p className="text-[13px] text-gray-500">Billed monthly — in USD worldwide, or INR in India.</p>
           <Link
             href="/pricing"
             className="focus-ember group inline-flex items-center gap-2 rounded-full text-sm font-bold uppercase tracking-[0.14em] text-gray-500 transition-colors hover:text-orange-600"

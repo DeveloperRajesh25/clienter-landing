@@ -39,7 +39,7 @@ environment or the figures were misremembered. Worth knowing which, because if `
 5/10 and 30/60, then the site has been wrong for months and the fix is in the app's direction, not
 this repo's.
 
-### 1.2 PayPal: live, or not yet?
+### 1.2 PayPal: live, or not yet? — RESOLVED 4 October 2026
 
 Three sources disagree, and one of them is a legal document:
 
@@ -49,7 +49,11 @@ Three sources disagree, and one of them is a legal document:
 - **`/privacy`, the table of processors:** "PayPal — Processing payments for international customers…
   **Integration in progress — not yet live.**"
 
-I have taken PayPal as live, because the brief and the live pricing FAQ both say so, and Phase 2 built
+**Resolved: the owner confirmed PayPal is live and taking payments, and that the product is open to
+international subscribers.** `/privacy`, `/terms`, `/refund`, `/cookies`, `/security` and the homepage
+pricing slab were updated to match. The text below is kept as the record of what was wrong.
+
+I had taken PayPal as live, because the brief and the live pricing FAQ both said so, and Phase 2 built
 the USD pricing on that basis. **If it is not live, `/pricing` is now promising a checkout that does
 not exist** — which is a worse problem than the one I fixed. Tell me and I will put it behind a
 "coming soon" or revert the USD display. Either way `/privacy` needs correcting to match.

@@ -209,8 +209,8 @@ export default function PrivacyPage() {
             </tr>
             <tr>
               <td><strong>PayPal</strong></td>
-              <td>Processing payments for international customers, where Razorpay is not available. Integration in progress — not yet live.</td>
-              <td>Same as Razorpay: your billing identifiers and the payment details you enter into their checkout.</td>
+              <td>Processing subscription payments for customers outside India, in US Dollars.</td>
+              <td>Your name, email, payment amount, and the payment details you enter directly into their checkout — which never pass through us.</td>
             </tr>
             <tr>
               <td><strong>Resend</strong></td>

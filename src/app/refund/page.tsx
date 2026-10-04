@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMetadata({
 })
 
 // NOTE(owner): Reflects the "no refunds, cancel anytime" stance chosen for
-// launch. Razorpay requires a published refund/cancellation policy. Not legal
+// launch. Razorpay (and PayPal) expect a published refund/cancellation policy. Not legal
 // advice — review before launch.
 export default function RefundPage() {
   return (
@@ -29,9 +29,10 @@ export default function RefundPage() {
 
       <h2>2. Paid subscriptions</h2>
       <p>
-        Paid plans (Pro and Ultra) are billed <strong>monthly in advance</strong> in Indian Rupees
-        through our payment partner, Razorpay. Your subscription renews automatically each month
-        until you cancel it.
+        Paid plans (Pro and Ultra) are billed <strong>monthly in advance</strong> — in Indian Rupees
+        through our payment partner Razorpay for customers in India, or in US Dollars through PayPal
+        for customers elsewhere. Your billing region is set at your first checkout. Your
+        subscription renews automatically each month until you cancel it.
       </p>
 
       <h2>3. Cancellation — you’re in control</h2>
@@ -72,8 +73,9 @@ export default function RefundPage() {
       <p>
         To cancel, manage your plan, or raise a billing issue, email{' '}
         <a href={`mailto:${CONTACT.support}`}>{CONTACT.support}</a> with your account email and the
-        details of your request. Approved refunds are processed back to your original payment method
-        via Razorpay, typically within 5–10 business days. If you’re not satisfied with how a billing
+        details of your request. Approved refunds are returned to your original payment method
+        through the processor you paid with (Razorpay or PayPal); how long they take to arrive
+        depends on that processor and your bank. If you’re not satisfied with how a billing
         issue is handled, you can escalate it to our Grievance Officer
         ({LEGAL.grievanceOfficer.name}) at{' '}
         <a href={`mailto:${LEGAL.grievanceOfficer.email}`}>{LEGAL.grievanceOfficer.email}</a>.
