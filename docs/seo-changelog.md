@@ -424,3 +424,42 @@ India has dropped and nothing else has risen, the reversible move is to put Indi
 lot.
 
 **No ranking promises are made anywhere in this document, and none should be.**
+
+---
+
+## Post-deploy verification (4 October 2026)
+
+`main` was fast-forwarded to `e89fc55` and pushed at the owner's request; Vercel deployed in about two
+minutes. Verified against the live site, not the build:
+
+| Check | Result |
+|---|---|
+| `<html lang>` | `en` ✅ |
+| `og:locale` | `en_US` ✅ |
+| Homepage `<title>` | `Client Management Software for Agencies & Freelancers` (52) ✅ |
+| `/pricing` `<title>` | `Pricing — Free Forever, Pro from $19/mo · Clienter` (49) ✅ |
+| `₹499` / `₹1,999` / "Launch Offer" anywhere on `/pricing` | 0 ✅ |
+| `/pricing` shows both currencies | `$19`, `$39`, `₹199`, `₹799` all present ✅ |
+| `Product` schema currencies | 7 × INR **and** 7 × USD ✅ |
+| Sitemap | 152 URLs, 0 tag/category archives ✅ |
+| Draft post `/blog/agency-pricing-models` | `noindex, follow`; absent from sitemap, RSS and `/blog` ✅ |
+| 3 new plural alternatives pages | all 200 ✅ |
+| Signup links | all carry `utm_source=site&utm_medium=…&utm_campaign=…` ✅ |
+| H1 count | 173 built pages, every one has exactly 1 ✅ |
+| Titles over 60 chars | 0 of 173 ✅ |
+| `www` → apex redirect | ⚠️ **307 Temporary, not 301/308** — see below |
+
+### The one thing that came back wrong
+
+`https://www.clienter.co.in/pricing` answers **307 Temporary Redirect**, not a permanent one, and the
+`x-vercel-id` header shows it is Vercel's edge answering before the application runs — so the
+`permanent: true` redirect in `next.config.js` never executes for the `www` host.
+
+**This was pre-existing, not caused by this branch** — but the Phase 0 audit claimed "301, confirmed
+live" on the strength of reading the config rather than requesting the host, which was my error. The
+audit is corrected at `docs/seo-audit-2026-10.md` §3.1 and the fix (a Vercel dashboard setting, not a
+code change) is at `docs/needs-owner-input.md` §1.4.
+
+Practical impact is limited: every page carries a self-referencing `rel="canonical"` pointing at the
+apex, and Google honours that, so this is a weaker signal rather than a broken one. It should still be
+changed to permanent, because host canonicalisation is precisely what a permanent redirect is for.

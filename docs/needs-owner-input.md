@@ -71,7 +71,39 @@ From the readiness check in `docs/directory-kit.md`:
    they feed `Organization.sameAs`. A wrong or empty profile in structured data is worse than no social
    links at all. Please confirm or correct them.
 
-### 1.4 Google Search Console
+### 1.4 The `www` redirect is a 307, and it is a dashboard setting
+
+Found by testing the live site after deploying — and it is a correction to my own Phase 0 audit, which
+claimed "301, confirmed live" on the strength of reading `permanent: true` in `next.config.js`
+rather than actually requesting the host. Apologies for that; it is fixed in
+`docs/seo-audit-2026-10.md` §3.1.
+
+```
+$ curl -sI https://www.clienter.co.in/pricing
+HTTP/1.1 307 Temporary Redirect
+location: https://clienter.co.in/pricing
+x-vercel-id: sin1::…
+```
+
+**What this means.** A 307 is a *temporary* redirect, so it does not consolidate ranking signals onto
+the apex the way a 301 or 308 does. The practical harm is limited, because every page carries a
+self-referencing `rel="canonical"` pointing at the apex and Google honours that — so this is a weaker
+signal rather than a broken one. Worth fixing anyway, since host canonicalisation is exactly what a
+permanent redirect is for.
+
+**Where to fix it.** Not in this repo. The `x-vercel-id` header and the plain-text response body show
+Vercel's own domain-level redirect answering at the edge, before the application runs. In the Vercel
+dashboard: **Project → Settings → Domains → `www.clienter.co.in`** → change the redirect from
+temporary to **permanent (308)**.
+
+**A knock-on worth knowing.** Because Vercel intercepts `www` at the edge, the `redirects()` block
+in `next.config.js` never runs for it. The comment above that block says "To flip to www later,
+reverse the host value and destination here and update `SITE_URL` … that's the only change needed."
+That is **not true** — the dashboard setting would have to change as well. I have not edited that
+comment, because the code it describes is correct in itself and I would rather you saw the whole
+picture than have it quietly reworded.
+
+### 1.5 Google Search Console
 
 Not verified, and I cannot verify it — it needs an account. `src/app/layout.tsx` has the commented
 slot ready:
@@ -81,7 +113,14 @@ slot ready:
 ```
 
 Everything in `docs/search-console-checklist.md` §1 is waiting on this, including the baseline
-readings that make this whole overhaul measurable. **Take the baseline before you deploy.**
+readings that make this whole overhaul measurable.
+
+**Note on timing, since the branch is now deployed.** The checklist said to take the baseline *before*
+deploying, and that is no longer possible — main was merged and pushed at your request and Vercel
+deployed it. Search Console keeps 16 months of history, so you can still read the pre-deploy period
+retrospectively once the property is verified: filter to the 28 days ending 3 October 2026 and treat
+that as the baseline. GA4 data before verification is not recoverable, but the consent-gated GA4
+property already existed, so its history should be intact.
 
 ---
 

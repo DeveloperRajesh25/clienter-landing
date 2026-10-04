@@ -141,6 +141,35 @@ One residual risk worth recording, which belongs to the app, not this repo: the 
 `team…`, `settings…`, `projects…` or `clients…` would be blocked by these prefixes. Logged in
 `docs/needs-owner-input.md`.
 
+### 3.1 Correction — the www redirect is a 307, not a 301
+
+**I got this wrong in the first version of this audit.** I read `permanent: true` in
+`next.config.js` and wrote "301, confirmed live" without ever requesting the `www` host. Testing it
+after deploying:
+
+```
+$ curl -sI https://www.clienter.co.in/pricing
+HTTP/1.1 307 Temporary Redirect
+location: https://clienter.co.in/pricing
+x-vercel-id: sin1::…
+```
+
+Two things follow:
+
+1. **The redirect is temporary, not permanent.** A 307 does not consolidate ranking signals onto the
+   apex the way a 301 or 308 does. In practice the damage is limited — the self-referencing
+   `rel="canonical"` on every page points at the apex, and Google honours that — so this is a weaker
+   signal rather than a broken one. It should still be fixed.
+2. **The Next.js redirect never runs for `www`.** The `x-vercel-id` header and the plain-text body
+   show this is Vercel's own domain-level redirect, configured in the dashboard, answering at the edge
+   before the application is reached. So the `redirects()` block in `next.config.js` is effectively
+   dead code for this case, and the comment above it — "To flip to www later, reverse the host value
+   and destination here … that's the only change needed" — is **wrong**. The dashboard would have to
+   change too.
+
+Fixing it is a dashboard setting, not a code change, so it is in
+`docs/needs-owner-input.md` §1.5 rather than in this branch.
+
 ---
 
 ## 3. Crawlability and indexation
@@ -150,7 +179,7 @@ One residual risk worth recording, which belongs to the app, not this repo: the 
 | `robots.txt` | Present, `Allow: /`, 20 app/auth prefixes disallowed, both sitemaps declared, `Host` set. No landing URL blocked. |
 | `sitemap.xml` | 162 URLs, all on `https://clienter.co.in`, registry-driven from the same configs the pages render from. |
 | Second sitemap | `/profiles-sitemap.xml` proxied from the app. Declared in `robots.txt`. Out of scope for this repo. |
-| Canonical host | One. `www → non-www` 301 in `next.config.js`. Confirmed live. |
+| Canonical host | One. **Corrected 2026-10-04 after deploying — see below.** `next.config.js` declares a permanent `www → non-www` redirect, but the live `www` host answers **307 Temporary Redirect** from Vercel's edge, which fires *before* the Next.js config. The destination is right; the status code is not. |
 | Canonicals | Self-referencing on every one of the 162 URLs. Zero mismatches. |
 | HTTPS | Everywhere. HSTS `max-age=63072000; includeSubDomains; preload`. |
 | Trailing slash | Consistent (none). |
