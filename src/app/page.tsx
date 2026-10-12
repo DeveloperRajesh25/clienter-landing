@@ -254,20 +254,19 @@ export default function LandingPage() {
                 </Link>
               </Reveal>
               <Reveal>
-                {/* Three H1 variants were written and compared; the reasoning
-                    is in docs/seo-changelog.md. This one leads because it names
-                    the job (the whole client lifecycle) instead of a feeling,
-                    and excludes nobody: an agency of nine and a freelancer with
-                    eight clients both run "every client from first enquiry to
-                    final payment". The old H1 said "your freelance business",
-                    which wrote off the primary ICP in its third word. */}
+                {/* Short on purpose: it has to say what Clienter is in one glance —
+                    the CRM and operating system an agency runs its business on.
+                    Two lines at lg: line one says what it is, line two who it runs.
+                    The sub-line below carries the detail (lifecycle, currencies,
+                    GST). Earlier long H1 variants are discussed in
+                    docs/seo-changelog.md. */}
                 <h1 className="text-balance font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
                   <span className="sr-only">Clienter: </span>
-                  Run every client from first enquiry{' '}
+                  The CRM &amp; operating system{' '}
                   <br className="hidden lg:block" />
-                  to{' '}
+                  that runs your{' '}
                   <span className="text-gradient-brand animate-gradient-pan font-serif-display text-[1.14em] font-normal italic drop-shadow-[0_2px_20px_rgba(249,115,22,0.25)]">
-                    final payment
+                    agency
                   </span>
                 </h1>
               </Reveal>

@@ -4,6 +4,7 @@ import { PageShell } from '@/components/marketing/PageShell'
 import { CtaSection } from '@/components/marketing/CtaSection'
 import { Faq } from '@/components/landing/Faq'
 import { Reveal } from '@/components/landing/Reveal'
+import { PreferredSourceLink } from '@/components/marketing/PreferredSourceLink'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { BlogContent } from '@/components/marketing/BlogContent'
 import { articleSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
@@ -145,6 +146,15 @@ export function BlogPostLayout({
             </div>
           </section>
         )}
+
+        {/* Google Preferred Sources — after the reader has finished the article. */}
+        <aside className="mt-14 flex flex-col gap-3 rounded-2xl border border-stone-200/70 bg-white/60 p-5 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-gray-600">
+            <span className="font-semibold text-gray-900">Found this useful?</span> Pick Clienter as a
+            preferred source and Google shows you more of our guides in Top Stories.
+          </p>
+          <PreferredSourceLink className="shrink-0 self-start sm:self-auto" />
+        </aside>
 
         {/* Related links */}
         {post.related.length > 0 && (

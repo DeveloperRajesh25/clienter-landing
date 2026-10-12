@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Instagram, Youtube, Linkedin, Twitter } from 'lucide-react'
 import { FOOTER_NAV, SOCIALS, SITE_NAME, FOUNDER, LEGAL } from '@/lib/site'
 import { CookiePreferencesButton } from './CookiePreferencesButton'
+import { PreferredSourceLink } from './PreferredSourceLink'
 
 const SOCIAL_ICONS = [
   { href: SOCIALS.instagram, label: 'Instagram', Icon: Instagram },
@@ -75,6 +76,9 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
               ))}
             </div>
             <div className="mt-6">
+              <PreferredSourceLink dark={dark} />
+            </div>
+            <div className="mt-4">
               <a
                 href="https://www.producthunt.com/products/clienter/launches/clienter?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-clienter"
                 target="_blank"
