@@ -1,7 +1,13 @@
 import Link from 'next/link'
 import { ArrowRight, Check } from 'lucide-react'
 import { signupUrl } from '@/lib/cta'
-import { PLAN_PRICE_BY_NAME, formatInr, formatUsd } from '@/lib/pricing'
+import { PLAN_PRICE_BY_NAME } from '@/lib/pricing'
+import {
+  BillingRegionProvider,
+  RegionToggle,
+  PriceAmount,
+  PriceNote,
+} from '@/components/marketing/BillingRegion'
 import { Reveal } from './Reveal'
 import { SectionLabel } from './SectionLabel'
 
@@ -221,7 +227,7 @@ function PlanColumn({ plan, index }: { plan: Plan; index: number }) {
         <div className="mt-8 flex min-h-[5.25rem] flex-col justify-end">
           <div className="flex items-baseline gap-2">
             <span className="font-display text-[3.25rem] font-bold leading-none tracking-[-0.04em] text-gray-900 tabular-nums">
-              {formatUsd(price)}
+              <PriceAmount price={price} />
             </span>
             <span className="text-sm font-medium text-gray-400">/month</span>
           </div>
@@ -231,15 +237,15 @@ function PlanColumn({ plan, index }: { plan: Plan; index: number }) {
               struck "was ₹499" reference price that used to sit here was
               removed — nothing substantiates it. */}
           <div className="mt-4 flex h-4 items-center gap-2.5 text-[12px] leading-none">
-            {price.usd === 0 ? (
-              <span className="font-medium uppercase tracking-[0.16em] text-stone-400">
-                Free forever
-              </span>
-            ) : (
-              <span className="font-medium text-stone-500 tabular-nums">
-                {formatInr(price)}/month billing in India
-              </span>
-            )}
+            <PriceNote
+              price={price}
+              freeText="Free forever"
+              className={
+                price.usd === 0
+                  ? 'font-medium uppercase tracking-[0.16em] text-stone-400'
+                  : 'font-medium text-stone-500'
+              }
+            />
           </div>
         </div>
 
@@ -310,7 +316,11 @@ export function PricingSection() {
           </Reveal>
         </div>
 
-        <div className="relative mt-14 sm:mt-16">
+        <BillingRegionProvider>
+        <div className="mt-8 flex justify-center">
+          <RegionToggle />
+        </div>
+        <div className="relative mt-8 sm:mt-10">
           {/* Ticks pinning the plate's corners — a drafting detail that makes
               the plate feel placed rather than dropped. */}
           <CornerMark className="-left-1.5 -top-1.5 hidden sm:block" />
@@ -339,6 +349,7 @@ export function PricingSection() {
             </div>
           </div>
         </div>
+        </BillingRegionProvider>
 
         <Reveal className="mt-9 flex flex-col items-center gap-4 text-center">
           <p className="text-[13px] text-gray-500">Billed monthly — in USD worldwide, or INR in India.</p>

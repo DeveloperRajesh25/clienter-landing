@@ -11,7 +11,13 @@ import { JsonLd } from '@/components/marketing/JsonLd'
 import { DataSecurity } from '@/components/marketing/DataSecurity'
 import { pageMetadata } from '@/lib/site'
 import { signupUrl } from '@/lib/cta'
-import { PLAN_PRICE_BY_NAME, formatInr, formatUsd } from '@/lib/pricing'
+import { PLAN_PRICE_BY_NAME } from '@/lib/pricing'
+import {
+  BillingRegionProvider,
+  RegionToggle,
+  PriceAmount,
+  PriceNote,
+} from '@/components/marketing/BillingRegion'
 import { breadcrumbSchema, pricingProductSchema, faqSchema } from '@/lib/structured-data'
 
 export const metadata: Metadata = pageMetadata({
@@ -359,19 +365,12 @@ function PlanCard({ plan }: { plan: Plan }) {
           indexable and neither needs JavaScript to appear. */}
       <div className="mt-6 flex items-baseline gap-2">
         <span className="font-display text-5xl font-extrabold tracking-tight text-gray-900">
-          {formatUsd(price)}
+          <PriceAmount price={price} />
         </span>
         <span className="text-gray-500">/month</span>
       </div>
       <p className="mt-2 text-[13px] font-medium text-gray-500">
-        {price.usd === 0 ? (
-          'Free forever — no credit card'
-        ) : (
-          <>
-            {formatInr(price)}/month if you bill in India{' '}
-            <span className="text-gray-400">· not a conversion, the actual INR price</span>
-          </>
-        )}
+        <PriceNote price={price} freeText="Free forever — no credit card" />
       </p>
 
       <p className="mt-4 text-[13px] leading-relaxed text-gray-500">{plan.bestFor}</p>
@@ -451,7 +450,11 @@ export default function PricingPage() {
       />
 
       {/* Plan cards */}
+      <BillingRegionProvider>
       <section className="mx-auto mt-14 max-w-6xl px-4 sm:mt-16 sm:px-6 lg:px-8">
+        <div className="mb-10 flex justify-center">
+          <RegionToggle />
+        </div>
         <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
           {PLANS.map((plan, i) => (
             <Reveal key={plan.name} delay={i * 100} className="h-full">
@@ -516,6 +519,7 @@ export default function PricingPage() {
           </ul>
         </Reveal>
       </section>
+      </BillingRegionProvider>
 
       {/* What every plan includes — the point most pricing pages bury. */}
       <section id="included" className="scroll-mt-24 mx-auto mt-16 max-w-5xl px-4 sm:mt-20 sm:px-6 lg:px-8">
