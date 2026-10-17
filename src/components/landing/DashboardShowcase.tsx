@@ -11,7 +11,6 @@ import {
   type ReactNode,
 } from 'react'
 import {
-  // sidebar
   Home,
   Target,
   Users,
@@ -23,15 +22,10 @@ import {
   FileSignature,
   UserCog,
   CreditCard,
-  Bell,
-  Settings,
-  ChevronsUpDown,
-  // chrome
   Lock,
   ArrowLeft,
   ArrowRight,
   RotateCw,
-  // content
   Trophy,
   Percent,
   TrendingDown,
@@ -40,31 +34,27 @@ import {
   AlertCircle,
   Briefcase,
   CheckCircle,
-  Clock,
-  Plus,
   MessageSquare,
   MousePointer2,
+  Clock,
+  Plus,
+  Globe,
+  Gift,
+  HelpCircle,
+  ChevronDown,
+  Moon,
+  BarChart3,
+  SlidersHorizontal,
+  Star,
   type LucideIcon,
 } from 'lucide-react'
 
 /* ────────────────────────────────────────────────────────────────────────────
-   DashboardShowcase — a pixel-faithful, *interactive* replica of the real
-   Clienter dashboard, framed like a real browser window (the app open at
-   app.clienter.co.in/dashboard).
-
-   Unlike a screenshot, this is alive: the inner panel scrolls, the charts are
-   real SVG that respond to the cursor, and hovering any tile pops a tooltip
-   that explains what that part of the product does — so the very first thing a
-   visitor sees is the product teaching itself.
-
-   Everything here is presentational. Values mirror the founder's live
-   dashboard for the above-the-fold cards; the sections below the fold use clean
-   demo figures so the scroll reveal reads well.
+   DashboardShowcase — pixel-faithful replica of the Clienter dashboard,
+   matching the latest production layout (Oct 2026).
    ──────────────────────────────────────────────────────────────────────────── */
 
 // ── Tooltip system ───────────────────────────────────────────────────────────
-// A single floating tooltip, rendered as a child of the (un-clipped) showcase
-// root so it can escape the inner scroll container without being cut off.
 
 type TipRow = { label: string; value: string; color?: string }
 type TipData = {
@@ -76,8 +66,6 @@ type TipData = {
 type TipState = TipData & { x: number; y: number; place: 'top' | 'bottom' }
 
 interface TipApi {
-  /** Anchor the tooltip to a point in viewport coords — the tooltip follows
-      the cursor, so every hover surface passes the live pointer position. */
   showAt: (clientX: number, clientY: number, data: TipData) => void
   hide: () => void
 }
@@ -87,23 +75,26 @@ const useTip = () => useContext(TipContext)
 
 // ── Static data ──────────────────────────────────────────────────────────────
 
-const NAV: { label: string; icon: LucideIcon; active?: boolean }[] = [
+const NAV: { label: string; icon: LucideIcon; active?: boolean; badge?: number; sub?: string }[] = [
   { label: 'Dashboard', icon: Home, active: true },
   { label: 'Leads', icon: Target },
   { label: 'Clients', icon: Users },
   { label: 'Projects', icon: FolderKanban },
   { label: 'Retainers', icon: Repeat },
   { label: 'Payments', icon: TrendingUp },
+  { label: 'Payroll', icon: DollarSign },
+  { label: 'Messages', icon: MessageSquare, badge: 2 },
   { label: 'Meetings', icon: Calendar },
-  { label: 'Tasks', icon: CheckSquare },
-  { label: 'Documents', icon: FileSignature },
+  { label: 'Tasks', icon: CheckSquare, sub: 'Project task boards' },
+  { label: 'Documents', icon: FileSignature, sub: 'Quotations & contracts' },
   { label: 'Team', icon: UserCog },
   { label: 'Billing', icon: CreditCard },
 ]
 
-const FOOTER_NAV: { label: string; icon: LucideIcon }[] = [
-  { label: 'Activity', icon: Bell },
-  { label: 'Settings', icon: Settings },
+const BOTTOM_NAV: { label: string; icon: LucideIcon }[] = [
+  { label: 'Public Page', icon: Globe },
+  { label: 'Refer & Earn', icon: Gift },
+  { label: 'Help', icon: HelpCircle },
 ]
 
 const PIPELINE_METRICS: { icon: LucideIcon; label: string; value: string }[] = [
@@ -169,11 +160,8 @@ const PIPELINE_CARDS: { icon: LucideIcon; label: string; value: string }[] = [
   { icon: Users, label: 'Total clients', value: '8' },
 ]
 
-// Revenue-by-type split (payments received to date). Mostly freelance, matching
-// the live donut.
 const REVENUE_SPLIT = { freelance: 895, retainer: 151 }
 
-// Below-the-fold all-time overview — clean demo figures.
 const ALLTIME = {
   total: 84200,
   received: 61340,
@@ -182,14 +170,13 @@ const ALLTIME = {
   inAccount: 51920,
 }
 
-// 6-month trend (received vs pending, per month).
-const TREND: { m: string; paid: number; pending: number }[] = [
-  { m: 'Feb', paid: 6200, pending: 2100 },
-  { m: 'Mar', paid: 7800, pending: 1600 },
-  { m: 'Apr', paid: 5400, pending: 3000 },
-  { m: 'May', paid: 9100, pending: 2400 },
-  { m: 'Jun', paid: 8300, pending: 1900 },
-  { m: 'Jul', paid: 10600, pending: 2800 },
+const TREND: { m: string; revenue: number; received: number; expenses: number }[] = [
+  { m: 'May', revenue: 4200, received: 2800, expenses: 1200 },
+  { m: 'Jun', revenue: 7800, received: 5400, expenses: 1600 },
+  { m: 'Jul', revenue: 12400, received: 8200, expenses: 2100 },
+  { m: 'Aug', revenue: 6800, received: 6100, expenses: 1800 },
+  { m: 'Sept', revenue: 5200, received: 5800, expenses: 1400 },
+  { m: 'Oct', revenue: 4600, received: 5100, expenses: 1300 },
 ]
 
 const REMINDERS: { title: string; client: string; when: string }[] = [
@@ -205,10 +192,13 @@ const CLIENTS: { name: string; phone: string; ago: string }[] = [
 ]
 
 const COLORS = {
-  paid: '#10b981', // emerald-500
-  pending: '#f59e0b', // amber-500
-  retainer: '#f97316', // orange-500
-  freelance: '#3b82f6', // blue-500
+  paid: '#10b981',
+  pending: '#f59e0b',
+  retainer: '#f97316',
+  freelance: '#3b82f6',
+  revenue: '#3b82f6',
+  received: '#10b981',
+  expenses: '#ef4444',
 }
 
 const money = (n: number) => '$' + n.toLocaleString('en-US')
@@ -219,10 +209,6 @@ export function DashboardShowcase() {
   const rootRef = useRef<HTMLDivElement>(null)
   return (
     <div ref={rootRef} className="relative">
-      {/* State lives in the provider, not here, and the frame is passed as
-          stable `children` — so a cursor move (which fires setState on every
-          pixel) only re-renders the floating tooltip, never the whole dashboard
-          tree. */}
       <TipProvider rootRef={rootRef}>
         <ShowcaseFrame />
       </TipProvider>
@@ -247,8 +233,6 @@ function TipProvider({
       const rr = root.getBoundingClientRect()
       const x = clientX - rr.left
       const y = clientY - rr.top
-      // Above the cursor by default; flip below when near the frame's top edge
-      // so it never rides up over the browser chrome.
       const place: 'top' | 'bottom' = y > 140 ? 'top' : 'bottom'
       setTip({ ...data, x, y, place })
       setVisible(true)
@@ -276,33 +260,26 @@ function ShowcaseFrame() {
     <div className="relative overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-lift-4 ring-1 ring-black/[0.03]">
       <BrowserChrome />
 
-      <div className="flex bg-[#FAFAF8]">
+      <div className="flex h-[600px] bg-white sm:h-[680px] lg:h-[720px]">
         <ShowcaseSidebar />
 
-        {/* Scrollable app viewport. `data-lenis-prevent` hands wheel/touch
-            back to the browser so this panel scrolls natively inside the
-            site's Lenis smooth-scroll; overscroll-contain keeps the scroll
-            from chaining out awkwardly at the edges. */}
         <div
           data-lenis-prevent
           onScroll={() => {
             if (!scrolled) setScrolled(true)
             tip?.hide()
           }}
-          className="relative h-[540px] flex-1 overflow-y-auto overscroll-contain [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-stone-300/80 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1.5 sm:h-[600px] lg:h-[636px]"
+          className="relative flex-1 overflow-y-auto overscroll-contain [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-stone-300/80 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1.5"
         >
           <DashboardContent />
         </div>
       </div>
 
-      {/* Bottom fade + scroll affordance, layered over the viewport. */}
       <BottomFade show={!scrolled} />
 
-      {/* The app's live "Feedback" pill, bottom-right — a real detail from
-          the product, purely decorative here. */}
       <div className="pointer-events-none absolute bottom-4 right-4 z-20 hidden items-center gap-1.5 rounded-full bg-orange-500 px-3.5 py-2 text-xs font-semibold text-white shadow-ember sm:inline-flex">
-        <MessageSquare className="h-3.5 w-3.5" />
-        Feedback
+        <HelpCircle className="h-3.5 w-3.5" />
+        Help
       </div>
     </div>
   )
@@ -325,7 +302,6 @@ function BrowserChrome() {
         <RotateCw className="ml-0.5 h-[13px] w-[13px] text-stone-400" />
       </div>
 
-      {/* URL bar */}
       <div className="flex h-7 flex-1 items-center gap-2 rounded-full border border-stone-200/80 bg-white px-3 text-[11px] font-medium text-stone-500 shadow-sm">
         <Lock className="h-3 w-3 flex-none text-emerald-500" />
         <span className="truncate">
@@ -338,9 +314,50 @@ function BrowserChrome() {
 
 // ── Sidebar ──────────────────────────────────────────────────────────────────
 
+function NavGroup({ items }: { items: { label: string; icon: LucideIcon; active?: boolean; badge?: number; sub?: string }[] }) {
+  return (
+    <ul className="space-y-0.5">
+      {items.map((item) => {
+        const Icon = item.icon
+        return (
+          <li key={item.label}>
+            <div
+              className={`relative flex items-center gap-3 rounded-xl px-3 py-2 text-[13px] font-medium ${
+                item.active
+                  ? 'bg-orange-50 text-orange-700'
+                  : 'text-stone-600'
+              }`}
+            >
+              {item.active && (
+                <span className="absolute left-0 top-1/2 h-5 w-1 -translate-y-1/2 rounded-r-full bg-orange-500" />
+              )}
+              <Icon
+                className={`h-[18px] w-[18px] flex-none ${item.active ? 'text-orange-600' : 'text-stone-400'}`}
+              />
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-2">
+                  <span className="truncate">{item.label}</span>
+                  {item.badge && (
+                    <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-orange-500 text-[10px] font-bold text-white">
+                      {item.badge}
+                    </span>
+                  )}
+                </div>
+                {item.sub && (
+                  <p className="truncate text-[10px] text-stone-400">{item.sub}</p>
+                )}
+              </div>
+            </div>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
 function ShowcaseSidebar() {
   return (
-    <aside className="hidden w-52 flex-none flex-col border-r border-stone-200/70 bg-white md:flex lg:w-56">
+    <aside className="hidden w-52 flex-none flex-col overflow-hidden border-r border-stone-200/70 bg-white md:flex lg:w-56">
       {/* Logo */}
       <div className="flex h-14 items-center px-4">
         <div className="flex items-center gap-2.5">
@@ -357,72 +374,52 @@ function ShowcaseSidebar() {
         </div>
       </div>
 
-      {/* Org switcher */}
-      <div className="px-3 pb-3">
-        <div className="flex items-center gap-2.5 rounded-xl border border-stone-200/70 bg-stone-50 px-2.5 py-2">
-          <span className="flex h-8 w-8 flex-none items-center justify-center overflow-hidden rounded-lg bg-violet-100 text-sm font-bold text-violet-700 ring-1 ring-stone-200/80">
-            N
-          </span>
-          <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-semibold text-ink">Nova Studio</p>
-            <span className="mt-0.5 inline-flex rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] font-medium text-violet-700">
-              Owner
-            </span>
-          </div>
-          <ChevronsUpDown className="h-3.5 w-3.5 flex-none text-stone-400" />
-        </div>
-      </div>
-
-      {/* Nav */}
-      <nav className="flex-1 overflow-hidden px-3">
-        <ul className="space-y-0.5">
-          {NAV.map((item) => {
-            const Icon = item.icon
-            return (
-              <li key={item.label}>
-                <div
-                  className={`relative flex items-center gap-3 rounded-xl px-3 py-2 text-[13px] font-medium ${
-                    item.active
-                      ? 'bg-orange-50 text-orange-700'
-                      : 'text-stone-600'
-                  }`}
-                >
-                  {item.active && (
-                    <span className="absolute left-0 top-1/2 h-5 w-1 -translate-y-1/2 rounded-r-full bg-orange-500" />
-                  )}
-                  <Icon
-                    className={`h-[18px] w-[18px] ${item.active ? 'text-orange-600' : 'text-stone-400'}`}
-                  />
-                  <span>{item.label}</span>
-                </div>
-              </li>
-            )
-          })}
-        </ul>
+      {/* Nav groups with thin separators */}
+      <nav className="flex-1 overflow-hidden px-3 pt-1">
+        {/* Group 1: Main nav */}
+        <NavGroup items={NAV.slice(0, 7)} />
+        <div className="mx-2 my-1.5 border-t border-stone-100" />
+        {/* Group 2: Communication */}
+        <NavGroup items={NAV.slice(7, 11)} />
+        <div className="mx-2 my-1.5 border-t border-stone-100" />
+        {/* Group 3: Admin */}
+        <NavGroup items={NAV.slice(11)} />
+        <div className="mx-2 my-1.5 border-t border-stone-100" />
+        {/* Group 4: Extras */}
+        <NavGroup items={BOTTOM_NAV.map(b => ({ ...b, active: false }))} />
       </nav>
 
-      {/* Footer nav */}
-      <div className="space-y-0.5 border-t border-stone-200/70 p-3">
-        {FOOTER_NAV.map(({ label, icon: Icon }) => (
-          <div
-            key={label}
-            className="flex items-center gap-3 rounded-xl px-3 py-2 text-[13px] font-medium text-stone-600"
-          >
-            <Icon className="h-[18px] w-[18px] text-stone-400" />
-            <span>{label}</span>
+      {/* Workspace footer */}
+      <div className="border-t border-stone-200/70 p-3">
+        <div className="flex items-center gap-2.5 px-2">
+          <span className="flex h-8 w-8 flex-none items-center justify-center overflow-hidden rounded-lg">
+            <Image
+              src="/logo.png"
+              alt="Clienter"
+              width={24}
+              height={24}
+              className="h-full w-full object-contain"
+            />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-[13px] font-semibold text-ink">Nova Studio</p>
+            <span className="inline-flex rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] font-medium text-violet-700">
+              Ultra
+            </span>
           </div>
-        ))}
+          <SlidersHorizontal className="h-4 w-4 flex-none text-stone-400" />
+        </div>
       </div>
     </aside>
   )
 }
 
-// ── Dashboard content (the scrollable body) ──────────────────────────────────
+// ── Dashboard content ──────────────────────────────────────────────────────
 
 function DashboardContent() {
   return (
     <div className="min-h-full">
-      {/* Greeting */}
+      {/* Greeting header */}
       <header className="px-4 pt-5 sm:px-6 sm:pt-6">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -433,82 +430,35 @@ function DashboardContent() {
               Here&apos;s what&apos;s happening with your business today.
             </p>
           </div>
-          <p className="hidden text-[13px] font-medium text-stone-400 sm:block">Saturday, Jul 18</p>
+          <div className="hidden items-center gap-2 sm:flex">
+            <p className="text-[13px] font-medium text-stone-400">Saturday, Jul 18</p>
+            <button className="flex items-center gap-1.5 rounded-lg border border-stone-200/70 bg-white px-2.5 py-1.5 text-[11px] font-medium text-stone-600 shadow-sm">
+              <Moon className="h-3.5 w-3.5" />
+              Dark mode
+            </button>
+            <button className="flex items-center gap-1.5 rounded-lg border border-orange-200 bg-orange-50 px-2.5 py-1.5 text-[11px] font-medium text-orange-700 shadow-sm">
+              <BarChart3 className="h-3.5 w-3.5" />
+              Forecast
+            </button>
+            <button className="flex items-center gap-1.5 rounded-lg border border-stone-200/70 bg-white px-2.5 py-1.5 text-[11px] font-medium text-stone-600 shadow-sm">
+              <SlidersHorizontal className="h-3.5 w-3.5" />
+              Customise dashboard
+            </button>
+          </div>
         </div>
       </header>
 
       <div className="space-y-6 px-4 py-5 sm:px-6 sm:py-6">
-        <SalesPipeline />
         <ThisMonth />
+        <SalesPipelineAndPortal />
         <PipelineClients />
         <RetainersAndRevenue />
-        <AllTimeOverview />
         <RevenueTrend />
+        <RevenueOverview />
         <RemindersAndClients />
         <QuickActions />
       </div>
     </div>
-  )
-}
-
-// A section eyebrow label — matches the app's uppercase micro-heads.
-function Eyebrow({ children }: { children: ReactNode }) {
-  return (
-    <h3 className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-stone-400">
-      {children}
-    </h3>
-  )
-}
-
-function SalesPipeline() {
-  const tip = useTip()
-  return (
-    <section
-      onMouseMove={(e) =>
-        tip?.showAt(e.clientX, e.clientY, {
-          variant: 'explain',
-          title: 'Sales Pipeline',
-          text: 'A built-in CRM — track every lead from first contact to won deal, with live conversion stats.',
-        })
-      }
-      onMouseLeave={() => tip?.hide()}
-      className="rounded-2xl border border-stone-200/70 bg-white p-4 shadow-soft transition-shadow duration-200 hover:shadow-soft-md sm:p-5"
-    >
-      <div className="mb-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50">
-            <Target className="h-4 w-4 text-orange-600" />
-          </span>
-          <h4 className="text-[15px] font-semibold tracking-tight text-ink">Sales Pipeline</h4>
-        </div>
-        <span className="inline-flex items-center gap-1 text-[13px] font-medium text-orange-600">
-          View
-          <ArrowRight className="h-3.5 w-3.5" />
-        </span>
-      </div>
-
-      <div className="grid grid-cols-2 gap-2.5 md:grid-cols-4">
-        {PIPELINE_METRICS.map(({ icon: Icon, label, value }) => (
-          <div key={label} className="rounded-xl bg-stone-50 p-3">
-            <div className="mb-1 flex items-center gap-1.5 text-stone-400">
-              <Icon className="h-4 w-4" />
-              <span className="text-[11px]">{label}</span>
-            </div>
-            <p className="truncate text-lg font-semibold tabular-nums text-ink">{value}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-4 border-t border-stone-100 pt-3">
-        <p className="mb-2 text-[11px] font-medium text-stone-400">Leads by source</p>
-        <div className="flex flex-wrap gap-1.5">
-          <span className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-600">
-            Other
-            <span className="tabular-nums opacity-70">62</span>
-          </span>
-        </div>
-      </div>
-    </section>
   )
 }
 
@@ -521,7 +471,16 @@ function ThisMonth() {
   } as const
   return (
     <section>
-      <Eyebrow>This month</Eyebrow>
+      {/* Month selector header */}
+      <div className="mb-3 flex items-center gap-3">
+        <h3 className="text-[11px] font-semibold uppercase tracking-wider text-stone-400">
+          This month
+        </h3>
+        <button className="flex items-center gap-1 rounded-lg border border-stone-200/70 bg-white px-2.5 py-1 text-[12px] font-medium text-ink shadow-sm">
+          July 2026
+          <ChevronDown className="h-3 w-3 text-stone-400" />
+        </button>
+      </div>
       <div className="grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-4">
         {MONTH_CARDS.map((c) => {
           const Icon = c.icon
@@ -579,25 +538,186 @@ function ThisMonth() {
   )
 }
 
-function PipelineClients() {
+function SalesPipelineAndPortal() {
   return (
-    <section>
-      <Eyebrow>Pipeline &amp; clients</Eyebrow>
-      <div className="grid grid-cols-3 gap-2.5 sm:grid-cols-5 sm:gap-3">
-        {PIPELINE_CARDS.map(({ icon: Icon, label, value }) => (
-          <div
-            key={label}
-            className="rounded-2xl border border-stone-200/70 bg-white p-3.5 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft-md"
-          >
-            <div className="flex items-center gap-1.5 text-stone-400">
-              <Icon className="h-4 w-4 flex-none" />
-              <span className="truncate text-[11px] font-medium">{label}</span>
+    <div className="grid grid-cols-1 items-start gap-3 md:grid-cols-2">
+      <SalesPipeline />
+      <ClientPortal />
+    </div>
+  )
+}
+
+function SalesPipeline() {
+  const tip = useTip()
+  return (
+    <section
+      onMouseMove={(e) =>
+        tip?.showAt(e.clientX, e.clientY, {
+          variant: 'explain',
+          title: 'Sales Pipeline',
+          text: 'A built-in CRM — track every lead from first contact to won deal, with live conversion stats.',
+        })
+      }
+      onMouseLeave={() => tip?.hide()}
+      className="rounded-2xl border border-stone-200/70 bg-white p-4 shadow-soft transition-shadow duration-200 hover:shadow-soft-md sm:p-5"
+    >
+      <div className="mb-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50">
+            <Target className="h-4 w-4 text-orange-600" />
+          </span>
+          <h4 className="text-[15px] font-semibold tracking-tight text-ink">Sales Pipeline</h4>
+        </div>
+        <span className="inline-flex items-center gap-1 text-[13px] font-medium text-orange-600">
+          View
+          <ArrowRight className="h-3.5 w-3.5" />
+        </span>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2.5 md:grid-cols-4">
+        {PIPELINE_METRICS.map(({ icon: Icon, label, value }) => (
+          <div key={label} className="rounded-xl bg-stone-50 p-3">
+            <div className="mb-1 flex items-center gap-1.5 text-stone-400">
+              <Icon className="h-4 w-4" />
+              <span className="text-[11px]">{label}</span>
             </div>
-            <p className="mt-2 text-xl font-semibold tabular-nums text-ink sm:text-2xl">{value}</p>
+            <p className="truncate text-lg font-semibold tabular-nums text-ink">{value}</p>
           </div>
         ))}
       </div>
+
+      <div className="mt-4 border-t border-stone-100 pt-3">
+        <p className="mb-2 text-[11px] font-medium text-stone-400">Leads by source</p>
+        <div className="flex flex-wrap gap-1.5">
+          <span className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2 py-0.5 text-[11px] font-medium text-stone-600">
+            Other
+            <span className="tabular-nums opacity-70">52</span>
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-600">
+            Referral
+            <span className="tabular-nums opacity-70">4</span>
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-600">
+            Website
+            <span className="tabular-nums opacity-70">3</span>
+          </span>
+          <span className="inline-flex items-center gap-1 rounded-full bg-pink-50 px-2 py-0.5 text-[11px] font-medium text-pink-600">
+            Instagram
+            <span className="tabular-nums opacity-70">2</span>
+          </span>
+        </div>
+      </div>
     </section>
+  )
+}
+
+function ClientPortal() {
+  const tip = useTip()
+  const portalStats = [
+    { label: 'Messages', value: 2, color: 'text-orange-600 bg-orange-50' },
+    { label: 'Approvals', value: 0, color: 'text-stone-600 bg-stone-50' },
+    { label: 'Changes', value: 0, color: 'text-stone-600 bg-stone-50' },
+    { label: 'Referrals', value: 1, color: 'text-emerald-600 bg-emerald-50' },
+    { label: 'Reviews', value: 0, color: 'text-stone-600 bg-stone-50' },
+  ]
+
+  return (
+    <section
+      onMouseMove={(e) =>
+        tip?.showAt(e.clientX, e.clientY, {
+          variant: 'explain',
+          title: 'Client Portal',
+          text: 'Your clients get their own portal — messages, approvals, change requests and reviews in one place.',
+        })
+      }
+      onMouseLeave={() => tip?.hide()}
+      className="rounded-2xl border border-stone-200/70 bg-white p-4 shadow-soft transition-shadow duration-200 hover:shadow-soft-md sm:p-5"
+    >
+      <div className="mb-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50">
+            <Globe className="h-4 w-4 text-blue-600" />
+          </span>
+          <h4 className="text-[15px] font-semibold tracking-tight text-ink">Client portal</h4>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="rounded-lg bg-stone-100 px-2.5 py-1 text-[11px] font-semibold text-ink">
+            Activity
+          </span>
+          <span className="rounded-lg px-2.5 py-1 text-[11px] font-medium text-stone-400">
+            Announce
+          </span>
+        </div>
+      </div>
+
+      {/* Stats row */}
+      <div className="mb-4 grid grid-cols-5 gap-1.5">
+        {portalStats.map((s) => (
+          <div key={s.label} className="text-center">
+            <p className={`text-xl font-bold tabular-nums ${s.value > 0 ? s.color.split(' ')[0] : 'text-stone-400'}`}>
+              {s.value}
+            </p>
+            <p className="text-[10px] text-stone-400">{s.label}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Recent messages */}
+      <div className="space-y-2.5">
+        <div className="flex items-start gap-3 rounded-xl border border-stone-100 p-3">
+          <span className="mt-0.5 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-stone-100">
+            <MessageSquare className="h-3.5 w-3.5 text-stone-500" />
+          </span>
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center justify-between gap-2">
+              <p className="truncate text-[12px] font-semibold text-ink">Rajesh sent a message</p>
+              <span className="flex-none text-[10px] text-stone-400">10 Jul</span>
+            </div>
+            <p className="mt-0.5 truncate text-[11px] text-stone-400">any updates ?</p>
+            <p className="mt-1 text-[11px] font-medium text-orange-600">Reply inline</p>
+          </div>
+        </div>
+        <div className="flex items-start gap-3 rounded-xl border border-stone-100 p-3">
+          <span className="mt-0.5 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-stone-100">
+            <MessageSquare className="h-3.5 w-3.5 text-stone-500" />
+          </span>
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center justify-between gap-2">
+              <p className="truncate text-[12px] font-semibold text-ink">Rajesh sent a message</p>
+              <span className="flex-none text-[10px] text-stone-400">10 Jul</span>
+            </div>
+            <p className="mt-0.5 truncate text-[11px] text-stone-400">hello</p>
+            <p className="mt-1 text-[11px] font-medium text-orange-600">Reply inline</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-3 text-center">
+        <span className="inline-flex items-center gap-1 text-[12px] font-medium text-orange-600">
+          View all activity (1 more)
+          <ArrowRight className="h-3.5 w-3.5" />
+        </span>
+      </div>
+    </section>
+  )
+}
+
+function PipelineClients() {
+  return (
+    <div className="grid grid-cols-3 gap-2.5 sm:grid-cols-5 sm:gap-3">
+      {PIPELINE_CARDS.map(({ icon: Icon, label, value }) => (
+        <div
+          key={label}
+          className="rounded-2xl border border-stone-200/70 bg-white p-3.5 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft-md"
+        >
+          <div className="flex items-center gap-1.5 text-stone-400">
+            <Icon className="h-4 w-4 flex-none" />
+            <span className="truncate text-[11px] font-medium">{label}</span>
+          </div>
+          <p className="mt-2 text-xl font-semibold tabular-nums text-ink sm:text-2xl">{value}</p>
+        </div>
+      ))}
+    </div>
   )
 }
 
@@ -648,61 +768,153 @@ function RetainersAndRevenue() {
   )
 }
 
-function AllTimeOverview() {
+function RevenueTrend() {
+  const tip = useTip()
+  const W = 300
+  const H = 160
+  const padX = 10
+  const padTop = 12
+  const padBottom = 16
+  const plotW = W - padX * 2
+  const plotH = H - padTop - padBottom
+  const n = TREND.length
+  const yMax = 14000
+
+  const xAt = (i: number) => padX + (i / (n - 1)) * plotW
+  const yAt = (v: number) => padTop + plotH - (v / yMax) * plotH
+
+  const line = (pts: [number, number][]) =>
+    pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p[0]},${p[1]}`).join(' ')
+
+  const revenuePts: [number, number][] = TREND.map((d, i) => [xAt(i), yAt(d.revenue)])
+  const receivedPts: [number, number][] = TREND.map((d, i) => [xAt(i), yAt(d.received)])
+  const expensesPts: [number, number][] = TREND.map((d, i) => [xAt(i), yAt(d.expenses)])
+
+  const area = (pts: [number, number][]) =>
+    `${line(pts)} L${xAt(n - 1)},${padTop + plotH} L${xAt(0)},${padTop + plotH} Z`
+
+  return (
+    <section
+      onMouseMove={(e) =>
+        tip?.showAt(e.clientX, e.clientY, {
+          variant: 'explain',
+          title: 'Revenue Trend',
+          text: 'Track revenue, collections and expenses over time — spot seasonal patterns at a glance.',
+        })
+      }
+      onMouseLeave={() => tip?.hide()}
+      className="rounded-2xl border border-stone-200/70 bg-white p-5 shadow-soft"
+    >
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <h4 className="flex items-center gap-2 text-[15px] font-semibold text-ink">
+            <Calendar className="h-5 w-5 text-orange-500" />
+            Revenue trend
+          </h4>
+          <p className="mt-0.5 text-[11px] text-stone-400">Received, expenses &amp; new revenue</p>
+        </div>
+        <div className="flex items-center gap-4 text-[11px] text-ink-muted">
+          <span className="flex items-center gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full" style={{ background: COLORS.revenue }} />
+            Revenue (New)
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full" style={{ background: COLORS.received }} />
+            Received
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full" style={{ background: COLORS.expenses }} />
+            Expenses
+          </span>
+        </div>
+      </div>
+
+      <div className="relative h-[160px] w-full">
+        <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
+          <defs>
+            <linearGradient id="fillRevenue" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={COLORS.revenue} stopOpacity={0.15} />
+              <stop offset="100%" stopColor={COLORS.revenue} stopOpacity={0.02} />
+            </linearGradient>
+            <linearGradient id="fillReceived" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor={COLORS.received} stopOpacity={0.15} />
+              <stop offset="100%" stopColor={COLORS.received} stopOpacity={0.02} />
+            </linearGradient>
+          </defs>
+          {[0.25, 0.5, 0.75].map((g) => (
+            <line key={g} x1={padX} x2={W - padX} y1={padTop + plotH * g} y2={padTop + plotH * g} stroke="#f0efed" strokeWidth={1} vectorEffect="non-scaling-stroke" />
+          ))}
+          <path d={area(revenuePts)} fill="url(#fillRevenue)" />
+          <path d={area(receivedPts)} fill="url(#fillReceived)" />
+          <path d={line(revenuePts)} fill="none" stroke={COLORS.revenue} strokeWidth={2} vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
+          <path d={line(receivedPts)} fill="none" stroke={COLORS.received} strokeWidth={2} vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
+          <path d={line(expensesPts)} fill="none" stroke={COLORS.expenses} strokeWidth={2} vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
+        </svg>
+      </div>
+      <div className="mt-1.5 flex justify-between px-1 text-[10px] font-medium text-stone-400">
+        {TREND.map((d) => <span key={d.m}>{d.m}</span>)}
+      </div>
+    </section>
+  )
+}
+
+function RevenueOverview() {
+  const tip = useTip()
   const paidPct = Math.round((ALLTIME.received / ALLTIME.total) * 100)
-  const pendingPct = Math.round((ALLTIME.pending / ALLTIME.total) * 100)
   return (
     <section>
-      <Eyebrow>All-time revenue overview</Eyebrow>
+      <div className="mb-3 flex items-center gap-3">
+        <h3 className="text-[11px] font-semibold uppercase tracking-wider text-stone-400">Revenue overview</h3>
+        <button className="flex items-center gap-1 rounded-lg border border-stone-200/70 bg-white px-2.5 py-1 text-[12px] font-medium text-ink shadow-sm">
+          <Calendar className="h-3 w-3 text-stone-400" />
+          All time
+          <ChevronDown className="h-3 w-3 text-stone-400" />
+        </button>
+      </div>
       <div className="rounded-2xl border border-stone-200/70 bg-white p-5 shadow-soft">
         <div className="flex flex-col items-center gap-6 md:flex-row md:gap-8">
-          <div className="w-40 flex-none">
-            <PaymentGauge pct={paidPct} />
+          <div
+            className="w-36 flex-none"
+            onMouseMove={(e) =>
+              tip?.showAt(e.clientX, e.clientY, {
+                variant: 'data',
+                title: 'Collected to date',
+                rows: [
+                  { label: 'Received', value: money(ALLTIME.received), color: COLORS.received },
+                  { label: 'of total', value: money(ALLTIME.total) },
+                ],
+              })
+            }
+            onMouseLeave={() => tip?.hide()}
+          >
+            <div className="relative mx-auto h-[130px] w-[130px]">
+              <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#f0efed" strokeWidth="9" />
+                <circle cx="50" cy="50" r="40" fill="none" stroke={COLORS.received} strokeWidth="9" strokeLinecap="round" strokeDasharray={`${(paidPct / 100) * 2 * Math.PI * 40} ${2 * Math.PI * 40}`} />
+              </svg>
+              <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
+                <span className="text-2xl font-bold tabular-nums text-ink">{paidPct}%</span>
+                <span className="text-[11px] font-medium text-stone-400">collected</span>
+              </div>
+            </div>
             <p className="mt-1 text-center text-[11px] text-stone-400">of total value collected</p>
           </div>
 
           <div className="w-full flex-1 space-y-4">
-            <OverviewRow
-              label="Total project value"
-              value={money(ALLTIME.total)}
-              pct={100}
-              bar="bg-stone-300"
-              tipTitle="Total project value"
-              tipText="Every rupee you have ever booked across all projects."
-            />
-            <OverviewRow
-              label="Amount received"
-              value={money(ALLTIME.received)}
-              pct={paidPct}
-              bar="bg-emerald-500"
-              valueClass="text-emerald-600"
-              tipTitle="Amount received"
-              tipText="Cash actually collected to date — the green line you want climbing."
-            />
-            <OverviewRow
-              label="Pending amount"
-              value={money(ALLTIME.pending)}
-              pct={pendingPct}
-              bar="bg-amber-400"
-              valueClass="text-amber-600"
-              tipTitle="Pending amount"
-              tipText="Invoiced but not yet paid — chase these with a click from Payments."
-            />
+            <OverviewRow label="Total project value" value={money(ALLTIME.total)} pct={100} bar="bg-stone-300" />
+            <OverviewRow label="Amount received" value={money(ALLTIME.received)} pct={paidPct} bar="bg-emerald-500" valueClass="text-emerald-600" />
+            <OverviewRow label="Pending amount" value={money(ALLTIME.pending)} pct={Math.round((ALLTIME.pending / ALLTIME.total) * 100)} bar="bg-amber-400" valueClass="text-amber-600" />
           </div>
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-4 border-t border-stone-100 pt-4">
           <div>
             <p className="text-[11px] text-stone-400">Total expenses</p>
-            <p className="text-lg font-semibold tabular-nums text-red-600">
-              {money(ALLTIME.expenses)}
-            </p>
+            <p className="text-lg font-semibold tabular-nums text-red-600">{money(ALLTIME.expenses)}</p>
           </div>
           <div className="text-right">
             <p className="text-[11px] text-stone-400">Money in account</p>
-            <p className="text-lg font-semibold tabular-nums text-emerald-700">
-              {money(ALLTIME.inAccount)}
-            </p>
+            <p className="text-lg font-semibold tabular-nums text-emerald-700">{money(ALLTIME.inAccount)}</p>
           </div>
         </div>
       </div>
@@ -710,79 +922,23 @@ function AllTimeOverview() {
   )
 }
 
-function OverviewRow({
-  label,
-  value,
-  pct,
-  bar,
-  valueClass = 'text-ink',
-  tipTitle,
-  tipText,
-}: {
-  label: string
-  value: string
-  pct: number
-  bar: string
-  valueClass?: string
-  tipTitle: string
-  tipText: string
-}) {
-  const tip = useTip()
+function OverviewRow({ label, value, pct, bar, valueClass = 'text-ink' }: { label: string; value: string; pct: number; bar: string; valueClass?: string }) {
   return (
-    <div
-      onMouseMove={(e) =>
-        tip?.showAt(e.clientX, e.clientY, { variant: 'explain', title: tipTitle, text: tipText })
-      }
-      onMouseLeave={() => tip?.hide()}
-      className="cursor-default"
-    >
+    <div>
       <div className="mb-1.5 flex items-center justify-between">
         <span className="text-[13px] font-medium text-ink-muted">{label}</span>
         <span className={`text-[15px] font-semibold tabular-nums ${valueClass}`}>{value}</span>
       </div>
       <div className="h-2 w-full overflow-hidden rounded-full bg-stone-100">
-        <div
-          className={`h-full rounded-full transition-all duration-500 ${bar}`}
-          style={{ width: `${Math.max(0, Math.min(100, pct))}%` }}
-        />
+        <div className={`h-full rounded-full transition-all duration-500 ${bar}`} style={{ width: `${Math.max(0, Math.min(100, pct))}%` }} />
       </div>
     </div>
-  )
-}
-
-function RevenueTrend() {
-  return (
-    <section>
-      <div className="rounded-2xl border border-stone-200/70 bg-white p-5 shadow-soft">
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <h4 className="flex items-center gap-2 text-[15px] font-semibold text-ink">
-              <Calendar className="h-5 w-5 text-orange-500" />
-              6-month revenue trend
-            </h4>
-            <p className="mt-0.5 text-[11px] text-stone-400">Received vs pending, per month</p>
-          </div>
-          <div className="flex items-center gap-4 text-[11px] text-ink-muted">
-            <span className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full" style={{ background: COLORS.paid }} />
-              Received
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full" style={{ background: COLORS.pending }} />
-              Pending
-            </span>
-          </div>
-        </div>
-        <TrendArea />
-      </div>
-    </section>
   )
 }
 
 function RemindersAndClients() {
   return (
     <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-      {/* Upcoming reminders */}
       <div className="overflow-hidden rounded-2xl border border-stone-200/70 bg-white shadow-soft">
         <div className="flex items-center justify-between border-b border-stone-100 px-4 py-3.5">
           <h4 className="flex items-center gap-2 text-[15px] font-semibold text-ink">
@@ -796,10 +952,7 @@ function RemindersAndClients() {
         </div>
         <ul className="p-3">
           {REMINDERS.map((r) => (
-            <li
-              key={r.title}
-              className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-stone-50"
-            >
+            <li key={r.title} className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-stone-50">
               <span className="mt-1.5 h-2 w-2 flex-none rounded-full bg-orange-500" />
               <div className="min-w-0 flex-1">
                 <p className="text-[13px] font-semibold text-ink">{r.title}</p>
@@ -811,7 +964,6 @@ function RemindersAndClients() {
         </ul>
       </div>
 
-      {/* Recent clients */}
       <div className="overflow-hidden rounded-2xl border border-stone-200/70 bg-white shadow-soft">
         <div className="flex items-center justify-between border-b border-stone-100 px-4 py-3.5">
           <h4 className="flex items-center gap-2 text-[15px] font-semibold text-ink">
@@ -825,10 +977,7 @@ function RemindersAndClients() {
         </div>
         <ul className="p-3">
           {CLIENTS.map((c) => (
-            <li
-              key={c.name}
-              className="flex items-center justify-between gap-2 rounded-xl p-3 transition-colors hover:bg-stone-50"
-            >
+            <li key={c.name} className="flex items-center justify-between gap-2 rounded-xl p-3 transition-colors hover:bg-stone-50">
               <div className="flex min-w-0 items-center gap-3">
                 <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-orange-100 text-xs font-bold text-orange-600">
                   {c.name[0]}
@@ -850,23 +999,13 @@ function RemindersAndClients() {
 function QuickActions() {
   const actions = [
     { icon: Plus, title: 'Add client', desc: 'Create a new client profile', tone: 'bg-orange-600' },
-    {
-      icon: Calendar,
-      title: 'Schedule meeting',
-      desc: 'Plan your next client meeting',
-      tone: 'bg-stone-900',
-    },
+    { icon: Calendar, title: 'Schedule meeting', desc: 'Plan your next client meeting', tone: 'bg-stone-900' },
   ]
   return (
     <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
       {actions.map(({ icon: Icon, title, desc, tone }) => (
-        <div
-          key={title}
-          className="flex items-center gap-4 rounded-2xl border border-stone-200/70 bg-white p-5 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft-md"
-        >
-          <span
-            className={`flex h-11 w-11 flex-none items-center justify-center rounded-xl text-white ${tone}`}
-          >
+        <div key={title} className="flex items-center gap-4 rounded-2xl border border-stone-200/70 bg-white p-5 shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft-md">
+          <span className={`flex h-11 w-11 flex-none items-center justify-center rounded-xl text-white ${tone}`}>
             <Icon className="h-5 w-5" />
           </span>
           <div>
@@ -879,7 +1018,7 @@ function QuickActions() {
   )
 }
 
-// ── Charts (pure SVG, cursor-reactive) ───────────────────────────────────────
+// ── Charts ───────────────────────────────────────────────────────────────────
 
 function RevenueDonut() {
   const tip = useTip()
@@ -891,7 +1030,6 @@ function RevenueDonut() {
     { key: 'retainer' as const, label: 'Retainer', value: REVENUE_SPLIT.retainer, color: COLORS.retainer },
   ]
 
-  // Geometry: r=36, gaps between slices via a small dash gap.
   const r = 36
   const C = 2 * Math.PI * r
   let offsetAcc = 0
@@ -900,7 +1038,6 @@ function RevenueDonut() {
     <div className="flex flex-col items-center gap-4 sm:flex-row">
       <div className="relative h-[150px] w-[150px] flex-none">
         <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
-          {/* track */}
           <circle cx="50" cy="50" r={r} fill="none" stroke="#f0efed" strokeWidth="15" />
           {slices.map((s) => {
             const frac = s.value / total
@@ -989,206 +1126,6 @@ function RevenueDonut() {
   )
 }
 
-function PaymentGauge({ pct }: { pct: number }) {
-  const tip = useTip()
-  const r = 40
-  const C = 2 * Math.PI * r
-  const dash = (pct / 100) * C
-  return (
-    <div
-      className="relative mx-auto h-[150px] w-[150px]"
-      onMouseEnter={(e) =>
-        tip?.showAt(e.clientX, e.clientY, {
-          variant: 'data',
-          title: 'Collected to date',
-          rows: [
-            { label: 'Received', value: money(ALLTIME.received), color: COLORS.paid },
-            { label: 'of total', value: money(ALLTIME.total) },
-          ],
-        })
-      }
-      onMouseMove={(e) =>
-        tip?.showAt(e.clientX, e.clientY, {
-          variant: 'data',
-          title: 'Collected to date',
-          rows: [
-            { label: 'Received', value: money(ALLTIME.received), color: COLORS.paid },
-            { label: 'of total', value: money(ALLTIME.total) },
-          ],
-        })
-      }
-      onMouseLeave={() => tip?.hide()}
-    >
-      <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
-        <circle cx="50" cy="50" r={r} fill="none" stroke="#f0efed" strokeWidth="9" />
-        <circle
-          cx="50"
-          cy="50"
-          r={r}
-          fill="none"
-          stroke={COLORS.paid}
-          strokeWidth="9"
-          strokeLinecap="round"
-          strokeDasharray={`${dash} ${C - dash}`}
-          className="transition-all duration-700"
-        />
-      </svg>
-      <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-2xl font-bold tabular-nums text-ink">{pct}%</span>
-        <span className="text-[11px] font-medium text-stone-400">collected</span>
-      </div>
-    </div>
-  )
-}
-
-function TrendArea() {
-  const tip = useTip()
-  const wrapRef = useRef<HTMLDivElement>(null)
-  const [active, setActive] = useState<number | null>(null)
-
-  const n = TREND.length
-  const W = 300
-  const H = 180
-  const padX = 10
-  const padTop = 12
-  const padBottom = 16
-  const plotW = W - padX * 2
-  const plotH = H - padTop - padBottom
-  const yMax = 14000
-
-  const xAt = (i: number) => padX + (i / (n - 1)) * plotW
-  const yAt = (v: number) => padTop + plotH - (v / yMax) * plotH
-
-  const paidPts = TREND.map((d, i) => [xAt(i), yAt(d.paid)] as const)
-  const totalPts = TREND.map((d, i) => [xAt(i), yAt(d.paid + d.pending)] as const)
-
-  const line = (pts: readonly (readonly [number, number])[]) =>
-    pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p[0]},${p[1]}`).join(' ')
-
-  const paidArea = `${line(paidPts)} L${xAt(n - 1)},${padTop + plotH} L${xAt(0)},${padTop + plotH} Z`
-  const pendingArea = `${line(totalPts)} ${paidPts
-    .slice()
-    .reverse()
-    .map((p) => `L${p[0]},${p[1]}`)
-    .join(' ')} Z`
-
-  const onMove = (e: React.MouseEvent) => {
-    const rect = wrapRef.current?.getBoundingClientRect()
-    if (!rect) return
-    const frac = (e.clientX - rect.left) / rect.width
-    let idx = Math.round(frac * (n - 1))
-    idx = Math.max(0, Math.min(n - 1, idx))
-    setActive(idx)
-    const d = TREND[idx]
-    // Tooltip follows the cursor horizontally; the cursor line + dots snap to
-    // the nearest month column.
-    tip?.showAt(e.clientX, rect.top + 6, {
-      variant: 'data',
-      title: `${d.m} 2026`,
-      rows: [
-        { label: 'Received', value: money(d.paid), color: COLORS.paid },
-        { label: 'Pending', value: money(d.pending), color: COLORS.pending },
-        { label: 'Total', value: money(d.paid + d.pending) },
-      ],
-    })
-  }
-
-  return (
-    <div>
-      <div
-        ref={wrapRef}
-        className="relative h-[180px] w-full cursor-crosshair"
-        onMouseMove={onMove}
-        onMouseLeave={() => {
-          setActive(null)
-          tip?.hide()
-        }}
-      >
-        <svg
-          viewBox={`0 0 ${W} ${H}`}
-          preserveAspectRatio="none"
-          className="absolute inset-0 h-full w-full"
-        >
-          <defs>
-            <linearGradient id="showcaseFillPaid" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={COLORS.paid} stopOpacity={0.28} />
-              <stop offset="100%" stopColor={COLORS.paid} stopOpacity={0.04} />
-            </linearGradient>
-            <linearGradient id="showcaseFillPending" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={COLORS.pending} stopOpacity={0.28} />
-              <stop offset="100%" stopColor={COLORS.pending} stopOpacity={0.04} />
-            </linearGradient>
-          </defs>
-
-          {/* horizontal gridlines */}
-          {[0.25, 0.5, 0.75].map((g) => (
-            <line
-              key={g}
-              x1={padX}
-              x2={W - padX}
-              y1={padTop + plotH * g}
-              y2={padTop + plotH * g}
-              stroke="#f0efed"
-              strokeWidth={1}
-              vectorEffect="non-scaling-stroke"
-            />
-          ))}
-
-          <path d={pendingArea} fill="url(#showcaseFillPending)" />
-          <path d={paidArea} fill="url(#showcaseFillPaid)" />
-          <path
-            d={line(totalPts)}
-            fill="none"
-            stroke={COLORS.pending}
-            strokeWidth={2}
-            vectorEffect="non-scaling-stroke"
-            strokeLinejoin="round"
-          />
-          <path
-            d={line(paidPts)}
-            fill="none"
-            stroke={COLORS.paid}
-            strokeWidth={2}
-            vectorEffect="non-scaling-stroke"
-            strokeLinejoin="round"
-          />
-        </svg>
-
-        {/* Cursor line + dots (HTML overlay, so they never distort) */}
-        {active !== null && (
-          <>
-            <span
-              className="pointer-events-none absolute top-0 bottom-0 w-px bg-stone-300"
-              style={{ left: `${(xAt(active) / W) * 100}%` }}
-            />
-            {[
-              { y: yAt(TREND[active].paid), color: COLORS.paid },
-              { y: yAt(TREND[active].paid + TREND[active].pending), color: COLORS.pending },
-            ].map((dot, i) => (
-              <span
-                key={i}
-                className="pointer-events-none absolute h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white shadow-sm"
-                style={{
-                  left: `${(xAt(active) / W) * 100}%`,
-                  top: `${(dot.y / H) * 100}%`,
-                  background: dot.color,
-                }}
-              />
-            ))}
-          </>
-        )}
-      </div>
-
-      {/* x-axis month labels */}
-      <div className="mt-1.5 flex justify-between px-1 text-[10px] font-medium text-stone-400">
-        {TREND.map((d) => (
-          <span key={d.m}>{d.m}</span>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 // ── Floating tooltip renderer ────────────────────────────────────────────────
 
 function FloatingTip({ tip, visible }: { tip: TipState | null; visible: boolean }) {
@@ -1241,8 +1178,6 @@ function FloatingTip({ tip, visible }: { tip: TipState | null; visible: boolean 
   )
 }
 
-// Small diamond pointer, matched to the bubble's fill. Sits half-outside the
-// bubble edge nearest the anchor.
 function TipArrow({ isTop, tone }: { isTop: boolean; tone: 'dark' | 'light' }) {
   return (
     <span

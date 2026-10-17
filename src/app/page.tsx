@@ -272,7 +272,7 @@ export default function LandingPage() {
               </Reveal>
 
               <Reveal delay={160}>
-                <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-gray-600 sm:text-base">
+                <p className="mx-auto mt-6 max-w-xl text-[13px] leading-relaxed text-gray-500/70 sm:text-sm">
                   One login for leads, quotes, e-signed contracts, projects, your client portal,
                   invoices and payment tracking. Built for agencies and established freelancers,
                   in about 30 currencies — with GST-compliant invoicing in India.
@@ -306,17 +306,6 @@ export default function LandingPage() {
                   </Link>
                 </div>
 
-                <p className="mt-4 text-xs text-gray-400">
-                  By signing up you agree to our{' '}
-                  <Link href="/terms" className="font-semibold text-gray-500 hover:text-orange-600">
-                    Terms
-                  </Link>{' '}
-                  and{' '}
-                  <Link href="/privacy" className="font-semibold text-gray-500 hover:text-orange-600">
-                    Privacy Notice
-                  </Link>
-                  .
-                </p>
               </Reveal>
             </div>
 
