@@ -85,6 +85,7 @@ import { BLOG_POSTS } from '@/lib/content/blog'
 import { TOOLS } from '@/lib/content/tools'
 import { TEMPLATES } from '@/lib/content/templates'
 import { GLOSSARY_TERMS } from '@/lib/content/glossary'
+import { getAllDocSlugs, getAllHelpSlugs } from '@/lib/docs/sections'
 
 const AUDIENCE_ROUTES: RouteEntry[] = [
   { path: '/for', priority: 0.7, changeFrequency: 'monthly' },
@@ -154,6 +155,24 @@ const GLOSSARY_ROUTES: RouteEntry[] = [
   })),
 ]
 
+const DOCS_ROUTES: RouteEntry[] = [
+  { path: '/docs', priority: 0.8, changeFrequency: 'weekly' },
+  ...getAllDocSlugs().map((slug) => ({
+    path: `/docs/${slug}`,
+    priority: 0.6,
+    changeFrequency: 'monthly' as const,
+  })),
+]
+
+const HELP_ROUTES: RouteEntry[] = [
+  { path: '/help', priority: 0.8, changeFrequency: 'weekly' },
+  ...getAllHelpSlugs().map((slug) => ({
+    path: `/help/${slug}`,
+    priority: 0.6,
+    changeFrequency: 'monthly' as const,
+  })),
+]
+
 /** Every public route on the site, de-duplicated by path. */
 export function getAllRoutes(): RouteEntry[] {
   const all = [
@@ -168,6 +187,8 @@ export function getAllRoutes(): RouteEntry[] {
     ...TOOLS_ROUTES,
     ...TEMPLATES_ROUTES,
     ...GLOSSARY_ROUTES,
+    ...DOCS_ROUTES,
+    ...HELP_ROUTES,
   ]
   const seen = new Set<string>()
   return all.filter((r) => {

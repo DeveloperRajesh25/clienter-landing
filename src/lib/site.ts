@@ -285,6 +285,8 @@ export const FOOTER_NAV = [
   {
     title: 'Resources',
     links: [
+      { href: '/docs', label: 'Documentation' },
+      { href: '/help', label: 'Help Center' },
       { href: '/blog', label: 'Blog' },
       { href: '/glossary', label: 'Glossary' },
       { href: '/templates', label: 'Templates' },
