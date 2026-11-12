@@ -265,7 +265,7 @@ export default function LandingPage() {
                   The CRM &amp; operating system{' '}
                   <br className="hidden lg:block" />
                   that runs your{' '}
-                  <span className="text-gradient-brand animate-gradient-pan font-serif-display text-[1.14em] font-normal italic drop-shadow-[0_2px_20px_rgba(249,115,22,0.25)]">
+                  <span className="text-gradient-brand animate-gradient-pan">
                     agency
                   </span>
                 </h1>
@@ -403,7 +403,7 @@ export default function LandingPage() {
                     title={
                       <>
                         Freelancing is hard enough. Your tools shouldn’t make it{' '}
-                        <span className="font-serif-display text-[1.12em] font-normal italic text-orange-50 [text-shadow:0_2px_18px_rgba(0,0,0,0.15)]">
+                        <span className="text-orange-50 [text-shadow:0_2px_18px_rgba(0,0,0,0.15)]">
                           harder
                         </span>
                         .
@@ -526,14 +526,14 @@ export default function LandingPage() {
                         than a floating decoration. */}
                     <span
                       aria-hidden
-                      className="pointer-events-none absolute -left-2 -top-14 select-none font-serif-display text-[9rem] leading-none text-orange-500/10 sm:-left-8 sm:text-[13rem]"
+                      className="pointer-events-none absolute -left-2 -top-14 select-none text-[9rem] leading-none text-orange-500/10 sm:-left-8 sm:text-[13rem]"
                     >
                       &rdquo;
                     </span>
                     <p className="relative font-display text-[1.6rem] font-bold leading-[1.3] tracking-[-0.02em] text-gray-900 sm:text-[2.35rem] sm:leading-[1.24]">
                       I’m building Clienter for the same people I make content for — freelancers and
                       agency owners who want to grow without{' '}
-                      <span className="text-gradient-brand font-serif-display text-[1.1em] font-normal italic">
+                      <span className="text-gradient-brand">
                         drowning in tools
                       </span>
                       . This is the app I wished I had.
@@ -641,7 +641,7 @@ export default function LandingPage() {
                 <Reveal variant="mask" delay={100}>
                   <h2 className="mx-auto mt-7 max-w-3xl font-display text-4xl font-extrabold tracking-tight text-white sm:text-display-lg">
                     Start running your business the{' '}
-                    <span className="text-gradient-ember font-serif-display text-[1.14em] font-normal italic">
+                    <span className="text-gradient-ember">
                       calm
                     </span>{' '}
                     way
