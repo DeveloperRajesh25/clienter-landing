@@ -14,6 +14,7 @@ import {
   FOUNDER,
 } from '@/lib/site'
 import { PLAN_PRICES } from '@/lib/pricing'
+import { FEATURE_PAGES } from '@/lib/feature-pages'
 
 /** Top tier — drives the AggregateOffer highPrice. */
 const ULTRA = PLAN_PRICES[PLAN_PRICES.length - 1]
@@ -83,6 +84,11 @@ export function softwareApplicationSchema() {
     url: SITE_URL,
     installUrl: `${SITE_URL}/download`,
     image: LOGO,
+    // Enumerate every capability so search engines and AI answer engines can
+    // see the full scope of what Clienter does — and surface it for a query
+    // about any single one. Derived from the feature-page registry so it never
+    // drifts from the site. Every feature is available on every plan.
+    featureList: FEATURE_PAGES.map((f) => f.navLabel),
     // Both billing regions are declared: USD (PayPal, rest of world) and INR
     // (Razorpay, India). Google picks the offer matching the searcher's region,
     // so omitting USD meant international searchers saw a rupee price or none.

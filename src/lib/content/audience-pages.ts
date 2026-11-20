@@ -12,6 +12,11 @@ import { SOFTWARE_AGENCIES } from './audience/software-agencies'
 import { SEO_AGENCIES } from './audience/seo-agencies'
 import { SOCIAL_MEDIA_MANAGERS } from './audience/social-media-managers'
 import { INDIAN_FREELANCERS } from './audience/indian-freelancers'
+import { AGENCIES } from './audience/agencies'
+import { SMALL_BUSINESSES } from './audience/small-businesses'
+import { WEB_DEVELOPMENT_AGENCIES } from './audience/web-development-agencies'
+import { DESIGN_AGENCIES } from './audience/design-agencies'
+import { MARKETING_AGENCIES } from './audience/marketing-agencies'
 
 export type { AudiencePageConfig }
 
@@ -23,9 +28,14 @@ export type { AudiencePageConfig }
 export const AUDIENCE_PAGES: AudiencePageConfig[] = [
   FREELANCERS,
   INDIAN_FREELANCERS,
+  AGENCIES,
+  SMALL_BUSINESSES,
   WEB_DEVELOPERS,
+  WEB_DEVELOPMENT_AGENCIES,
   WEB_DESIGN_AGENCIES,
+  DESIGN_AGENCIES,
   DIGITAL_MARKETING_AGENCIES,
+  MARKETING_AGENCIES,
   SEO_AGENCIES,
   GRAPHIC_DESIGNERS,
   CONTENT_WRITERS,

@@ -32,7 +32,7 @@ export type RouteEntry = {
  * content pass genuinely touches the site: 2026-10-04 is the global-positioning
  * and metadata overhaul (see docs/seo-changelog.md).
  */
-export const DEFAULT_LAST_MODIFIED = '2026-10-04'
+export const DEFAULT_LAST_MODIFIED = '2026-11-20'
 
 // ── Static, hand-tuned marketing routes ──────────────────────────────────────
 const STATIC_ROUTES: RouteEntry[] = [

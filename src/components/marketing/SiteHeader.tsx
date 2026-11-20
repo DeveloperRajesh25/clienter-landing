@@ -22,6 +22,12 @@ import {
   Calculator,
   LayoutTemplate,
   Grid3x3,
+  Webhook,
+  ListChecks,
+  UsersRound,
+  Sparkles,
+  FileSignature,
+  LayoutDashboard,
 } from 'lucide-react'
 import { NAV_LINKS, APP_URL } from '@/lib/site'
 import { signupUrl, PRIMARY_CTA } from '@/lib/cta'
@@ -35,8 +41,14 @@ import { SpotlightButton } from '@/components/landing/SpotlightButton'
 const NAV_ICONS: Record<string, ComponentType<{ className?: string }>> = {
   '/features/client-management': Users,
   '/features/crm-lead-pipeline': Filter,
+  '/features/lead-integrations': Webhook,
   '/features/project-management': KanbanSquare,
+  '/features/task-management': ListChecks,
+  '/features/team-management': UsersRound,
+  '/features/quotations': Sparkles,
+  '/features/contracts': FileSignature,
   '/features/invoicing': ReceiptText,
+  '/features/dashboard': LayoutDashboard,
   '/features/client-portal': PanelsTopLeft,
   '/features/verified-reviews': BadgeCheck,
   '/features': Grid3x3,
@@ -137,6 +149,9 @@ export function SiteHeader() {
                 // single column for smaller menus like Tools. The larger panel
                 // is right-anchored so it never runs off the viewport edge.
                 const wide = l.children.length > 3
+                // The big Solutions menu gets a wider three-column grid so it
+                // stays short instead of a tall two-column list.
+                const xwide = l.children.length > 8
                 return (
                   <div key={l.label} className="group relative py-2">
                     <button className="flex items-center gap-1 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">
@@ -145,9 +160,11 @@ export function SiteHeader() {
                     </button>
                     <div
                       className={`invisible absolute top-full -mt-1 translate-y-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 ${
-                        wide
-                          ? 'left-1/2 w-[42rem] -translate-x-1/2 group-hover:translate-x-[-50%]'
-                          : 'left-1/2 w-80 -translate-x-1/2 group-hover:translate-x-[-50%]'
+                        xwide
+                          ? 'left-1/2 w-[min(60rem,calc(100vw-2rem))] -translate-x-1/2 group-hover:translate-x-[-50%]'
+                          : wide
+                            ? 'left-1/2 w-[42rem] -translate-x-1/2 group-hover:translate-x-[-50%]'
+                            : 'left-1/2 w-80 -translate-x-1/2 group-hover:translate-x-[-50%]'
                       }`}
                     >
                       {/* Invisible hover bridge */}
@@ -156,7 +173,15 @@ export function SiteHeader() {
                         <div className="px-3 pb-2 pt-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-stone-400">
                           {l.label}
                         </div>
-                        <div className={wide ? 'grid grid-cols-2 gap-1' : 'grid grid-cols-1 gap-1'}>
+                        <div
+                          className={
+                            xwide
+                              ? 'grid grid-cols-3 gap-1'
+                              : wide
+                                ? 'grid grid-cols-2 gap-1'
+                                : 'grid grid-cols-1 gap-1'
+                          }
+                        >
                           {l.children.map((child) => {
                             const Icon = NAV_ICONS[child.href]
                             return (

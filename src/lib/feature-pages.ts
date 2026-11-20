@@ -23,6 +23,24 @@ import {
 } from 'lucide-react'
 import type { SeoFaq, SeoIconItem } from '@/lib/seo-pages'
 
+// Extended feature deep-dives. Each lives in its own file under ./feature/ and
+// is appended to FEATURE_PAGES below, so it flows into the sitemap, the dynamic
+// /features/[slug] route, and the related-features grid automatically.
+import { TASK_MANAGEMENT } from '@/lib/feature/task-management'
+import { TEAM_MANAGEMENT } from '@/lib/feature/team-management'
+import { MESSAGING } from '@/lib/feature/messaging'
+import { QUOTATIONS } from '@/lib/feature/quotations'
+import { CONTRACTS } from '@/lib/feature/contracts'
+import { RETAINER_MANAGEMENT } from '@/lib/feature/retainer-management'
+import { ATTENDANCE_TRACKING } from '@/lib/feature/attendance-tracking'
+import { PAYROLL } from '@/lib/feature/payroll'
+import { EXPENSE_TRACKING } from '@/lib/feature/expense-tracking'
+import { DASHBOARD } from '@/lib/feature/dashboard'
+import { FILE_MANAGEMENT } from '@/lib/feature/file-management'
+import { LEAD_INTEGRATIONS } from '@/lib/feature/lead-integrations'
+import { GOOGLE_CALENDAR_INTEGRATION } from '@/lib/feature/google-calendar-integration'
+import { PUBLIC_PROFILE } from '@/lib/feature/public-profile'
+
 /**
  * In-depth, single-feature explainer pages. Unlike the /features overview (which
  * lists everything) and the keyword SEO pages (which target search terms), each
@@ -487,10 +505,24 @@ const VERIFIED_REVIEWS: FeaturePageConfig = {
 export const FEATURE_PAGES: FeaturePageConfig[] = [
   CLIENT_MANAGEMENT,
   CRM_PIPELINE,
+  LEAD_INTEGRATIONS,
   PROJECT_MANAGEMENT,
+  TASK_MANAGEMENT,
+  TEAM_MANAGEMENT,
+  MESSAGING,
+  QUOTATIONS,
+  CONTRACTS,
   INVOICING,
+  RETAINER_MANAGEMENT,
+  EXPENSE_TRACKING,
+  DASHBOARD,
   CLIENT_PORTAL,
+  PUBLIC_PROFILE,
   VERIFIED_REVIEWS,
+  ATTENDANCE_TRACKING,
+  PAYROLL,
+  FILE_MANAGEMENT,
+  GOOGLE_CALENDAR_INTEGRATION,
 ]
 
 export const FEATURE_PAGE_BY_SLUG: Record<string, FeaturePageConfig> = Object.fromEntries(

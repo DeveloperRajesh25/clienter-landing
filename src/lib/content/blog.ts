@@ -11,6 +11,9 @@ import { POST as PROPOSAL_THAT_WINS } from './blog/posts/how-to-write-a-proposal
 import { POST as LATE_PAYING_CLIENTS } from './blog/posts/how-to-handle-late-paying-clients'
 import { POST as CLIENT_PORTAL_GUIDE } from './blog/posts/what-is-a-client-portal'
 import { POST as AGENCY_PRICING_MODELS } from './blog/posts/agency-pricing-models'
+import { POST as WHY_FREELANCERS_NEED_CRM } from './blog/posts/why-freelancers-need-crm'
+import { POST as MANAGE_AGENCY_CLIENTS } from './blog/posts/how-to-manage-agency-clients'
+import { POST as BEST_FREE_TOOLS_2027 } from './blog/posts/best-free-tools-for-freelancers-2027'
 
 export type { BlogPost }
 
@@ -35,6 +38,9 @@ export const ALL_BLOG_POSTS: BlogPost[] = [
   LATE_PAYING_CLIENTS,
   CLIENT_PORTAL_GUIDE,
   AGENCY_PRICING_MODELS,
+  WHY_FREELANCERS_NEED_CRM,
+  MANAGE_AGENCY_CLIENTS,
+  BEST_FREE_TOOLS_2027,
 ].sort((a, b) => (a.date < b.date ? 1 : -1))
 
 /** Published posts — the list every index, archive, feed and related block uses. */

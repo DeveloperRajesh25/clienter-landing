@@ -45,7 +45,16 @@ export function FeatureLanding({ config }: { config: FeaturePageConfig }) {
     ctaSubtitle,
   } = config
 
-  const related = FEATURE_PAGES.filter((f) => f.slug !== config.slug).slice(0, 3)
+  // Rotate the related grid through the whole feature set by starting after the
+  // current page's own index, so each page links a different trio — spreading
+  // internal links across all /features/<slug> pages instead of every page
+  // pointing at the same first three.
+  const selfIndex = FEATURE_PAGES.findIndex((f) => f.slug === config.slug)
+  const others = [
+    ...FEATURE_PAGES.slice(selfIndex + 1),
+    ...FEATURE_PAGES.slice(0, selfIndex),
+  ]
+  const related = others.slice(0, 3)
 
   return (
     <PageShell>

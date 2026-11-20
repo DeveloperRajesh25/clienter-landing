@@ -7,6 +7,7 @@ import { CLIENTER_VS_MONDAY } from './compare/clienter-vs-monday'
 import { CLIENTER_VS_CLICKUP } from './compare/clienter-vs-clickup'
 import { CLIENTER_VS_ASANA } from './compare/clienter-vs-asana'
 import { CLIENTER_VS_TRELLO } from './compare/clienter-vs-trello'
+import { CLIENTER_VS_LINEAR } from './compare/clienter-vs-linear'
 import { CLIENTER_VS_NOTION } from './compare/clienter-vs-notion'
 import { CLIENTER_VS_BONSAI } from './compare/clienter-vs-bonsai'
 import { CLIENTER_VS_HONEYBOOK } from './compare/clienter-vs-honeybook'
@@ -39,6 +40,7 @@ export const COMPARE_PAGES: ComparePageConfig[] = [
   CLIENTER_VS_CLICKUP,
   CLIENTER_VS_ASANA,
   CLIENTER_VS_TRELLO,
+  CLIENTER_VS_LINEAR,
   CLIENTER_VS_NOTION,
   CLIENTER_VS_BONSAI,
   CLIENTER_VS_HONEYBOOK,

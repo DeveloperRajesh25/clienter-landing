@@ -172,14 +172,44 @@ export const NAV_LINKS: NavLink[] = [
         description: 'Track leads on a visual sales pipeline before they become clients',
       },
       {
+        href: '/features/lead-integrations',
+        label: 'Lead Integrations',
+        description: 'Auto-import leads from Meta, Google Ads, IndiaMART & webhooks',
+      },
+      {
         href: '/features/project-management',
         label: 'Project Management',
         description: 'Kanban boards, deadlines, budgets & tasks for every project',
       },
       {
+        href: '/features/task-management',
+        label: 'Task Management',
+        description: 'Assign tasks, set deadlines & see who’s doing what',
+      },
+      {
+        href: '/features/team-management',
+        label: 'Team Management',
+        description: 'Add teammates, set roles & share one workspace',
+      },
+      {
+        href: '/features/quotations',
+        label: 'AI Quotation Maker',
+        description: 'Describe the job and let AI draft a polished, itemised quote',
+      },
+      {
+        href: '/features/contracts',
+        label: 'Contracts & E-Signatures',
+        description: 'Send contracts for digital signature via a link',
+      },
+      {
         href: '/features/invoicing',
         label: 'Invoicing & Payments',
         description: 'GST-ready invoices, PDF export & payment tracking',
+      },
+      {
+        href: '/features/dashboard',
+        label: 'Business Dashboard',
+        description: 'Revenue, profitability & forecasting at a glance',
       },
       {
         href: '/features/client-portal',
@@ -250,6 +280,21 @@ export const FOOTER_NAV = [
       { href: '/security', label: 'Security' },
       { href: '/demo', label: 'Demo' },
       { href: '/download', label: 'Android app' },
+    ],
+  },
+  {
+    // Feature deep-dives — keeps the highest-intent pages one click from every
+    // page in the site, and feeds internal links to the /features/<slug> set.
+    title: 'Solutions',
+    links: [
+      { href: '/features/crm-lead-pipeline', label: 'CRM & Lead Pipeline' },
+      { href: '/features/project-management', label: 'Project Management' },
+      { href: '/features/task-management', label: 'Task Management' },
+      { href: '/features/invoicing', label: 'Invoicing & Payments' },
+      { href: '/features/quotations', label: 'AI Quotation Maker' },
+      { href: '/features/contracts', label: 'Contracts & E-Signatures' },
+      { href: '/features/client-portal', label: 'Client Portal' },
+      { href: '/features/dashboard', label: 'Business Dashboard' },
     ],
   },
   {

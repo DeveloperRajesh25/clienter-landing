@@ -54,8 +54,10 @@ export function SiteFooter({ dark = false }: { dark?: boolean }) {
               </span>
             </Link>
             <p className={`mt-5 max-w-xs text-sm leading-relaxed ${body}`}>
-              Run your freelance business without the chaos. The all-in-one client, project,
-              invoice &amp; team workspace built for freelancers and agencies.
+              Clienter is the free, all-in-one business management platform for freelancers,
+              agencies &amp; small businesses — CRM and leads, projects and tasks, quotes,
+              contracts, invoicing, a client portal and team management in one login. Every
+              feature free; only the usage limits scale.
             </p>
             <div className="mt-6 flex items-center gap-1.5">
               {SOCIAL_ICONS.map(({ href, label, Icon }) => (
