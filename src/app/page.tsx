@@ -331,7 +331,7 @@ export default function LandingPage() {
               (z-20) and rises up to stack on top of it as the hero recedes. It's
               scrollable and cursor-reactive, so the very first beat of the page
               lets visitors explore the actual product. */}
-          <div className="relative z-20 mx-auto -mt-4 max-w-7xl px-4 sm:mt-0 sm:px-6 lg:px-8">
+          <div className="relative z-20 mx-auto -mt-4 max-w-[1480px] px-4 sm:mt-0 sm:px-6 lg:px-8">
             <div
               aria-hidden
               className="absolute inset-x-6 -top-10 bottom-10 -z-10 bg-[radial-gradient(ellipse_55%_55%_at_50%_20%,rgba(249,115,22,0.16),transparent_70%)] blur-2xl"
