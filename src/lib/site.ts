@@ -302,6 +302,13 @@ export const FOOTER_NAV = [
     links: [
       { href: '/client-management-software', label: 'Client Management Software' },
       { href: '/crm-for-freelancers', label: 'CRM for Freelancers' },
+      // Both of the next two were orphans — present in the sitemap but linked
+      // from nowhere on the site, which is why Google parked them at
+      // "Discovered - currently not indexed". A sitewide footer link is the
+      // cheapest fix. Every path in SEO_LANDING_CONFIGS needs at least one
+      // internal link; verify with a link crawl before adding a new one.
+      { href: '/crm-for-web-development-agency', label: 'CRM for Web Dev Agencies' },
+      { href: '/client-portal-for-web-design-clients', label: 'Client Portal for Web Clients' },
       { href: '/for/freelancers', label: 'For Freelancers' },
       { href: '/for/web-design-agencies', label: 'For Agencies' },
       { href: '/for', label: 'All use cases' },
