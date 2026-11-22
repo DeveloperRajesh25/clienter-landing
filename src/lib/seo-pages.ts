@@ -542,11 +542,21 @@ const BUSINESS_MANAGEMENT: SeoLandingConfig = {
   ctaSubtitle: 'Create your free account and bring clients, projects, invoices, and your team together today.',
 }
 
+// ── Niche landing pages (November 2026 web/software refocus) ─────────────────
+// Each lives in its own file under ./seo-landing/, following the newer
+// per-file convention used by the audience, compare and alternative systems.
+// These target the vertical head terms ("CRM for web development agency")
+// rather than the generic ones above.
+import { CRM_FOR_WEB_DEVELOPMENT_AGENCY } from '@/lib/seo-landing/crm-for-web-development-agency'
+import { CLIENT_PORTAL_FOR_WEB_DESIGN_CLIENTS } from '@/lib/seo-landing/client-portal-for-web-design-clients'
+
 export const SEO_LANDING_CONFIGS: SeoLandingConfig[] = [
   CLIENT_MANAGEMENT,
   CRM_FOR_FREELANCERS,
   PROJECT_MANAGEMENT_CRM,
   BUSINESS_MANAGEMENT,
+  CRM_FOR_WEB_DEVELOPMENT_AGENCY,
+  CLIENT_PORTAL_FOR_WEB_DESIGN_CLIENTS,
 ]
 
 export const SEO_LANDING_BY_PATH: Record<string, SeoLandingConfig> = Object.fromEntries(

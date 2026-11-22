@@ -14,6 +14,19 @@ import { POST as AGENCY_PRICING_MODELS } from './blog/posts/agency-pricing-model
 import { POST as WHY_FREELANCERS_NEED_CRM } from './blog/posts/why-freelancers-need-crm'
 import { POST as MANAGE_AGENCY_CLIENTS } from './blog/posts/how-to-manage-agency-clients'
 import { POST as BEST_FREE_TOOLS_2027 } from './blog/posts/best-free-tools-for-freelancers-2027'
+// ── Web & software build niche (November 2026) ──────────────────────────────
+import { POST as PM_SOFTWARE_WEB_DEV } from './blog/posts/project-management-software-for-web-developers'
+import { POST as WEBSITE_LAUNCH_CHECKLIST } from './blog/posts/website-launch-checklist'
+import { POST as PRICE_WEBSITE_PROJECT } from './blog/posts/how-to-price-a-website-project'
+import { POST as COLLECT_CONTENT } from './blog/posts/how-to-collect-content-from-website-clients'
+import { POST as MAINTENANCE_PLAN_PRICING } from './blog/posts/wordpress-maintenance-plan-pricing'
+import { POST as MILESTONE_PAYMENTS } from './blog/posts/website-project-milestone-payments'
+import { POST as MULTIPLE_PROJECTS } from './blog/posts/how-to-manage-multiple-website-projects'
+import { POST as WEBSITE_HANDOVER } from './blog/posts/website-handover-checklist'
+import { POST as WEB_DEV_CONTRACT } from './blog/posts/web-development-contract-essentials'
+import { POST as GET_WEB_DEV_CLIENTS } from './blog/posts/how-to-get-web-development-clients'
+import { POST as SOW_SOFTWARE } from './blog/posts/software-development-statement-of-work'
+import { POST as REVISION_ROUNDS } from './blog/posts/web-design-revision-rounds'
 
 export type { BlogPost }
 
@@ -41,6 +54,19 @@ export const ALL_BLOG_POSTS: BlogPost[] = [
   WHY_FREELANCERS_NEED_CRM,
   MANAGE_AGENCY_CLIENTS,
   BEST_FREE_TOOLS_2027,
+  // Web & software build niche (November 2026 refocus)
+  PM_SOFTWARE_WEB_DEV,
+  WEBSITE_LAUNCH_CHECKLIST,
+  PRICE_WEBSITE_PROJECT,
+  COLLECT_CONTENT,
+  MAINTENANCE_PLAN_PRICING,
+  MILESTONE_PAYMENTS,
+  MULTIPLE_PROJECTS,
+  WEBSITE_HANDOVER,
+  WEB_DEV_CONTRACT,
+  GET_WEB_DEV_CLIENTS,
+  SOW_SOFTWARE,
+  REVISION_ROUNDS,
 ].sort((a, b) => (a.date < b.date ? 1 : -1))
 
 /** Published posts — the list every index, archive, feed and related block uses. */
@@ -64,6 +90,12 @@ export const BLOG_CATEGORIES: BlogCategory[] = [
     slug: 'software-tools',
     description:
       'Reviews and guides on the software freelancers and agencies use to run their work.',
+  },
+  {
+    name: 'Web & software projects',
+    slug: 'web-development',
+    description:
+      'Running client website and software work — scoping and pricing builds, project workflow, launches, handovers, contracts, and the maintenance retainers that follow.',
   },
   {
     name: 'Agency operations',
@@ -123,3 +155,23 @@ export function relatedPosts(post: BlogPost, limit = 3): BlogPost[] {
     .slice(0, limit)
     .map((x) => x.p)
 }
+
+/**
+ * A category archive is only worth indexing once it holds enough posts to be a
+ * genuinely useful page in its own right. Below this it lists one or two
+ * articles, carries no copy of its own, and is thin by arithmetic — so it is
+ * noindex,follow and kept out of the sitemap while staying crawlable.
+ *
+ * Single source of truth for both the category route's `noindex` flag and the
+ * sitemap's category entries. Changing it here changes both.
+ */
+export const INDEXABLE_CATEGORY_MIN_POSTS = 8
+
+export function isIndexableCategory(slug: string): boolean {
+  return postsInCategory(slug).length >= INDEXABLE_CATEGORY_MIN_POSTS
+}
+
+/** Category archives substantial enough to index and submit in the sitemap. */
+export const INDEXABLE_CATEGORIES: BlogCategory[] = BLOG_CATEGORIES.filter((c) =>
+  isIndexableCategory(c.slug),
+)

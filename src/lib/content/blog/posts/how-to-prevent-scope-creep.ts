@@ -5,7 +5,6 @@ import type { BlogPost } from '../_type'
  * Cluster: scope creep (docs/content-plan.md). Middle of funnel.
  */
 export const POST: BlogPost = {
-  draft: true,
   slug: 'how-to-prevent-scope-creep',
   title: 'How to Prevent Scope Creep (Without Being Difficult About It)',
   metaTitle: 'How to Prevent Scope Creep on Client Projects',

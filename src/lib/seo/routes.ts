@@ -32,7 +32,7 @@ export type RouteEntry = {
  * content pass genuinely touches the site: 2026-10-04 is the global-positioning
  * and metadata overhaul (see docs/seo-changelog.md).
  */
-export const DEFAULT_LAST_MODIFIED = '2026-11-20'
+export const DEFAULT_LAST_MODIFIED = '2026-11-22'
 
 // ── Static, hand-tuned marketing routes ──────────────────────────────────────
 const STATIC_ROUTES: RouteEntry[] = [
@@ -81,7 +81,7 @@ const LEGACY_TOOL_ROUTES: RouteEntry[] = [
 import { AUDIENCE_PAGES } from '@/lib/content/audience-pages'
 import { COMPARE_PAGES } from '@/lib/content/compare-pages'
 import { ALTERNATIVE_PAGES } from '@/lib/content/alternative-pages'
-import { BLOG_POSTS } from '@/lib/content/blog'
+import { BLOG_POSTS, INDEXABLE_CATEGORIES } from '@/lib/content/blog'
 import { TOOLS } from '@/lib/content/tools'
 import { TEMPLATES } from '@/lib/content/templates'
 import { GLOSSARY_TERMS } from '@/lib/content/glossary'
@@ -120,6 +120,15 @@ const ALTERNATIVE_ROUTES: RouteEntry[] = ALTERNATIVE_PAGES.map((p) => ({
 // posts never reach the sitemap. Do not swap this for ALL_BLOG_POSTS.
 const BLOG_ROUTES: RouteEntry[] = [
   { path: '/blog', priority: 0.8, changeFrequency: 'weekly' },
+  // Category archives are included ONLY once they are substantial enough to be
+  // worth indexing (see INDEXABLE_CATEGORY_MIN_POSTS in lib/content/blog.ts).
+  // Thin ones stay noindex,follow and out of the sitemap. Tag archives remain
+  // excluded entirely — they are more numerous and thinner still.
+  ...INDEXABLE_CATEGORIES.map((c) => ({
+    path: `/blog/category/${c.slug}`,
+    priority: 0.5,
+    changeFrequency: 'weekly' as const,
+  })),
   ...BLOG_POSTS.map((p) => ({
     path: `/blog/${p.slug}`,
     priority: 0.7,

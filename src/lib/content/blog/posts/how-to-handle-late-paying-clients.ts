@@ -8,7 +8,6 @@ import type { BlogPost } from '../_type'
  * jurisdiction. The escalation section says to take local advice instead.
  */
 export const POST: BlogPost = {
-  draft: true,
   slug: 'how-to-handle-late-paying-clients',
   title: 'How to Handle Late-Paying Clients',
   metaTitle: 'How to Handle Late-Paying Clients (and Prevent It)',

@@ -1,0 +1,72 @@
+import type { BlogPost } from '../_type'
+
+export const POST: BlogPost = {
+  slug: 'software-development-statement-of-work',
+  title: 'Writing a Statement of Work for a Software Project',
+  metaTitle: 'Statement of Work for Software Projects',
+  description:
+    'How to write an SOW that survives a long build — deliverables, assumptions, exclusions, acceptance criteria, the change control process, and the sections that settle month-six disagreements.',
+  date: '2026-11-22',
+  author: 'Talagana Rajesh',
+  category: 'Web & software projects',
+  categorySlug: 'web-development',
+  tags: ['contracts', 'software development', 'agency operations', 'proposals', 'project management'],
+  primaryKeyword: 'statement of work for software projects',
+  featured: false,
+  intro:
+    'On a three-week website, a good proposal is enough. On a six-month software build it is not, because the people change, the requirements evolve, and nobody remembers what was said in the discovery call by the time it matters. A statement of work is the document a long engagement is argued from — and a good one is written so that the argument is short, because the answer is already on page three. This is what belongs in it, and which sections do the real work.',
+  body: [
+    { type: 'h2', text: 'What an SOW is for', id: 'what-an-sow-is-for' },
+    { type: 'p', text: 'Not to protect you from a bad client. The genuinely bad ones are rare and a document rarely stops them. An SOW exists for the ordinary case: a reasonable client, a competent studio, and a nine-month project during which the client’s understanding of their own product changes considerably — as it should.' },
+    { type: 'p', text: 'Its job is to make change visible and priceable rather than invisible and absorbed. A project without an SOW does not avoid change; it simply has no mechanism for noticing that change has happened, which is why the margin is gone by month five and nobody can point at the moment it left.' },
+
+    { type: 'h2', text: 'The sections, in order', id: 'the-sections' },
+    { type: 'h3', text: '1. Context and objectives' },
+    { type: 'p', text: 'A short statement of what the client is trying to achieve in business terms. This is not decoration — when a later disagreement is genuinely ambiguous, the objectives section is what both sides use to work out what was meant. Two paragraphs is plenty.' },
+    { type: 'h3', text: '2. Scope of work' },
+    { type: 'p', text: 'The deliverables, broken into phases, each described in terms a non-engineer can verify. Name the platforms, the environments, the integrations by vendor, the data migration if any, and the non-functional requirements that actually matter — expected load, supported browsers or OS versions, accessibility standard, languages.' },
+    { type: 'p', text: 'Where features are listed, describe them at a level of detail you would be comfortable being held to. “User authentication” is a trap; “email and password authentication with verification and reset, no social login, no SSO” is a scope.' },
+    { type: 'h3', text: '3. Assumptions' },
+    { type: 'p', text: 'The most undervalued section in the document. Every estimate rests on assumptions, and writing them down converts a silent risk into a stated condition. Typical ones: the client’s API is documented and available by a date; third-party services behave as advertised; design is approved within five working days; one decision-maker exists; existing data is in a usable format; no regulatory certification is required.' },
+    { type: 'p', text: 'When an assumption turns out false — and one always does — you are not asking for more money because the project went badly. You are invoking a condition both sides agreed to in writing, which is a different and far shorter conversation.' },
+    { type: 'h3', text: '4. Out of scope' },
+    { type: 'p', text: 'List the things a reasonable person might assume are included and are not: native mobile apps, admin tooling beyond what is named, data migration from legacy systems, content population, training beyond one session, third-party licence costs, infrastructure costs, ongoing support and hosting, and anything not expressly listed in scope. Close with that catch-all sentence.' },
+    { type: 'h3', text: '5. Acceptance criteria' },
+    { type: 'p', text: 'How each deliverable will be judged complete, and who judges it. Without this, “done” is a matter of opinion and the opinion that counts belongs to whoever is holding the payment. Define a review window — typically five to ten working days — after which a deliverable is deemed accepted, and define what a valid rejection looks like: a specific failure against a stated requirement, not a change of mind.' },
+    { type: 'h3', text: '6. Change control' },
+    { type: 'p', text: 'The clause that earns the rest of the document. State that any requirement not in scope goes through a written change request with an impact on cost and schedule, approved before work begins. Keep the process genuinely lightweight — a logged request, a price, an approval — because a heavy process gets bypassed, and a bypassed process is the same as not having one.' },
+    { type: 'h3', text: '7. Timeline and dependencies' },
+    { type: 'p', text: 'Phases with indicative durations rather than fixed calendar dates where possible, and a clear statement of what the client must supply by when. Add the clause that saves long projects: if a client dependency is outstanding beyond a defined period, the schedule shifts and the affected milestone becomes payable.' },
+    { type: 'h3', text: '8. Commercials' },
+    { type: 'p', text: 'The fee, the milestone split, what triggers each payment, payment terms with real dates, late payment terms, currency and tax treatment, and the rate card for change requests and post-project work. A rate card in the SOW means change requests are priced by a number both sides already agreed, not negotiated each time.' },
+    { type: 'h3', text: '9. Team, governance and communication' },
+    { type: 'p', text: 'Who is involved on both sides, who decides, how often you meet, where work is tracked, and what the escalation path is. Naming the client’s decision-maker is worth the paragraph on its own — on long projects the most expensive delays are frequently approval delays caused by nobody being certain who approves.' },
+    { type: 'h3', text: '10. IP, confidentiality and termination' },
+    { type: 'p', text: 'What transfers and when (on full payment), what remains yours (pre-existing frameworks and reusable components, licensed perpetually for this project), mutual confidentiality, a liability cap at the contract value, and termination terms with work completed payable.' },
+    { type: 'callout', text: 'If you only add two sections to whatever you use today, add Assumptions and Change Control. Between them they cover the two ways long software projects lose money: estimates built on conditions that quietly failed, and requirements that grew without anyone pricing them.' },
+
+    { type: 'h2', text: 'Write it to be read', id: 'write-it-to-be-read' },
+    { type: 'p', text: 'A forty-page SOW is a document nobody on the client side reads, which defeats the purpose — its value lies in both parties having actually agreed to the same thing. Aim for six to twelve pages in plain language, with the technical detail in appendices if it is lengthy.' },
+    { type: 'p', text: 'Then walk the client through it on a call before signature, specifically the assumptions, exclusions and change control sections. A client who has had those explained reacts very differently to the first change request than one who signed a PDF unread. That call is the real work of the document; the signature merely records it.' },
+
+    { type: 'h2', text: 'Keep it alive', id: 'keep-it-alive' },
+    { type: 'p', text: 'An SOW signed and filed is half-useful. An SOW referenced throughout the project is what prevents disputes. When a change request is raised, record it against the SOW with its price and approval. When a phase is accepted, record the acceptance and its date. When an assumption fails, note it in writing at the time rather than retroactively.' },
+    { type: 'p', text: 'That trail is what makes month six easy: the question “was this included?” has a documented answer, and so does “when did we agree this?”. Keeping the signed SOW, the change log, the acceptances and the invoices on one client record — which is how Clienter organises engagements — means the answer takes thirty seconds to find rather than an afternoon of searching email.' },
+
+    { type: 'h2', text: 'In summary', id: 'in-summary' },
+    { type: 'p', text: 'Context, scope, assumptions, exclusions, acceptance criteria, change control, timeline with dependencies, commercials with a rate card, governance, and the legal clauses. Keep it readable, walk the client through the awkward sections before they sign, and reference it for the length of the project. A long software build will change; the SOW’s purpose is to make sure both of you notice when it does.' },
+  ],
+  faqs: [
+    { q: 'What should a statement of work include?', a: 'Context and objectives, scope broken into phases, assumptions the estimate depends on, an explicit out-of-scope list, acceptance criteria with a review window, a change control process, timeline with client dependencies, commercials including a rate card for changes, governance and named decision-makers, and the legal clauses covering IP, confidentiality, liability and termination.' },
+    { q: 'What is the difference between a proposal and a statement of work?', a: 'A proposal is a sales document: it argues why the client should choose you and sketches the shape of the work. An SOW is an operating document: it defines precisely what will be delivered, under what assumptions, how completion is judged, and what happens when things change. Short projects can run on a good proposal; long software builds need the SOW.' },
+    { q: 'Why are assumptions so important in an SOW?', a: 'Every estimate quietly depends on conditions — that an API is documented, that designs are approved within a week, that data arrives in a usable format, that one person decides. Writing those down converts a silent risk into an agreed condition, so when one fails you are invoking a term both sides accepted rather than asking for more money because the project went badly.' },
+    { q: 'How should change requests be handled on a software project?', a: 'Through a written process defined in the SOW: the request is logged, its impact on cost and schedule is stated, and work begins only after written approval. Keep it lightweight — a logged request, a price, an approval — because a heavy process gets bypassed in practice, and a bypassed process offers exactly as much protection as none.' },
+    { q: 'How long should a statement of work be?', a: 'Six to twelve pages in plain language, with lengthy technical detail moved to appendices. Length is not protection; agreement is. A document the client actually reads and has been walked through — particularly the assumptions, exclusions and change control sections — is worth far more than a forty-page one signed unread.' },
+  ],
+  related: [
+    { href: '/for/saas-development-agencies', label: 'For SaaS Development Agencies', desc: 'Running long engagements with a commercial record.' },
+    { href: '/blog/web-development-contract-essentials', label: 'Web development contract essentials', desc: 'The shorter agreement for website builds.' },
+    { href: '/blog/how-to-prevent-scope-creep', label: 'How to prevent scope creep', desc: 'Change control in daily practice.' },
+    { href: '/for/app-development-agencies', label: 'For App Development Agencies', desc: 'Phases, change logs and milestone billing.' },
+  ],
+}

@@ -8,7 +8,6 @@ import type { BlogPost } from '../_type'
  * No invented statistics, no fabricated quotes, no named customers.
  */
 export const POST: BlogPost = {
-  draft: true,
   slug: 'client-onboarding-process',
   title: 'The Client Onboarding Process: A Step-by-Step Guide for Agencies',
   metaTitle: 'Client Onboarding Process: A Step-by-Step Guide',

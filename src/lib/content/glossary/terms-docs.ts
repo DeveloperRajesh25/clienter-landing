@@ -190,7 +190,7 @@ export const DOCS_TERMS: GlossaryTermConfig[] = [
     related: [
       { href: '/features/crm-lead-pipeline', label: 'Lead Pipeline', desc: 'Track leads before and after a call.' },
       { href: '/crm-for-freelancers', label: 'CRM for Freelancers', desc: 'Turn enquiries into won work.' },
-      { href: '/for/consultants', label: 'For Consultants', desc: 'Built for advice-led work.' },
+      { href: '/for/software-agencies', label: 'For Software Agencies', desc: 'Built for client software work.' },
       { href: '/pricing', label: 'Pricing', desc: 'Free forever, or Pro from ₹199/month.' },
     ],
     relatedTerms: [
@@ -223,7 +223,7 @@ export const DOCS_TERMS: GlossaryTermConfig[] = [
       { href: '/glossary', label: 'Glossary', desc: 'Plain-English terms for freelancers.' },
       { href: '/features/client-management', label: 'Client Management', desc: 'Keep client documents in one place.' },
       { href: '/for/freelancers', label: 'For Freelancers', desc: 'Run the business side with less friction.' },
-      { href: '/for/consultants', label: 'For Consultants', desc: 'Handle sensitive client work cleanly.' },
+      { href: '/for/web-development-agencies', label: 'For Web Development Agencies', desc: 'Handle sensitive client work cleanly.' },
     ],
     relatedTerms: [
       { term: 'MSA', slug: 'msa' },
@@ -253,7 +253,7 @@ export const DOCS_TERMS: GlossaryTermConfig[] = [
       'Clienter manages the quote, proposal, and intake side of a client relationship with e-signature — it does not draft or review MSAs or supply legal templates. Think of an MSA as the legal frame around the work; adapt any template to your situation and take professional advice for high-value or ongoing engagements.',
     related: [
       { href: '/features/client-management', label: 'Client Management', desc: 'Keep everything for a client together.' },
-      { href: '/for/consultants', label: 'For Consultants', desc: 'Built for ongoing client work.' },
+      { href: '/for/website-maintenance-agencies', label: 'For Website Maintenance Agencies', desc: 'Built for ongoing client work.' },
       { href: '/business-management-software', label: 'Business Management', desc: 'Run the whole client operation.' },
       { href: '/glossary', label: 'Glossary', desc: 'Plain-English terms for freelancers.' },
     ],

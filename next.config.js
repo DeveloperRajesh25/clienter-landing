@@ -81,6 +81,26 @@ const nextConfig = {
         destination: 'https://clienter.co.in/:path*',
         permanent: true,
       },
+      // Retired out-of-niche audience pages (November 2026 refocus). Clienter
+      // targets people who build and maintain websites and software for
+      // clients, so these pages were removed from AUDIENCE_PAGES rather than
+      // left to dilute the site's topical signal. They 301 to the nearest page
+      // that still exists so any accumulated links and indexed URLs keep their
+      // value instead of becoming 404s. Must stay in sync with the registry in
+      // src/lib/content/audience-pages.ts.
+      ...[
+        ['graphic-designers', 'web-design-agencies'],
+        ['content-writers', 'freelancers'],
+        ['social-media-managers', 'freelancers'],
+        ['video-editors', 'freelancers'],
+        ['photographers', 'freelancers'],
+        ['consultants', 'freelancers'],
+        ['small-businesses', 'agencies'],
+      ].map(([from, to]) => ({
+        source: `/for/${from}`,
+        destination: `/for/${to}`,
+        permanent: true,
+      })),
     ]
   },
   // Public business pages live in the APP repo (they read its database) but are

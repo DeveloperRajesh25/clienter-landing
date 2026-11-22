@@ -6,7 +6,6 @@ import type { BlogPost } from '../_type'
  * written answer-first for AI citation, with a visible FAQ.
  */
 export const POST: BlogPost = {
-  draft: true,
   slug: 'what-is-a-client-portal',
   title: 'What Is a Client Portal? And Does Your Agency Need One?',
   metaTitle: 'What Is a Client Portal? A Guide for Agencies',

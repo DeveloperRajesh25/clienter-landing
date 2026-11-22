@@ -5,7 +5,6 @@ import type { BlogPost } from '../_type'
  * Cluster: proposals and quotes (docs/content-plan.md). Middle of funnel.
  */
 export const POST: BlogPost = {
-  draft: true,
   slug: 'how-to-write-a-proposal-that-wins',
   title: 'How to Write a Proposal That Wins the Work',
   metaTitle: 'How to Write a Proposal That Wins the Work',

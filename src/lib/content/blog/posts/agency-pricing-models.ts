@@ -6,7 +6,6 @@ import type { BlogPost } from '../_type'
  * published retainers-vs-project post, which it links to for the detail.
  */
 export const POST: BlogPost = {
-  draft: true,
   slug: 'agency-pricing-models',
   title: 'Agency Pricing Models: Five Ways to Charge, and When Each Works',
   metaTitle: 'Agency Pricing Models: Five Ways to Charge',

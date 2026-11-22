@@ -9,7 +9,13 @@ import { Reveal } from '@/components/landing/Reveal'
 import { JsonLd } from '@/components/marketing/JsonLd'
 import { breadcrumbSchema, itemListSchema } from '@/lib/structured-data'
 import { buildMetadata } from '@/lib/seo/metadata'
-import { BLOG_CATEGORIES, CATEGORY_BY_SLUG, postsInCategory, readingMinutes } from '@/lib/content/blog'
+import {
+  BLOG_CATEGORIES,
+  CATEGORY_BY_SLUG,
+  postsInCategory,
+  readingMinutes,
+  isIndexableCategory,
+} from '@/lib/content/blog'
 
 export function generateStaticParams() {
   return BLOG_CATEGORIES.map((c) => ({ category: c.slug }))
@@ -24,13 +30,14 @@ export function generateMetadata({ params }: { params: { category: string } }): 
     title: `${category.name} — Clienter Blog`,
     description: category.description,
     path: `/blog/category/${category.slug}`,
-    // noindex (follow). 11 tag archives and 3 category archives across 5 posts
-    // are thin by arithmetic: most list one or two articles and add no text of
-    // their own, and Google's helpful-content signal is site-wide, so a pile of
-    // near-empty archives drags on the pages that do deserve to rank. They stay
-    // crawlable and keep passing link equity to the posts; they are out of the
-    // sitemap (see lib/seo/routes.ts). Revisit once a category holds ~8 posts.
-    noindex: true,
+    // Indexable only once the archive is substantial. A category listing one or
+    // two articles and no copy of its own is thin by arithmetic, and Google's
+    // helpful-content signal is site-wide, so a pile of near-empty archives
+    // drags on the pages that do deserve to rank. Thin ones stay crawlable and
+    // keep passing link equity to the posts, they are simply noindex and out of
+    // the sitemap. The threshold here and the one in lib/seo/routes.ts must
+    // match — see INDEXABLE_CATEGORY_MIN_POSTS, which is the single source.
+    noindex: !isIndexableCategory(category.slug),
   })
 }
 
