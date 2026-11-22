@@ -108,7 +108,7 @@ export function DocsSidebar({
       {mobileOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="absolute inset-0 bg-black/30" onClick={() => setMobileOpen(false)} />
-          <div className="absolute inset-y-0 left-0 w-72 overflow-y-auto bg-white shadow-xl">
+          <div data-lenis-prevent className="absolute inset-y-0 left-0 w-72 overflow-y-auto overscroll-contain bg-white shadow-xl">
             <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
               <span className="font-display text-sm font-bold text-gray-900">Navigation</span>
               <button onClick={() => setMobileOpen(false)} className="text-gray-500">
@@ -122,7 +122,7 @@ export function DocsSidebar({
 
       {/* Desktop sidebar */}
       <aside className="hidden lg:block">
-        <div className="sticky top-28 w-64 overflow-y-auto pr-4" style={{ maxHeight: 'calc(100vh - 8rem)' }}>
+        <div data-lenis-prevent className="sticky top-28 w-64 overflow-y-auto overscroll-contain pr-4" style={{ maxHeight: 'calc(100vh - 8rem)' }}>
           {nav}
         </div>
       </aside>

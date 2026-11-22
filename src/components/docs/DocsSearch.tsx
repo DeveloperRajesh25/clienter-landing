@@ -83,7 +83,7 @@ export function DocsSearch({ items }: { items: SearchItem[] }) {
               )}
             </div>
             {query.length >= 2 && (
-              <div className="max-h-80 overflow-y-auto p-2">
+              <div data-lenis-prevent className="max-h-80 overflow-y-auto overscroll-contain p-2">
                 {results.length === 0 ? (
                   <p className="px-3 py-6 text-center text-sm text-gray-500">No results found for &ldquo;{query}&rdquo;</p>
                 ) : (
